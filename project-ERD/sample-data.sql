@@ -25,52 +25,52 @@ values('coach10', '코치10', 0, '1995-01-01', '010-1111-1111', 'coach10@naver.c
   -- 회원정보 샘플 데이터
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(1, 'id회원', '회원1', 1, '19990102', '01011112222', 'user1@gmail.com', password('1111'), 
+value(1, 'member1', '회원1', 1, '19990102', '01011112222', 'user1@gmail.com', password('1111'), 
 'user1.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유1', '목표', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(2, 'id회원2', '회원2', 1, '19990102', '01011112222', 'user2@gmail.com', password('1111'), 
+value(2, 'member2', '회원2', 1, '19990102', '01011112222', 'user2@gmail.com', password('1111'), 
 'user2.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유2', '목표2', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(3, 'id회원3', '회원3', 1, '19990102', '01011112222', 'user3@gmail.com', password('1111'), 
+value(3, 'member3', '회원3', 1, '19990102', '01011112222', 'user3@gmail.com', password('1111'), 
 'user3.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유3', '목표3', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(4, 'id회원4', '회원4', 1, '19990102', '01011112222', 'user4@gmail.com', password('1111'), 
+value(4, 'member4', '회원4', 1, '19990102', '01011112222', 'user4@gmail.com', password('1111'), 
 'user4.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유4', '목표4', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(5, 'id회원5', '회원5', 1, '19990102', '01011112222', 'user5@gmail.com', password('1111'), 
+value(5, 'member5', '회원5', 1, '19990102', '01011112222', 'user5@gmail.com', password('1111'), 
 'user5.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유5', '목표5', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(6, 'id회원6', '회원6', 1, '19990102', '01011112222', 'user6@gmail.com', password('1111'), 
+value(6, 'member6', '회원6', 1, '19990102', '01011112222', 'user6@gmail.com', password('1111'), 
 'user6.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유6', '목표6', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(7, 'id회원7', '회원7', 1, '19990102', '01011112222', 'user7@gmail.com', password('1111'), 
+value(7, 'member7', '회원7', 1, '19990102', '01011112222', 'user7@gmail.com', password('1111'), 
 'user7.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유7', '목표7', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(8, 'id회원8', '회원8', 1, '19990102', '01011112222', 'user8@gmail.com', password('1111'), 
+value(8, 'member8', '회원8', 1, '19990102', '01011112222', 'user8@gmail.com', password('1111'), 
 'user8.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유8', '목표8', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(9, 'id회원9', '회원9', 1, '19990102', '01011112222', 'user9@gmail.com', password('1111'), 
+value(9, 'member9', '회원9', 1, '19990102', '01011112222', 'user9@gmail.com', password('1111'), 
 'user9.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유9', '목표9', 0);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
-value(10, 'id회원10', '회원10', 1, '19990102', '01011112222', 'user10@gmail.com', password('1111'), 
+value(10, 'member10', '회원10', 1, '19990102', '01011112222', 'user10@gmail.com', password('1111'), 
 'user10.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유10', '목표10', 0);
 
 
@@ -115,41 +115,31 @@ value (12, 10, 66, '2020-04-02');
 
 -- 코칭프로그램 샘플데이터
 
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (1, 1, '4주안에 복근만들기', '4주안에 복근을 만들 수 있습니다', 450000);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (1, 1, '4주안에 복근만들기1', '4주안에 복근을 만들 수 있습니다', 350000, 1);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (2, 1, '4주안에 복근만들기1', '4주안에 복근을 만들 수 있습니다', 350000, 1);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (3, 2, '4주안에 복근만들기2', '4주안에 복근을 만들 수 있습니다', 300000, 2);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (4, 3, '4주안에 복근만들기3', '4주안에 복근을 만들 수 있습니다', 500000, 2);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (5, 4, '4주안에 복근만들기4', '4주안에 복근을 만들 수 있습니다', 400000, 3);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (6, 5, '4주안에 복근만들기5', '4주안에 복근을 만들 수 있습니다', 700000, 3);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (7, 6, '4주안에 복근만들기6', '4주안에 복근을 만들 수 있습니다', 700000, 1);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (8, 7, '4주안에 복근만들기7', '4주안에 복근을 만들 수 있습니다', 100000, 2);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (9, 8, '4주안에 복근만들기8', '4주안에 복근을 만들 수 있습니다', 300000, 3);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (10, 8, '4주안에 복근만들기8', '4주안에 복근을 만들 수 있습니다', 300000, 3);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (11, 9, '4주안에 복근만들기9', '4주안에 복근을 만들 수 있습니다', 450000, 1);
+insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
+value (12, 10, '4주안에 복근만들기10', '4주안에 복근을 만들 수 있습니다', 650000, 2);
 
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (2, 1, '4주안에 팔뚝살 빼기', '4주안에 팔뚝을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (3, 2, '4주안에 뱃살 없애기1', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (4, 2, '4주안에 뱃살 없애기2', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (5, 3, '4주안에 뱃살 없애기3', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (6, 4, '4주안에 뱃살 없애기4', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (7, 5, '4주안에 뱃살 없애기5', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (8, 6, '4주안에 뱃살 없애기6', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (9, 7, '4주안에 뱃살 없애기7', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (10, 8, '4주안에 뱃살 없애기8', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (11, 9, '4주안에 뱃살 없애기9', '4주안에 뱃살을 뺄 수 있습니다', 350000);
-
-insert into coaching_programs(program_no, coach_no, name, introduce, fee)
-value (12, 10, '4주안에 뱃살 없애기10', '4주안에 뱃살을 뺄 수 있습니다', 350000);
 
 
 -- toDoList 예제 데이터
@@ -421,34 +411,6 @@ insert into coaching_program_tags(tag_no, program_no)
   values (6,3);
 insert into coaching_program_tags(tag_no, program_no)
   values (8,3);
- 
--- 코칭방식
-insert into coaching_systems(coaching_system_no, name)
-  values (1, '온라인');
-insert into coaching_systems(coaching_system_no, name)
-  values (2, '오프라인');
-  
---코칭프로그램방식
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (1, 1);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (1, 2);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (1, 3);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (1, 4);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (1, 5);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (2, 6);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (2, 7);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (2, 8);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (2, 9);
-insert into program_coaching_systems(coaching_system_no, program_no)
-  values (2, 10);
   
 
   
