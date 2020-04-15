@@ -3,7 +3,7 @@ package com.coachcoach.domain;
 import java.io.Serializable;
 import java.util.List;
 
-public class coachingProgram implements Serializable {
+public class CoachingProgram implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -13,7 +13,7 @@ public class coachingProgram implements Serializable {
   String introduce; // 소개
   int fee; // 수강료
   String coachingType; // 코칭방식이름
-  List<coachingProgramTag> coachingProgramTags;
+  List<CoachingProgramTag> coachingProgramTags;
 
   @Override
   public String toString() {
@@ -70,11 +70,11 @@ public class coachingProgram implements Serializable {
     this.coachingType = coachingType;
   }
 
-  public List<coachingProgramTag> getCoachingProgramTags() {
+  public List<CoachingProgramTag> getCoachingProgramTags() {
     return coachingProgramTags;
   }
 
-  public void setCoachingProgramTags(List<coachingProgramTag> coachingProgramTags) {
+  public void setCoachingProgramTags(List<CoachingProgramTag> coachingProgramTags) {
     this.coachingProgramTags = coachingProgramTags;
   }
 

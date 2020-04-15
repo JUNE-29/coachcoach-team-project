@@ -2,7 +2,7 @@ package com.coachcoach.domain;
 
 import java.io.Serializable;
 
-public class coachingProgramTag implements Serializable {
+public class CoachingProgramTag implements Serializable {
   private static final long serialVersionUID = 1L;
 
   int tagNo; // 운동태그번호
@@ -47,7 +47,7 @@ public class coachingProgramTag implements Serializable {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    coachingProgramTag other = (coachingProgramTag) obj;
+    CoachingProgramTag other = (CoachingProgramTag) obj;
     if (programNo != other.programNo)
       return false;
     if (tagNo != other.tagNo)

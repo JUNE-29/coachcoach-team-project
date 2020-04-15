@@ -3,7 +3,7 @@ package com.coachcoach.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class weight implements Serializable {
+public class Weight implements Serializable {
   private static final long serialVersionUID = 1L;
 
   int weightNo;
@@ -69,7 +69,7 @@ public class weight implements Serializable {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    weight other = (weight) obj;
+    Weight other = (Weight) obj;
     if (measureDate == null) {
       if (other.measureDate != null)
         return false;
