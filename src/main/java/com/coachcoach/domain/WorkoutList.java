@@ -7,26 +7,26 @@ public class WorkoutList implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  int workoutList;         // 운동내역번호
-  int memberNo;            // 일반회원번호
-  int workoutNo;           // 운동번호
-  Date workoutDate;        // 시행날짜
-  int workoutAmount;       // 운동량
-  int kcal;                // 소모칼로리
+  int no; // 운동내역번호
+  int memberNo; // 일반회원번호
+  int workoutNo; // 운동번호
+  Date workoutDate; // 시행날짜
+  int workoutAmount; // 운동량
+  int kcal; // 소모칼로리
 
   @Override
   public String toString() {
-    return "WorkoutList [workoutList=" + workoutList + ", memberNo=" + memberNo + ", workoutNo="
-        + workoutNo + ", workoutDate=" + workoutDate + ", workoutAmount=" + workoutAmount
-        + ", kcal=" + kcal + "]";
+    return "WorkoutList [no=" + no + ", memberNo=" + memberNo + ", workoutNo=" + workoutNo
+        + ", workoutDate=" + workoutDate + ", workoutAmount=" + workoutAmount + ", kcal=" + kcal
+        + "]";
   }
 
-  public int getWorkoutList() {
-    return workoutList;
+  public int getNo() {
+    return no;
   }
 
-  public void setWorkoutList(int workoutList) {
-    this.workoutList = workoutList;
+  public void setNo(int no) {
+    this.no = no;
   }
 
   public int getMemberNo() {
@@ -75,9 +75,9 @@ public class WorkoutList implements Serializable {
     int result = 1;
     result = prime * result + kcal;
     result = prime * result + memberNo;
+    result = prime * result + no;
     result = prime * result + workoutAmount;
     result = prime * result + ((workoutDate == null) ? 0 : workoutDate.hashCode());
-    result = prime * result + workoutList;
     result = prime * result + workoutNo;
     return result;
   }
@@ -95,6 +95,8 @@ public class WorkoutList implements Serializable {
       return false;
     if (memberNo != other.memberNo)
       return false;
+    if (no != other.no)
+      return false;
     if (workoutAmount != other.workoutAmount)
       return false;
     if (workoutDate == null) {
@@ -102,13 +104,8 @@ public class WorkoutList implements Serializable {
         return false;
     } else if (!workoutDate.equals(other.workoutDate))
       return false;
-    if (workoutList != other.workoutList)
-      return false;
     if (workoutNo != other.workoutNo)
       return false;
     return true;
   }
-
-
-
 }

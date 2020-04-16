@@ -6,24 +6,23 @@ import java.util.Date;
 public class Weight implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  int weightNo;
+  int no;
   int memberNo;
   int weight;
   Date measureDate;
 
-
   @Override
   public String toString() {
-    return "weight [weightNo=" + weightNo + ", memberNo=" + memberNo + ", weight=" + weight
-        + ", measureDate=" + measureDate + "]";
+    return "Weight [no=" + no + ", memberNo=" + memberNo + ", weight=" + weight + ", measureDate="
+        + measureDate + "]";
   }
 
-  public int getWeightNo() {
-    return weightNo;
+  public int getNo() {
+    return no;
   }
 
-  public void setWeightNo(int weightNo) {
-    this.weightNo = weightNo;
+  public void setNo(int no) {
+    this.no = no;
   }
 
   public int getMemberNo() {
@@ -56,8 +55,8 @@ public class Weight implements Serializable {
     int result = 1;
     result = prime * result + ((measureDate == null) ? 0 : measureDate.hashCode());
     result = prime * result + memberNo;
+    result = prime * result + no;
     result = prime * result + weight;
-    result = prime * result + weightNo;
     return result;
   }
 
@@ -77,9 +76,9 @@ public class Weight implements Serializable {
       return false;
     if (memberNo != other.memberNo)
       return false;
-    if (weight != other.weight)
+    if (no != other.no)
       return false;
-    if (weightNo != other.weightNo)
+    if (weight != other.weight)
       return false;
     return true;
   }

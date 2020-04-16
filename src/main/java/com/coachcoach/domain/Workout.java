@@ -2,26 +2,26 @@ package com.coachcoach.domain;
 
 import java.io.Serializable;
 
-public class Workout implements Serializable{
+public class Workout implements Serializable {
 
   private static final long serialVersionUID = 1L;
-  
-  int workoutNo;  // 운동번호
-  String name;    // 이름
-  String unit;    // 운동단위
-  
-  
+
+  int no; // 운동번호
+  String name; // 이름
+  String unit; // 운동단위
+
+
   @Override
   public String toString() {
-    return "Workout [workoutNo=" + workoutNo + ", name=" + name + ", unit=" + unit + "]";
+    return "Workout [no=" + no + ", name=" + name + ", unit=" + unit + "]";
   }
 
-  public int getWorkoutNo() {
-    return workoutNo;
+  public int getNo() {
+    return no;
   }
 
-  public void setWorkoutNo(int workoutNo) {
-    this.workoutNo = workoutNo;
+  public void setNo(int no) {
+    this.no = no;
   }
 
   public String getName() {
@@ -45,8 +45,8 @@ public class Workout implements Serializable{
     final int prime = 31;
     int result = 1;
     result = prime * result + ((name == null) ? 0 : name.hashCode());
+    result = prime * result + no;
     result = prime * result + ((unit == null) ? 0 : unit.hashCode());
-    result = prime * result + workoutNo;
     return result;
   }
 
@@ -64,17 +64,13 @@ public class Workout implements Serializable{
         return false;
     } else if (!name.equals(other.name))
       return false;
+    if (no != other.no)
+      return false;
     if (unit == null) {
       if (other.unit != null)
         return false;
     } else if (!unit.equals(other.unit))
       return false;
-    if (workoutNo != other.workoutNo)
-      return false;
     return true;
   }
-  
-  
-  
-
 }
