@@ -6,7 +6,7 @@ import java.sql.Date;
 public class ToDoList implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  int toDoListNo;
+  int no;
   int memberNo;
   String memo;
   Date createDate;
@@ -14,18 +14,16 @@ public class ToDoList implements Serializable {
 
   @Override
   public String toString() {
-    return "ToDoList [toDoListNo=" + toDoListNo + ", memberNo=" + memberNo + ", memo=" + memo
-        + ", createDate=" + createDate + "]";
+    return "ToDoList [no=" + no + ", memberNo=" + memberNo + ", memo=" + memo + ", createDate="
+        + createDate + "]";
   }
 
-
-  public int getToDoListNo() {
-    return toDoListNo;
+  public int getNo() {
+    return no;
   }
 
-
-  public void setToDoListNo(int toDoListNo) {
-    this.toDoListNo = toDoListNo;
+  public void setNo(int no) {
+    this.no = no;
   }
 
   public int getMemberNo() {
@@ -52,8 +50,6 @@ public class ToDoList implements Serializable {
     this.createDate = createDate;
   }
 
-
-
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -61,7 +57,7 @@ public class ToDoList implements Serializable {
     result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
     result = prime * result + memberNo;
     result = prime * result + ((memo == null) ? 0 : memo.hashCode());
-    result = prime * result + toDoListNo;
+    result = prime * result + no;
     return result;
   }
 
@@ -86,11 +82,8 @@ public class ToDoList implements Serializable {
         return false;
     } else if (!memo.equals(other.memo))
       return false;
-    if (toDoListNo != other.toDoListNo)
+    if (no != other.no)
       return false;
     return true;
   }
-
-
-
 }

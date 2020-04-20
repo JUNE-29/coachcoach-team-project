@@ -5,21 +5,21 @@ import java.io.Serializable;
 public class WorkoutTag implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  int tagNo; // 운동태그번호
+  int no; // 운동태그번호
   String name; // 태그명
+
 
   @Override
   public String toString() {
-    return "workoutTag [tagNo=" + tagNo + ", name=" + name + "]";
+    return "WorkoutTag [no=" + no + ", name=" + name + "]";
   }
 
-
-  public int getTagNo() {
-    return tagNo;
+  public int getNo() {
+    return no;
   }
 
-  public void setTagNo(int tagNo) {
-    this.tagNo = tagNo;
+  public void setNo(int no) {
+    this.no = no;
   }
 
   public String getName() {
@@ -36,7 +36,7 @@ public class WorkoutTag implements Serializable {
     final int prime = 31;
     int result = 1;
     result = prime * result + ((name == null) ? 0 : name.hashCode());
-    result = prime * result + tagNo;
+    result = prime * result + no;
     return result;
   }
 
@@ -54,8 +54,10 @@ public class WorkoutTag implements Serializable {
         return false;
     } else if (!name.equals(other.name))
       return false;
-    if (tagNo != other.tagNo)
+    if (no != other.no)
       return false;
     return true;
   }
+
+
 }

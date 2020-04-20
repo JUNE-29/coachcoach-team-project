@@ -2,28 +2,27 @@ package com.coachcoach.domain;
 
 import java.io.Serializable;
 
-public class CalendarFiles implements Serializable {
+public class CalendarFile implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  int fileNo;
+  int no;
   int calendarNo;
   String path;
   String fileType;
 
-
   @Override
   public String toString() {
-    return "CalendarFiles [fileNo=" + fileNo + ", calendarNo=" + calendarNo + ", path=" + path
+    return "CalendarFile [no=" + no + ", calendarNo=" + calendarNo + ", path=" + path
         + ", fileType=" + fileType + "]";
   }
 
-  public int getFileNo() {
-    return fileNo;
+  public int getNo() {
+    return no;
   }
 
-  public void setFileNo(int fileNo) {
-    this.fileNo = fileNo;
+  public void setNo(int no) {
+    this.no = no;
   }
 
   public int getCalendarNo() {
@@ -33,7 +32,6 @@ public class CalendarFiles implements Serializable {
   public void setCalendarNo(int calendarNo) {
     this.calendarNo = calendarNo;
   }
-
 
   public String getPath() {
     return path;
@@ -56,8 +54,8 @@ public class CalendarFiles implements Serializable {
     final int prime = 31;
     int result = 1;
     result = prime * result + calendarNo;
-    result = prime * result + fileNo;
     result = prime * result + ((fileType == null) ? 0 : fileType.hashCode());
+    result = prime * result + no;
     result = prime * result + ((path == null) ? 0 : path.hashCode());
     return result;
   }
@@ -70,15 +68,15 @@ public class CalendarFiles implements Serializable {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    CalendarFiles other = (CalendarFiles) obj;
+    CalendarFile other = (CalendarFile) obj;
     if (calendarNo != other.calendarNo)
-      return false;
-    if (fileNo != other.fileNo)
       return false;
     if (fileType == null) {
       if (other.fileType != null)
         return false;
     } else if (!fileType.equals(other.fileType))
+      return false;
+    if (no != other.no)
       return false;
     if (path == null) {
       if (other.path != null)
@@ -87,7 +85,4 @@ public class CalendarFiles implements Serializable {
       return false;
     return true;
   }
-
-
-
 }
