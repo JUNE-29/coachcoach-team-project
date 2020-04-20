@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 // => 지정한 패키지 및 그 하위 패키지를 모두 뒤져서
 // @Component 애노테이션이 붙은 클래스를 찾아 객체를 생성한다.
 //
-@ComponentScan(value = "com.eomcs.lms")
+@ComponentScan(value = "com.coachcoach")
 @EnableWebMvc
 public class AppConfig {
 
