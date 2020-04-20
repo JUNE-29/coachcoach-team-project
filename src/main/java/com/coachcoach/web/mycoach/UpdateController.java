@@ -1,4 +1,4 @@
-package com.coachcoach.servlet;
+package com.coachcoach.web.mycoach;
 
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import com.coachcoach.service.MemberService;
 
 @Controller
 @RequestMapping("/mycoach")
-public class mycoachProfileController {
+public class UpdateController {
 
   @Autowired
   ServletContext servletContext;
@@ -19,10 +19,11 @@ public class mycoachProfileController {
   MemberService memberService;
 
 
-  @GetMapping("list")
-  public void list() {}
+  @GetMapping("updateForm")
+  public void updateForm() {}
 
-  @PostMapping("photoupdate")
-  public void photoupdate() {}
+  @PostMapping("update")
+  public void update() {}
+
 
 }
