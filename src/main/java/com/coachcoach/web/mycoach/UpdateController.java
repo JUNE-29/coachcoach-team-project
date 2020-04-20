@@ -25,5 +25,9 @@ public class UpdateController {
   @PostMapping("update")
   public void update() {}
 
+  @GetMapping("withdrawForm")
+  public void withdrawForm() {}
 
+  @GetMapping("withdraw")
+  public void withdraw() {} // refresh로 jsp 출력후 메인 페이지 이동
 }

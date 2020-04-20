@@ -18,6 +18,11 @@ E-mail<input name='email' type='email' value='${member.email}'><br>
 새 비밀번호 확인<input name='password' type='password'><br>
 <p><button>수정</button>
 </form>
+<br>
+<form action='withdrawForm' method='post' enctype='multipart/form-data'>
+<button>탈퇴</button>
+</form>
+<br>
 
 <jsp:include page="../footer.jsp"/>
     
