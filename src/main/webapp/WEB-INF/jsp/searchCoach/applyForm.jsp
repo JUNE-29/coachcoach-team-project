@@ -15,7 +15,7 @@
 특이사항:<br>
 <textarea name='remark' rows='5' cols='60'></textarea><br>
 <h3>[프로그램 세부사항]</h3>
-<br> 프로젝트<br>
+프로젝트<br>
 운동 시작일: <select name="cars">
   <option value="volvo">Volvo</option>
   <option value="saab">Saab</option>
