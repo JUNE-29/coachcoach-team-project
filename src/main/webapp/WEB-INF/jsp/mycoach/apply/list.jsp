@@ -16,14 +16,16 @@
   </tr>
   
 
-  <tr>
+    <tr>
     <td>1</td> 
     <td>2</td> 
     <td>3</td> 
     <td>4</td>
     <td>5</td>
-    <td><input type="button" value="거절사유" onclick="#" /></td>
-  </tr>
+    <td><form action='rejectForm' method='get'>
+    <button>거절사유</button>
+    </form></td>
+    </tr>
 
 
 

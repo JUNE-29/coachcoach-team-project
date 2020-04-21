@@ -5,13 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mycoach/profile")
-public class profileController {
+@RequestMapping("/mycoach/payment")
+public class paymentController {
 
-
-  @GetMapping("list") // 내프로필
-  public void list() {}
-
-
+  @GetMapping("paymentList") // 결제내역
+  public void paymentList() {}
 
 }

@@ -7,7 +7,7 @@
 
 <h1>회원 탈퇴</h1><br>
 <h3>비밀번호 재확인</h3>
-<form action='withdraw1' method='post' enctype='multipart/form-data'>
+<form action='withdrawForm2' method='post' enctype='multipart/form-data'>
 아이디 <input name='name' type='text' value='${member.name}'><br>
 비밀번호 <input name='name' type='password' value='${member.name}'><br>
 <p><button>확인</button>

@@ -8,9 +8,8 @@
 
 <h3>거절사유</h3>
 ○○ 코치님이 보낸 메세지입니다.<br>
-<form action='add' method='post'>
-<br>
-<textarea name='title' rows='5' cols='60' value='블라블라'></textarea><br>
+<p>죄송하지만 블라블라~~.......</p>
+<form action='list' method='get'>
 <button>확인</button>
 </form>
 

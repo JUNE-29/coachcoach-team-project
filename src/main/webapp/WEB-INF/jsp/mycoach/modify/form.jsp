@@ -6,7 +6,7 @@
 <jsp:include page="../header.jsp"/>
 
 <h1>회원 정보수정</h1>
-<form action='update' method='post' enctype='multipart/form-data'>
+<form action='modify' method='post' enctype='multipart/form-data'>
 아이디 <input name='no' type='text' readonly value='${member.no}'><br>
 이름 <input name='name' type='text' value='${member.name}'><br>
 여성 <input name='name' type='checkbox' value='${member.name}'> 남성 <input name='name' type='checkbox' value='${member.name}'><br>
@@ -19,7 +19,7 @@ E-mail<input name='email' type='email' value='${member.email}'><br>
 <p><button>수정</button>
 </form>
 <br>
-<form action='withdrawForm' method='post' enctype='multipart/form-data'>
+<form action='withdrawForm1' method='get'>
 <button>탈퇴</button>
 </form>
 <br>

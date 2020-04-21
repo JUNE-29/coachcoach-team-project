@@ -6,8 +6,8 @@
 <jsp:include page="../header.jsp"/>
 <div>
 <img src='/upload/member/' height='80'><br> 
- 이름<a href='delete?no=${member.no}'>엄진영 코치님</a>
-진행중인 프로그램<a href='delete?no=${member.no}'>엄진영과 함께하는 발레교실</a>
+ 이름<a href='coachDetail'>엄진영 코치님</a><br> 
+진행중인 프로그램<a href='programDetail'>엄진영과 함께하는 발레교실</a><br> 
 연락처 : 010-0000-0000
 </div>
 <div>
@@ -35,14 +35,18 @@
       <td>Jacob</td>
       <td>Thornton</td>
       <td>@fat</td>
-      <td><input type="button" value="후기작성" onclick="#" /></td>
+      <td><form action='reviewForm' method='get'>
+    <button>후기작성</button>
+    </form></td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Larry</td>
       <td>the Bird</td>
       <td>@twitter</td>
-      <td><input type="button" value="후기작성" onclick="#" /></td>
+      <td><form action='reviewForm' method='get'>
+    <button>후기작성</button>
+    </form></td>
     </tr>
   </tbody>
 </table>

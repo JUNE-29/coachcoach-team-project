@@ -5,12 +5,10 @@ applyList.jsp<%@ page language="java" contentType="text/html; charset=UTF-8"
 
 <jsp:include page="../header.jsp"/>
 
-<h1>내 프로필</h1>
-<img src='/upload/member/' height='80'><br> 
-<input type="button" class="" value="사진변경" onclick="">
-<button type="button" onclick="">사진삭제</button>
-<p>아이디: </p>
-<p>이메일: </p>
 
+<h3>수정하였습니다</h3>
+<form action='form' method='get'>
+<button>확인</button>
+</form>
 
 <jsp:include page="../footer.jsp"/>
