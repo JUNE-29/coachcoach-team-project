@@ -9,7 +9,7 @@ import com.coachcoach.service.MemberService;
 
 @Controller
 @RequestMapping("/myCoach")
-public class profileController {
+public class ProfileController {
 
   @Autowired
   ServletContext servletContext;
