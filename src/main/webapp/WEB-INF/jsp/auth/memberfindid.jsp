@@ -7,7 +7,7 @@
 <h1>아이디 찾기 결과</h1>
 
 <p> 회원님의 아이디는 OOO입니다.</p>
-<button type="button" onclick="location.href='login.jsp'">확인</button>
+<button type="button" onclick="location.href='login'">확인</button>
 
 <jsp:include page="../footer.jsp"/>
     
