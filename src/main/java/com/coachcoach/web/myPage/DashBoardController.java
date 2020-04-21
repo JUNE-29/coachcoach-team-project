@@ -23,5 +23,4 @@ public class DashBoardController {
     return "redirect:list";
   }
 
-
 }

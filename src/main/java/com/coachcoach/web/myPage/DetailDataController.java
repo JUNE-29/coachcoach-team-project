@@ -25,5 +25,4 @@ public class DetailDataController {
 
   @GetMapping("delete")
   public void delete() {}
-
 }
