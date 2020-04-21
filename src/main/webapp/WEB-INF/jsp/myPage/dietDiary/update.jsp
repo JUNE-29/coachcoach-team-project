@@ -4,9 +4,6 @@
 
 <h1>저장했습니다.</h1>
 
-<form action="list">
-
-<button>확인</button>
-</form>
+<button type="button" onclick="location.href='list'">확인</button>
 
 <jsp:include page='../footer.jsp'/>

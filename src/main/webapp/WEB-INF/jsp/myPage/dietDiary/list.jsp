@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>다이어트 다이어리</title>
-</head>
-<body>
+
+<jsp:include page="../header.jsp"/>
 
 <form action="detail" method="get">
 <button>사진이라고 칩니다</button>
@@ -19,9 +14,6 @@
 </form>
 
 
-<form action="form">
-<button>(+)</button>
-</form>
+<button type="button" onclick="location.href='addForm'">(+)</button>
 
-</body>
-</html>
+<jsp:include page="../footer.jsp"/>

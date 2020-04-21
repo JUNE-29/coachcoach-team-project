@@ -5,11 +5,6 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<title>MyPage-dietDiary</title>
-<style>
-body {
-  background-color: LightGray;
-}
-</style>
+<title>CoachCoach</title>
 </head>
 <body>

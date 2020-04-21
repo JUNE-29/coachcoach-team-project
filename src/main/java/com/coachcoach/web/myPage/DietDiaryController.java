@@ -17,8 +17,8 @@ public class DietDiaryController {
 
 
 
-  @GetMapping("form")
-  public void form() {}
+  @GetMapping("addForm")
+  public void addForm() {}
 
   @PostMapping("add")
   public void add() {}
