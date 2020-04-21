@@ -18,8 +18,15 @@ public class ProfileController {
   MemberService memberService;
 
 
-  @GetMapping("profileList")
+  @GetMapping("profileList") // 내프로필
   public void list() {}
 
+  @GetMapping("applyList") // 신청내역
+  public void applyList() {}
 
+  @GetMapping("paymentList") // 결제내역
+  public void paymentList() {}
+
+  @GetMapping("mycoachList") // 결제내역
+  public void mycoachList() {}
 }
