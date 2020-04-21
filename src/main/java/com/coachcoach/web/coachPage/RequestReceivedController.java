@@ -9,7 +9,7 @@ import com.coachcoach.service.CoachService;
 
 @Controller
 @RequestMapping("/coachpage/requestReceived")
-public class CoachpageRequestReceivedController {
+public class RequestReceivedController {
 
   @Autowired
   ServletContext servletContext;
