@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../header.jsp"/>
+<jsp:include page="../../header.jsp"/>
 목표<br>
 체중감량!!<br>
 <br>
@@ -20,4 +20,4 @@ toDoList<br>
 <a href='../coaching/list'>더보기</a>
 <br><br>
 코치와 채팅하기
-<jsp:include page="../footer.jsp"/>
+<jsp:include page="../../footer.jsp"/>

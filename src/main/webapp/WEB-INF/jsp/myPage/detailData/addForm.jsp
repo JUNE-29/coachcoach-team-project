@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page='../header.jsp'/>
+<jsp:include page='../../header.jsp'/>
 
 <h3>운동을 입력해주세요</h3>
 <form action='add' method='post'>
@@ -24,4 +24,4 @@
 <button>저장</button>
 </form>
 
-<jsp:include page='../footer.jsp'/>
+<jsp:include page='../../footer.jsp'/>
