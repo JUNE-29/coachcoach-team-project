@@ -1,4 +1,4 @@
-package com.coachcoach.web.myCoach;
+package com.coachcoach.web.mycoach;
 
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.coachcoach.web.myCoach;
+package com.coachcoach.web.mycoach;
 
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import com.coachcoach.service.MemberService;
 
 @Controller
 @RequestMapping("/myCoach")
-public class profileController {
+public class ProfileController {
 
   @Autowired
   ServletContext servletContext;
