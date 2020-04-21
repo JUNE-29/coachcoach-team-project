@@ -1,4 +1,4 @@
-package com.coachcoach.web.mycoach;
+package com.coachcoach.web.myCoach;
 
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.service.MemberService;
 
 @Controller
-@RequestMapping("/mycoach")
-public class ProfileController {
+@RequestMapping("/myCoach")
+public class profileController {
 
   @Autowired
   ServletContext servletContext;
@@ -30,6 +30,6 @@ public class ProfileController {
   @GetMapping("mycoachList") // 마이코치
   public void mycoachList() {}
 
-  @GetMapping("reviewForm") // 마이코치
+  @GetMapping("reviewForm") // 후기양식
   public void reviewForm() {}
 }
