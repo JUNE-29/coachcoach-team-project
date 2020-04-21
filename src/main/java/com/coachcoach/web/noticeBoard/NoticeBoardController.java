@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/noticeBoard")
+@RequestMapping("/serviceCenter/noticeBoard")
 public class NoticeBoardController {
 
   @PostMapping("add")
