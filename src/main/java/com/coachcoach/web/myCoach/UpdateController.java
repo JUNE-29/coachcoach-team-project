@@ -1,4 +1,4 @@
-package com.coachcoach.web.mycoach;
+package com.coachcoach.web.myCoach;
 
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,21 +19,21 @@ public class UpdateController {
   MemberService memberService;
 
 
-  @GetMapping("updateForm")
+  @GetMapping("updateForm") // 회원정보 수정
   public void updateForm() {}
 
   @PostMapping("update")
   public void update() {}
 
-  @GetMapping("withdrawForm1")
+  @GetMapping("withdrawForm1") // 비밀번호 재확인
   public void withdrawForm1() {}
 
-  @GetMapping("withdraw1")
+  @PostMapping("withdraw1")
   public void withdraw1() {}
 
-  @GetMapping("withdrawForm2")
+  @GetMapping("withdrawForm2") // 회원탈퇴 사유
   public void withdrawForm2() {}
 
-  @GetMapping("withdraw2")
+  @PostMapping("withdraw2")
   public void withdraw2() {} // refresh로 jsp 출력후 메인 페이지 이동
 }
