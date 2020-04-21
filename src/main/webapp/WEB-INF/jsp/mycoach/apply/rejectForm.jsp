@@ -5,17 +5,12 @@
 
 <jsp:include page="../header.jsp"/>
 
-<div>
-<form action='form' method='get'>
-하체튼튼 프로젝트<form action='applyForm' method='get'>
-<button>신청하기</button>
-</form>
-<form action='form' method='get'>
-건강한 몸 만들기 프로젝트
-<button>신청하기</button>
-</form>
-</div>
 
-
+<h3>거절사유</h3>
+○○ 코치님이 보낸 메세지입니다.<br>
+<p>죄송하지만 블라블라~~.......</p>
+<form action='list' method='get'>
+<button>확인</button>
+</form>
 
 <jsp:include page="../footer.jsp"/>

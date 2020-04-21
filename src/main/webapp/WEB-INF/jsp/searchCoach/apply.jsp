@@ -5,17 +5,10 @@
 
 <jsp:include page="../header.jsp"/>
 
-<div>
-<form action='form' method='get'>
-하체튼튼 프로젝트<form action='applyForm' method='get'>
-<button>신청하기</button>
-</form>
-<form action='form' method='get'>
-건강한 몸 만들기 프로젝트
-<button>신청하기</button>
-</form>
-</div>
 
-
+<h3>신청되었습니다</h3>
+<form action='../mycoach/profile/list' method='get'>
+<button>확인</button>
+</form>
 
 <jsp:include page="../footer.jsp"/>

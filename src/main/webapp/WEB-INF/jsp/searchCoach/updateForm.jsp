@@ -11,13 +11,20 @@
 성별: 남자<br>
 생년월일: 1900-01-01<br>
 연락처: 000-0000-0000<br>
-특이사항: dsfsdf<br>
+<form action='update' method='post'>
+특이사항:<br>
+<textarea name='remark' rows='5' cols='60'></textarea><br>
 <h3>[프로그램 세부사항]</h3>
 프로젝트<br>
-운동 시작일: 2020-04-21
-<form action='search' method='get' enctype='multipart/form-data'>
-<button type="button" class="">수정하기</button>
-<button type="button" class="">신청하기</button>
+운동 시작일: <select name="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+</select><br>
+<button>확인</button>
 </form>
+
+
 
 <jsp:include page="../footer.jsp"/>
