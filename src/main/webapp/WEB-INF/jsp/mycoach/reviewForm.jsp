@@ -5,12 +5,10 @@ applyList.jsp<%@ page language="java" contentType="text/html; charset=UTF-8"
 
 <jsp:include page="../header.jsp"/>
 
-<h1>내 프로필</h1>
-<img src='/upload/member/' height='80'><br> 
-<input type="button" class="" value="사진변경" onclick="">
-<button type="button" onclick="">사진삭제</button>
-<p>아이디: </p>
-<p>이메일: </p>
+<h1>후기작성</h1>
+<textarea name='title' rows='5' cols='60' value="후기를 등록해주세요!"></textarea><br>
+사진 첨부하기<input name='photoFiles' type='file'><br>
+<button type="button" onclick="">확인</button>
 
 
 <jsp:include page="../footer.jsp"/>

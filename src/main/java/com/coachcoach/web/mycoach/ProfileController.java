@@ -27,6 +27,9 @@ public class ProfileController {
   @GetMapping("paymentList") // 결제내역
   public void paymentList() {}
 
-  @GetMapping("mycoachList") // 결제내역
+  @GetMapping("mycoachList") // 마이코치
   public void mycoachList() {}
+
+  @GetMapping("reviewForm") // 마이코치
+  public void reviewForm() {}
 }
