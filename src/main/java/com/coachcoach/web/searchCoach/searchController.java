@@ -2,6 +2,7 @@ package com.coachcoach.web.searchCoach;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,7 +19,7 @@ public class searchController {
   @GetMapping("applyForm") // 신청서
   public void applyForm() {}
 
-  @GetMapping("applyDetail") // 신청서 확인
+  @PostMapping("applyDetail") // 신청서 확인
   public void applyDetail() {}
 
 

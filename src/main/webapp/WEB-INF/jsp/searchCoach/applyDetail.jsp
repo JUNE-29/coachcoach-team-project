@@ -13,13 +13,11 @@
 연락처: 000-0000-0000<br>
 특이사항: dsfsdf<br>
 <h3>[프로그램 세부사항]</h3>
-<br> 프로젝트<br>
+프로젝트<br>
 운동 시작일: 2020-04-21
-<form action='add' method='post' enctype='multipart/form-data'>
-<button>수정하기</button>
-</form>
-<form action='add' method='post' enctype='multipart/form-data'>
-<button>신청하기</button>
+<form action='search' method='get' enctype='multipart/form-data'>
+<button type="button" class="">수정하기</button>
+<button type="button" class="">신청하기</button>
 </form>
 
 <jsp:include page="../footer.jsp"/>
