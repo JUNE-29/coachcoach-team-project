@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.service.MemberService;
 
 @Controller
-@RequestMapping("/auth")
+@RequestMapping("/auth/member")
 public class MemberAuthController {
   @Autowired
   MemberService memberService;
@@ -17,11 +17,29 @@ public class MemberAuthController {
   @Autowired
   ServletContext servletContext;
 
-  @GetMapping("memberform")
+  @GetMapping("form")
   public void memberForm() {}
 
-  @PostMapping("memberlogin")
+  @PostMapping("login")
   public void memberLogin() {}
+
+  @GetMapping("findidform")
+  public void memberFindIdForm() {}
+
+  @PostMapping("findid")
+  public void memberFindId() {}
+
+  @GetMapping("findpasswordform")
+  public void memberFindPasswordForm() {}
+
+  @PostMapping("findpassword")
+  public void memberFindPassword() {}
+
+  @GetMapping("addform")
+  public void memberAddForm() {} // 회원가입폼
+
+  @PostMapping("add")
+  public void memberAdd() {} // 회원가입
 
   // @PostMapping("login")
   // public void login(String id, String password) throws Exception {
