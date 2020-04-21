@@ -5,10 +5,13 @@
 <jsp:include page="../header.jsp"/>
 
 <h1>로그인</h1>
-<form action='login' method='post'>
+<form action='coachlogin' method='post'>
 ID: <input name='id' type='text'><br>
 password: <input name='password' type='password'><br>
 <button>로그인</button>
+<p></p>
+<button type="button" onclick="location.href='coachfindidform.jsp'">아이디 찾기</button>
+<button type="button" onclick="location.href='coachfindpasswordform.jsp'">비밀번호 찾기</button>
 </form>
 
 <jsp:include page="../footer.jsp"/>

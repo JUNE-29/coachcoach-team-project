@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.service.MemberService;
 
 @Controller
-@RequestMapping("/mycoach")
-public class ProfileController {
+@RequestMapping("/myCoach")
+public class profileController {
 
   @Autowired
   ServletContext servletContext;
@@ -18,8 +18,18 @@ public class ProfileController {
   MemberService memberService;
 
 
-  @GetMapping("profileList")
+  @GetMapping("profileList") // 내프로필
   public void list() {}
 
+  @GetMapping("applyList") // 신청내역
+  public void applyList() {}
 
+  @GetMapping("paymentList") // 결제내역
+  public void paymentList() {}
+
+  @GetMapping("mycoachList") // 마이코치
+  public void mycoachList() {}
+
+  @GetMapping("reviewForm") // 후기양식
+  public void reviewForm() {}
 }
