@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mycoach/payment")
-public class paymentController {
+@RequestMapping("/mycoach/pay")
+public class payController {
 
-  @GetMapping("paymentList") // 결제내역
-  public void paymentList() {}
+  @GetMapping("payList") // 결제내역
+  public void payList() {}
 
 }
