@@ -9,7 +9,9 @@ applyList.jsp<%@ page language="java" contentType="text/html; charset=UTF-8"
 <h5>발레교실</h5>
 <h5>땡땡땡 코치님</h5>
 <p>수업지역</p>
-<button type="button">확인</button>
+<form action='list' method='get'>
+<button>확인</button>
+</form>
 
 
 <jsp:include page="../footer.jsp"/>

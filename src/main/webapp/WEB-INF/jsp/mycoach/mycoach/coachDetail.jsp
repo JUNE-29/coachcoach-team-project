@@ -8,7 +8,9 @@ applyList.jsp<%@ page language="java" contentType="text/html; charset=UTF-8"
 <img src='/upload/member/' height='80'><br> 
 <h5>땡땡땡 코치님</h5>
 <p>한줄소개</p>
-<button type="button">확인</button>
+<form action='list' method='get'>
+<button>확인</button>
+</form>
 
 
 <jsp:include page="../footer.jsp"/>
