@@ -1,4 +1,4 @@
-package com.coachcoach.web.noticeBoard;
+package com.coachcoach.web.serviceCenter;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
