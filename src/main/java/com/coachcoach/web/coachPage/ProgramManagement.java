@@ -27,6 +27,11 @@ public class ProgramManagement {
   @GetMapping("delete")
   public void delete() {}
 
+  @GetMapping("delete2")
+  public void delete2() {}
+
+  @GetMapping("detail")
+  public void detail() {}
 
   @GetMapping("list")
   public void list() {}
