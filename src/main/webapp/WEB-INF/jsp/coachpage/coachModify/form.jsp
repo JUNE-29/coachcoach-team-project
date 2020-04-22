@@ -7,12 +7,12 @@
 
 <h1>코치 정보수정</h1>
 <form action='modify' method='post' enctype='multipart/form-data'>
-아이디 <input name='no' type='text' readonly value='${member.no}'><br>
-이름 <input name='name' type='text' value='${member.name}'><br>
-여성 <input name='name' type='checkbox' value='${member.name}'> 남성 <input name='name' type='checkbox' value='${member.name}'><br>
-생년월일<input name='email' type='date' value='${member.email}'><br>
-전화: <input name='tel' type='tel' value='${member.tel}'><br>
-E-mail<input name='email' type='email' value='${member.email}'><br>
+아이디 <input name='no' type='text' readonly value='${coach.no}'><br>
+이름 <input name='name' type='text' value='${coach.name}'><br>
+여성 <input name='name' type='checkbox' value='${coach.name}'> 남성 <input name='name' type='checkbox' value='${coach.name}'><br>
+생년월일<input name='email' type='date' value='${coach.email}'><br>
+전화: <input name='tel' type='tel' value='${coach.tel}'><br>
+E-mail<input name='email' type='email' value='${coach.email}'><br>
 현재 비밀번호<input name='password' type='password'><br>
 새 비밀번호<input name='password' type='password'><br>
 새 비밀번호 확인<input name='password' type='password'><br>
