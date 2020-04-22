@@ -4,6 +4,7 @@ import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.service.CoachService;
 
@@ -17,11 +18,20 @@ public class RequestReceivedController {
   @Autowired
   CoachService coachService;
 
-  @GetMapping("form")
-  public void form() {}
-
   @GetMapping("list")
   public void list() {}
+
+  @GetMapping("detail")
+  public void detail() {}
+
+  @PostMapping("reject")
+  public void reject() {}
+
+  @GetMapping("rejectForm")
+  public void rejectForm() {}
+
+  @GetMapping("accept")
+  public void accept() {}
 
 
 }
