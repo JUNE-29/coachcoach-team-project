@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/mycoach/modify")
-public class modifyController {
+public class ModifyController {
 
 
   @GetMapping("form") // 회원정보 수정

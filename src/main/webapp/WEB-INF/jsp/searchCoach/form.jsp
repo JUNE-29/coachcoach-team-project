@@ -11,7 +11,7 @@
 성별: 남자<br>
 생년월일: 1900-01-01<br>
 연락처: 000-0000-0000<br>
-<form action='detailForm' method='post'>
+<form action='detail' method='post'>
 특이사항:<br>
 <textarea name='remark' rows='5' cols='60'></textarea><br>
 <h3>[프로그램 세부사항]</h3>

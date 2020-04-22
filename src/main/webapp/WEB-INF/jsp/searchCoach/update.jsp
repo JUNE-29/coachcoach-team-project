@@ -7,7 +7,7 @@
 
 
 <h3>수정되었습니다</h3>
-<form action='detailForm' method='post'>
+<form action='detail' method='post'>
 <button>확인</button>
 </form>
 

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/mycoach/mycoach")
-public class mycoachController {
+public class MycoachController {
 
   @GetMapping("list") // 마이코치
   public void mycoachList() {}

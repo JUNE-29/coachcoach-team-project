@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/searchCoach")
-public class searchController {
+public class SearchController {
 
 
   @GetMapping("search") // 코치검색 페이지
   public void list() {}
 
-  @GetMapping("detail") // 코치 상세보기
+  @PostMapping("detail") // 코치 상세보기
   public void detail() {}
 
-  @GetMapping("form") // 신청서
-  public void form() {}
+  @GetMapping("applyForm") // 신청서
+  public void applyForm() {}
 
   @GetMapping("updateForm") // 신청서 수정
   public void updateForm() {}
