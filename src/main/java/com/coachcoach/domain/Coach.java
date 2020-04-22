@@ -7,7 +7,7 @@ public class Coach implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  int coach_no; // 코치번호
+  int no; // 코치번호
   String id; // 아이디
   String name; // 이름
   int gender; // 성별
@@ -45,7 +45,6 @@ public class Coach implements Serializable {
     result = prime * result + ((birth == null) ? 0 : birth.hashCode());
     result = prime * result + ((career == null) ? 0 : career.hashCode());
     result = prime * result + ((certification == null) ? 0 : certification.hashCode());
-    result = prime * result + coach_no;
     result = prime * result + ((createdDate == null) ? 0 : createdDate.hashCode());
     result = prime * result + ((email == null) ? 0 : email.hashCode());
     result = prime * result + gender;
@@ -55,6 +54,7 @@ public class Coach implements Serializable {
     result = prime * result + ((longitude == null) ? 0 : longitude.hashCode());
     result = prime * result + members;
     result = prime * result + ((name == null) ? 0 : name.hashCode());
+    result = prime * result + no;
     result = prime * result + ((password == null) ? 0 : password.hashCode());
     result = prime * result + ((photo == null) ? 0 : photo.hashCode());
     result = prime * result + ((tel == null) ? 0 : tel.hashCode());
@@ -110,8 +110,6 @@ public class Coach implements Serializable {
         return false;
     } else if (!certification.equals(other.certification))
       return false;
-    if (coach_no != other.coach_no)
-      return false;
     if (createdDate == null) {
       if (other.createdDate != null)
         return false;
@@ -151,6 +149,8 @@ public class Coach implements Serializable {
         return false;
     } else if (!name.equals(other.name))
       return false;
+    if (no != other.no)
+      return false;
     if (password == null) {
       if (other.password != null)
         return false;
@@ -186,23 +186,23 @@ public class Coach implements Serializable {
 
   @Override
   public String toString() {
-    return "Coaches [coach_no=" + coach_no + ", id=" + id + ", name=" + name + ", gender=" + gender
-        + ", birth=" + birth + ", tel=" + tel + ", email=" + email + ", password=" + password
-        + ", photo=" + photo + ", area=" + area + ", career=" + career + ", certification="
-        + certification + ", introduce=" + introduce + ", members=" + members + ", createdDate="
-        + createdDate + ", bank=" + bank + ", account=" + account + ", workType=" + workType
-        + ", address=" + address + ", latitude=" + latitude + ", longitude=" + longitude
-        + ", withdrawal=" + withdrawal + ", withdrawalDate=" + withdrawalDate
-        + ", withdrawalReason=" + withdrawalReason + "]";
+    return "Coach [no=" + no + ", id=" + id + ", name=" + name + ", gender=" + gender + ", birth="
+        + birth + ", tel=" + tel + ", email=" + email + ", password=" + password + ", photo="
+        + photo + ", area=" + area + ", career=" + career + ", certification=" + certification
+        + ", introduce=" + introduce + ", members=" + members + ", createdDate=" + createdDate
+        + ", bank=" + bank + ", account=" + account + ", workType=" + workType + ", address="
+        + address + ", latitude=" + latitude + ", longitude=" + longitude + ", withdrawal="
+        + withdrawal + ", withdrawalDate=" + withdrawalDate + ", withdrawalReason="
+        + withdrawalReason + "]";
   }
 
 
-  public int getCoach_no() {
-    return coach_no;
+  public int getNo() {
+    return no;
   }
 
-  public void setCoach_no(int coach_no) {
-    this.coach_no = coach_no;
+  public void setNo(int no) {
+    this.no = no;
   }
 
   public String getId() {
@@ -387,6 +387,10 @@ public class Coach implements Serializable {
 
   public void setWithdrawalReason(int withdrawalReason) {
     this.withdrawalReason = withdrawalReason;
+  }
+
+  public static long getSerialversionuid() {
+    return serialVersionUID;
   }
 
 

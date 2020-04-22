@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page='../header.jsp'/>
+<jsp:include page='../../header.jsp'/>
 
 <h3>코칭 스케쥴</h3>
 년월일 ~ 년월일<br>
@@ -14,4 +14,4 @@
 <br>
 <button type="button" onclick="location.href='updateForm'">수정</button>
 
-<jsp:include page='../footer.jsp'/>
+<jsp:include page='../../footer.jsp'/>
