@@ -9,7 +9,7 @@
 <form action='modify' method='post' enctype='multipart/form-data'>
 아이디 <input name='no' type='text' readonly value='${member.no}'><br>
 이름 <input name='name' type='text' value='${member.name}'><br>
-여성 <input name='name' type='checkbox' value='${member.name}'> 남성 <input name='name' type='checkbox' value='${member.name}'><br>
+여성 <input name='name' type='radio' value='${member.name}'> 남성 <input name='name' type='radio' value='${member.name}'><br>
 생년월일<input name='email' type='date' value='${member.email}'><br>
 전화: <input name='tel' type='tel' value='${member.tel}'><br>
 E-mail<input name='email' type='email' value='${member.email}'><br>

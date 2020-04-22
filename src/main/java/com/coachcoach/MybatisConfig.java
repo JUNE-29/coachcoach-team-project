@@ -11,7 +11,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// MyBatis DAO 프록시를 자동 생성할 인터페이스를 지정한다.
 @MapperScan("com.coachcoach.dao")
 @Configuration
 public class MybatisConfig {
@@ -24,7 +23,7 @@ public class MybatisConfig {
   @Bean
   public SqlSessionFactory sqlSessionFactory(DataSource dataSource, ApplicationContext appCtx)
       throws Exception {
-    // log4j2 활성화시키기
+    // log4j2 활성화
     LogFactory.useLog4J2Logging();
 
     // Spring IoC 컨테이너 용으로 mybatis에서 따로 제작한 SqlSessionFactoryBean이다. 얘는 빌더임

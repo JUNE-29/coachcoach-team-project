@@ -12,9 +12,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-// Spring IoC 컨테이너가 이 클래스를 Java Config로 자동 인식하러면
-// 다음 태그를 붙여야 한다.
-// 단, 이 클래스가 @ComponentScan에서 지정한 패키지 안에 있어야 한다.
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:com/coachcoach/conf/jdbc.properties")
