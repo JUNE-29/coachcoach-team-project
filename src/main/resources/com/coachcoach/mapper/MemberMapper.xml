@@ -9,29 +9,57 @@
     <id column="member_no"  property="no"/>
     <result column="id"       property="id"/>
     <result column="name"       property="name"/>
-    <result column="email"  property="email"/>
-    <result column="password"    property="password"/>
+    <result column="gender"  property="gender"/>
+    <result column="birth"    property="birth"/>
     <result column="tel" property="tel"/>
-    <result column="created_date" property="createdDate"/>
+    <result column="email" property="email"/>
+    <result column="password" property="password"/>
+    <result column="photo" property="photo"/>
+    <result column="create_date" property="createDate"/>
+    <result column="withdrawal" property="withdrawal"/>
+    <result column="withdrawal_date" property="withdrawalDate"/>
+    <result column="withdrawal_reason" property="withdrawalReason"/>
+    <result column="goal" property="goal"/>
+    <result column="goal_in" property="goalIn"/>               
   </resultMap>
   
-  <sql id="select1">
-      member_no,
-      id, 
-      name, 
-      email, 
-      tel,
+  <sql id="select">
+   member_no,
+   id,
+   name,
+   gender,
+   birth,
+   tel,
+   email,
+   password,
+   photo,
+   create_date, 
+   withdrawal, 
+   withdrawal_date, 
+   withdrawal_reason, 
+   goal, 
+   goal_in
   </sql>
   
   <select id="findByIdAndPassword" resultMap="MemberMap" parameterType="map">
     select 
-      <include refid="select1"/>
+      <include refid="select"/>
       photo
     from members
     where 
       id=#{id} 
       and password=password(#{password})
   </select>
+  
+    <select id="findByNo" resultMap="MemberMap" parameterType="int">
+    select 
+    <include refid="select"/>
+    from 
+    members
+    where 
+    member_no=#{no}
+  </select>
+  
 </mapper>
 
 

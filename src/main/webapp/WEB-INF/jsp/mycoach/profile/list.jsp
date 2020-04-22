@@ -6,13 +6,10 @@ applyList.jsp<%@ page language="java" contentType="text/html; charset=UTF-8"
 <jsp:include page="../header.jsp"/>
 
 <h1>내 프로필</h1>
-<img src='/upload/member/' height='80'><br> 
-<form action='add' method='post' enctype='multipart/form-data'>
-<input type="button" class="" value="사진변경" onclick="">
-<button type="button" class=""  onclick="">사진삭제</button>
-<p>아이디: 12345</p>
-<p>이메일: 123@gmail.com</p>
+<img src='/upload/member/${member.photo}' height='100'>
+<form action='update' method='post' enctype='multipart/form-data'>
 </form>
-
+<label>아이디: ${member.id}</label><br>
+<label>이메일: ${member.email}</label>
 
 <jsp:include page="../footer.jsp"/>
