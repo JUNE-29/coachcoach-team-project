@@ -13,7 +13,7 @@ public class SearchController {
   @GetMapping("search") // 코치검색 페이지
   public void list() {}
 
-  @PostMapping("detail") // 코치 상세보기
+  @GetMapping("detail") // 코치 상세보기
   public void detail() {}
 
   @GetMapping("applyForm") // 신청서
