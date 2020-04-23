@@ -3,7 +3,7 @@ package com.coachcoach.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class CoachingProgramBoards implements Serializable {
+public class CoachingProgramBoard implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -79,7 +79,7 @@ public class CoachingProgramBoards implements Serializable {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    CoachingProgramBoards other = (CoachingProgramBoards) obj;
+    CoachingProgramBoard other = (CoachingProgramBoard) obj;
     if (coachNo != other.coachNo)
       return false;
     if (content == null) {
