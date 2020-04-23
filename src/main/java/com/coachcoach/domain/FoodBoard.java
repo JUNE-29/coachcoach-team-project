@@ -8,7 +8,7 @@ public class FoodBoard implements Serializable {
   private static final long serialVersionUID = 1L;
 
   int no;
-  int memberProgramNo;
+  int memberNo;
   String photoFilePath;
   String content;
   Date modifiedDate;
@@ -16,7 +16,7 @@ public class FoodBoard implements Serializable {
 
   @Override
   public String toString() {
-    return "foodBoard [no=" + no + ", memberProgramNo=" + memberProgramNo + ", photoFilePath="
+    return "foodBoard [no=" + no + ", memberProgramNo=" + memberNo + ", photoFilePath="
         + photoFilePath + ", content=" + content + ", modifiedDate=" + modifiedDate + "]";
   }
 
@@ -25,7 +25,7 @@ public class FoodBoard implements Serializable {
     final int prime = 31;
     int result = 1;
     result = prime * result + (content == null ? 0 : content.hashCode());
-    result = prime * result + memberProgramNo;
+    result = prime * result + memberNo;
     result = prime * result + (modifiedDate == null ? 0 : modifiedDate.hashCode());
     result = prime * result + no;
     result = prime * result + (photoFilePath == null ? 0 : photoFilePath.hashCode());
@@ -46,7 +46,7 @@ public class FoodBoard implements Serializable {
         return false;
     } else if (!content.equals(other.content))
       return false;
-    if (memberProgramNo != other.memberProgramNo)
+    if (memberNo != other.memberNo)
       return false;
     if (modifiedDate == null) {
       if (other.modifiedDate != null)
@@ -71,12 +71,12 @@ public class FoodBoard implements Serializable {
     this.no = no;
   }
 
-  public int getMemberProgramNo() {
-    return memberProgramNo;
+  public int getMemberNo() {
+    return memberNo;
   }
 
-  public void setMemberProgramNo(int memberProgramNo) {
-    this.memberProgramNo = memberProgramNo;
+  public void setMemberNo(int memberProgramNo) {
+    this.memberNo = memberProgramNo;
   }
 
   public String getPhotoFilePath() {
