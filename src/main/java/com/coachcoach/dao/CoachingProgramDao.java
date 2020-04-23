@@ -17,11 +17,11 @@ public interface CoachingProgramDao {
   // 코칭 프로그램 번호로 삭제
   int delete(int no) throws Exception;
 
-  // 코칭 프로그램 검색(검색 기능은 아직 없음)
-  // List<CoachingProgram> findByKeyword(String keyword) throws Exception;
+  // 코칭 프로그램 검색(코치이름 and 프로그램명)
+  List<CoachingProgram> findByKeyword(String keyword) throws Exception;
 
-  // 코칭 프로그램 상세보기(UI에 아직 없음)
-  // CoachingProgram findByNo(int no) throws Exception;
+  // 코칭 프로그램 상세보기
+  CoachingProgram findByNo(int no) throws Exception;
 }
 
 
