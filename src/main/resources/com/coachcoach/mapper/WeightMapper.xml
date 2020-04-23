@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.coachcoach.dao.MemberDao">
+<mapper namespace="com.coachcoach.dao.WeightDao">
 
   <resultMap type="Weight" id="WeightMap">
     <id column="weight_no"  property="no"/>
@@ -12,28 +12,42 @@
     <result column="measure_date"  property="measureDate"/>
   </resultMap>
   
-  <sql id="select">
-   
-  </sql>
+   <insert id="insert" parameterType="Weight">
+    insert into weight(
+      member_no,
+      weight
+    ) values(
+      #{memberNo},
+      #{weight}
+    )
+  </insert>
   
-  <select id="findByIdAndPassword" resultMap="MemberMap" parameterType="map">
+   <select id="findAllByMemberNo" resultMap="WeightMap" parameterType="int">
     select 
-      <include refid="select"/>
-      photo
-    from members
-    where 
-      id=#{id} 
-      and password=password(#{password})
-  </select>
-  
-    <select id="findByNo" resultMap="MemberMap" parameterType="int">
-    select 
-    <include refid="select"/>
+      weight,
+      measure_date
     from 
-    members
+      weight
+    where
+      member_no=#{memberNo}
+   </select>
+   
+    <update id="update" parameterType="Weight">
+    update
+     weight
+    set
+      weight=#{weight}
     where 
-    member_no=#{no}
-  </select>
+      member_no=#{no}
+  </update>
+  
+  
+  <delete id="delete" parameterType="int">
+    delete
+     from weight
+    where
+     weight_no=#{no}
+  </delete>
   
 </mapper>
 
