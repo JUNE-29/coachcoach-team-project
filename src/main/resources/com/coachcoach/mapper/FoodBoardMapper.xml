@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.FoodBoardDao">
+
+  <resultMap type="FoodBoard" id="FoodBoardMap">
+    <id column="food_board_no"   property="no"/>
+    <result column="member_no"  property="memberNo"/>
+    <result column="photo"  property="photoFilePath"/>
+    <result column="content"  property="content"/>
+    <result column="modified_date"  property="modifiedDate"/>
+  </resultMap>
+    
+  <insert id="insert" parameterType="FoodBoard">
+    insert into food_boards(
+      member_no,
+      photo,
+      content,
+      modified_date
+    ) 
+    values(
+      #{memberNo},
+      #{photoFilePath},
+      #{content},
+      now()
+    )
+  </insert>
+  
+  <select id="findAll" resultMap="FoodBoardMap" parameterType="int">
+    select 
+      *
+    from 
+      food_boards
+    where 
+      member_no=#{memberNo}
+    order by 
+      food_board_no asc
+  </select>
+
+  <select id="findByNo" resultMap="FoodBoardMap" parameterType="int">
+    select 
+      *
+    from 
+      food_boards
+    where 
+      food_board_no=#{no}
+  </select>
+  
+  <update id="update" parameterType="FoodBoard">
+   update food_boards
+    <set>
+      <if test="photoFilePath != null and photoFilePath != ''">photo=#{photoFilePath},</if>
+      <if test="content != null and content != ''">content=#{content},</if>
+      modified_date=now()
+    </set>
+    where food_board_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from food_boards
+    where food_board_no=#{no}
+  </delete>
+</mapper>
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@ public interface FoodBoardService {
 
   FoodBoard get(int no) throws Exception;
 
-  int update(FoodBoard coach) throws Exception;
+  int update(FoodBoard foodBoard) throws Exception;
 
   int delete(int no) throws Exception;
 

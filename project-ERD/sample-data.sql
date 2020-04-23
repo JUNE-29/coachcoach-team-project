@@ -257,25 +257,25 @@ insert into member_program_calendar(member_program_no, plan)
   
   
   -- food_boards 예제 데이터
-insert into food_boards(photo, content)
-  values('cat1.jpg', '귀여운 고양이1와 식사했어요!');
-insert into food_boards(photo, content)
-  values('cat2.jpg', '귀여운 고양이2와 식사했어요!');
-insert into food_boards(photo, content)
-  values('cat3.jpg', '귀여운 고양이3와 식사했어요!');
-insert into food_boards(photo, content)
-  values('cat4.jpg', '귀여운 고양이4와 식사했어요!');
-insert into food_boards(photo, content)
-  values('cat5.jpg', '귀여운 고양이5와 식사했어요!');
-insert into food_boards(member_program_no, photo, content)
+insert into food_boards(member_no, photo, content)
+  values(1, 'cat1.jpg', '귀여운 고양이1와 식사했어요!');
+insert into food_boards(member_no, photo, content)
+  values(2, 'cat2.jpg', '귀여운 고양이2와 식사했어요!');
+insert into food_boards(member_no, photo, content)
+  values(3, 'cat3.jpg', '귀여운 고양이3와 식사했어요!');
+insert into food_boards(member_no, photo, content)
+  values(4, 'cat4.jpg', '귀여운 고양이4와 식사했어요!');
+insert into food_boards(member_no, photo, content)
+  values(5, 'cat5.jpg', '귀여운 고양이5와 식사했어요!');
+insert into food_boards(member_no, photo, content)
   values(1, 'cat6.jpg', '귀여운 고양이6와 식사했어요!');
-insert into food_boards(member_program_no, photo, content)
+insert into food_boards(member_no, photo, content)
   values(2, 'cat7.jpg', '귀여운 고양이7와 식사했어요!');
-insert into food_boards(member_program_no, photo, content)
+insert into food_boards(member_no, photo, content)
   values(3, 'cat8.jpg', '귀여운 고양이8와 식사했어요!');
-insert into food_boards(member_program_no, photo, content)
+insert into food_boards(member_no, photo, content)
   values(4, 'cat9.jpg', '귀여운 고양이9와 식사했어요!');
-insert into food_boards(member_program_no, photo, content)
+insert into food_boards(member_no, photo, content)
   values(5, 'cat10.jpg', '귀여운 고양이10와 식사했어요!');
   
   

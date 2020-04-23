@@ -8,7 +8,7 @@ public interface MemberCoachingProgramDao {
   int insert(MemberCoachingProgram memberCoachingProgram) throws Exception;
   // 멤버가 프로그램 신청시 DB에 등록될때 사용
 
-  List<MemberCoachingProgram> findAllByMemberNo(int memberNo) throws Exception;
+  List<MemberCoachingProgram> findAll(int memberNo) throws Exception;
   // 어떤 회원이 본인 프로그램 신청 목록을 볼때 본인의 신청프로그램들만 보여야해서
   // memberNo가 필요할 것 같아 파라미터로 넣었습니다
 

@@ -137,11 +137,12 @@ ALTER TABLE coaches
 
 -- 코칭프로그램
 CREATE TABLE coaching_programs (
-  program_no INTEGER     NOT NULL COMMENT '프로그램번호', -- 프로그램번호
-  coach_no   INTEGER     NOT NULL COMMENT '코치번호', -- 코치번호
-  name       VARCHAR(30) NOT NULL COMMENT '프로그램명', -- 프로그램명
-  introduce  TEXT        NOT NULL COMMENT '소개', -- 소개
-  fee        INTEGER     NOT NULL COMMENT '수강료' -- 수강료
+  program_no    INTEGER     NOT NULL COMMENT '프로그램번호', -- 프로그램번호
+  coach_no      INTEGER     NOT NULL COMMENT '코치번호', -- 코치번호
+  name          VARCHAR(30) NOT NULL COMMENT '프로그램명', -- 프로그램명
+  introduce     TEXT        NOT NULL COMMENT '소개', -- 소개
+  fee           INTEGER     NOT NULL COMMENT '수강료', -- 수강료
+  coaching_type VARCHAR(30) NOT NULL COMMENT '코칭방식이름' -- 코칭방식이름
 )
 COMMENT '코칭프로그램';
 
@@ -174,8 +175,7 @@ ALTER TABLE workout_tags
 
 -- 코칭방식
 CREATE TABLE coaching_systems (
-  coaching_system_no INTEGER     NOT NULL COMMENT '코칭방식번호', -- 코칭방식번호
-  name               VARCHAR(30) NOT NULL COMMENT '코칭방식이름' -- 코칭방식이름
+  program_no INTEGER NOT NULL COMMENT '프로그램번호' -- 프로그램번호
 )
 COMMENT '코칭방식';
 
@@ -183,11 +183,8 @@ COMMENT '코칭방식';
 ALTER TABLE coaching_systems
   ADD CONSTRAINT PK_coaching_systems -- 코칭방식 기본키
     PRIMARY KEY (
-      coaching_system_no -- 코칭방식번호
+      program_no -- 프로그램번호
     );
-
-ALTER TABLE coaching_systems
-  MODIFY COLUMN coaching_system_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '코칭방식번호';
 
 -- 코칭프로그램게시판
 CREATE TABLE coaching_program_boards (
@@ -279,11 +276,11 @@ ALTER TABLE workout_list
 
 -- 음식게시판
 CREATE TABLE food_boards (
-  food_board_no     INTEGER      NOT NULL COMMENT '음식게시판번호', -- 음식게시판번호
-  member_program_no INTEGER      NULL     COMMENT '회원코칭프로그램번호', -- 회원코칭프로그램번호
-  photo             VARCHAR(255) NULL     COMMENT '사진', -- 사진
-  content           TEXT         NOT NULL COMMENT '내용', -- 내용
-  modified_date     DATE         NOT NULL DEFAULT now() COMMENT '수정일' -- 수정일
+  food_board_no INTEGER      NOT NULL COMMENT '음식게시판번호', -- 음식게시판번호
+  member_no     INTEGER      NOT NULL COMMENT '일반회원번호', -- 일반회원번호
+  photo         VARCHAR(255) NULL     COMMENT '사진', -- 사진
+  content       TEXT         NOT NULL COMMENT '내용', -- 내용
+  modified_date DATE         NOT NULL DEFAULT now() COMMENT '수정일' -- 수정일
 )
 COMMENT '음식게시판';
 
@@ -406,8 +403,7 @@ ALTER TABLE workout
 
 -- 코칭프로그램방식
 CREATE TABLE program_coaching_systems (
-  coaching_system_no INTEGER NOT NULL COMMENT '코칭방식번호', -- 코칭방식번호
-  program_no         INTEGER NOT NULL COMMENT '프로그램번호' -- 프로그램번호
+  program_no INTEGER NOT NULL COMMENT '프로그램번호' -- 프로그램번호
 )
 COMMENT '코칭프로그램방식';
 
@@ -415,8 +411,7 @@ COMMENT '코칭프로그램방식';
 ALTER TABLE program_coaching_systems
   ADD CONSTRAINT PK_program_coaching_systems -- 코칭프로그램방식 기본키
     PRIMARY KEY (
-      coaching_system_no, -- 코칭방식번호
-      program_no          -- 프로그램번호
+      program_no -- 프로그램번호
     );
 
 -- 코칭프로그램
@@ -427,6 +422,16 @@ ALTER TABLE coaching_programs
     )
     REFERENCES coaches ( -- 코치
       coach_no -- 코치번호
+    );
+
+-- 코칭방식
+ALTER TABLE coaching_systems
+  ADD CONSTRAINT FK_coaching_programs_TO_coaching_systems -- 코칭프로그램 -> 코칭방식
+    FOREIGN KEY (
+      program_no -- 프로그램번호
+    )
+    REFERENCES coaching_programs ( -- 코칭프로그램
+      program_no -- 프로그램번호
     );
 
 -- 코칭프로그램게시판
@@ -501,12 +506,12 @@ ALTER TABLE workout_list
 
 -- 음식게시판
 ALTER TABLE food_boards
-  ADD CONSTRAINT FK_member_coaching_programs_TO_food_boards -- 회원코칭프로그램 -> 음식게시판
+  ADD CONSTRAINT FK_members_TO_food_boards -- 회원정보 -> 음식게시판
     FOREIGN KEY (
-      member_program_no -- 회원코칭프로그램번호
+      member_no -- 일반회원번호
     )
-    REFERENCES member_coaching_programs ( -- 회원코칭프로그램
-      member_program_no -- 회원코칭프로그램번호
+    REFERENCES members ( -- 회원정보
+      member_no -- 일반회원번호
     );
 
 -- 음식게시판댓글
@@ -577,16 +582,6 @@ ALTER TABLE coaching_program_tags
     )
     REFERENCES coaching_programs ( -- 코칭프로그램
       program_no -- 프로그램번호
-    );
-
--- 코칭프로그램방식
-ALTER TABLE program_coaching_systems
-  ADD CONSTRAINT FK_coaching_systems_TO_program_coaching_systems -- 코칭방식 -> 코칭프로그램방식
-    FOREIGN KEY (
-      coaching_system_no -- 코칭방식번호
-    )
-    REFERENCES coaching_systems ( -- 코칭방식
-      coaching_system_no -- 코칭방식번호
     );
 
 -- 코칭프로그램방식
