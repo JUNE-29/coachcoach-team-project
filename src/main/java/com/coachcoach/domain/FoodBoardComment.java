@@ -3,7 +3,7 @@ package com.coachcoach.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class FoodBoardComments implements Serializable {
+public class FoodBoardComment implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class FoodBoardComments implements Serializable {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    FoodBoardComments other = (FoodBoardComments) obj;
+    FoodBoardComment other = (FoodBoardComment) obj;
     if (coachNo != other.coachNo)
       return false;
     if (content == null) {
