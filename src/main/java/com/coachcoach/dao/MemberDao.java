@@ -6,18 +6,25 @@ import com.coachcoach.domain.Member;
 
 public interface MemberDao {
 
+  // 회원 정보 입력
   int insert(Member member) throws Exception;
 
+  // 회원 전체 리스트
   List<Member> findAll() throws Exception;
 
+  // 회원 번호로 찾기
   Member findByNo(int no) throws Exception;
 
+  // 회원 정보 수정
   int update(Member member) throws Exception;
 
+  // 회원 삭제
   int delete(int no) throws Exception;
 
+  //
   List<Member> findByKeyword(String keyword) throws Exception;
 
+  // 회원가입
   Member findByIdAndPassword(Map<String, Object> params) throws Exception;
 }
 
