@@ -41,6 +41,82 @@
    goal_in
   </sql>
   
+  
+   <insert id="insert" parameterType="Member">
+    insert into lms_member(
+      <include refid="select"/>
+    ) values(
+      #{no},
+      #{id},
+      #{name},      
+      #{gender},
+      #{birth},
+      #{tel},
+      #{email},      
+      password(#{password}),
+      #{photo},
+      #{createDate},
+      #{withdrawal},      
+      #{withdrawalDate},
+      #{withdrawalReason},                        
+      #{goal},
+      #{goalIn}
+    )
+  </insert>
+  
+   <select id="findAll" resultMap="MemberMap">
+    select 
+      <include refid="select"/>
+    from 
+      members
+   </select>
+
+
+  <select id="findByNo" resultMap="MemberMap" parameterType="int">
+    select 
+      <include refid="select"/>
+    from 
+      members
+    where 
+      member_no=#{no}
+  </select>
+
+
+  <update id="update" parameterType="Member">
+    update members
+    <set>
+      <if test="name != null and name != ''">name=#{name},</if>
+      <if test="email != null and email != ''">email=#{email},</if> 
+      <if test="password != null and password != ''">pwd=password(#{password}),</if>
+      <if test="tel != null and tel != ''">tel=#{tel},</if>
+      <if test="photo != null and photo != ''">photo=#{photo}</if>
+    </set>
+    where 
+      member_no=#{no}
+  </update>
+  
+  
+  <delete id="delete" parameterType="int">
+    delete from members
+    where member_no=#{no}
+  </delete>
+
+
+  <select id="findByKeyword" 
+    resultMap="MemberMap" 
+    parameterType="string">
+    <bind name="keywordPattern" value="'%' + _parameter + '%'"/>
+    select 
+      <include refid="select"/>
+    from 
+      members
+    where 
+      name like #{keywordPattern}
+      or email like #{keywordPattern}
+      or tel like #{keywordPattern}
+  </select>
+
+
   <select id="findByIdAndPassword" resultMap="MemberMap" parameterType="map">
     select 
       <include refid="select"/>
@@ -50,16 +126,7 @@
       id=#{id} 
       and password=password(#{password})
   </select>
-  
-    <select id="findByNo" resultMap="MemberMap" parameterType="int">
-    select 
-    <include refid="select"/>
-    from 
-    members
-    where 
-    member_no=#{no}
-  </select>
-  
+ 
 </mapper>
 
 

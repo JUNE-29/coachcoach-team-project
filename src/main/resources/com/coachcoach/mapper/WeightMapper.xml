@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.MemberDao">
+
+  <resultMap type="Weight" id="WeightMap">
+    <id column="weight_no"  property="no"/>
+    <result column="member_no"       property="memberNo"/>
+    <result column="weight"       property="weight"/>
+    <result column="measure_date"  property="measureDate"/>
+  </resultMap>
+  
+  <sql id="select">
+   
+  </sql>
+  
+  <select id="findByIdAndPassword" resultMap="MemberMap" parameterType="map">
+    select 
+      <include refid="select"/>
+      photo
+    from members
+    where 
+      id=#{id} 
+      and password=password(#{password})
+  </select>
+  
+    <select id="findByNo" resultMap="MemberMap" parameterType="int">
+    select 
+    <include refid="select"/>
+    from 
+    members
+    where 
+    member_no=#{no}
+  </select>
+  
+</mapper>
+
+
+
+
+
+
+
