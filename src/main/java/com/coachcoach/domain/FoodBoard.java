@@ -75,8 +75,8 @@ public class FoodBoard implements Serializable {
     return memberNo;
   }
 
-  public void setMemberNo(int memberProgramNo) {
-    this.memberNo = memberProgramNo;
+  public void setMemberNo(int memberNo) {
+    this.memberNo = memberNo;
   }
 
   public String getPhotoFilePath() {

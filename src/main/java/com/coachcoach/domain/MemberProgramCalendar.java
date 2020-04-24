@@ -17,6 +17,7 @@ public class MemberProgramCalendar implements Serializable {
     return "MemberProgramCalendar [no=" + no + ", memberProgramNo=" + memberProgramNo + ", plan="
         + plan + ", workoutDate=" + workoutDate + "]";
   }
+
   public int getNo() {
     return no;
   }
@@ -51,6 +52,7 @@ public class MemberProgramCalendar implements Serializable {
     result = prime * result + ((workoutDate == null) ? 0 : workoutDate.hashCode());
     return result;
   }
+
   @Override
   public boolean equals(Object obj) {
     if (this == obj)
