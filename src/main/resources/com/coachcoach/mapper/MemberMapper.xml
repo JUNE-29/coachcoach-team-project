@@ -44,23 +44,25 @@
   
    <insert id="insert" parameterType="Member">
     insert into members(
-      <include refid="select"/>
+     member_no,
+     id,
+     password,
+     name,
+     gender,
+     birth,
+     tel,
+     email,
+     photo
     ) values(
       #{no},
       #{id},
+      password(#{password}),
       #{name},      
       #{gender},
       #{birth},
       #{tel},
       #{email},      
-      password(#{password}),
-      #{photo},
-      #{createDate},
-      #{withdrawal},      
-      #{withdrawalDate},
-      #{withdrawalReason},                        
-      #{goal},
-      #{goalIn}
+      #{photo}
     )
   </insert>
   
@@ -128,7 +130,6 @@
   <select id="findByIdAndPassword" resultMap="MemberMap" parameterType="map">
     select 
       <include refid="select"/>
-      photo
     from members
     where 
       id=#{id} 

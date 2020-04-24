@@ -5,16 +5,16 @@
 <jsp:include page="../../header.jsp"/>
 
 <h1>로그인 결과</h1>
-<!--<c:if test="${not empty loginUser}">
+<c:if test="${not empty loginUser}">
 <p>'${loginUser.name}'님 환영합니다.</p>
 </c:if>
--->
+
 <p> OOO님 환영합니다.</p>
 
-<!--<c:if test="${empty loginUser}">
+<c:if test="${empty loginUser}">
 <p>사용자 정보가 유효하지 않습니다.</p>
 </c:if>
--->
+
 
 <jsp:include page="../../footer.jsp"/>
     
