@@ -14,8 +14,8 @@ public class Member implements Serializable {
   int no;
   String id;
   String name;
-  String gender;
-  Date birth;
+  int gender;
+  String birth;
   String tel;
   String email;
   String password;
@@ -25,16 +25,7 @@ public class Member implements Serializable {
   Date withdrawalDate;
   String withdrawalReason;
   String goal;
-  String goalIn;
-
-  @Override
-  public String toString() {
-    return "Member [no=" + no + ", id=" + id + ", name=" + name + ", gender=" + gender + ", birth="
-        + birth + ", tel=" + tel + ", email=" + email + ", password=" + password + ", photo="
-        + photo + ", createDate=" + createDate + ", withdrawal=" + withdrawal + ", withdrawalDate="
-        + withdrawalDate + ", withdrawalReason=" + withdrawalReason + ", goal=" + goal + ", goalIn="
-        + goalIn + "]";
-  }
+  int goalIn;
 
   public int getNo() {
     return no;
@@ -60,19 +51,19 @@ public class Member implements Serializable {
     this.name = name;
   }
 
-  public String getGender() {
+  public int getGender() {
     return gender;
   }
 
-  public void setGender(String gender) {
+  public void setGender(int gender) {
     this.gender = gender;
   }
 
-  public Date getBirth() {
+  public String getBirth() {
     return birth;
   }
 
-  public void setBirth(Date birth) {
+  public void setBirth(String birth) {
     this.birth = birth;
   }
 
@@ -124,10 +115,6 @@ public class Member implements Serializable {
     this.withdrawal = withdrawal;
   }
 
-  public String getGoal() {
-    return goal;
-  }
-
   public Date getWithdrawalDate() {
     return withdrawalDate;
   }
@@ -144,16 +131,132 @@ public class Member implements Serializable {
     this.withdrawalReason = withdrawalReason;
   }
 
+  public String getGoal() {
+    return goal;
+  }
+
   public void setGoal(String goal) {
     this.goal = goal;
   }
 
-  public String getGoalIn() {
+  public int getGoalIn() {
     return goalIn;
   }
 
-  public void setGoalIn(String goalIn) {
+  public void setGoalIn(int goalIn) {
     this.goalIn = goalIn;
   }
+
+  public static long getSerialversionuid() {
+    return serialVersionUID;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((birth == null) ? 0 : birth.hashCode());
+    result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
+    result = prime * result + ((email == null) ? 0 : email.hashCode());
+    result = prime * result + gender;
+    result = prime * result + ((goal == null) ? 0 : goal.hashCode());
+    result = prime * result + goalIn;
+    result = prime * result + ((id == null) ? 0 : id.hashCode());
+    result = prime * result + ((name == null) ? 0 : name.hashCode());
+    result = prime * result + no;
+    result = prime * result + ((password == null) ? 0 : password.hashCode());
+    result = prime * result + ((photo == null) ? 0 : photo.hashCode());
+    result = prime * result + ((tel == null) ? 0 : tel.hashCode());
+    result = prime * result + withdrawal;
+    result = prime * result + ((withdrawalDate == null) ? 0 : withdrawalDate.hashCode());
+    result = prime * result + ((withdrawalReason == null) ? 0 : withdrawalReason.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Member other = (Member) obj;
+    if (birth == null) {
+      if (other.birth != null)
+        return false;
+    } else if (!birth.equals(other.birth))
+      return false;
+    if (createDate == null) {
+      if (other.createDate != null)
+        return false;
+    } else if (!createDate.equals(other.createDate))
+      return false;
+    if (email == null) {
+      if (other.email != null)
+        return false;
+    } else if (!email.equals(other.email))
+      return false;
+    if (gender != other.gender)
+      return false;
+    if (goal == null) {
+      if (other.goal != null)
+        return false;
+    } else if (!goal.equals(other.goal))
+      return false;
+    if (goalIn != other.goalIn)
+      return false;
+    if (id == null) {
+      if (other.id != null)
+        return false;
+    } else if (!id.equals(other.id))
+      return false;
+    if (name == null) {
+      if (other.name != null)
+        return false;
+    } else if (!name.equals(other.name))
+      return false;
+    if (no != other.no)
+      return false;
+    if (password == null) {
+      if (other.password != null)
+        return false;
+    } else if (!password.equals(other.password))
+      return false;
+    if (photo == null) {
+      if (other.photo != null)
+        return false;
+    } else if (!photo.equals(other.photo))
+      return false;
+    if (tel == null) {
+      if (other.tel != null)
+        return false;
+    } else if (!tel.equals(other.tel))
+      return false;
+    if (withdrawal != other.withdrawal)
+      return false;
+    if (withdrawalDate == null) {
+      if (other.withdrawalDate != null)
+        return false;
+    } else if (!withdrawalDate.equals(other.withdrawalDate))
+      return false;
+    if (withdrawalReason == null) {
+      if (other.withdrawalReason != null)
+        return false;
+    } else if (!withdrawalReason.equals(other.withdrawalReason))
+      return false;
+    return true;
+  }
+
+  @Override
+  public String toString() {
+    return "Member [no=" + no + ", id=" + id + ", name=" + name + ", gender=" + gender + ", birth="
+        + birth + ", tel=" + tel + ", email=" + email + ", password=" + password + ", photo="
+        + photo + ", createDate=" + createDate + ", withdrawal=" + withdrawal + ", withdrawalDate="
+        + withdrawalDate + ", withdrawalReason=" + withdrawalReason + ", goal=" + goal + ", goalIn="
+        + goalIn + "]";
+  }
+
+
 
 }
