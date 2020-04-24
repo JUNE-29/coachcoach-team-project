@@ -13,6 +13,11 @@ public class FoodBoardServiceImpl implements FoodBoardService {
   FoodBoardDao foodBoardDao;
   FoodBoardCommentDao foodBoardCommentDao;
 
+  public FoodBoardServiceImpl(FoodBoardDao foodBoardDao, FoodBoardCommentDao foodBoardCommentDao) {
+    this.foodBoardDao = foodBoardDao;
+    this.foodBoardCommentDao = foodBoardCommentDao;
+  }
+
   @Override
   public int add(FoodBoard foodBoard) throws Exception {
     return foodBoardDao.insert(foodBoard);

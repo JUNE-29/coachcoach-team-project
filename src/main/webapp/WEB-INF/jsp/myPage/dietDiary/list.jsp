@@ -1,19 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../../header.jsp"/>
 
-<form action="detail" method="get">
-<button>사진이라고 칩니다</button>
-</form>
-<form action="detail" method="get">
-<button>사진이라고 칩니다</button>
-</form>
-<form action="detail" method="get">
-<button>사진이라고 칩니다</button>
-</form>
+<div class="container-fluid">
+  <h1 class="text-primary text-center">사진 게시판</h1>
 
+<div class="row">
+  <div class="card-group">
+	  <c:forEach items="${list}" var="item">
+      <div class="card">
+		     <a href='detail?no=${item.no}'><img class="card-img-top img-fluid" src='${pageContext.servletContext.contextPath}/upload/foodBoard/${item.photoFilePath}' height='60'></a>
+      </div>
+	  </c:forEach>	    
+  </div>
+</div>
 
-<button type="button" onclick="location.href='addForm'">(+)</button>
+  <br>
+		<div >
+		<button type="button" onclick="location.href='addForm'" class="btn btn-block btn-primary">+</button>
+		</div>
+	<br>
+</div>
 
 <jsp:include page="../../footer.jsp"/>
