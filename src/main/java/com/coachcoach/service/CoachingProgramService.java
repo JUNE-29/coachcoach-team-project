@@ -1,7 +1,6 @@
 package com.coachcoach.service;
 
 import java.util.List;
-import java.util.Map;
 import com.coachcoach.domain.CoachingProgram;
 
 public interface CoachingProgramService {

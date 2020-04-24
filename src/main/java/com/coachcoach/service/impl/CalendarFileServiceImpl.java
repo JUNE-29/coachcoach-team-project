@@ -1,12 +1,11 @@
 package com.coachcoach.service.impl;
 
 import java.util.List;
-import org.springframework.stereotype.Component;
 import com.coachcoach.dao.CalendarFileDao;
 import com.coachcoach.domain.CalendarFile;
 import com.coachcoach.service.CalendarFileService;
 
-@Component
+// @Component
 public class CalendarFileServiceImpl implements CalendarFileService {
 
   CalendarFileDao calendarFileDao;
