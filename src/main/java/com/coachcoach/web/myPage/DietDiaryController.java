@@ -97,7 +97,7 @@ public class DietDiaryController {
   @GetMapping("comment/add")
   public String addComment(FoodBoardComment foodBoardComment) throws Exception {
     foodBoardCommentService.add(foodBoardComment);
-    return "redirect:../list";
+    return "redirect:../detail?no=" + foodBoardComment.getFoodBoardNo();
   }
 
 }

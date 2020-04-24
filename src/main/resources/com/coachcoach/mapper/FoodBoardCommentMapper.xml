@@ -17,7 +17,7 @@
   <insert id="insert" parameterType="FoodBoardComment">
     insert into food_board_comments(
       food_board_no,
-      <if test="${coachNo} != null">
+      <if test="coachNo!=0">
       coach_no,
       </if>
       content,
@@ -25,7 +25,7 @@
     ) 
     values(
       #{foodBoardNo},
-      <if test="${coachNo} != null">
+      <if test="coachNo!=0">
       #{coachNo},
       </if>
       #{content},
