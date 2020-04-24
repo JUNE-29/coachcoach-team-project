@@ -1,7 +1,7 @@
 package com.coachcoach.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 // 객체를 serialize 하려면 이 기능을 활성화시켜야 한다.
 // - java.io.Serializable을 구현하라!
