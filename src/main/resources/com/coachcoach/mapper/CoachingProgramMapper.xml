@@ -45,31 +45,51 @@
       c.fee,
       w.name
     from 
-      coaching_programs c 
-      join coaching_program_tags ct on c.program_no=ct.program_no
+     coaching_program_tags ct
+      join coaching_programs c on c.program_no=ct.program_no
       join workout_tags w on w.tag_no=ct.tag_no
     where 
-      c.program_no=#{coachNo}
-      inner join lms_lesson l on p.lesson_id=l.lesson_id
-      left outer join lms_photo_file f on p.photo_id=f.photo_id
+      c.coach_no=#{coachNo}
   </select>
 
 
   <update id="update" parameterType="CoachingProgram">
     update coaching_programs
     <set>
-      <if test="name != null and name != ''">name=#{name},</if>
-      <if test="gender != null and gender != ''">gender=#{gender},</if> 
-      <if test="birth != null and birth != ''">birth=#{birth},</if>             
-      <if test="tel != null and tel != ''">tel=#{tel},</if> 
-      <if test="email != null and email != ''">email=#{email},</if>       
-      <if test="password != null and password != ''">password=password(#{password}),</if>
+      <if test="coachNo > 0">coach_no=#{coachNo},</if> 
+      <if test="name != null and name != ''">name=#{name},</if>             
+      <if test="introduce != null and introduce != ''">introduce=#{introduce},</if> 
+      <if test="fee > 0">fee=#{fee},</if>       
+      <if test="coachingType != null and coachingType != ''">coaching_type=#{coachingType},</if>
     </set>
-    where 
-      member_no=#{no}
+      where 
+        coach_no=#{coachNo}
   </update>
   
- 
+   <delete id="delete" parameterType="int">
+    delete from coaching_programs
+    where program_no=#{no}
+  </delete>
+  
+  
+   <select id="findByKeyword" 
+    resultMap="CoachingProgramMap" 
+    parameterType="string">
+    <bind name="keywordPattern" value="'%' + _parameter + '%'"/>
+    select 
+      c.name,
+      cp.name,
+      cp.introduce,
+      cp.fee
+    from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+    where 
+      c.name like #{keywordPattern}
+      cp.name like #{keywordPattern}      
+  </select>
+  
+  
 </mapper>
 
 
