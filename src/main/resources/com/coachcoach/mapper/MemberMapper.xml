@@ -93,10 +93,10 @@
       <if test="tel != null and tel != ''">tel=#{tel},</if> 
       <if test="email != null and email != ''">email=#{email},</if>       
       <if test="password != null and password != ''">password=password(#{password}),</if> 
-      <if test="photo != null and photo != ''">photo=photo(#{photo}),</if>
-      <if test="createDate != null and createDate != ''">create_date=#{createDate},</if>                    
+      <if test="photo != null and photo != ''">photo=#{photo},</if>
+      <if test="createDate != null">create_date=#{createDate},</if>                    
       <if test="withdrawal != null and withdrawal != ''">withdrawal=#{withdrawal},</if>
-      <if test="withdrawalDate != null and withdrawalDate != ''">withdrawal_date=#{withdrawalDate},</if>              
+      <if test="withdrawalDate != null">withdrawal_date=#{withdrawalDate},</if>              
       <if test="withdrawalReason != null and withdrawalReason != ''">withdrawal_reason=#{withdrawalReason},</if>       
       <if test="goal != null and goal != ''">goal=#{goal},</if>       
       <if test="goalIn != null and goalIn != ''">goal_in=#{goalIn},</if>              

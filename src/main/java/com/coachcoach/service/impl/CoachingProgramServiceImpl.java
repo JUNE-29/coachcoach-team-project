@@ -11,6 +11,10 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
 
   CoachingProgramDao coachingProgramDao;
 
+  public CoachingProgramServiceImpl(CoachingProgramDao coachingProgramDao) {
+    this.coachingProgramDao = coachingProgramDao;
+  }
+
   @Override
   public int add(CoachingProgram coachingProgram) throws Exception {
     return coachingProgramDao.insert(coachingProgram);
