@@ -7,7 +7,7 @@ public interface ToDoListService {
 
   void add(ToDoList toDoList) throws Exception;
 
-  List<ToDoList> list() throws Exception;
+  List<ToDoList> list(int memberNo) throws Exception;
 
   int delete(int no) throws Exception;
 

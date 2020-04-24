@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.ToDoListDao">
+
+  <resultMap type="ToDoList" id="ToDoListMap">
+    <id column="to_do_list_no"      property="no"/>
+    <result column="memo"           property="memo"/>
+    <result column="create_date"    property="createDate"/>
+    
+    <association property="member" javaType="Member">
+      <id column="member_no"   property="no"/>
+    </association>
+
+  </resultMap>
+
+  
+  <insert id="insert" parameterType="ToDoList" 
+  useGeneratedKeys="true" keyColumn="to_do_list_no" keyProperty="no">>
+    insert into 
+      to_do_list(memo, member_no)
+      values(#{memo}, #{member.no})
+  </insert>
+  
+  
+  <select id="findAll" parameterType="int" resultMap="ToDoListMap">
+    select
+      memo
+      create_date
+    from to_do_list
+    where
+      member_no=#{member.no}
+    order by
+      to_do_list_no desc
+  </select>
+  
+  <delete id="delete" parameterType="int">
+    delete from to_do_list
+    where to_do_list_no=#{no}
+  </delete>
+  
+  
+
+</mapper>
