@@ -55,8 +55,8 @@
   </select>
 
 
-  <update id="update" parameterType="Member">
-    update members
+  <update id="update" parameterType="CoachingProgram">
+    update coaching_programs
     <set>
       <if test="name != null and name != ''">name=#{name},</if>
       <if test="gender != null and gender != ''">gender=#{gender},</if> 
@@ -69,37 +69,6 @@
       member_no=#{no}
   </update>
   
-  
-  <delete id="delete" parameterType="int">
-    delete from members
-    where member_no=#{no}
-  </delete>
-
-
-  <select id="findByKeyword" 
-    resultMap="MemberMap" 
-    parameterType="string">
-    <bind name="keywordPattern" value="'%' + _parameter + '%'"/>
-    select 
-      <include refid="select"/>
-    from 
-      members
-    where 
-      name like #{keywordPattern}
-      or email like #{keywordPattern}
-      or tel like #{keywordPattern}
-  </select>
-
-
-  <select id="findByIdAndPassword" resultMap="MemberMap" parameterType="map">
-    select 
-      <include refid="select"/>
-      photo
-    from members
-    where 
-      id=#{id} 
-      and password=password(#{password})
-  </select>
  
 </mapper>
 
