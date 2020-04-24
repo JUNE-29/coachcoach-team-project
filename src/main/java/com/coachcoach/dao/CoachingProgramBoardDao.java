@@ -1,19 +1,25 @@
 package com.coachcoach.dao;
 
 import java.util.List;
-import com.coachcoach.domain.NoticeBoard;
+import com.coachcoach.domain.CoachingProgramBoard;
 
-// 공지사항 게시판
-public interface NoticeBoardDao {
-  public int insert(NoticeBoard board) throws Exception;
+public interface CoachingProgramBoardDao {
 
-  public List<NoticeBoard> findAll() throws Exception;
+  int insert(CoachingProgramBoard CoachingProgramBoard) throws Exception;
+  // 공지사항 등록
 
-  public NoticeBoard findByNo(int no) throws Exception;
+  List<CoachingProgramBoard> findAll() throws Exception;
+  // 공지사항 리스트
 
-  public int update(NoticeBoard board) throws Exception;
+  int update(CoachingProgramBoard coachingprogramboard) throws Exception;
+  // 수정
 
-  public int delete(int no) throws Exception;
+  int delete(int no) throws Exception;
+  // 삭제
+
+ CoachingProgramBoard findByNo(int no) throws Exception;
+ // 공지사항 상세보기
+
 }
 
 
