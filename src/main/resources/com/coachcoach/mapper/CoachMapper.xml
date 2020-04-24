@@ -117,7 +117,7 @@
 
 
   <select id="findByKeyword" 
-    resultMap="MemberMap" 
+    resultMap="CoachMap" 
     parameterType="string">
     <bind name="keywordPattern" value="'%' + _parameter + '%'"/>
     select 
@@ -132,9 +132,21 @@
   </select>
 
 
-  <select id="findByIdAndPassword" resultMap="MemberMap" parameterType="map">
+  <select id="findByIdAndPassword" resultMap="CoachMap" parameterType="map">
     select 
       <include refid="select"/>
+     ,area, 
+     career,
+     certification,
+     introduce,
+     members,
+     create_date,
+     bank,
+     account,
+     work_type,
+     address,
+     latitude,
+     longitude
     from coaches
     where 
       id=#{id} 

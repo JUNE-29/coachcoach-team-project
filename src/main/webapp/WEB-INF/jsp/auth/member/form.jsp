@@ -6,8 +6,10 @@
 
 <h1>로그인</h1>
 <form action='login' method='post'>
-ID: <input name='id' type='text'><br>
+ID: <input name='id' type='text' value='${id}'>
+<input type='checkbox' name='saveId'> 아이디 저장해두기<br>
 password: <input name='password' type='password'><br>
+<button>로그인</button>
 <button>로그인</button>
 <p></p>
 <button type="button" onclick="window.open('https://www.naver.com')"> 네이버 로그인</button>
