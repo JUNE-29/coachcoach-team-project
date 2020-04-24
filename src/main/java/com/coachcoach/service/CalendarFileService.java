@@ -7,7 +7,7 @@ public interface CalendarFileService {
 
   int add(CalendarFile calendarFile) throws Exception;
 
-  List<CalendarFile> list() throws Exception;
+  List<CalendarFile> list(int memberProgramCalendar) throws Exception;
 
   int delete(int no) throws Exception;
 
