@@ -10,7 +10,7 @@
 <input name='no' type='hidden' readonly value='${member.no}'><br>
 <label>아이디</label><input name='id' type='text' readonly value='${member.id}'><br>
 <label>이름</label> <input name='name' type='text' value='${member.name}'><br>
-<label>여성</label> <input name='gender' type='radio' value='1' checked='checked'> 남성 <input name='gender' type='radio' value='2'><br>
+여자 <input name='gender' type='radio' value='0' checked='checked'> 남자 <input name='gender' type='radio' value='1'><br>
 <label>생년월일</label><input name=birth type='text' value='${member.birth}'><br>
 <label>전화</label><input name='tel' type='tel' value='${member.tel}'><br>
 <label>E-mail</label><input name='email' type='email' value='${member.email}'><br>

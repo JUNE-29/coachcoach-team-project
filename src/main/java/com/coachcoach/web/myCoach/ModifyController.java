@@ -21,7 +21,7 @@ public class ModifyController {
   @Autowired
   HttpSession httpSession;
 
-  int no = 2;
+  int no = 3;
 
   @GetMapping("form") // 회원정보 수정
   public void form(Model model) throws Exception {
@@ -33,11 +33,8 @@ public class ModifyController {
   public void modify(Member member, @RequestParam("updatePassword") String[] updatePassword)
       throws Exception {
     if (updatePassword[0].equals(updatePassword[1])) {
-      Member updateMember = memberService.get(no);
-      updateMember.setPassword(updatePassword[0]);
-      memberService.update(updateMember);
-    } else {
-
+      member.setPassword(updatePassword[0]);
+      memberService.update(member);
     }
   }
 
@@ -52,7 +49,7 @@ public class ModifyController {
 
   @PostMapping("withdraw") // 회원탈퇴 사유
   public void withdrawReason(HttpSession session, String withdrawalReason) throws Exception {
-    Member member = memberService.get(2);
+    Member member = memberService.get(no);
     member.setWithdrawalReason(withdrawalReason);
     member.setWithdrawal(0);
     memberService.update(member);
