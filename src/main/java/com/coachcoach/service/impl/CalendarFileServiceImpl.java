@@ -26,8 +26,8 @@ public class CalendarFileServiceImpl implements CalendarFileService {
   }
 
   @Override
-  public List<CalendarFile> list() throws Exception {
-    return this.calendarFileDao.findByMemberNo(MemberProgramCalendarNo);
+  public List<CalendarFile> list(int memberProgramCalendarNo) throws Exception {
+    return this.calendarFileDao.findByMemberNo(memberProgramCalendarNo);
   }
 
   @Override
@@ -38,4 +38,3 @@ public class CalendarFileServiceImpl implements CalendarFileService {
 
 
 }
-
