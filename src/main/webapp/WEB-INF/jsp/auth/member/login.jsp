@@ -9,8 +9,6 @@
 <p>'${loginUser.name}'님 환영합니다.</p>
 </c:if>
 
-<p> OOO님 환영합니다.</p>
-
 <c:if test="${empty loginUser}">
 <p>사용자 정보가 유효하지 않습니다.</p>
 </c:if>

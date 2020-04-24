@@ -1,11 +1,16 @@
 package com.coachcoach.web.auth;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.coachcoach.domain.Coach;
 import com.coachcoach.service.CoachService;
 
 @Controller
@@ -21,7 +26,35 @@ public class CoachAuthController {
   public void coachForm() {} // 로그인폼
 
   @PostMapping("login")
-  public void coachLogin() {} // 로그인 후
+  public String coachLogin(String id, String password, String saveId, HttpServletResponse response,
+      HttpSession session, Model model) throws Exception {
+
+    Cookie cookie = new Cookie("id", id);
+    if (saveId != null) {
+      cookie.setMaxAge(60 * 60 * 24 * 30);
+    } else {
+      cookie.setMaxAge(0);
+    }
+    response.addCookie(cookie);
+
+    Coach coach = coachService.get(id, password);
+    if (coach != null) {
+      session.setAttribute("loginUser", coach);
+      model.addAttribute("refreshUrl", "2;url=../../index.jsp");
+    } else {
+      session.invalidate();
+      model.addAttribute("refreshUrl", "2;url=form");
+    }
+
+    return "auth/coach/login";
+
+  } // 로그인 후
+
+  @GetMapping("logout")
+  public String logout(HttpSession session) {
+    session.invalidate();
+    return "redirect:../login";
+  }
 
   @GetMapping("findidform")
   public void coachFindIdForm() {} // 코치아이디찾기 폼
@@ -41,11 +74,5 @@ public class CoachAuthController {
   @PostMapping("add")
   public void coachadd() {} // 코치 회원가입
 
-  // @PostMapping("login")
-  // public void login(String id, String password) throws Exception {
-  // Member member = memberService.get(id, password);
-  // if (member != null) {
-  // servletContext.setAttribute("loginUser", member);
-  // }
-  // }
+
 }

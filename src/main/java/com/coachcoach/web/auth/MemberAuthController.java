@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import com.coachcoach.domain.Member;
 import com.coachcoach.service.MemberService;
 
@@ -41,13 +42,19 @@ public class MemberAuthController {
     Member member = memberService.get(id, password);
     if (member != null) {
       session.setAttribute("loginUser", member);
-      model.addAttribute("refreshUrl", "2;url=../../index.html");
+      model.addAttribute("refreshUrl", "2;url=../../index.jsp");
     } else {
       session.invalidate();
       model.addAttribute("refreshUrl", "2;url=form");
     }
 
     return "auth/member/login";
+  }
+
+  @GetMapping("logout")
+  public String logout(HttpSession session) {
+    session.invalidate();
+    return "redirect:../login";
   }
 
   @GetMapping("findidform")
@@ -66,13 +73,7 @@ public class MemberAuthController {
   public void memberAddForm() {} // 회원가입폼
 
   @PostMapping("add")
-  public void memberAdd() {} // 회원가입
+  public void memberAdd(Member member, MultipartFile photoFile) throws Exception {
 
-  // @PostMapping("login")
-  // public void login(String id, String password) throws Exception {
-  // Member member = memberService.get(id, password);
-  // if (member != null) {
-  // servletContext.setAttribute("loginUser", member);
-  // }
-  // }
+  } // 회원가입
 }

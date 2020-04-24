@@ -38,10 +38,10 @@ div.container {
   </ul>
 <c:if test="${not empty loginUser}">
   <span class='navbar-text'>${loginUser.name}</span>
-  <a href='#' class='btn btn-success btn-sm'>로그아웃</a>
+  <a href='logout' class='btn btn-success btn-sm'>로그아웃</a>
 </c:if>
 <c:if test="${empty loginUser}">
-  <a href='#' class='btn btn-success btn-sm'>로그인</a>
+  <a href='../auth/login' class='btn btn-success btn-sm'>로그인</a>
 </c:if> 
 </div>
 </nav>

@@ -20,7 +20,7 @@
     <result column="certification"        property="certification"/>
     <result column="introduce"            property="introduce"/>
     <result column="members"              property="members"/>
-    <result column="create_date"          property="createDate"/>
+    <result column="create_date"          property="createdDate"/>
     <result column="bank"                 property="bank"/>
     <result column="account"              property="account"/>
     <result column="work_type"            property="workType"/>
