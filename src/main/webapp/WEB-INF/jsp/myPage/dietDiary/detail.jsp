@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page='../../header.jsp'/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<jsp:include page='../../header.jsp'/>
 
 <c:if test="${not empty foodBoard}">
 고객이름: 나문희<br>
@@ -10,11 +11,44 @@
 내용: ${foodBoard.content}<br>
 <p><a href='delete?no=${foodBoard.no}'>삭제</a> 
 <a href='updateForm?no=${foodBoard.no}'>변경</a></p>
-댓글댓글댓글<br>
-</c:if>
+<br>
+댓글<br>
 
-<c:if test="${empty requestScope.foodBoard}">
-<p>해당 게시물이 없습니다.</p>
+<table>
+  <c:forEach items='${foodBoardComments}' var='comment'>
+    <tr>
+    <c:choose>
+		  <c:when test='${comment.coachName ne ""}'>
+		    <td>
+		      ${comment.coachName}
+		    </td>
+		  </c:when>
+		  
+      <c:when test='${comment.coachName eq ""}'>
+        <td>
+          나
+        </td>
+      </c:when>
+		  
+    </c:choose>
+      <td>
+        ${comment.content}
+      </td>
+      <td>
+        ${comment.createDate}
+      </td>
+      <td>
+        <a href='comment/delete?no=${comment.no}'>삭제</a>
+      </td>
+    </tr>  
+  </c:forEach>
+</table>
 </c:if>
+<form action='comment/add'>
+<input type="hidden" name="foodBoardNo" value="${foodBoard.no}">
+<input type="text" name="content" placeholder="댓글 쓰기"> 
+<button class="btn btn-primary">등록</button>
+<br>
+</form>
 
 <jsp:include page='../../footer.jsp'/>

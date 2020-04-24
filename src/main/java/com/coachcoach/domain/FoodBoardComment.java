@@ -12,20 +12,23 @@ public class FoodBoardComment implements Serializable {
   int foodBoardNo;
   String content;
   Date createDate;
+  String coachName;
+
 
   @Override
   public String toString() {
-    return "FoodBoardComments [no=" + no + ", coachNo=" + coachNo + ", foodBoardNo=" + foodBoardNo
-        + ", content=" + content + ", createDate=" + createDate + "]";
+    return "FoodBoardComment [no=" + no + ", coachNo=" + coachNo + ", foodBoardNo=" + foodBoardNo
+        + ", content=" + content + ", createDate=" + createDate + ", coachName=" + coachName + "]";
   }
 
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
+    result = prime * result + (coachName == null ? 0 : coachName.hashCode());
     result = prime * result + coachNo;
-    result = prime * result + ((content == null) ? 0 : content.hashCode());
-    result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
+    result = prime * result + (content == null ? 0 : content.hashCode());
+    result = prime * result + (createDate == null ? 0 : createDate.hashCode());
     result = prime * result + foodBoardNo;
     result = prime * result + no;
     return result;
@@ -40,6 +43,11 @@ public class FoodBoardComment implements Serializable {
     if (getClass() != obj.getClass())
       return false;
     FoodBoardComment other = (FoodBoardComment) obj;
+    if (coachName == null) {
+      if (other.coachName != null)
+        return false;
+    } else if (!coachName.equals(other.coachName))
+      return false;
     if (coachNo != other.coachNo)
       return false;
     if (content == null) {
@@ -57,6 +65,14 @@ public class FoodBoardComment implements Serializable {
     if (no != other.no)
       return false;
     return true;
+  }
+
+  public String getCoachName() {
+    return coachName;
+  }
+
+  public void setCoachName(String coachName) {
+    this.coachName = coachName;
   }
 
   public int getNo() {

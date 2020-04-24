@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import com.coachcoach.domain.FoodBoard;
+import com.coachcoach.domain.FoodBoardComment;
+import com.coachcoach.service.CoachService;
+import com.coachcoach.service.FoodBoardCommentService;
 import com.coachcoach.service.FoodBoardService;
 
 @Controller
@@ -19,6 +22,12 @@ public class DietDiaryController {
 
   @Autowired
   FoodBoardService foodBoardService;
+  @Autowired
+  FoodBoardCommentService foodBoardCommentService;
+  @Autowired
+  CoachService coachService;
+
+
   @Autowired
   ServletContext servletContext;
 
@@ -30,6 +39,7 @@ public class DietDiaryController {
   @GetMapping("detail")
   public void detail(Model model, int no) throws Exception {
     model.addAttribute("foodBoard", foodBoardService.get(no));
+    model.addAttribute("foodBoardComments", foodBoardCommentService.list(no));
   }
 
 
@@ -73,10 +83,21 @@ public class DietDiaryController {
     }
   }
 
-
-
   @GetMapping("delete")
   public void delete(int no) throws Exception {
     foodBoardService.delete(no);
   }
+
+  @GetMapping("comment/delete")
+  public String deleteComment(int no) throws Exception {
+    foodBoardCommentService.delete(no);
+    return "redirect:../list";
+  }
+
+  @GetMapping("comment/add")
+  public String addComment(FoodBoardComment foodBoardComment) throws Exception {
+    foodBoardCommentService.add(foodBoardComment);
+    return "redirect:../list";
+  }
+
 }

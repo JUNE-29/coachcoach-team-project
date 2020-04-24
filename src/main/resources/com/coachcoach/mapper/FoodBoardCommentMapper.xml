@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.FoodBoardCommentDao">
+
+  <resultMap type="FoodBoardComment" id="FoodBoardCommentMap">
+    <id column="comment_no"   property="no"/>
+    <result column="food_board_no"  property="foodBoardNo"/>
+    <result column="coach_no"  property="coachNo"/>
+    <result column="content"  property="content"/>
+    <result column="create_date"  property="createDate"/>
+    <result column="name"  property="coachName"/>
+  </resultMap>
+    
+  <insert id="insert" parameterType="FoodBoardComment">
+    insert into food_board_comments(
+      food_board_no,
+      <if test="${coachNo} != null">
+      coach_no,
+      </if>
+      content,
+      create_date
+    ) 
+    values(
+      #{foodBoardNo},
+      <if test="${coachNo} != null">
+      #{coachNo},
+      </if>
+      #{content},
+      now()
+    )
+  </insert>
+  
+  <select id="findAll" resultMap="FoodBoardCommentMap" parameterType="int">
+    select 
+      f.comment_no,
+      f.food_board_no,
+      f.coach_no,
+      f.content,
+      f.create_date,
+      c.name
+    from 
+      food_board_comments f 
+      left outer join coaches c on f.coach_no = c.coach_no  
+    where 
+      food_board_no=#{no}
+    order by 
+      comment_no asc
+  </select>
+
+  
+  <delete id="delete" parameterType="int">
+    delete 
+      from food_board_comments
+    where comment_no=#{no}
+  </delete>
+</mapper>
+
+
+
+
+
+
+

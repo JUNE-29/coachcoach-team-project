@@ -10,6 +10,10 @@ import com.coachcoach.service.FoodBoardCommentService;
 public class FoodBoardCommentServiceImpl implements FoodBoardCommentService {
   FoodBoardCommentDao foodBoardCommentDao;
 
+  public FoodBoardCommentServiceImpl(FoodBoardCommentDao foodBoardCommentDao) {
+    this.foodBoardCommentDao = foodBoardCommentDao;
+  }
+
   @Override
   public int add(FoodBoardComment foodBoardComment) throws Exception {
     return foodBoardCommentDao.insert(foodBoardComment);
