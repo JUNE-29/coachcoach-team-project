@@ -42,8 +42,9 @@
 <div>
 
 <c:forEach items="${searchCoaches}" var="searchCoaches">
+<label>${searchCoaches.no}</label>
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${searchCoaches.coach.photo}' height='200'>
-<a href='form'><label>${searchCoaches.coach.name} 코치님</label></a><br> 
+<a href='detail?programNo=${searchCoaches.no}&no=${searchCoaches.coachNo}'><label>${searchCoaches.coach.name} 코치님</label></a><br> 
 <label>${searchCoaches.name}</label><br> 
 <label>${searchCoaches.introduce}</label><br> 
 <label>${searchCoaches.fee}원 </label><br> 

@@ -49,8 +49,8 @@
       c.introduce,
       c.fee
     from 
-     coaching_program_tags ct
-      join coaching_programs c on c.program_no=ct.program_no
+     coaching_programs c
+      join coaches ch on c.coach_no=ch.coach_no
     where 
       c.coach_no=#{coachNo}
       <!-- join workout_tags w on w.tag_no=ct.tag_no 태그는 코칭프로그램태그 맵퍼따로-->
@@ -94,6 +94,7 @@
   <select id="findAll" resultMap="CoachingProgramMap">
     select 
       cp.program_no,
+      cp.coach_no,
       c.name coach_name,
       cp.name,
       cp.introduce,

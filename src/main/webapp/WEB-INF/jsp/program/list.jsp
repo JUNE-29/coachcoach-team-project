@@ -42,8 +42,9 @@
 <div>
 
 <c:forEach items="${programList}" var="programList">
-<img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach.photo}' height='200'>
-<a href='form'><label>${programList.coach.name} 코치님</label></a><br> 
+<label>${programList.coachNo}</label>
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach}' height='200'>
+<a href='detail?programNo=${programList.no}&no=${programList.coachNo}'><label>${programList.coach.name} 코치님</label></a><br> 
 <label>${programList.name}</label><br> 
 <label>${programList.introduce}</label><br> 
 <label>${programList.fee}원 </label><br> 

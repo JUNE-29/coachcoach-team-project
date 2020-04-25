@@ -6,14 +6,15 @@
 <jsp:include page="../header.jsp"/>
 
 <div>
-<form action='applyForm' method='get'>
-하체튼튼 프로젝트
-<button>신청하기</button>
+<c:forEach items="${programList}" var="programList">
+<form action='applyForm' method='post'>
+${programList.name}<button>신청하기</button>
+<input name='${programList.no}' type='hidden'><br>
+<input name='${programList.coachNo}' type='hidden'><br>
 </form>
-<form action='applyForm' method='get'>
-건강한 몸 만들기 프로젝트
-<button>신청하기</button>
-</form>
+</c:forEach>
+
+
 
 
 <p>코치 후기</p>
