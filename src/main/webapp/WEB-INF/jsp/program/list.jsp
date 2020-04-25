@@ -5,12 +5,12 @@
 
 <jsp:include page="../header.jsp"/>
 <div>
-<form action='search' method='get' enctype='multipart/form-data'>
-<input name='keyword' type='text' value='코치검색'>
+<form action='search' method='get'>
+<input name='keyword' type='text' placeholder="코치를 찾아보세요">
 <button>검색</button>
 </form>
 키워드<br>
-<form action='search' method='post'>
+<form action='search2' method='post'>
 <input class="btn btn-outline-success" type="button" value="상체튼튼">
 <input class="btn btn-outline-success" type="button" value="하체튼튼">
 <input class="btn btn-outline-success" type="button" value="근육위주">

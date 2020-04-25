@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.coachcoach.dao.CoachingProgram">
+<mapper namespace="com.coachcoach.dao.CoachingProgramDao">
 
   <resultMap type="CoachingProgram" id="CoachingProgramMap">
     <id column="program_no"  property="no"/>
@@ -13,10 +13,15 @@
     <result column="fee"    property="fee"/>
     <result column="coaching_type" property="coachingType"/>
     
-    <collection property="coachingProgramTags" ofType="Integer">
+    <association property="coach" javaType="Coach">
+      <id column="coach_no"   property="no"/>
+      <result column="coach_name"  property="name"/>
+    </association>
+    
+   <!-- <collection property="coachingProgramTags" ofType="Integer">
       <id column="tag_no"   property="tagNo"/>
       <result column="program_no"  property="programNo"/>
-    </collection>
+    </collection> -->
   </resultMap>
   
   
@@ -42,14 +47,13 @@
       c.coach_no,
       c.name,
       c.introduce,
-      c.fee,
-      w.name
+      c.fee
     from 
      coaching_program_tags ct
       join coaching_programs c on c.program_no=ct.program_no
-      join workout_tags w on w.tag_no=ct.tag_no
     where 
       c.coach_no=#{coachNo}
+      <!-- join workout_tags w on w.tag_no=ct.tag_no 태그는 코칭프로그램태그 맵퍼따로-->
   </select>
 
 
@@ -72,12 +76,9 @@
   </delete>
   
   
-   <select id="findByKeyword" 
-    resultMap="CoachingProgramMap" 
-    parameterType="string">
-    <bind name="keywordPattern" value="'%' + _parameter + '%'"/>
+   <select id="findByKeyword" resultMap="CoachingProgramMap" parameterType="string">
     select 
-      c.name,
+      c.name coach_name,
       cp.name,
       cp.introduce,
       cp.fee
@@ -85,8 +86,8 @@
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
     where 
-      c.name like #{keywordPattern}
-      cp.name like #{keywordPattern}      
+      c.name like concat('%', #{keyword}, '%')
+      <!-- or cp.name like concat('%', #{keyword}, '%') -->
   </select>
   
   

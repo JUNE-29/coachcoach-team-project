@@ -1,18 +1,33 @@
 package com.coachcoach.web.searchCoach;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.coachcoach.domain.CoachingProgram;
+import com.coachcoach.service.CoachingProgramService;
+
 @Controller
-@RequestMapping("/searchCoach")
+@RequestMapping("/program")
 public class SearchController {
 
-
-  @GetMapping("search") // 코치검색 페이지
+  @Autowired
+  CoachingProgramService coachingProgramService;
+	
+  @GetMapping("list") // 코치검색 페이지
   public void list() {}
 
+  @GetMapping("search") // 코치 상세보기
+  public void search(String keyword, Model model) throws Exception {
+	  List<CoachingProgram> searchCoaches =  coachingProgramService.search(keyword);
+	  model.addAttribute("searchCoaches", searchCoaches);
+  }
+  
   @GetMapping("detail") // 코치 상세보기
   public void detail() {}
 
