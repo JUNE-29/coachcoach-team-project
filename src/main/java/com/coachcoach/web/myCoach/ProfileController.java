@@ -54,5 +54,11 @@ public class ProfileController {
 	    }
   }
   
-  
+  @GetMapping("delete")
+  public String delete() throws Exception {
+	  Member member = memberService.get(no);
+	  member.setPhoto("images");
+	  memberService.update(member);
+    return "redirect:form";
+  }
 }

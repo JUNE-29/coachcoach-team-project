@@ -12,6 +12,6 @@ applyList.jsp<%@ page language="java" contentType="text/html; charset=UTF-8"
 <label>아이디: ${member.id}</label><br>
 <label>이메일: ${member.email}</label><br>
 <button>사진변경</button>
-</form>
-
+</form><form action='delete' method='get'>
+<button>사진삭제</button>
 <jsp:include page="../footer.jsp"/>
