@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.text.SimpleDateFormat" %>
 
-출처: https://suyou.tistory.com/95 [수유산장]
 <jsp:include page='../../header.jsp'/>
 
 <c:if test="${not empty foodBoard}">
@@ -36,11 +35,7 @@
         ${comment.content}
       </td>
       <td>
-      <%
-			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss+SSSS");
-			String time = sf.format(Date.parse(request.getParameter("createDate")));
-			%>    
-      <%=time%>
+        ${comment.createDate}
       </td>
       <td>
         <a href='comment/delete?no=${comment.no}'>삭제</a>

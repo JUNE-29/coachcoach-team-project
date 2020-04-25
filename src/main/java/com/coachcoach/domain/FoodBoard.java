@@ -1,7 +1,6 @@
 package com.coachcoach.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class FoodBoard implements Serializable {
 
@@ -11,13 +10,69 @@ public class FoodBoard implements Serializable {
   int memberNo;
   String photoFilePath;
   String content;
-  Date modifiedDate;
+  String modifiedDate;
 
 
   @Override
-  public String toString() {
-    return "foodBoard [no=" + no + ", memberProgramNo=" + memberNo + ", photoFilePath="
-        + photoFilePath + ", content=" + content + ", modifiedDate=" + modifiedDate + "]";
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    FoodBoard other = (FoodBoard) obj;
+    if (content == null) {
+      if (other.content != null) {
+        return false;
+      }
+    } else if (!content.equals(other.content)) {
+      return false;
+    }
+    if (memberNo != other.memberNo) {
+      return false;
+    }
+    if (modifiedDate == null) {
+      if (other.modifiedDate != null) {
+        return false;
+      }
+    } else if (!modifiedDate.equals(other.modifiedDate)) {
+      return false;
+    }
+    if (no != other.no) {
+      return false;
+    }
+    if (photoFilePath == null) {
+      if (other.photoFilePath != null) {
+        return false;
+      }
+    } else if (!photoFilePath.equals(other.photoFilePath)) {
+      return false;
+    }
+    return true;
+  }
+
+  public String getContent() {
+    return content;
+  }
+
+  public int getMemberNo() {
+    return memberNo;
+  }
+
+  public String getModifiedDate() {
+    return modifiedDate;
+  }
+
+  public int getNo() {
+    return no;
+  }
+
+  public String getPhotoFilePath() {
+    return photoFilePath;
   }
 
   @Override
@@ -32,75 +87,30 @@ public class FoodBoard implements Serializable {
     return result;
   }
 
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    FoodBoard other = (FoodBoard) obj;
-    if (content == null) {
-      if (other.content != null)
-        return false;
-    } else if (!content.equals(other.content))
-      return false;
-    if (memberNo != other.memberNo)
-      return false;
-    if (modifiedDate == null) {
-      if (other.modifiedDate != null)
-        return false;
-    } else if (!modifiedDate.equals(other.modifiedDate))
-      return false;
-    if (no != other.no)
-      return false;
-    if (photoFilePath == null) {
-      if (other.photoFilePath != null)
-        return false;
-    } else if (!photoFilePath.equals(other.photoFilePath))
-      return false;
-    return true;
-  }
-
-  public int getNo() {
-    return no;
-  }
-
-  public void setNo(int no) {
-    this.no = no;
-  }
-
-  public int getMemberNo() {
-    return memberNo;
+  public void setContent(String content) {
+    this.content = content;
   }
 
   public void setMemberNo(int memberNo) {
     this.memberNo = memberNo;
   }
 
-  public String getPhotoFilePath() {
-    return photoFilePath;
+  public void setModifiedDate(String modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+  public void setNo(int no) {
+    this.no = no;
   }
 
   public void setPhotoFilePath(String photoFilePath) {
     this.photoFilePath = photoFilePath;
   }
 
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Date getModifiedDate() {
-    return modifiedDate;
-  }
-
-  public void setModifiedDate(Date modifiedDate) {
-    this.modifiedDate = modifiedDate;
+  @Override
+  public String toString() {
+    return "foodBoard [no=" + no + ", memberProgramNo=" + memberNo + ", photoFilePath="
+        + photoFilePath + ", content=" + content + ", modifiedDate=" + modifiedDate + "]";
   }
 
 }
