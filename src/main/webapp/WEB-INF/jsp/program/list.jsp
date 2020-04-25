@@ -37,10 +37,19 @@
   <option value="saab">별점 높은 순</option>
   <option value="fiat">인기 많은 순</option>
 </select>
-<div>
-<img src='/upload/member/' height='80'><br> 
-</div>
 
+
+<div>
+
+<c:forEach items="${programList}" var="programList">
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach.photo}' height='200'>
+<a href='form'><label>${programList.coach.name} 코치님</label></a><br> 
+<label>${programList.name}</label><br> 
+<label>${programList.introduce}</label><br> 
+<label>${programList.fee}원 </label><br> 
+</c:forEach>
+
+</div>
 
 
 <jsp:include page="../footer.jsp"/>

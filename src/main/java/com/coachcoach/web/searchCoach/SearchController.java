@@ -1,6 +1,5 @@
 package com.coachcoach.web.searchCoach;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.coachcoach.domain.CoachingProgram;
 import com.coachcoach.service.CoachingProgramService;
 
 @Controller
@@ -20,12 +18,13 @@ public class SearchController {
   CoachingProgramService coachingProgramService;
 	
   @GetMapping("list") // 코치검색 페이지
-  public void list() {}
+  public void list(Model model) throws Exception {
+	  model.addAttribute("programList", coachingProgramService.list());
+  }
 
   @GetMapping("search") // 코치 상세보기
   public void search(String keyword, Model model) throws Exception {
-	  List<CoachingProgram> searchCoaches =  coachingProgramService.search(keyword);
-	  model.addAttribute("searchCoaches", searchCoaches);
+	  model.addAttribute("searchCoaches", coachingProgramService.search(keyword));
   }
   
   @GetMapping("detail") // 코치 상세보기

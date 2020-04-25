@@ -16,6 +16,9 @@ public interface CoachingProgramDao {
 
   // 코칭 프로그램 번호로 삭제
   int delete(int no) throws Exception;
+  
+  // 코칭 프로그램 리스트
+  List<CoachingProgram> findAll() throws Exception;
 
   // 코칭 프로그램 검색(코치이름 and 프로그램명)
   List<CoachingProgram> findByKeyword(String keyword) throws Exception;

@@ -8,6 +8,8 @@ public interface CoachingProgramService {
   int add(CoachingProgram coachingProgram) throws Exception;
 
   List<CoachingProgram> list(int coachNo) throws Exception;
+  
+  List<CoachingProgram> list() throws Exception;
 
   int update(CoachingProgram coachingProgram) throws Exception;
 
