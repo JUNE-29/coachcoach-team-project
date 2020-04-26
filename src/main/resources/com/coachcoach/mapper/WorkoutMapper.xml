@@ -10,7 +10,8 @@
     <result column="name"  property="name"/>
     <result column="unit"  property="unit"/>
   </resultMap>
-
+  
+  
   <select id="findAll" resultMap="WorkoutMap" parameterType="String">
     select 
       workout_no
@@ -21,9 +22,6 @@
   </select>
 
 </mapper>
-
-
-
 
 
 
