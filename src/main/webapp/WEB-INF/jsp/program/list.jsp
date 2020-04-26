@@ -39,18 +39,17 @@
 </select>
 
 
-<div>
+
 
 <c:forEach items="${programList}" var="programList">
+<div style='border:1px solid; padding:10px;'>
 <label>${programList.coachNo}</label>
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach}' height='200'>
 <a href='detail?programNo=${programList.no}&no=${programList.coachNo}'><label>${programList.coach.name} 코치님</label></a><br> 
-<label>${programList.name}</label><br> 
 <label>${programList.introduce}</label><br> 
 <label>${programList.fee}원 </label><br> 
-</c:forEach>
-
 </div>
+</c:forEach>
 
 
 <jsp:include page="../footer.jsp"/>
