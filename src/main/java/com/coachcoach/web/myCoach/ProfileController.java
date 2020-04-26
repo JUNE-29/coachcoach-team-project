@@ -29,17 +29,13 @@ public class ProfileController {
 	MemberService memberService;
 
 	@GetMapping("form") // 내프로필
-	public String form(Model model) throws Exception {
+	public void form(Model model) throws Exception {
 		Member member = (Member) httpSession.getAttribute("loginUser");
-		if (member != null) {
-			model.addAttribute("member", memberService.get(member.getNo()));
-			return "redirect:form";
-		}
-		return "redirect:form";
+		model.addAttribute("member", memberService.get(member.getNo()));
 	}
 
 	@PostMapping("updateForm") // 프로필 사진 수정
-	public String updateForm(Member member,MultipartFile photoFile) throws Exception {
+	public String updateForm(Member member, MultipartFile photoFile) throws Exception {
 		if (photoFile.getSize() > 0) {
 			String dirPath = servletContext.getRealPath("/upload/member");
 			String filename = UUID.randomUUID().toString();
