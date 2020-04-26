@@ -81,7 +81,7 @@ public class CoachAuthController {
     if (coachService.add(coach) > 0) {
       // return "redirect:../login";
     } else {
-      throw new Exception("회원을 추가할 수 없습니다.");
+      throw new Exception("코치 가입을 할 수 없습니다.");
     }
   } // 코치 회원가입
 

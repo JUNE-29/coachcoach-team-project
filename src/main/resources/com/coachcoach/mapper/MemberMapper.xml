@@ -5,22 +5,22 @@
   
 <mapper namespace="com.coachcoach.dao.MemberDao">
 
-  <resultMap type="Member" id="MemberMap">
-    <id column="member_no"  property="no"/>
-    <result column="id"       property="id"/>
-    <result column="name"       property="name"/>
-    <result column="gender"  property="gender"/>
-    <result column="birth"    property="birth"/>
-    <result column="tel" property="tel"/>
-    <result column="email" property="email"/>
-    <result column="password" property="password"/>
-    <result column="photo" property="photo"/>
-    <result column="create_date" property="createDate"/>
-    <result column="withdrawal" property="withdrawal"/>
-    <result column="withdrawal_date" property="withdrawalDate"/>
-    <result column="withdrawal_reason" property="withdrawalReason"/>
-    <result column="goal" property="goal"/>
-    <result column="goal_in" property="goalIn"/>               
+  <resultMap type="Member"              id="MemberMap">
+    <id column="member_no"              property="no"/>
+    <result column="id"                 property="id"/>
+    <result column="name"               property="name"/>
+    <result column="gender"             property="gender"/>
+    <result column="birth"              property="birth"/>
+    <result column="tel"                property="tel"/>
+    <result column="email"              property="email"/>
+    <result column="password"           property="password"/>
+    <result column="photo"              property="photo"/>
+    <result column="create_date"        property="createDate"/>
+    <result column="withdrawal"         property="withdrawal"/>
+    <result column="withdrawal_date"    property="withdrawalDate"/>
+    <result column="withdrawal_reason"  property="withdrawalReason"/>
+    <result column="goal"               property="goal"/>
+    <result column="goal_in"            property="goalIn"/>
   </resultMap>
   
   <sql id="select">
@@ -52,7 +52,8 @@
      birth,
      tel,
      email,
-     photo
+     photo,
+     create_date
     ) values(
       #{no},
       #{id},
@@ -62,7 +63,8 @@
       #{birth},
       #{tel},
       #{email},      
-      #{photo}
+      #{photo},
+      now()
     )
   </insert>
   

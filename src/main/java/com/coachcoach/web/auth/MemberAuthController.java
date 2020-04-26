@@ -1,5 +1,7 @@
 package com.coachcoach.web.auth;
 
+import java.io.File;
+import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -69,6 +71,19 @@ public class MemberAuthController {
 
   @PostMapping("add")
   public void memberAdd(Member member, MultipartFile photoFile) throws Exception {
+
+    if (photoFile.getSize() > 0) {
+      String dirPath = servletContext.getRealPath("/upload/member");
+      String filename = UUID.randomUUID().toString();
+      photoFile.transferTo(new File(dirPath + "/" + filename));
+      member.setPhoto(filename);
+    }
+
+    if (memberService.add(member) > 0) {
+      // return "redirect:list";
+    } else {
+      throw new Exception("회원 가입을 할 수 없습니다.");
+    }
 
   } // 회원가입
 }

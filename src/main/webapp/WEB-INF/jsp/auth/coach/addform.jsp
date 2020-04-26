@@ -9,7 +9,8 @@
 아이디:<input name='id' type='text'><br>
 비밀번호: <input name='password' type='password'><br>
 이름:     <input name='name' type='text'><br>
-성별:     <input name='gender' type='text'><br>
+성별:     <input type="radio" name="coach" value="1"/>여자
+          <input type="radio" name="coach" value="2"/>남자<br>
 생년월일: <input name='birth' type='text'><br>
 연락처:   <input name='tel' type='tel'> <button> 인증하기</button> <br>
 이메일:   <input name='email' type='email'><br>
