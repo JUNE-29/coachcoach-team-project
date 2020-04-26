@@ -16,13 +16,13 @@
 <a href='../detailData/list'>더보기</a><br>
 <jsp:include page='../detailData/weightGraph.jsp'/>
 <br><br>
-
+<!-- 
 <h3>To Do List</h3>
     <c:forEach items='${list}' var='item'>
       <input type='checkbox'>${item.memo}<br>
     </c:forEach>
     
-<!--   
+ 
 <form action='add' method='Get'>
    
     <script>function add(){var div = document.createElement('div');
@@ -41,9 +41,9 @@
     </div>
  
 </form>
--->  
+  
 <a href='../dashBoard/toDoListAddForm'>추가하기</a>
-
+ -->
 <br>
 공지사항 
 <a href='../coaching/list'>더보기</a>
