@@ -18,6 +18,7 @@
       <th scope="col">상태</th>
     </tr>
   </thead>
+  <c:forEach items="${programList}" var="programList">
   <tbody>
     <tr>
       <th scope="row">2</th>
@@ -25,10 +26,12 @@
       <td>Thornton</td>
       <td>@fat</td>
       <td><form action='reviewForm' method='get'>
+      <td>@fat</td>
     <button>후기작성</button>
     </form></td>
     </tr>
   </tbody>
+  </c:forEach>
 </table>
 </div>
 

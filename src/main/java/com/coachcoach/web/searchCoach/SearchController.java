@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.coachcoach.domain.CoachingProgram;
+import com.coachcoach.domain.Member;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
+import com.coachcoach.service.MemberService;
 
 @Controller
 @RequestMapping("/program")
@@ -26,24 +28,31 @@ public class SearchController {
 
 	@Autowired
 	CoachService coachService;
+	
+	@Autowired
+	MemberService memberService;
 
-	@GetMapping("list") // 코치검색 페이지
+	@GetMapping("list") // 프로그램 페이지
 	public void list(Model model) throws Exception {
 		model.addAttribute("programList", coachingProgramService.list());
 	}
 
-	@GetMapping("search") // 코치 상세보기
-	public void search(String keyword, Model model) throws Exception {
+	@GetMapping("search") // 코치 검색
+	public void search(Model model,String keyword) throws Exception {
 		model.addAttribute("searchCoaches", coachingProgramService.search(keyword));
 	}
 
 	@GetMapping("detail") // 코치 상세보기
-	public void detail(int programNo, int no, Model model) throws Exception {
+	public void detail(Model model,int programNo, int no) throws Exception {
 		model.addAttribute("programList",coachingProgramService.list(no));
 	}
 
 	@PostMapping("applyForm") // 신청서
-	public void applyForm() {}
+	public void applyForm(Model model, int no) throws Exception {
+		Member member = (Member) httpSession.getAttribute("loginUser");
+		model.addAttribute("member", memberService.get(member.getNo()));
+		model.addAttribute("program", coachingProgramService.get(no));
+	}
 
 	@GetMapping("updateForm") // 신청서 수정
 	public void updateForm() {}

@@ -4,29 +4,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../header.jsp"/>
-  <h1>신청내역</h1>
-  <table border='1'>
-  <tr>
-    <th>주문번호</th>
-    <th>코치님</th>
-    <th>신청일</th>
-    <th>신청한 프로그램명</th>
-    <th>결제금액</th>
-    <th>상태</th>
-  </tr>
-  
 
+<div>
+  <h1>신청내역</h1>
+  <table class="table">
+  <thead>
     <tr>
-    <td>1</td> 
-    <td>2</td> 
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td><form action='rejectForm' method='get'>
+      <th scope="col">신청번호</th>
+      <th scope="col">코치님</th>
+      <th scope="col">신청한 프로그램명</th>
+      <th scope="col">결제금액</th>
+      <th scope="col">상태</th>
+    </tr>
+  </thead>
+  <c:forEach items="${programList}" var="programList">
+  <tbody>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td><form action='reviewForm' method='get'>
     <button>거절사유</button>
     </form></td>
     </tr>
-
-
-
+  </tbody>
+  </c:forEach>
+</table>
+</div>
 <jsp:include page="../footer.jsp"/>

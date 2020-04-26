@@ -7,13 +7,13 @@
 
 <h1>프로그램 신청서</h1>
 <h3>[인적사항]</h3>
-이름: 홍길동<br>
-성별: 남자<br>
-생년월일: 1900-01-01<br>
-연락처: 000-0000-0000<br>
-특이사항: dsfsdf<br>
+이름: ${member.name}<br>
+성별: ${member.gender}<br>
+생년월일: ${member.birth}<br>
+연락처: ${member.tel}<br>
+특이사항: <br>
 <h3>[프로그램 세부사항]</h3>
-프로젝트<br>
+프로그램명: ${program.name}<br>
 운동 시작일: 2020-04-21<br>
 <a href='updateForm'>수정하기</a>
 <a href='apply'>신청하기</a>

@@ -9,8 +9,7 @@
 <c:forEach items="${programList}" var="programList">
 <form action='applyForm' method='post'>
 ${programList.name}<button>신청하기</button>
-<input name='${programList.no}' type='hidden'><br>
-<input name='${programList.coachNo}' type='hidden'><br>
+<input name='no' type='hidden' value='${programList.no}'><br>
 </form>
 </c:forEach>
 

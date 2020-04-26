@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/mycoach/pay")
 public class PayController {
+	
+	
 
   @GetMapping("list") // 결제내역
   public void list() {}
