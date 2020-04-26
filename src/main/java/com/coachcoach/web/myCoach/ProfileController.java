@@ -19,46 +19,45 @@ import com.coachcoach.service.MemberService;
 @Controller
 @RequestMapping("/mycoach/profile")
 public class ProfileController {
+	@Autowired
+	ServletContext servletContext;
 
-  @Autowired
-  MemberService memberService;
+	@Autowired
+	HttpSession httpSession;
 
-  @Autowired
-  HttpSession httpSession;
-  
-  @Autowired
-  ServletContext servletContext;
-  
-  int no = 3;
+	@Autowired
+	MemberService memberService;
 
-  @GetMapping("form") // 내프로필
-  public void form(Model model) throws Exception {
-    model.addAttribute("member", memberService.get(no));
-  }
+	@GetMapping("form") // 내프로필
+	public String form(Model model) throws Exception {
+		Member member = (Member) httpSession.getAttribute("loginUser");
+		if (member != null) {
+			model.addAttribute("member", memberService.get(member.getNo()));
+			return "redirect:form";
+		}
+		return "redirect:form";
+	}
 
-  @PostMapping("updateForm") // 프로필 사진 수정
-  public String updateForm(MultipartFile photoFile) throws Exception {
-	  Member member = memberService.get(no);
-	  
-	  if (photoFile.getSize() > 0) {
-	      String dirPath = servletContext.getRealPath("/upload/member");
-	      String filename = UUID.randomUUID().toString();
-	      photoFile.transferTo(new File(dirPath + "/" + filename));
-	      member.setPhoto(filename);
-	    }
+	@PostMapping("updateForm") // 프로필 사진 수정
+	public String updateForm(Member member,MultipartFile photoFile) throws Exception {
+		if (photoFile.getSize() > 0) {
+			String dirPath = servletContext.getRealPath("/upload/member");
+			String filename = UUID.randomUUID().toString();
+			photoFile.transferTo(new File(dirPath + "/" + filename));
+			member.setPhoto(filename);
+		}
 
-	    if (memberService.update(member) > 0) {
-	    	return "redirect:form";
-	    } else {
-	      throw new Exception("사진을 수정할 수 없습니다.");
-	    }
-  }
-  
-  @GetMapping("delete")
-  public String delete() throws Exception {
-	  Member member = memberService.get(no);
-	  member.setPhoto("images");
-	  memberService.update(member);
-    return "redirect:form";
-  }
+		if (memberService.update(member) > 0) {
+			return "redirect:form";
+		} else {
+			throw new Exception("사진을 수정할 수 없습니다.");
+		}
+	}
+
+	@GetMapping("delete")
+	public String delete(Member member) throws Exception {
+		member.setPhoto("images");
+		memberService.update(member);
+		return "redirect:form";
+	}
 }

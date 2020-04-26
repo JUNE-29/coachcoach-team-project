@@ -15,45 +15,46 @@ import com.coachcoach.service.MemberService;
 @RequestMapping("/mycoach/modify")
 public class ModifyController {
 
-  @Autowired
-  MemberService memberService;
+	@Autowired
+	MemberService memberService;
 
-  @Autowired
-  HttpSession httpSession;
+	@Autowired
+	HttpSession httpSession;
 
-  int no = 3;
+	@GetMapping("form") // 회원정보 수정
+	public void form(Model model) throws Exception {
+		Member member = (Member) httpSession.getAttribute("loginUser");
+		model.addAttribute("member", memberService.get(member.getNo()));
+	}
 
-  @GetMapping("form") // 회원정보 수정
-  public void form(Model model) throws Exception {
-    // int no = (int) httpSession.getAttribute("no");
-    model.addAttribute("member", memberService.get(no));
-  }
+	@PostMapping("modify")
+	public void modify(Member member, @RequestParam("updatePassword") String[] updatePassword)
+			throws Exception {
+		if (updatePassword[0].equals(updatePassword[1])) {
+			member.setPassword(updatePassword[0]);
+			memberService.update(member);
+		}
+	}
 
-  @PostMapping("modify")
-  public void modify(Member member, @RequestParam("updatePassword") String[] updatePassword)
-      throws Exception {
-    if (updatePassword[0].equals(updatePassword[1])) {
-      member.setPassword(updatePassword[0]);
-      memberService.update(member);
-    }
-  }
+	@GetMapping("withdrawForm") // 비밀번호 재확인
+	public void withdrawForm() {}
 
-  @GetMapping("withdrawForm") // 비밀번호 재확인
-  public void withdrawForm() {}
+	@PostMapping("withdrawReason") // 아이디,비번 일치시 처리하는 메서드
+	public String withdraw(Model model, String id, String password) throws Exception {
+		Member member = memberService.get(id, password);
+		if (member != null) {
+			model.addAttribute("member", member);
+			return "redirect:withdraw";
+		} else {
+			return "redirect:withdrawFail";
+		}
+	}
 
-  @PostMapping("withdrawReason") // 아이디,비번 일치시 처리하는 메서드
-  public void withdraw(Model model, String id, String password) throws Exception {
-    Member member = memberService.get(id, password);
-    model.addAttribute("member", member);
-  }
-
-  @PostMapping("withdraw") // 회원탈퇴 사유
-  public void withdrawReason(HttpSession session, String withdrawalReason) throws Exception {
-    Member member = memberService.get(no);
-    member.setWithdrawalReason(withdrawalReason);
-    member.setWithdrawal(0);
-    memberService.update(member);
-    session.invalidate();
-  }
+	@PostMapping("withdraw") // 회원탈퇴 사유
+	public void withdrawReason(HttpSession session, Member member) throws Exception {
+		member.setWithdrawal(0);
+		memberService.update(member);
+		session.invalidate();
+	}
 
 }

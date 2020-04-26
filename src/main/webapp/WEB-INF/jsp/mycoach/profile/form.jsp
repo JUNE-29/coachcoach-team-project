@@ -11,7 +11,10 @@ applyList.jsp<%@ page language="java" contentType="text/html; charset=UTF-8"
 <input type='file' name='photoFile'><br>
 <label>아이디: ${member.id}</label><br>
 <label>이메일: ${member.email}</label><br>
+<input type='hidden' name='${member.no}'><br>
 <button>사진변경</button>
 </form><form action='delete' method='get'>
+<input type='hidden' name='${member.no}'><br>
 <button>사진삭제</button>
+
 <jsp:include page="../footer.jsp"/>
