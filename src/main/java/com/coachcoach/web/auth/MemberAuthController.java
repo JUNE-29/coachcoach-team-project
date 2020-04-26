@@ -51,11 +51,6 @@ public class MemberAuthController {
     return "auth/member/login";
   }
 
-  @GetMapping("logout")
-  public String logout(HttpSession session) {
-    session.invalidate();
-    return "redirect:../login";
-  }
 
   @GetMapping("findidform")
   public void memberFindIdForm() {}

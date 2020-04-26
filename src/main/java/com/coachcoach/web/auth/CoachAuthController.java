@@ -53,11 +53,6 @@ public class CoachAuthController {
 
   } // 로그인 후
 
-  @GetMapping("logout")
-  public String logout(HttpSession session) {
-    session.invalidate();
-    return "redirect:../login";
-  }
 
   @GetMapping("findidform")
   public void coachFindIdForm() {} // 코치아이디찾기 폼
