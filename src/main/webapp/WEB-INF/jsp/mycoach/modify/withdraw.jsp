@@ -5,11 +5,11 @@
 
 <jsp:include page="../header.jsp"/>
 
-
 <h1>COACH COACH</h1>
-<p>아이디 비밀번호가 일치하지 않습니다.</p>
-<form action='withdrawForm' method='get'>
-<button>확인</button>
-</form>
+<h3>회원탈퇴를 완료하였습니다.</h3>
+<h3>그동안 코치코치 서비스를 이용해 주셔서 감사합니다.</h3>
+<br>
+
+
 
 <jsp:include page="../footer.jsp"/>

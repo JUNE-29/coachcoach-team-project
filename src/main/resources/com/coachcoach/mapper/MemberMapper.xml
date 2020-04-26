@@ -97,7 +97,7 @@
       <if test="password != null and password != ''">password=password(#{password}),</if> 
       <if test="photo != null and photo != ''">photo=#{photo},</if>
       <if test="createDate != null">create_date=#{createDate},</if>                    
-      <if test="withdrawal != null and withdrawal != ''">withdrawal=#{withdrawal},</if>
+      <if test="withdrawal != null">withdrawal=#{withdrawal},</if>
       <if test="withdrawalDate != null">withdrawal_date=#{withdrawalDate},</if>              
       <if test="withdrawalReason != null and withdrawalReason != ''">withdrawal_reason=#{withdrawalReason},</if>       
       <if test="goal != null and goal != ''">goal=#{goal},</if>       
@@ -135,6 +135,17 @@
     from members
     where 
       id=#{id} 
+      and password=password(#{password})
+  </select>
+  
+  
+  <select id="findByNoAndidPassword" resultMap="MemberMap" parameterType="map">
+    select 
+      <include refid="select"/>
+    from members
+    where 
+      member_no=#{no}
+      and id=#{id}
       and password=password(#{password})
   </select>
  

@@ -26,6 +26,9 @@ public interface MemberDao {
 
   // 회원가입
   Member findByIdAndPassword(Map<String, Object> params) throws Exception;
+  
+  // 회원가입
+  Member findByNoAndidPassword(Map<String, Object> params) throws Exception;
 }
 
 

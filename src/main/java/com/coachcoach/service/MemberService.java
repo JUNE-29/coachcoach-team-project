@@ -19,5 +19,7 @@ public interface MemberService {
 
   int update(Member member) throws Exception;
 
+  Member get(int no, String id, String password) throws Exception;
+
 
 }

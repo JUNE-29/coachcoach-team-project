@@ -7,7 +7,8 @@
 
 <h1>회원 탈퇴</h1><br>
 <h3>비밀번호 재확인</h3>
-<form action='withdrawReason' method='post' enctype='multipart/form-data'>
+<form action='withdrawConfirm' method='post' enctype='multipart/form-data'>
+<input name='no' type='hidden' value='${member.no}'><br>
 아이디 <input name='id' type='text'><br>
 비밀번호 <input name='password' type='password'><br>
 <p><button>확인</button>
@@ -15,6 +16,5 @@
 <br>
 
 
-<!-- 비밀번호 불일치 페이지 만들기 -->
 <jsp:include page="../footer.jsp"/>
     

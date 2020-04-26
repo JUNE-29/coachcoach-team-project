@@ -33,26 +33,31 @@ public class ModifyController {
 		if (updatePassword[0].equals(updatePassword[1])) {
 			member.setPassword(updatePassword[0]);
 			memberService.update(member);
+			
 		}
 	}
 
-	@GetMapping("withdrawForm") // 비밀번호 재확인
-	public void withdrawForm() {}
+	@PostMapping("withdrawForm") // 비밀번호 재확인
+	public void withdrawForm(Model model, int no) throws Exception {
+		model.addAttribute("member", memberService.get(no));
+	}
 
-	@PostMapping("withdrawReason") // 아이디,비번 일치시 처리하는 메서드
-	public String withdraw(Model model, String id, String password) throws Exception {
-		Member member = memberService.get(id, password);
-		if (member != null) {
+	@PostMapping("withdrawConfirm") // 아이디,비번 일치시 처리하는 메서드
+	public void withdrawConfirm(Model model, int no, String id, String password) throws Exception {
+		Member member = memberService.get(no, id, password);
 			model.addAttribute("member", member);
-			return "redirect:withdraw";
-		} else {
-			return "redirect:withdrawFail";
-		}
 	}
 
+//	@GetMapping("withdrawReason") // 아이디,비번 일치시 처리하는 메서드
+//	public void withdrawReason(Model model, Member member) throws Exception {
+//		model.addAttribute("member", member);
+//	}
+	
 	@PostMapping("withdraw") // 회원탈퇴 사유
-	public void withdrawReason(HttpSession session, Member member) throws Exception {
-		member.setWithdrawal(0);
+	public void withdraw(HttpSession session, int no, String withdrawalReason) throws Exception {
+		Member member = memberService.get(no);
+		member.setWithdrawalReason(withdrawalReason);
+		member.setWithdrawal(Integer.parseInt("0"));
 		memberService.update(member);
 		session.invalidate();
 	}

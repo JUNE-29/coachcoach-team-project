@@ -19,7 +19,8 @@
 <p><button>수정</button>
 </form>
 <br>
-<form action='withdrawForm' method='get'>
+<form action='withdrawForm' method='post'>
+<input name='no' type='hidden' value='${member.no}'><br>
 <button>탈퇴</button>
 </form>
 <br>
