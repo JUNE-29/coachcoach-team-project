@@ -33,7 +33,6 @@
   </resultMap>
   
   <sql id="select">
-    coach_no,
     id,
     password,
     name,
@@ -50,7 +49,6 @@
     insert into coaches(
       <include refid="select"/>
     ) values(
-      #{no},
       #{id},
       password(#{password}),
       #{name},
@@ -58,7 +56,7 @@
       #{birth},
       #{tel},
       #{email},   
-      #{workType},    
+      #{workType}    
       #{photo}
     )
   </insert>

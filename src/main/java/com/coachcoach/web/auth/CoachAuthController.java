@@ -1,5 +1,7 @@
 package com.coachcoach.web.auth;
 
+import java.io.File;
+import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import com.coachcoach.domain.Coach;
 import com.coachcoach.service.CoachService;
 
@@ -72,7 +75,20 @@ public class CoachAuthController {
   public void coachaddform() {} // 코치 회원가입 폼
 
   @PostMapping("add")
-  public void coachadd() {} // 코치 회원가입
+  public void coachadd(Coach coach, MultipartFile photoFile) throws Exception {
+    if (photoFile.getSize() > 0) {
+      String dirPath = servletContext.getRealPath("/upload/member");
+      String filename = UUID.randomUUID().toString();
+      photoFile.transferTo(new File(dirPath + "/" + filename));
+      coach.setPhoto(filename);
+    }
+
+    if (coachService.add(coach) > 0) {
+      // return "redirect:../login";
+    } else {
+      throw new Exception("회원을 추가할 수 없습니다.");
+    }
+  } // 코치 회원가입
 
 
 }

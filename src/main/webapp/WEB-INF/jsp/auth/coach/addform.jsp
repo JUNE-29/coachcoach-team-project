@@ -8,13 +8,13 @@
 <form action='add' method='post' enctype='multipart/form-data'>
 아이디:<input name='id' type='text'><br>
 비밀번호: <input name='password' type='password'><br>
-이름: <input name='name' type='text'><br>
-성별: <input name='gender' type='text'><br>
-생년월일: <input name= 'birth' type='date'><br>
-연락처: <input name='tel' type='tel'> <button> 인증하기</button> <br>
-이메일: <input name='email' type='email'><br>
-소속: <input name='workType' type='text'><br>
-사진: <input name='photoFile' type='file'><br>
+이름:     <input name='name' type='text'><br>
+성별:     <input name='gender' type='text'><br>
+생년월일: <input name='birth' type='text'><br>
+연락처:   <input name='tel' type='tel'> <button> 인증하기</button> <br>
+이메일:   <input name='email' type='email'><br>
+소속:     <input name='workType' type='text'><br> 
+사진:     <input name='photoFile' type='file'><br>
 
 <button>가입하기</button>
 </form>
