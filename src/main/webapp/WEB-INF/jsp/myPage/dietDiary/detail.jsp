@@ -1,3 +1,4 @@
+<%@page import="com.coachcoach.domain.Coach"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -44,9 +45,14 @@
   </c:forEach>
 </table>
 </c:if>
-<form action='comment/add'>
+<form action='comment/add' method='post'>
 <input type="hidden" name="foodBoardNo" value="${foodBoard.no}">
-<input type="hidden" name="coachNo" value="0">
+<% 
+Object loginUser = (Object) request.getSession().getAttribute("loginUser");
+if (loginUser instanceof Coach) {
+%>
+<input type="hidden" name="coachNo" value="${loginUser.no}">
+<%}%>
 <input type="text" name="content" placeholder="댓글 쓰기"> 
 <button class="btn btn-primary">등록</button>
 <br>

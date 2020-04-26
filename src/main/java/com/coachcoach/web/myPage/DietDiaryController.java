@@ -31,22 +31,6 @@ public class DietDiaryController {
   @Autowired
   ServletContext servletContext;
 
-  @GetMapping("list")
-  public void list(Model model) throws Exception {
-    model.addAttribute("list", foodBoardService.list(1));
-  }
-
-  @GetMapping("detail")
-  public void detail(Model model, int no) throws Exception {
-    model.addAttribute("foodBoard", foodBoardService.get(no));
-    model.addAttribute("foodBoardComments", foodBoardCommentService.list(no));
-  }
-
-
-
-  @GetMapping("addForm")
-  public void addForm() {}
-
   @PostMapping("add")
   public void add(FoodBoard foodBoard, MultipartFile photoFile) throws Exception {
     if (photoFile.getSize() > 0) {
@@ -62,10 +46,38 @@ public class DietDiaryController {
     }
   }
 
+  @PostMapping("comment/add")
+  public String addComment(FoodBoardComment foodBoardComment) throws Exception {
+    foodBoardCommentService.add(foodBoardComment);
+    return "redirect:../detail?no=" + foodBoardComment.getFoodBoardNo();
+  }
 
-  @GetMapping("updateForm")
-  public void updateForm(int no, Model model) throws Exception {
+
+
+  @GetMapping("addForm")
+  public void addForm() {}
+
+  @GetMapping("delete")
+  public void delete(int no) throws Exception {
+    foodBoardService.delete(no);
+  }
+
+
+  @GetMapping("comment/delete")
+  public String deleteComment(int no) throws Exception {
+    foodBoardCommentService.delete(no);
+    return "redirect:../list";
+  }
+
+  @GetMapping("detail")
+  public void detail(Model model, int no) throws Exception {
     model.addAttribute("foodBoard", foodBoardService.get(no));
+    model.addAttribute("foodBoardComments", foodBoardCommentService.list(no));
+  }
+
+  @GetMapping("list")
+  public void list(Model model) throws Exception {
+    model.addAttribute("list", foodBoardService.list(1));
   }
 
   @PostMapping("update")
@@ -83,21 +95,9 @@ public class DietDiaryController {
     }
   }
 
-  @GetMapping("delete")
-  public void delete(int no) throws Exception {
-    foodBoardService.delete(no);
-  }
-
-  @GetMapping("comment/delete")
-  public String deleteComment(int no) throws Exception {
-    foodBoardCommentService.delete(no);
-    return "redirect:../list";
-  }
-
-  @GetMapping("comment/add")
-  public String addComment(FoodBoardComment foodBoardComment) throws Exception {
-    foodBoardCommentService.add(foodBoardComment);
-    return "redirect:../detail?no=" + foodBoardComment.getFoodBoardNo();
+  @GetMapping("updateForm")
+  public void updateForm(int no, Model model) throws Exception {
+    model.addAttribute("foodBoard", foodBoardService.get(no));
   }
 
 }
