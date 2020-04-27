@@ -53,7 +53,8 @@
       c.coach_no,
       c.name,
       c.introduce,
-      c.fee
+      c.fee,
+      ch.
     from 
      coaching_programs c
       join coaches ch on c.coach_no=ch.coach_no
@@ -63,17 +64,24 @@
   </select>
 
   <select id="findByNo" resultMap="CoachingProgramMap" parameterType="int">
-    select 
-     program_no,
-     coach_no,
-     name,
-     introduce,
-     fee,
-     coaching_type
+     select  
+      cp.program_no,
+      cp.coach_no,
+      c.name coach_name,
+      c.photo,
+      c.area,
+      c.career,
+      c.certification,
+      c.introduce coach_introduce,
+      c.work_type,
+      cp.name,
+      cp.introduce,
+      cp.fee
     from 
-     coaching_programs 
-    where 
-      program_no=#{no}
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+        where 
+      cp.program_no=#{no}
   </select>
 
 
@@ -106,9 +114,11 @@
     from 
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
-    where 
-      c.name like concat('%', #{keyword}, '%')
-      <!-- or cp.name like concat('%', #{keyword}, '%') -->
+      <where>
+      <if test="keyword != null">c.name like concat('%', #{keyword}, '%')</if>
+      <if test="keyword != null">or cp.name like concat('%', #{keyword}, '%')</if>
+      </where>
+      order by program_no desc
   </select>
   
   <select id="findAll" resultMap="CoachingProgramMap">
@@ -128,7 +138,6 @@
     from 
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
-      group by cp.coach_no
       order by program_no desc
    </select>
 </mapper>

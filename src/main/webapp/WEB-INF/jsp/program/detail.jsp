@@ -6,13 +6,24 @@
 <jsp:include page="../header.jsp"/>
 
 <div>
-<c:forEach items="${programList}" var="programList">
 <form action='applyForm' method='post'>
-${programList.name}<button>신청하기</button>
+<h3>프로그램</h3>
+번호: ${programList.no}<br>
+프로그램명: ${programList.name}<br>
+프로그램: ${programList.introduce}<br>
+수강금액: ${programList.fee}<br>
+<br>
+<h3>${programList.coach.name} 코치님</h3>
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach.photo}' height='200'><br>
+수업가능지역: ${programList.coach.area}<br>
+경력: ${programList.coach.career}<br>
+자격증: ${programList.coach.certification}<br>
+소개: ${programList.coach.introduce}<br>
+유형: ${programList.coach.workType}<br>
+<button>신청하기</button>
 <input name='no' type='hidden' value='${programList.no}'><br>
 </form>
-</c:forEach>
-
+</div>
 
 
 
