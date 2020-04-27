@@ -14,7 +14,7 @@
 특이사항: <br>
 <h3>[프로그램 세부사항]</h3>
 프로그램명: ${program.name}<br>
-운동 시작일: 2020-04-21<br>
+운동 시작일: 1<br>
 <a href='updateForm'>수정하기</a>
 <a href='apply'>신청하기</a>
 <jsp:include page="../footer.jsp"/>

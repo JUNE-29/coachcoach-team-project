@@ -6,7 +6,7 @@
 <jsp:include page="../header.jsp"/>
 <div>
 <form action='search' method='get'>
-<input name='keyword' type='text' placeholder="코치를 찾아보세요">
+<input name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
 <button>검색</button>
 </form>
 키워드<br>
@@ -42,10 +42,11 @@
 
 
 <c:forEach items="${programList}" var="programList">
-<div style='border:1px solid; padding:10px;'>
-<label>${programList.coachNo}</label>
-<img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach}' height='200'>
+<div style='border:1px solid gray; padding:10px; margin:5px'>
+<label>${programList.no}</label>
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach.photo}' height='200'>
 <a href='detail?programNo=${programList.no}&no=${programList.coachNo}'><label>${programList.coach.name} 코치님</label></a><br> 
+<label>${programList.name}</label><br> 
 <label>${programList.introduce}</label><br> 
 <label>${programList.fee}원 </label><br> 
 </div>

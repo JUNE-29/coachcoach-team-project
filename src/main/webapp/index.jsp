@@ -7,6 +7,6 @@
 <title>Welcome!</title>
 </head>
 <body>
-<h1>환영합니다!</h1>
+<h1>코치코치 환영합니다!</h1>
 </body>
 </html>

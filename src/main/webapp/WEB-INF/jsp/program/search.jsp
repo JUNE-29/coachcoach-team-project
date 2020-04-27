@@ -7,7 +7,7 @@
 
 <div>
 <form action='search' method='get'>
-<input name='keyword' type='text' placeholder="코치를 찾아보세요">
+<input name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
 <button>검색</button>
 </form>
 키워드<br>
@@ -38,19 +38,20 @@
   <option value="saab">별점 높은 순</option>
   <option value="fiat">인기 많은 순</option>
 </select>
+</div>
 
-<div>
-
-<c:forEach items="${searchCoaches}" var="searchCoaches">
-<label>${searchCoaches.no}</label>
-<img src='${pageContext.servletContext.contextPath}/upload/coach/${searchCoaches.coach.photo}' height='200'>
-<a href='detail?programNo=${searchCoaches.no}&no=${searchCoaches.coachNo}'><label>${searchCoaches.coach.name} 코치님</label></a><br> 
-<label>${searchCoaches.name}</label><br> 
-<label>${searchCoaches.introduce}</label><br> 
-<label>${searchCoaches.fee}원 </label><br> 
+<c:forEach items="${searchProgram}" var="searchProgram">
+<div style='border:1px solid gray; padding:10px; margin:5px'>
+<label>${searchProgram.no}</label>
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${searchProgram.coach.photo}' height='200'>
+<a href='detail?programNo=${searchProgram.no}&no=${searchProgram.coachNo}'><label>${searchProgram.coach.name} 코치님</label></a><br> 
+<label>${searchProgram.name}</label><br> 
+<label>${searchProgram.introduce}</label><br> 
+<label>${searchProgram.fee}원 </label><br> 
+</div>
 </c:forEach>
 
-</div>
+
 
 
 
