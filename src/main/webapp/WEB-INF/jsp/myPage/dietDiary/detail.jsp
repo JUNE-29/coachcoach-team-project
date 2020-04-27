@@ -39,7 +39,7 @@
         ${comment.createDate}
       </td>
       <td>
-        <a href='comment/delete?no=${comment.no}'>삭제</a>
+        <a href='comment/delete?foodBoardNo=${foodBoard.no}&no=${comment.no}'>삭제</a>
       </td>
     </tr>  
   </c:forEach>

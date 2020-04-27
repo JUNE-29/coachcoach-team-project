@@ -8,7 +8,6 @@
 <div class="container-fluid">
   <h1 class="text-primary text-center">사진 게시판</h1>
 
-<div class="row">
   <div class="card-group">
 	  <c:forEach items="${list}" var="item">
       <div class="card">
@@ -16,7 +15,6 @@
       </div>
 	  </c:forEach>	    
   </div>
-</div>
 
   <br>
 		<div >
