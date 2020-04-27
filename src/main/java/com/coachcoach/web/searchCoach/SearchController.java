@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Member;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
+import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberService;
 
 @Controller
@@ -25,7 +26,10 @@ public class SearchController {
 
   @Autowired
   CoachService coachService;
-
+  
+  @Autowired
+  MemberCoachingProgramService memberCoachingProgramService;
+  
   @Autowired
   MemberService memberService;
 
@@ -34,14 +38,15 @@ public class SearchController {
     model.addAttribute("programList", coachingProgramService.list());
   }
 
-  @GetMapping("search") // 코치 검색
+  @GetMapping("search") // 프로그램 검색
   public void search(Model model, String keyword) throws Exception {
     model.addAttribute("searchProgram", coachingProgramService.search(keyword));
   }
 
-  @GetMapping("detail") // 코치 상세보기
+  @GetMapping("detail") // 프로그램 상세보기
   public void detail(Model model, int programNo, int no) throws Exception {
     model.addAttribute("programList", coachingProgramService.get(programNo));
+    //model.addAttribute("memberProgram", memberCoachingProgramService.programNolist(programNo));
   }
 
   @PostMapping("applyForm") // 신청서

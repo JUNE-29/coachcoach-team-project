@@ -28,7 +28,19 @@
 
 
 
-<p>코치 후기</p>
+<div style='border:1px solid gray; padding:10px; margin:5px'>
+  <h1>코치 후기</h1>
+  <c:forEach items="${memberProgram}" var="memberProgram">
+  <tbody>
+    <tr>
+      <th scope="row">${memberProgram.no}</th>
+      <td>${memberProgram.review}</td>
+      <td>${memberProgram.reviewDate}</td>
+    </tr>
+  </tbody>
+  </c:forEach>
+</table>
+
 <p>코치 만족도</p>
 <p id="star_grade">
         <a href="#">★</a>
@@ -36,8 +48,10 @@
         <a href="#">★</a>
         <a href="#">★</a>
         <a href="#">★</a>
-</p>
+</p>        
 </div>
+
+
 <script>
         $('#star_grade a').click(function(){
             $(this).parent().children("a").removeClass("on");  

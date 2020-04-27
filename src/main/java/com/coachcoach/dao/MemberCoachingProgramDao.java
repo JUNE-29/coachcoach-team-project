@@ -11,6 +11,8 @@ public interface MemberCoachingProgramDao {
   List<MemberCoachingProgram> findAll(int memberNo) throws Exception;
   // 어떤 회원이 본인 프로그램 신청 목록을 볼때 본인의 신청프로그램들만 보여야해서
   // memberNo가 필요할 것 같아 파라미터로 넣었습니다
+  
+  List<MemberCoachingProgram> findByProgramNo(int programNo) throws Exception;
 
   MemberCoachingProgram findByNo(int no) throws Exception;
   // 신청프로그램 클릭시 디테일 보여주기 위함
