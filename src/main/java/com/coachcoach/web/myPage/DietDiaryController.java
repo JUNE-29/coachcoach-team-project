@@ -58,8 +58,9 @@ public class DietDiaryController {
   public void addForm() {}
 
   @GetMapping("delete")
-  public void delete(int no) throws Exception {
+  public String delete(int no) throws Exception {
     foodBoardService.delete(no);
+    return "redirect:list";
   }
 
 

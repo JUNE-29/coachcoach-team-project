@@ -51,10 +51,10 @@
   </select>
 
   
-  <delete id="delete" parameterType="int">
+  <delete id="deleteAll" parameterType="int">
     delete 
       from food_board_comments
-    where comment_no=#{no}
+    where food_board_no=#{no}
   </delete>
 </mapper>
 
