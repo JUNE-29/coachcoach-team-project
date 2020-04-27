@@ -56,6 +56,12 @@
       from food_board_comments
     where food_board_no=#{no}
   </delete>
+  
+  <delete id="delete" parameterType="int">
+    delete 
+      from food_board_comments
+    where comment_no=#{no}
+  </delete>
 </mapper>
 
 

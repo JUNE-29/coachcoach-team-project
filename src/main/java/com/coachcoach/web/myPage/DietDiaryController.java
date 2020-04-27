@@ -65,9 +65,9 @@ public class DietDiaryController {
 
 
   @GetMapping("comment/delete")
-  public String deleteComment(int no) throws Exception {
+  public String deleteComment(int no, int foodBoardNo) throws Exception {
     foodBoardCommentService.delete(no);
-    return "redirect:../list";
+    return "redirect:../detail?no=" + foodBoardNo;
   }
 
   @GetMapping("detail")
