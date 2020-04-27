@@ -30,7 +30,7 @@ div.container {
       <a class='nav-link' href='#'>코치코치소개</span></a>
     </li>
     <li class='nav-item'>
-      <a class='nav-link' href='#'>코치찾기</a>
+      <a class='nav-link' href='/coachcoach-team-project/app/program/list'>코치찾기</a>
     </li>
     <li class='nav-item'>
       <a class='nav-link' href='#'>고객센터</a>

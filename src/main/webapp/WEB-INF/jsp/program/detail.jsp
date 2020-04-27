@@ -5,15 +5,16 @@
 
 <jsp:include page="../header.jsp"/>
 
-<div>
+<div style='border:1px solid gray; padding:10px; margin:5px'>
 <form action='applyForm' method='post'>
 <h3>프로그램</h3>
 번호: ${programList.no}<br>
 프로그램명: ${programList.name}<br>
 프로그램: ${programList.introduce}<br>
 수강금액: ${programList.fee}<br>
-<br>
-<h3>${programList.coach.name} 코치님</h3>
+</div>
+<div style='border:1px solid gray; padding:10px; margin:5px'>
+<h5>${programList.coach.name} 코치님</h5>
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach.photo}' height='200'><br>
 수업가능지역: ${programList.coach.area}<br>
 경력: ${programList.coach.career}<br>
