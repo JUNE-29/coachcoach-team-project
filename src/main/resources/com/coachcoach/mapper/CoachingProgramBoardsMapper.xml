@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coachcoach.dao.CoachingProgramBoardDao">
+
+	<resultMap type="CoachingProgramBoard"
+		id="CoachingProgramBoardMap">
+		<id column="program_board_no" property="no" />
+		<result column="coach_no" property="coachNo" />
+		<result column="program_no" property="programNo" />
+		<result column="content" property="content" />
+		<result column="create_date" property="createdDate" />
+	</resultMap>
+
+	<insert id="insert" parameterType="CoachingProgramBoard">
+		insert into coaching_program_boards
+		values(
+		#{no},  
+		#{coachNo},
+		#{programNo},
+		#{content}
+		#{createdDate}
+		)
+	</insert>
+
+	<select id="findAll" resultMap="CoachingProgramBoardMap"
+		parameterType="int">
+		select
+		program_board_no,
+		coach_no,
+		program_no,
+		content,
+		create_date
+		from
+		coaching_program_boards
+		where
+		program_board_no=#{coach_no}
+	</select>
+
+	<update id="update" parameterType="MemberProgramCalendar">
+		update
+		coaching_program_boards
+		set
+		program_board_no = #{no}
+		coach_no = #{coachNo}
+		program_no= #{programNo}
+		content= #{content}
+		create_date = #{createdDate}
+		where
+		program_board_no=#{coach_no}
+	</update>
+
+
+	<delete id="delete" parameterType="int">
+		delete
+		from coaching_program_boards <!-- CoachingProgramBoard -->
+		where
+		program_board_no=#{coach_no}
+	</delete>
+
+</mapper>

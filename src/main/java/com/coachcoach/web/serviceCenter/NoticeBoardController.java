@@ -13,14 +13,23 @@ public class NoticeBoardController {
   public String add() {
   return "redirect:list";}
 
+  @GetMapping("addForm")
+  public void addForm() {}
+
+
+  @GetMapping("form")
+  public void form() {}
+
   @GetMapping("list")
   public void list() {}
 
   @GetMapping("detail")
   public void detail() {}
 
-  @GetMapping("form")
-  public void form() {}
+  @GetMapping("delete")
+  public void delete() {
+
+  }
 
   @PostMapping("update")
   public void update() {}

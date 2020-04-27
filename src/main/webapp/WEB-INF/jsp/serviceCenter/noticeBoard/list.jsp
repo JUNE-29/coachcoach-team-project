@@ -5,26 +5,24 @@
 
 <jsp:include page="../../header.jsp"/>
 
-  <h1>공지사항</h1>
-  <a href='form'>새 글</a><br>
+  <h1>고객센터 </h1>
+  <a href='addForm'>공지사항등록 </a> <br>
   <table border='1'>
   <tr>
     <th>번호</th>
+    <th>작성자</th>
     <th>제목</th>
-    <th>등록일</th>
-    <th>조회수</th>
+    <th>공지보낸날짜</th>
   </tr>
   
-<c:forEach items="${list}" var="item">
   <tr>
-    <td>${item.no}</td> 
-    <td><a href='detail?no=${item.no}'>=> ${item.title}</a></td> 
-    <td>${item.date}</td> 
-    <td>${item.viewCount}</td>
+  <td>1</td>
+  <td>작성자</td>
+  <td><a href='detail'> 코로나19로 휴가입니다.</a></td>
+  <td>2020-04-22</td>
   </tr>
-</c:forEach>
-
-</table>
+  </table>
+<hr>
 
 <jsp:include page="../../footer.jsp"/>
-     
+    

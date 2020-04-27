@@ -6,19 +6,16 @@
 <jsp:include page="../../header.jsp"/>
 
 <h1>공지사항</h1>
-
-<c:if test="${not empty board}">
-번호: ${board.no}<br>
-제목: ${board.title}<br>
-등록일: ${board.date}<br>
-조회수: ${board.viewCount}<br>
-<p><a href='delete?no=${board.no}'>삭제</a> 
-<a href='updateForm?no=${board.no}'>변경</a></p>
-</c:if>
-
-<c:if test="${empty requestScope.board}">
-<p>해당 게시물이 없습니다.</p>
-</c:if>
+<form action='list' method='get' enctype='multipart/form-data'>
+보낸날짜: 2020-06-09 <br>
+날짜: 2020-04-02 ~ 2020-06-09<br>
+제목: 긴급공지사항.<br>
+내용: 코로나19로 인한 마스크착용 부탁드립니다..
+감사합니다.<br>
+<p><a href='delete'>삭제</a> 
+<a href='updateForm'>수정</a></p>
+<p><button>확인</button>
+</form>
 
 <jsp:include page="../../footer.jsp"/>
-     
+    
