@@ -29,6 +29,8 @@ public interface MemberCoachingProgramDao {
   // 그런 필터기능을 넣을지는 모르겠음
 
 
+  int updateEtc(Map<String, Object> params) throws Exception;
+  // 거절사유 etc 작성시 사용
 
   int updateStatus(Map<String, Object> params) throws Exception;
   // 상태 변경시 사용

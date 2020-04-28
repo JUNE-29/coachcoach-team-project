@@ -19,6 +19,7 @@
   특이사항: ${detail.remark} <br>
   
   <br>
+  <c:if test='${detail.status eq "요청대기중"}'>
   <div class="row" >
 	  <div class="col-md-2">
 		  <form action="accept" method="post">
@@ -34,6 +35,7 @@
       </form>
 	  </div>  
   </div>
+  </c:if>
   
 
 <hr>

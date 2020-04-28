@@ -3,12 +3,14 @@ package com.coachcoach.web.coachPage;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.coachcoach.domain.Coach;
 import com.coachcoach.service.MemberCoachingProgramService;
 
 @Controller
@@ -22,8 +24,9 @@ public class RequestReceivedController {
   MemberCoachingProgramService memberCoachingProgramService;
 
   @GetMapping("list")
-  public void list(int coachNo, Model model) throws Exception {
-    model.addAttribute("list", memberCoachingProgramService.RequestList(coachNo));
+  public void list(HttpSession session, Model model) throws Exception {
+    model.addAttribute("list", memberCoachingProgramService
+        .RequestList(((Coach) session.getAttribute("loginUser")).getNo()));
   }
 
   @GetMapping("detail") // memberCoachingProgramNo 받아서 요청서 보는 데에 씀
@@ -32,10 +35,18 @@ public class RequestReceivedController {
   }
 
   @PostMapping("reject")
-  public void reject(int memberCoachingProgramNo) throws Exception {}
+  public void reject(int memberCoachingProgramNo, String content) throws Exception {
+    Map<String, Object> params = new HashMap<>();
+    params.put("memberCoachingProgramNo", memberCoachingProgramNo);
+    params.put("etc", content);
+    memberCoachingProgramService.updateEtc(params);
+  }
 
-  @GetMapping("rejectForm")
-  public void rejectForm() throws Exception {}
+  @PostMapping("rejectForm")
+  public void rejectForm(int memberCoachingProgramNo, Model model) throws Exception {
+    model.addAttribute("memberCoachingProgram",
+        memberCoachingProgramService.get(memberCoachingProgramNo));
+  }
 
   @PostMapping("accept")
   public void accept(int memberCoachingProgramNo) throws Exception {

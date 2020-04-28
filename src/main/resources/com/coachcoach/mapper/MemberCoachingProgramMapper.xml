@@ -89,7 +89,7 @@
 	     left outer join members m on mcp.member_no = m.member_no
 	     left outer join coaching_programs cp on cp.program_no = mcp.program_no
 	   where 
-	     cp.coach_no = #{no} and mcp.status like '요청대기중'
+	     cp.coach_no = #{no} and mcp.status REGEXP ('요청대기중|결제대기중')
   </select>
 
 <!-- memberCoachProgramNo로 객체 하나 찾기 -->
@@ -129,6 +129,14 @@
     update member_coaching_programs
       set
         status=#{status}
+    where member_program_no=#{memberCoachingProgramNo}
+  </update>
+  
+  <update id="updateEtc" parameterType="map">
+    update member_coaching_programs
+      set
+        status="요청거절됨",
+        etc=#{etc}
     where member_program_no=#{memberCoachingProgramNo}
   </update>
  

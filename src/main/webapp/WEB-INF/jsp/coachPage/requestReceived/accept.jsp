@@ -4,7 +4,7 @@
 
 <h1>수락하셨습니다.</h1>
 
-<button type="button" onclick="location.href='list?coachNo='${coachNo}">확인</button>
+<button type="button" onclick="location.href='list'">확인</button>
 
 <jsp:include page='../../footer.jsp'/>
     

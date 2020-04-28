@@ -43,7 +43,7 @@ public class CoachAuthController {
     Coach coach = coachService.get(id, password);
     if (coach != null) {
       session.setAttribute("loginUser", coach);
-      model.addAttribute("refreshUrl", "2;url=../../index.jsp");
+      return "redirect:../../coachPage/requestReceived/list";
     } else {
       session.invalidate();
       model.addAttribute("refreshUrl", "2;url=form");

@@ -2,13 +2,16 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <jsp:include page="../../header.jsp"/>
 
   <h1>받은요청</h1>
-  <a href='form'>수락</a>
-  <a href='form'>거절</a><br>
-  <table border='1'>
+  
+  <div style='padding:20px; margin:20px auto;'>
+  총 ${fn:length(list)}개 요청 건<br>
+  <div style='text-align: center;'>
+  <table border='1px'>
   <tr>
     <th>번호</th>
     <th>요청날짜</th>
@@ -18,8 +21,10 @@
     <th>상태</th>
   </tr>
   <%int no = 0;%>
+  
   <c:forEach items="${list}" var="item">
 		<%no++;%>
+	<tr>
 		<td>
 		  <%=no%>
 		</td>
@@ -43,9 +48,11 @@
     <td>
       ${item.status}
     </td>
+    </tr>
   </c:forEach>
-
   </table>
+  </div>
+  </div>
 <hr>
 
 <jsp:include page="../../footer.jsp"/>

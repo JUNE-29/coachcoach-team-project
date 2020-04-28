@@ -24,4 +24,6 @@ public interface MemberCoachingProgramService {
 
   int updateStatus(Map<String, Object> params) throws Exception;
 
+  int updateEtc(Map<String, Object> params) throws Exception;
+
 }

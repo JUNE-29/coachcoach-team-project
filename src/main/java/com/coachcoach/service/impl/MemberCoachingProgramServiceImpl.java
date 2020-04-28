@@ -61,4 +61,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.updateStatus(params);
   }
 
+  @Override
+  public int updateEtc(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.updateEtc(params);
+  }
+
 }
