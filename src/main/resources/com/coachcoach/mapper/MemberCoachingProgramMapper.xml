@@ -190,19 +190,13 @@
        star_rate,         
        review,            
        review_date,       
-       etc               
+       etc,
+       program_name               
      from 
       member_coaching_programs
         where 
       member_program_no=#{no}
   </select>
- 
- 
- 
- 
- 
- 
- 
  
  
 </mapper>
