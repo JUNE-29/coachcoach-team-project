@@ -62,4 +62,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.updateStatus(params);
   }
 
+  @Override
+  public MemberCoachingProgram get2(int no) throws Exception {
+    return memberCoachingProgramDao.findByNo2(no);
+  }
+
 }
