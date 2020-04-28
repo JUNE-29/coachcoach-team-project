@@ -14,6 +14,8 @@ public interface MemberCoachingProgramService {
 
   MemberCoachingProgram get(int no) throws Exception;
 
+  MemberCoachingProgram get2(int no) throws Exception;
+
   int update(MemberCoachingProgram memberCoachingProgram) throws Exception;
 
   int delete(int no) throws Exception;

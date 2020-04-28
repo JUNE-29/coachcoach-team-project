@@ -5,16 +5,24 @@
 
 <jsp:include page="../header.jsp"/>
 
+<form action='applyList' method='post'>
 <h1>프로그램 신청서</h1>
-<h3>[인적사항]</h3>
+<h3>[회원정보]</h3>
 이름: ${member.name}<br>
 성별: ${member.gender}<br>
 생년월일: ${member.birth}<br>
 연락처: ${member.tel}<br>
-특이사항: <br>
+특이사항:<br> 
+<textarea name=remark rows='5' cols='60' placeholder='코치에게 알려줄 정보를 입력해주세요.'>
+</textarea><br>
+
 <h3>[프로그램 세부사항]</h3>
 프로그램명: ${program.name}<br>
-운동 시작일: 1<br>
-<a href='updateForm'>수정하기</a>
-<a href='apply'>신청하기</a>
+운동 시작일<input name=startDate type='text' placeholder='예)2020-05-01'><br>
+<button>신청하기</button>
+<input name='endDate' type='hidden'><br>
+<input name='status' type='hidden' value='대기중'><br>
+<input name='programNo' type='hidden' value='${program.no}'>
+</form>
+
 <jsp:include page="../footer.jsp"/>
