@@ -5,35 +5,28 @@
 
 <form action='add' method='post'>
 <h1>프로그램 등록</h1>
-<b>프로그램명:</b> <input name='name' readonly type='text' value='${coach.name}'><br>
-<b>프로그램 소개:</b> <textarea name='title' rows='5' cols='60'>${coach.introduce}</textarea><br>
-<b>수업효과 키워드:</b> <textarea name='title' rows='5' cols='60'></textarea><br>
-<b>프로그램수강료</b> 
-<table>
-    <tr>
-  <td>기간</td>
-  <td>
-    <select name="items">
-      <option value="2주">2주</option>
-      <option value="3주">3주</option>
-      <option value="4주">4주</option>
+<input name="coachNo" type='hidden' value='1'><br>
+<b>프로그램명:</b> <input name='name' type='text'> <br>
+<b>프로그램 소개:</b> <textarea name='introduce' rows='5' cols='60' ></textarea><br>
+<b>수업효과 키워드:</b><br>
+<!-- 
+<input class="btn btn-outline-success" type="button" value="상체튼튼">
+<input class="btn btn-outline-success" type="button" value="하체튼튼">
+<input class="btn btn-outline-success" type="button" value="근육위주">
+<input class="btn btn-outline-success" type="button" value="대회위주"><br>
+<input class="btn btn-outline-success" type="button" value="체력위주">
+<input class="btn btn-outline-success" type="button" value="체중감량">
+<input class="btn btn-outline-success" type="button" value="재활위주">
+<input class="btn btn-outline-success" type="button" value="생활개선"> <br>
+ -->
+<b>프로그램수강료</b><input name='fee' type='text'>원 <br>
+<b>프로그램타입</b> <select name="coachingType">
+        <option selected> 선택</option>
+        <option value='1'>온라인</option>
+        <option value='2'>오프라인</option>
+        <option value='3'>온라인+오프라인</option>
     </select>
-  </td>
-    </tr>
-    
-    <tr>
-      <td>가격</td>
-      <td><input name='price' readonly type='text'>원 </td>
-    </tr>
-</table>
-
-
-
-
+<br>
 <button>등록</button>
-
-
 </form>
-
-
 <jsp:include page="../../footer.jsp"/>

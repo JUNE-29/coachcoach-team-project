@@ -41,20 +41,20 @@
      coaching_type
     ) values(
       #{coachNo},
+      #{name},
       #{introduce},
       #{fee},      
-      #{coachingType},
+      #{coachingType}
     )
   </insert>
   
   <select id="findAllByCoachNo" resultMap="CoachingProgramMap" parameterType="int">
-    select 
-      c.program_no,
+    select
       c.coach_no,
+      c.program_no,
       c.name,
       c.introduce,
-      c.fee,
-      ch.
+      c.fee
     from 
      coaching_programs c
       join coaches ch on c.coach_no=ch.coach_no
@@ -138,7 +138,7 @@
     from 
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
-      order by program_no desc
+      order by program_no asc
    </select>
 </mapper>
 
