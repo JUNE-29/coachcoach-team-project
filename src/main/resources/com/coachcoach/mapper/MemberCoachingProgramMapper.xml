@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.MemberCoachingProgramDao">
+
+  <resultMap type="MemberCoachingProgram" id="MemberCoachingProgramMap">
+    <id column="member_program_no"  property="no"/>
+    <result column="member_no"       property="memberNo"/>
+    <result column="program_no"       property="programNo"/>
+    <result column="remark"  property="remark"/>
+    <result column="status"    property="status"/>
+    <result column="request_date" property="requestDate"/>
+    <result column="pay_date" property="payDate"/>
+    <result column="start_date" property="startDate"/>
+    <result column="end_date" property="endDate"/>
+    <result column="star_rate" property="starRate"/>
+    <result column="review" property="review"/>
+    <result column="review_date" property="reviewDate"/>
+    <result column="etc" property="etc"/>
+    <result column="program_name" property="programName"/>
+    
+    <association property="member" javaType="Member">
+      <id column="member_no"              property="no"/>
+	    <result column="id"                 property="id"/>
+	    <result column="member_name"        property="name"/>
+	    <result column="gender"             property="gender"/>
+	    <result column="birth"              property="birth"/>
+	    <result column="tel"                property="tel"/>
+	    <result column="email"              property="email"/>
+	    <result column="photo"              property="photo"/>
+    </association>
+  </resultMap>
+
+  <sql id="selectProgram">
+    mcp.member_program_no,
+    mcp.member_no,       
+    mcp.program_no,        
+    mcp.remark,            
+    mcp.status,            
+    mcp.request_date,      
+    mcp.pay_date,          
+    mcp.start_date,        
+    mcp.end_date,          
+    mcp.star_rate,         
+    mcp.review,            
+    mcp.review_date,       
+    mcp.etc 
+  </sql>
+  
+  <sql id="selectMember">
+    m.member_no,
+    m.id,
+    m.name,
+    m.gender,
+    m.birth,
+    m.tel,
+    m.email
+  </sql>
+  
+
+ <select id="findAllRequest" resultMap="MemberCoachingProgramMap" parameterType="int"> <!-- 코치번호를 넘겨주기 -->
+     select  
+		    mcp.member_program_no,
+		    mcp.member_no,       
+		    mcp.program_no,        
+		    mcp.remark,            
+		    mcp.status,            
+		    DATE_FORMAT(mcp.request_date, "%Y/%m/%d") as request_date,
+		    mcp.pay_date,          
+		    mcp.start_date,        
+		    mcp.end_date,          
+		    mcp.star_rate,         
+		    mcp.review,            
+		    mcp.review_date,       
+		    mcp.etc,
+		    cp.name as program_name,
+		    m.member_no,
+		    m.id,
+		    m.photo,
+		    m.name as member_name,
+		    m.gender,
+		    m.birth,
+		    m.tel,
+		    m.email
+     from 
+	     member_coaching_programs mcp 
+	     left outer join members m on mcp.member_no = m.member_no
+	     left outer join coaching_programs cp on cp.program_no = mcp.program_no
+	   where 
+	     cp.coach_no = #{no} and mcp.status like '요청대기중'
+  </select>
+
+<!-- memberCoachProgramNo로 객체 하나 찾기 -->
+  <select id="findByNo" resultMap="MemberCoachingProgramMap" parameterType="int"> 
+     select  
+        mcp.member_program_no,
+        mcp.member_no,       
+        mcp.program_no,        
+        mcp.remark,            
+        mcp.status,            
+        DATE_FORMAT(mcp.request_date, "%Y/%m/%d") as request_date,
+        mcp.pay_date,          
+        mcp.start_date,        
+        mcp.end_date,          
+        mcp.star_rate,         
+        mcp.review,            
+        mcp.review_date,       
+        mcp.etc,
+        cp.name as program_name,
+        m.member_no,
+        m.id,
+        m.photo,
+        m.name as member_name,
+        m.gender,
+        m.birth,
+        m.tel,
+        m.email
+     from 
+       member_coaching_programs mcp 
+       left outer join members m on mcp.member_no = m.member_no
+       left outer join coaching_programs cp on cp.program_no = mcp.program_no
+     where 
+       mcp.member_program_no=#{no}
+  </select>
+ 
+
+<!-- 
+ --><!-- 본인 프로그램 번호로 찾기 
+ 
+  <select id="findByProgramNo" resultMap="MemberCoachingProgramMap" parameterType="int"> 
+     select  
+      *
+    from 
+      member_coaching_programs mc 
+      join coaching_programs c on mc.program_no=c.program_no
+        where 
+      mc.program_no=#{no}
+  </select>
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</mapper>
+
+
+
+
+
+
+

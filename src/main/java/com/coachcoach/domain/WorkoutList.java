@@ -8,18 +8,19 @@ public class WorkoutList implements Serializable {
   private static final long serialVersionUID = 1L;
 
   int no; // 운동내역번호
-  int memberNo; // 일반회원번호
-  int workoutNo; // 운동번호
   Date workoutDate; // 시행날짜
-  int workoutAmount; // 운동량
-  int kcal; // 소모칼로리
+  int walkCount; // 걸음수
+  String etc; // 비고
+  Member member; // 일반회원번호를 가지고 와야 함
+
 
   @Override
   public String toString() {
-    return "WorkoutList [no=" + no + ", memberNo=" + memberNo + ", workoutNo=" + workoutNo
-        + ", workoutDate=" + workoutDate + ", workoutAmount=" + workoutAmount + ", kcal=" + kcal
-        + "]";
+    return "WorkoutList [no=" + no + ", workoutDate=" + workoutDate + ", walkCount=" + walkCount
+        + ", etc=" + etc + ", member=" + member + "]";
   }
+
+
 
   public int getNo() {
     return no;
@@ -27,22 +28,6 @@ public class WorkoutList implements Serializable {
 
   public void setNo(int no) {
     this.no = no;
-  }
-
-  public int getMemberNo() {
-    return memberNo;
-  }
-
-  public void setMemberNo(int memberNo) {
-    this.memberNo = memberNo;
-  }
-
-  public int getWorkoutNo() {
-    return workoutNo;
-  }
-
-  public void setWorkoutNo(int workoutNo) {
-    this.workoutNo = workoutNo;
   }
 
   public Date getWorkoutDate() {
@@ -53,34 +38,45 @@ public class WorkoutList implements Serializable {
     this.workoutDate = workoutDate;
   }
 
-  public int getWorkoutAmount() {
-    return workoutAmount;
+  public int getWalkCount() {
+    return walkCount;
   }
 
-  public void setWorkoutAmount(int workoutAmount) {
-    this.workoutAmount = workoutAmount;
+  public void setWalkCount(int walkCount) {
+    this.walkCount = walkCount;
   }
 
-  public int getKcal() {
-    return kcal;
+  public String getEtc() {
+    return etc;
   }
 
-  public void setKcal(int kcal) {
-    this.kcal = kcal;
+  public void setEtc(String etc) {
+    this.etc = etc;
   }
+
+  public Member getMember() {
+    return member;
+  }
+
+  public void setMember(Member member) {
+    this.member = member;
+  }
+
+
 
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + kcal;
-    result = prime * result + memberNo;
+    result = prime * result + ((etc == null) ? 0 : etc.hashCode());
+    result = prime * result + ((member == null) ? 0 : member.hashCode());
     result = prime * result + no;
-    result = prime * result + workoutAmount;
+    result = prime * result + walkCount;
     result = prime * result + ((workoutDate == null) ? 0 : workoutDate.hashCode());
-    result = prime * result + workoutNo;
     return result;
   }
+
+
 
   @Override
   public boolean equals(Object obj) {
@@ -91,21 +87,28 @@ public class WorkoutList implements Serializable {
     if (getClass() != obj.getClass())
       return false;
     WorkoutList other = (WorkoutList) obj;
-    if (kcal != other.kcal)
+    if (etc == null) {
+      if (other.etc != null)
+        return false;
+    } else if (!etc.equals(other.etc))
       return false;
-    if (memberNo != other.memberNo)
+    if (member == null) {
+      if (other.member != null)
+        return false;
+    } else if (!member.equals(other.member))
       return false;
     if (no != other.no)
       return false;
-    if (workoutAmount != other.workoutAmount)
+    if (walkCount != other.walkCount)
       return false;
     if (workoutDate == null) {
       if (other.workoutDate != null)
         return false;
     } else if (!workoutDate.equals(other.workoutDate))
       return false;
-    if (workoutNo != other.workoutNo)
-      return false;
     return true;
   }
+
+
+
 }

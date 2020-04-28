@@ -7,17 +7,17 @@
 <form action='detail' method='post'>
 
   <h1>회원정보</h1>
-  
-  <img src="../../alesso.jfif"> 
-  이름 <br>
-  아이디 <br>
-  전화번호 <br>
-  이메일 <br>
-  나이 <br>
-  프로그램명 <br>
-  요청날짜 <br>
-  시작가능날짜 <br>
-  특이사항 <br>
+  <img src='${pageContext.servletContext.contextPath}/upload/member/${detail.member.photo}' height='300'>
+  <br>
+  이름: ${detail.member.name} <br>
+  아이디: ${detail.member.id} <br>
+  전화번호: ${detail.member.tel} <br>
+  이메일: ${detail.member.email} <br>
+  나이: ${detail.member.birth} <br>
+  프로그램명: ${detail.programName} <br>
+  요청날짜: ${detail.requestDate} <br>
+  시작가능날짜: ${detail.startDate} <br>
+  특이사항: ${detail.remark} <br>
   
   <br>
   <button type="button" onclick="location.href='accept'">수락</button>

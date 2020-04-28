@@ -49,4 +49,11 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
   public List<MemberCoachingProgram> programNolist(int programNo) throws Exception {
     return memberCoachingProgramDao.findByProgramNo(programNo);
   }
+
+
+  @Override
+  public List<MemberCoachingProgram> RequestList(int coachNo) throws Exception {
+    return memberCoachingProgramDao.findAllRequest(coachNo);
+  }
+
 }

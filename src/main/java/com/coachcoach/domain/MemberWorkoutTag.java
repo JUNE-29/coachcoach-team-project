@@ -2,19 +2,20 @@ package com.coachcoach.domain;
 
 import java.io.Serializable;
 
-public class Workout implements Serializable {
+public class MemberWorkoutTag implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
   int no; // 운동번호
-  String name; // 이름
-  String unit; // 운동단위
+  String name; // 운동이름
+  int unit; // 운동단위
 
 
   @Override
   public String toString() {
-    return "Workout [no=" + no + ", name=" + name + ", unit=" + unit + "]";
+    return "MemberWorkoutTag [no=" + no + ", name=" + name + ", unit=" + unit + "]";
   }
+
 
   public int getNo() {
     return no;
@@ -32,13 +33,14 @@ public class Workout implements Serializable {
     this.name = name;
   }
 
-  public String getUnit() {
+  public int getUnit() {
     return unit;
   }
 
-  public void setUnit(String unit) {
+  public void setUnit(int unit) {
     this.unit = unit;
   }
+
 
   @Override
   public int hashCode() {
@@ -46,9 +48,10 @@ public class Workout implements Serializable {
     int result = 1;
     result = prime * result + ((name == null) ? 0 : name.hashCode());
     result = prime * result + no;
-    result = prime * result + ((unit == null) ? 0 : unit.hashCode());
+    result = prime * result + unit;
     return result;
   }
+
 
   @Override
   public boolean equals(Object obj) {
@@ -58,7 +61,7 @@ public class Workout implements Serializable {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    Workout other = (Workout) obj;
+    MemberWorkoutTag other = (MemberWorkoutTag) obj;
     if (name == null) {
       if (other.name != null)
         return false;
@@ -66,11 +69,11 @@ public class Workout implements Serializable {
       return false;
     if (no != other.no)
       return false;
-    if (unit == null) {
-      if (other.unit != null)
-        return false;
-    } else if (!unit.equals(other.unit))
+    if (unit != other.unit)
       return false;
     return true;
   }
+
+
+
 }
