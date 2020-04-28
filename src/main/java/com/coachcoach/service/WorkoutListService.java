@@ -7,7 +7,7 @@ public interface WorkoutListService {
 
   int add(WorkoutList workoutList) throws Exception;
 
-  List<WorkoutList> list() throws Exception;
+  List<WorkoutList> list(int memberNo) throws Exception;
 
   int update(WorkoutList workoutList) throws Exception;
 

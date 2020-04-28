@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-<!-- 
-    
-<html>
+<jsp:include page="../header.jsp"/>
+
+
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -11,7 +13,6 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['#{workout.name}', '#{workout.unit}'],
           ['Work',     11],
           ['Eat',      2],
           ['Commute',  2],
@@ -32,6 +33,8 @@
   <body>
     <div id="donutchart" style="width: 900px; height: 500px;"></div>
   </body>
-</html>
 
- -->
+
+ 
+ 
+ <jsp:include page="../footer.jsp"/>
