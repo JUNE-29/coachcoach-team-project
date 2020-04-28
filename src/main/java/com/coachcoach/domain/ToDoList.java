@@ -1,14 +1,13 @@
 package com.coachcoach.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class ToDoList implements Serializable {
   private static final long serialVersionUID = 1L;
 
   int no;
   String memo;
-  Date createDate;
+  String createDate;
   Member member;
 
   @Override
@@ -34,11 +33,11 @@ public class ToDoList implements Serializable {
     this.memo = memo;
   }
 
-  public Date getCreateDate() {
+  public String getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(Date createDate) {
+  public void setCreateDate(String createDate) {
     this.createDate = createDate;
   }
 

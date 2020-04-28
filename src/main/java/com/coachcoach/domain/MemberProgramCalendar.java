@@ -1,7 +1,6 @@
 package com.coachcoach.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class MemberProgramCalendar implements Serializable {
 
@@ -10,7 +9,7 @@ public class MemberProgramCalendar implements Serializable {
   int no;
   int memberProgramNo;
   String plan;
-  Date workoutDate;
+  String workoutDate;
 
   @Override
   public String toString() {
@@ -21,35 +20,43 @@ public class MemberProgramCalendar implements Serializable {
   public int getNo() {
     return no;
   }
+
   public void setNo(int no) {
     this.no = no;
   }
+
   public int getMemberProgramNo() {
     return memberProgramNo;
   }
+
   public void setMemberProgramNo(int memberProgramNo) {
     this.memberProgramNo = memberProgramNo;
   }
+
   public String getPlan() {
     return plan;
   }
+
   public void setPlan(String plan) {
     this.plan = plan;
   }
-  public Date getWorkoutDate() {
+
+  public String getWorkoutDate() {
     return workoutDate;
   }
-  public void setWorkoutDate(Date workoutDate) {
+
+  public void setWorkoutDate(String workoutDate) {
     this.workoutDate = workoutDate;
   }
+
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
     result = prime * result + memberProgramNo;
     result = prime * result + no;
-    result = prime * result + ((plan == null) ? 0 : plan.hashCode());
-    result = prime * result + ((workoutDate == null) ? 0 : workoutDate.hashCode());
+    result = prime * result + (plan == null ? 0 : plan.hashCode());
+    result = prime * result + (workoutDate == null ? 0 : workoutDate.hashCode());
     return result;
   }
 
