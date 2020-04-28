@@ -1,11 +1,9 @@
 package com.coachcoach.web.searchCoach;
 
 
-import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,11 +62,7 @@ public class SearchController {
   }
 
   @PostMapping("applyList") // 확인
-  public void applyList(Model model, MemberCoachingProgram memberCoachingProgram,
-      @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate1,
-      @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate1) throws Exception {
-    memberCoachingProgram.setStartDate(startDate1);
-    memberCoachingProgram.setEndDate(endDate1);
+  public void applyList(Model model, MemberCoachingProgram memberCoachingProgram) throws Exception {
     memberCoachingProgramService.add(memberCoachingProgram);
     model.addAttribute("program", memberCoachingProgramService.get(memberCoachingProgram.getNo()));
     model.addAttribute("member", memberService.get(memberCoachingProgram.getMemberNo()));
