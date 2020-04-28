@@ -140,8 +140,8 @@
      select  
       *
     from 
-      member_coaching_programs mc 
-      join coaching_programs c on mc.program_no=c.program_no
+      member_coaching_programs mcp 
+      join coaching_programs c on mcp.program_no=c.program_no
         where 
       mc.program_no=#{no}
   </select>
