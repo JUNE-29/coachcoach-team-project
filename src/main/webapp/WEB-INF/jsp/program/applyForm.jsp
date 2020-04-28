@@ -13,17 +13,16 @@
 생년월일: ${member.birth}<br>
 연락처: ${member.tel}<br>
 특이사항:<br> 
-<textarea name=remark rows='5' cols='60' placeholder="코치에게 알려줄 정보를 입력해주세요.">
+<textarea name=remark rows='5' cols='60' placeholder='코치에게 알려줄 정보를 입력해주세요.'>
 </textarea><br>
 
 <h3>[프로그램 세부사항]</h3>
 프로그램명: ${program.name}<br>
-운동 시작일:<input name=startDate type='text'><br><br>
-<input name='endDate' type='text'><br><br>
+운동 시작일<input name=startDate type='text' placeholder='예)2020-05-01'><br>
 <button>신청하기</button>
-<input name='status' type='hidden' type='대기중'><br><br>
-<input name='memberNo' type='hidden' value='${member.no}'><br>
-<input name='programNo' type='hidden' value='${program.no}'><br>
+<input name='endDate' type='hidden'><br>
+<input name='status' type='hidden' value='대기중'><br>
+<input name='programNo' type='hidden' value='${program.no}'>
 </form>
 
 <jsp:include page="../footer.jsp"/>

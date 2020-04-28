@@ -15,9 +15,9 @@
 특이사항:${program.remark}<br> 
 
 <h3>[프로그램 세부사항]</h3>
-프로그램명: <br>
-운동 시작일: <fmt:formatDate value="${program.startDate}" pattern="yyyy.MM.dd" /><br>
-운동 종료일: <fmt:formatDate value="${program.endDate}" pattern="yyyy.MM.dd" /><br>
+프로그램명: ${program.programName}<br> 
+운동 시작일 ${program.startDate}<br>
+운동 종료일 ${program.endDate}<br>
 <button type="button" onclick="location.href='list.jsp'">확인</button>
 
 <jsp:include page="../footer.jsp"/>
