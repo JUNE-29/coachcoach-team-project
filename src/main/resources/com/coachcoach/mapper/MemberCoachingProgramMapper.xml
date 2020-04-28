@@ -147,6 +147,50 @@
   </select>
  -->
  
+  <insert id="insert" parameterType="MemberCoachingProgram"
+  useGeneratedKeys="true" keyColumn="member_program_no" keyProperty="no">
+    insert into member_coaching_programs(
+      member_no,
+      program_no,
+      remark,
+      status,
+      request_date,
+      start_date,
+      end_date
+    ) 
+    values(
+      #{memberNo},
+      #{programNo},
+      #{remark},
+      #{status},
+      now(),
+      #{startDate},
+      #{endDate}
+    )
+  </insert>
+ 
+ <select id="findByNo2" resultMap="MemberCoachingProgramMap" parameterType="int">
+     select  
+       member_program_no,
+       member_no,       
+       program_no,        
+       remark,            
+       status,            
+       request_date,      
+       pay_date,          
+       start_date,        
+       end_date,          
+       star_rate,         
+       review,            
+       review_date,       
+       etc               
+     from 
+      member_coaching_programs
+        where 
+      member_program_no=#{no}
+  </select>
+ 
+ 
  
  
  
