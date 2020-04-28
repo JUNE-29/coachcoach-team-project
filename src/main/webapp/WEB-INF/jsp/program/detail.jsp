@@ -31,13 +31,7 @@
 
 
 <div style='border:1px solid gray; padding:10px; margin:5px'>
-  <h3>수강후기</h3>
-  <c:forEach items="${memberProgram}" var="memberProgram">
-      ${memberProgram.no}&nbsp;
-      ${memberProgram.review}&nbsp;
-  </c:forEach>
-</div>
-<div>
+
 <p>코치 만족도</p>
 <p id="star_grade">
         <a href="#">★</a>
@@ -46,7 +40,17 @@
         <a href="#">★</a>
         <a href="#">★</a>
 </p>        
+
+  <h3>수강후기</h3>
+  <c:forEach items="${memberProgram}" var="memberProgram">
+    <c:if test="${memberProgram.review ne null}">
+      ${memberProgram.review}
+    <fmt:formatDate value="${memberProgram.reviewDate}" pattern="yyyy.MM.dd" />
+      </c:if>
+  </c:forEach>
+
 </div>
+
 
 
 <script>

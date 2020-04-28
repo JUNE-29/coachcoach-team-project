@@ -1,14 +1,18 @@
 package com.coachcoach.web.searchCoach;
 
 
+import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Member;
+import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.MemberCoachingProgramService;
@@ -46,7 +50,10 @@ public class SearchController {
   @GetMapping("detail") // 프로그램 상세보기
   public void detail(Model model, int programNo, int no) throws Exception {
     model.addAttribute("programList", coachingProgramService.get(programNo));
-    model.addAttribute("memberProgram", memberCoachingProgramService.programNolist(programNo));
+    List<MemberCoachingProgram> memberProgram =
+        memberCoachingProgramService.programNolist(programNo);
+    model.addAttribute("memberProgram", memberProgram);
+
   }
 
   @PostMapping("applyForm") // 신청서
@@ -56,16 +63,16 @@ public class SearchController {
     model.addAttribute("program", coachingProgramService.get(no));
   }
 
-  @GetMapping("updateForm") // 신청서 수정
-  public void updateForm() {}
+  @PostMapping("applyList") // 확인
+  public void applyList(Model model, MemberCoachingProgram memberCoachingProgram,
+      @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate1,
+      @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate1) throws Exception {
+    memberCoachingProgram.setStartDate(startDate1);
+    memberCoachingProgram.setEndDate(endDate1);
+    memberCoachingProgramService.add(memberCoachingProgram);
+    model.addAttribute("program", memberCoachingProgramService.get(memberCoachingProgram.getNo()));
+    model.addAttribute("member", memberService.get(memberCoachingProgram.getMemberNo()));
+  }
 
-  @PostMapping("detailForm") // 신청서 확인
-  public void applyDetail() {}
-
-  @GetMapping("apply") // 신청서 수정
-  public void apply() {}
-
-  @PostMapping("update") // 신청서 수정
-  public void update() {}
 
 }
