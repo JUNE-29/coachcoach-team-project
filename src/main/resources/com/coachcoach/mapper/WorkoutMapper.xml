@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.coachcoach.dao.WorkoutDao">
+<mapper namespace="com.coachcoach.dao.WorkoutListDao">
 
-  <resultMap type="Workout" id="WorkoutMap">
+  <resultMap type="WorkoutTag" id="WorkoutMap">
     <id column="workout_no"   property="no"/>
     <result column="name"  property="name"/>
     <result column="unit"  property="unit"/>
@@ -18,7 +18,7 @@
       name
       unit
     from 
-      Workout  
+      workout  
   </select>
 
 </mapper>

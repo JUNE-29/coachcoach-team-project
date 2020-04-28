@@ -1,5 +1,7 @@
 package com.coachcoach.web.coachPage;
 
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,13 +32,18 @@ public class RequestReceivedController {
   }
 
   @PostMapping("reject")
-  public void reject() throws Exception {}
+  public void reject(int memberCoachingProgramNo) throws Exception {}
 
   @GetMapping("rejectForm")
   public void rejectForm() throws Exception {}
 
-  @GetMapping("accept")
-  public void accept() throws Exception {}
+  @PostMapping("accept")
+  public void accept(int memberCoachingProgramNo) throws Exception {
+    Map<String, Object> params = new HashMap<>();
+    params.put("memberCoachingProgramNo", memberCoachingProgramNo);
+    params.put("status", "결제대기중");
+    memberCoachingProgramService.updateStatus(params);
+  }
 
 
 }

@@ -1,6 +1,7 @@
 package com.coachcoach.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.coachcoach.dao.MemberCoachingProgramDao;
 import com.coachcoach.domain.MemberCoachingProgram;
@@ -53,6 +54,11 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
   @Override
   public List<MemberCoachingProgram> RequestList(int coachNo) throws Exception {
     return memberCoachingProgramDao.findAllRequest(coachNo);
+  }
+
+  @Override
+  public int updateStatus(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.updateStatus(params);
   }
 
 }

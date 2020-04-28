@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../../header.jsp"/>
-<form action='detail' method='post'>
 
   <h1>회원정보</h1>
   <img src='${pageContext.servletContext.contextPath}/upload/member/${detail.member.photo}' height='300'>
@@ -20,10 +19,23 @@
   특이사항: ${detail.remark} <br>
   
   <br>
-  <button type="button" onclick="location.href='accept'">수락</button>
-  <button type="button" onclick="location.href='rejectForm'">거절</button>
+  <div class="row" >
+	  <div class="col-md-2">
+		  <form action="accept" method="post">
+			  <input name="memberCoachingProgramNo" type="hidden" value="${detail.no}">
+			  <button>수락</button>
+		  </form>
+    </div>
+  
+	  <div class="col-md-2">
+		  <form action="rejectForm" method="post">
+			  <input name="memberCoachingProgramNo" type="hidden" value="${detail.no}">
+			  <button>거절</button>
+      </form>
+	  </div>  
+  </div>
+  
 
-</form>
 <hr>
 
 <jsp:include page="../../footer.jsp"/>
