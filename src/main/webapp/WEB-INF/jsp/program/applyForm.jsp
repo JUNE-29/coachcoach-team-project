@@ -22,7 +22,6 @@
 <input name='endDate' type='text'><br><br>
 <button>신청하기</button>
 <input name='status' type='hidden' type='대기중'><br><br>
-<input name='memberNo' type='hidden' value='${member.no}'><br>
 <input name='programNo' type='hidden' value='${program.no}'><br>
 </form>
 
