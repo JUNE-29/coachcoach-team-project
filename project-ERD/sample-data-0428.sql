@@ -304,50 +304,72 @@ insert into food_boards(member_no, photo, content)
   
   
 -- 운동 예제 데이터
-insert into workout(workout_no, name, unit)
-  values(1, '조깅', '분');
-insert into workout(workout_no, name, unit)
-  values(2, '수영', '분');
-insert into workout(workout_no, name, unit)
-  values(3, '등산', '분');
-insert into workout(workout_no, name, unit)
-  values(4, '서핑', '분');
-insert into workout(workout_no, name, unit)
-  values(5, '헬스', '분');
-insert into workout(workout_no, name, unit)
-  values(6, '걷기', '걸음수');
-insert into workout(workout_no, name, unit)
-  values(7, '요가', '분');
-insert into workout(workout_no, name, unit)
-  values(8, '필라테스', '분');
-insert into workout(workout_no, name, unit)
-  values(9, '테니스', '분');
-insert into workout(workout_no, name, unit)
-  values(10, '배드민턴', '분');
+insert into member_workout_tag(workout_no, name, unit)
+  values(1, '조깅', '60');
+insert into member_workout_tag(workout_no, name, unit)
+  values(2, '수영', '120');
+insert into member_workout_tag(workout_no, name, unit)
+  values(3, '등산', '240');
+insert into member_workout_tag(workout_no, name, unit)
+  values(4, '서핑', '120');
+insert into member_workout_tag(workout_no, name, unit)
+  values(5, '헬스', '30');
+insert into member_workout_tag(workout_no, name, unit)
+  values(6, '걷기', '40');
+insert into member_workout_tag(workout_no, name, unit)
+  values(7, '요가', '50');
+insert into member_workout_tag(workout_no, name, unit)
+  values(8, '필라테스', '50');
+insert into member_workout_tag(workout_no, name, unit)
+  values(9, '테니스', '60');
+insert into member_workout_tag(workout_no, name, unit)
+  values(10, '배드민턴', '60');
   
   
   -- 운동내역 예제 데이터
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(1, 1, '2020-01-01', '60', '800');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(1, 2, '2020-01-02', '40', '500');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(1, 3, '2020-01-03', '100', '1000');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(2, 1, '2020-02-01', '120', '1200');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(2, 2, '2020-02-01', '30', '400');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(3, 1, '2020-03-03', '10', '50');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(4, 2, '2020-03-05', '70', '900');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(5, 3, '2020-04-03', '60', '400');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(6, 4, '2020-04-03', '80', '800');
-insert into workout_list(member_no, workout_no, workout_date, workout_amount, kcal)
-  values(7, 3, '2020-05-01', '40', '500');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(1, 1, '2020-01-01', '1200', '유산소 운동을 더 많이 할 것');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(1, 2, '2020-01-02', '1600', '음식조절 필요');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(1, 3, '2020-01-03', '500', '음식조절 필요2');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(2, 4, '2020-02-01', '5000', '근력운동 필요');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(2, 5, '2020-02-01', '6000', '근력운동 필요');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(3, 6, '2020-03-03', '4000', '식단조절');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(4, 7, '2020-03-05', '2000', '식단조절, 유산소운동');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(5, 8, '2020-04-03', '1000', '체력을 키우기');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(6, 9, '2020-04-03', '8000', '물 많이 마시기');
+insert into workout_list(member_no, workout_list_no, workout_date, walk_count, etc)
+  values(7, 10, '2020-05-01', '4400', '계단 오르기');
   
+  
+-- 운동리스트태그
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (1,1);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (2,1);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (3,2);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (4,2);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (5,3);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (5,3);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (6,4);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (7,4);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (8,4);
+insert into workout_list_tag(workout_no, workout_list_no)
+  values (10,2);
   
 -- 캘린터 첨부파일
 insert into calendar_files(file_no, calendar_no, path, file_type)
