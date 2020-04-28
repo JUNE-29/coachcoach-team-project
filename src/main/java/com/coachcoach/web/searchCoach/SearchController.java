@@ -26,10 +26,10 @@ public class SearchController {
 
   @Autowired
   CoachService coachService;
-  
+
   @Autowired
   MemberCoachingProgramService memberCoachingProgramService;
-  
+
   @Autowired
   MemberService memberService;
 
@@ -46,7 +46,7 @@ public class SearchController {
   @GetMapping("detail") // 프로그램 상세보기
   public void detail(Model model, int programNo, int no) throws Exception {
     model.addAttribute("programList", coachingProgramService.get(programNo));
-    //model.addAttribute("memberProgram", memberCoachingProgramService.programNolist(programNo));
+    model.addAttribute("memberProgram", memberCoachingProgramService.programNolist(programNo));
   }
 
   @PostMapping("applyForm") // 신청서
