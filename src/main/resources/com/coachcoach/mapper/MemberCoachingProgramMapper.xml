@@ -124,6 +124,13 @@
      where 
        mcp.member_program_no=#{no}
   </select>
+  
+  <update id="updateStatus" parameterType="map">
+    update member_coaching_programs
+      set
+        status=#{status}
+    where member_program_no=#{memberCoachingProgramNo}
+  </update>
  
 
 <!-- 

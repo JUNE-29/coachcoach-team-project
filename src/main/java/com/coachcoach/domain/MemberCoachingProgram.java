@@ -9,7 +9,7 @@ public class MemberCoachingProgram implements Serializable {
   int no;
   int memberNo;
   int programNo;
-  String programName;
+  String programName; 
   String remark; // 특이사항
   String status; // 결제대기, 결제완료, 진행중, 진행완료, 요청중 등..
   String requestDate;

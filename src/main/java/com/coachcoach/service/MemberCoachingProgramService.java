@@ -1,6 +1,7 @@
 package com.coachcoach.service;
 
 import java.util.List;
+import java.util.Map;
 import com.coachcoach.domain.MemberCoachingProgram;
 
 public interface MemberCoachingProgramService {
@@ -20,5 +21,7 @@ public interface MemberCoachingProgramService {
   List<MemberCoachingProgram> search(String keyword) throws Exception;
 
   List<MemberCoachingProgram> RequestList(int coachNo) throws Exception;
+
+  int updateStatus(Map<String, Object> params) throws Exception;
 
 }

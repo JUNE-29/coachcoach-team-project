@@ -1,6 +1,7 @@
 package com.coachcoach.dao;
 
 import java.util.List;
+import java.util.Map;
 import com.coachcoach.domain.MemberCoachingProgram;
 
 public interface MemberCoachingProgramDao {
@@ -28,6 +29,9 @@ public interface MemberCoachingProgramDao {
   // 그런 필터기능을 넣을지는 모르겠음
 
 
+
+  int updateStatus(Map<String, Object> params) throws Exception;
+  // 상태 변경시 사용
 
   List<MemberCoachingProgram> findAllRequest(int coachNo) throws Exception;
   // 코치페이지 요청된 프로그램 리스트를 보기 위함.
