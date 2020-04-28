@@ -1,7 +1,6 @@
 package com.coachcoach.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Coach implements Serializable {
 
@@ -21,7 +20,7 @@ public class Coach implements Serializable {
   String certification; // 보유자격증
   String introduce; // 강사소개
   int members; // 회원수
-  Date createdDate; // 가입일
+  String createdDate; // 가입일
   String bank; // 은행
   String account; // 계좌번호
   String workType; // 유형
@@ -29,7 +28,7 @@ public class Coach implements Serializable {
   String latitude; // 위도
   String longitude; // 경도
   int withdrawal; // 탈퇴여부
-  Date withdrawalDate; // 탈퇴날짜
+  String withdrawalDate; // 탈퇴날짜
   int withdrawalReason; // 탈퇴이유
 
 
@@ -38,30 +37,30 @@ public class Coach implements Serializable {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((account == null) ? 0 : account.hashCode());
-    result = prime * result + ((address == null) ? 0 : address.hashCode());
-    result = prime * result + ((area == null) ? 0 : area.hashCode());
-    result = prime * result + ((bank == null) ? 0 : bank.hashCode());
-    result = prime * result + ((birth == null) ? 0 : birth.hashCode());
-    result = prime * result + ((career == null) ? 0 : career.hashCode());
-    result = prime * result + ((certification == null) ? 0 : certification.hashCode());
-    result = prime * result + ((createdDate == null) ? 0 : createdDate.hashCode());
-    result = prime * result + ((email == null) ? 0 : email.hashCode());
+    result = prime * result + (account == null ? 0 : account.hashCode());
+    result = prime * result + (address == null ? 0 : address.hashCode());
+    result = prime * result + (area == null ? 0 : area.hashCode());
+    result = prime * result + (bank == null ? 0 : bank.hashCode());
+    result = prime * result + (birth == null ? 0 : birth.hashCode());
+    result = prime * result + (career == null ? 0 : career.hashCode());
+    result = prime * result + (certification == null ? 0 : certification.hashCode());
+    result = prime * result + (createdDate == null ? 0 : createdDate.hashCode());
+    result = prime * result + (email == null ? 0 : email.hashCode());
     result = prime * result + gender;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((introduce == null) ? 0 : introduce.hashCode());
-    result = prime * result + ((latitude == null) ? 0 : latitude.hashCode());
-    result = prime * result + ((longitude == null) ? 0 : longitude.hashCode());
+    result = prime * result + (id == null ? 0 : id.hashCode());
+    result = prime * result + (introduce == null ? 0 : introduce.hashCode());
+    result = prime * result + (latitude == null ? 0 : latitude.hashCode());
+    result = prime * result + (longitude == null ? 0 : longitude.hashCode());
     result = prime * result + members;
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
+    result = prime * result + (name == null ? 0 : name.hashCode());
     result = prime * result + no;
-    result = prime * result + ((password == null) ? 0 : password.hashCode());
-    result = prime * result + ((photo == null) ? 0 : photo.hashCode());
-    result = prime * result + ((tel == null) ? 0 : tel.hashCode());
+    result = prime * result + (password == null ? 0 : password.hashCode());
+    result = prime * result + (photo == null ? 0 : photo.hashCode());
+    result = prime * result + (tel == null ? 0 : tel.hashCode());
     result = prime * result + withdrawal;
-    result = prime * result + ((withdrawalDate == null) ? 0 : withdrawalDate.hashCode());
+    result = prime * result + (withdrawalDate == null ? 0 : withdrawalDate.hashCode());
     result = prime * result + withdrawalReason;
-    result = prime * result + ((workType == null) ? 0 : workType.hashCode());
+    result = prime * result + (workType == null ? 0 : workType.hashCode());
     return result;
   }
 
@@ -309,11 +308,11 @@ public class Coach implements Serializable {
     this.members = members;
   }
 
-  public Date getCreatedDate() {
+  public String getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(Date createdDate) {
+  public void setCreatedDate(String createdDate) {
     this.createdDate = createdDate;
   }
 
@@ -373,11 +372,11 @@ public class Coach implements Serializable {
     this.withdrawal = withdrawal;
   }
 
-  public Date getWithdrawalDate() {
+  public String getWithdrawalDate() {
     return withdrawalDate;
   }
 
-  public void setWithdrawalDate(Date withdrawalDate) {
+  public void setWithdrawalDate(String withdrawalDate) {
     this.withdrawalDate = withdrawalDate;
   }
 

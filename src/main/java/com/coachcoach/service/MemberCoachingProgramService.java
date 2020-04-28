@@ -8,7 +8,7 @@ public interface MemberCoachingProgramService {
   int add(MemberCoachingProgram memberCoachingProgram) throws Exception;
 
   List<MemberCoachingProgram> list(int memberNo) throws Exception;
-  
+
   List<MemberCoachingProgram> programNolist(int programNo) throws Exception;
 
   MemberCoachingProgram get(int no) throws Exception;
@@ -18,5 +18,7 @@ public interface MemberCoachingProgramService {
   int delete(int no) throws Exception;
 
   List<MemberCoachingProgram> search(String keyword) throws Exception;
+
+  List<MemberCoachingProgram> RequestList(int coachNo) throws Exception;
 
 }

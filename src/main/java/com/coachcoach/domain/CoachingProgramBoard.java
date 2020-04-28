@@ -1,7 +1,6 @@
 package com.coachcoach.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class CoachingProgramBoard implements Serializable {
 
@@ -11,7 +10,7 @@ public class CoachingProgramBoard implements Serializable {
   int coachNo;
   int programNo;
   String content;
-  Date createdDate;
+  String createdDate;
 
   @Override
   public String toString() {
@@ -51,11 +50,11 @@ public class CoachingProgramBoard implements Serializable {
     this.content = content;
   }
 
-  public Date getCreatedDate() {
+  public String getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(Date createdDate) {
+  public void setCreatedDate(String createdDate) {
     this.createdDate = createdDate;
   }
 
@@ -64,8 +63,8 @@ public class CoachingProgramBoard implements Serializable {
     final int prime = 31;
     int result = 1;
     result = prime * result + coachNo;
-    result = prime * result + ((content == null) ? 0 : content.hashCode());
-    result = prime * result + ((createdDate == null) ? 0 : createdDate.hashCode());
+    result = prime * result + (content == null ? 0 : content.hashCode());
+    result = prime * result + (createdDate == null ? 0 : createdDate.hashCode());
     result = prime * result + no;
     result = prime * result + programNo;
     return result;

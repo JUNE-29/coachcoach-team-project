@@ -17,6 +17,33 @@
     <th>특이사항</th>
     <th>상태</th>
   </tr>
+  <%int no = 0;%>
+  <c:forEach items="${list}" var="item">
+		<%no++;%>
+		<td>
+		  <%=no%>
+		</td>
+		<td>
+		  ${item.requestDate}
+		</td>
+		<td>
+		  ${item.member.name}
+    </td>
+    <td>
+      ${item.programName}
+    </td>
+    <td>
+    <a href='detail?no=${item.no}'>
+	    <c:choose>
+	      <c:when test="${item.remark ne null}">있음</c:when>
+	      <c:when test="${item.remark eq null}">없음</c:when>
+	    </c:choose>
+    </a>
+    </td>
+    <td>
+      ${item.status}
+    </td>
+  </c:forEach>
 
   </table>
 <hr>

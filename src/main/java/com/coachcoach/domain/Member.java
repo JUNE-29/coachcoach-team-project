@@ -1,7 +1,6 @@
 package com.coachcoach.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 // 객체를 serialize 하려면 이 기능을 활성화시켜야 한다.
 // - java.io.Serializable을 구현하라!
@@ -20,9 +19,9 @@ public class Member implements Serializable {
   String email;
   String password;
   String photo;
-  Date createDate;
+  String createDate;
   int withdrawal;
-  Date withdrawalDate;
+  String withdrawalDate;
   String withdrawalReason;
   String goal;
   int goalIn;
@@ -99,11 +98,11 @@ public class Member implements Serializable {
     this.photo = photo;
   }
 
-  public Date getCreateDate() {
+  public String getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(Date createDate) {
+  public void setCreateDate(String createDate) {
     this.createDate = createDate;
   }
 
@@ -115,11 +114,11 @@ public class Member implements Serializable {
     this.withdrawal = withdrawal;
   }
 
-  public Date getWithdrawalDate() {
+  public String getWithdrawalDate() {
     return withdrawalDate;
   }
 
-  public void setWithdrawalDate(Date withdrawalDate) {
+  public void setWithdrawalDate(String withdrawalDate) {
     this.withdrawalDate = withdrawalDate;
   }
 
@@ -155,21 +154,21 @@ public class Member implements Serializable {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((birth == null) ? 0 : birth.hashCode());
-    result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
-    result = prime * result + ((email == null) ? 0 : email.hashCode());
+    result = prime * result + (birth == null ? 0 : birth.hashCode());
+    result = prime * result + (createDate == null ? 0 : createDate.hashCode());
+    result = prime * result + (email == null ? 0 : email.hashCode());
     result = prime * result + gender;
-    result = prime * result + ((goal == null) ? 0 : goal.hashCode());
+    result = prime * result + (goal == null ? 0 : goal.hashCode());
     result = prime * result + goalIn;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
+    result = prime * result + (id == null ? 0 : id.hashCode());
+    result = prime * result + (name == null ? 0 : name.hashCode());
     result = prime * result + no;
-    result = prime * result + ((password == null) ? 0 : password.hashCode());
-    result = prime * result + ((photo == null) ? 0 : photo.hashCode());
-    result = prime * result + ((tel == null) ? 0 : tel.hashCode());
+    result = prime * result + (password == null ? 0 : password.hashCode());
+    result = prime * result + (photo == null ? 0 : photo.hashCode());
+    result = prime * result + (tel == null ? 0 : tel.hashCode());
     result = prime * result + withdrawal;
-    result = prime * result + ((withdrawalDate == null) ? 0 : withdrawalDate.hashCode());
-    result = prime * result + ((withdrawalReason == null) ? 0 : withdrawalReason.hashCode());
+    result = prime * result + (withdrawalDate == null ? 0 : withdrawalDate.hashCode());
+    result = prime * result + (withdrawalReason == null ? 0 : withdrawalReason.hashCode());
     return result;
   }
 
