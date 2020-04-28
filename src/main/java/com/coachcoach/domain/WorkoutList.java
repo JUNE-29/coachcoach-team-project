@@ -21,6 +21,19 @@ public class WorkoutList implements Serializable {
   }
 
 
+  public static WorkoutList valueOf(String csv) {
+    String[] data = csv.split(",");
+
+    WorkoutList workoutList = new WorkoutList();
+    workoutList.setNo(Integer.parseInt(data[0]));
+    workoutList.setWorkoutDate(Date.valueOf(data[1]));
+    workoutList.setWalkCount(Integer.parseInt(data[2]));
+    workoutList.setEtc(data[3]);
+
+    return workoutList;
+  }
+
+
 
   public int getNo() {
     return no;
