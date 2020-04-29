@@ -6,7 +6,7 @@
 <form action='add' method='post'>
 
 <p>날짜를 선택해주세요.</p><br>
-<input name='year' type='text'>년 <input name='month' type='text'>월 <input name='day' type='text'>일<br>
+강의 시작일: <input name='startDate' type='date'><br>
 
 <p>오늘 몸무게를 입력해주세요.</p><br>
 <input name='weight' type='text'><br>
@@ -46,17 +46,17 @@ document.getElementById('field').removeChild(obj.parentNode);
   <td>운동종목</td>
   <td>
     <select name="items">
-      <option value="선택해주세요">선택해주세요</option>
-      <option value="조깅">조깅</option>
-      <option value="수영">수영</option>
-      <option value="등산">등산</option>
-      <option value="서핑">서핑</option>
-      <option value="헬스">헬스</option>
-      <option value="걷기">걷기</option>
-      <option value="요가">요가</option>
-      <option value="필라테스">필라테스</option>
-      <option value="테니스">테니스</option>
-      <option value="배드민턴">배드민턴</option>
+      <option selected>선택해주세요</option>
+      <option value="1">조깅</option>
+      <option value="2">수영</option>
+      <option value="3">등산</option>
+      <option value="4">서핑</option>
+      <option value="5">헬스</option>
+      <option value="6">걷기</option>
+      <option value="7">요가</option>
+      <option value="8">필라테스</option>
+      <option value="9">테니스</option>
+      <option value="10">배드민턴</option>
     </select>
   </td>
     </tr>
@@ -65,20 +65,19 @@ document.getElementById('field').removeChild(obj.parentNode);
       <td>운동시간</td>
       <td><select name="items">
       <option value="선택해주세요">선택해주세요</option>
-      <option value="10분">10분</option>
-      <option value="20분">20분</option>
-      <option value="30분">30분</option>
-      <option value="40분">40분</option>
-      <option value="50분">50분</option>
-      <option value="60분">60분</option>
-      <option value="70분">70분</option>
-      <option value="80분">80분</option>
-      <option value="90분">90분</option>
-      <option value="100분">100분</option>
-      <option value="120분">120분</option>
-      <option value="180분">180분</option>
-      <option value="240분">240분</option>
-      <option value="직접입력">직접입력</option>
+      <option value="1">10</option>
+      <option value="2">20</option>
+      <option value="3">30</option>
+      <option value="4">40</option>
+      <option value="5">50</option>
+      <option value="6">60</option>
+      <option value="7">70</option>
+      <option value="8">80</option>
+      <option value="9">90</option>
+      <option value="10">100</option>
+      <option value="11">120</option>
+      <option value="12">180</option>
+      <option value="13">240</option>
     </select> 
     </td>
     </tr>
@@ -91,9 +90,8 @@ document.getElementById('field').removeChild(obj.parentNode);
 <div id="field"></div>
 
 
-
 <p>오늘 한 운동의 종목들</p><br>
-<textArea>workout들... 어쩌구... 저쩌구.. 운동</textArea>
+<textarea name='etc' rows='5' cols='60'></textarea><br>
 
 <button>저장</button>
 </form>

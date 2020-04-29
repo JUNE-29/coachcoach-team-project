@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <jsp:include page="../header.jsp"/>
 
@@ -29,17 +31,6 @@
 
 
 <div style='border:1px solid gray; padding:10px; margin:5px'>
-  <h1>코치 후기</h1>
-  <c:forEach items="${memberProgram}" var="memberProgram">
-  <tbody>
-    <tr>
-      <th scope="row">${memberProgram.no}</th>
-      <td>${memberProgram.review}</td>
-      <td>${memberProgram.reviewDate}</td>
-    </tr>
-  </tbody>
-  </c:forEach>
-</table>
 
 <p>코치 만족도</p>
 <p id="star_grade">
@@ -49,7 +40,17 @@
         <a href="#">★</a>
         <a href="#">★</a>
 </p>        
+
+  <h3>수강후기</h3>
+  <c:forEach items="${memberProgram}" var="memberProgram">
+    <c:if test="${memberProgram.review ne null}">
+      ${memberProgram.review}
+      ${memberProgram.reviewDate}
+      </c:if>
+  </c:forEach>
+
 </div>
+
 
 
 <script>
