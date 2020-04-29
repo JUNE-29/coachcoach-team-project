@@ -8,6 +8,7 @@ public class WorkoutList implements Serializable {
   private static final long serialVersionUID = 1L;
 
   int no; // 운동내역번호
+  int memberNo; // 회원번호
   Date workoutDate; // 시행날짜
   int walkCount; // 걸음수
   String etc; // 비고
@@ -18,19 +19,6 @@ public class WorkoutList implements Serializable {
   public String toString() {
     return "WorkoutList [no=" + no + ", workoutDate=" + workoutDate + ", walkCount=" + walkCount
         + ", etc=" + etc + ", member=" + member + "]";
-  }
-
-
-  public static WorkoutList valueOf(String csv) {
-    String[] data = csv.split(",");
-
-    WorkoutList workoutList = new WorkoutList();
-    workoutList.setNo(Integer.parseInt(data[0]));
-    workoutList.setWorkoutDate(Date.valueOf(data[1]));
-    workoutList.setWalkCount(Integer.parseInt(data[2]));
-    workoutList.setEtc(data[3]);
-
-    return workoutList;
   }
 
 

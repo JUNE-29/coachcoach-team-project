@@ -4,6 +4,7 @@
 
 <h3>운동을 입력해주세요</h3>
 <form action='add' method='post'>
+<input name ='memberNo' readonly value='${memberNo}' type='hidden'>
 
 <p>날짜를 선택해주세요.</p><br>
 강의 시작일: <input name='startDate' type='date'><br>

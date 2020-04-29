@@ -22,8 +22,8 @@ public class WorkoutListServiceImpl implements WorkoutListService {
   }
 
   @Override
-  public List<WorkoutList> list() throws Exception {
-    return this.workoutListDao.findAll();
+  public List<WorkoutList> list(int memberNo) throws Exception {
+    return this.workoutListDao.findAll(memberNo);
   }
 
   @Override
