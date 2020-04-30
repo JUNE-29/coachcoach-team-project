@@ -12,13 +12,13 @@ public class WorkoutList implements Serializable {
   Date workoutDate; // 시행날짜
   int walkCount; // 걸음수
   String etc; // 비고
-  Member member; // 일반회원번호를 가지고 와야 함
+  Member member;
 
 
   @Override
   public String toString() {
-    return "WorkoutList [no=" + no + ", workoutDate=" + workoutDate + ", walkCount=" + walkCount
-        + ", etc=" + etc + ", member=" + member + "]";
+    return "WorkoutList [no=" + no + ", memberNo=" + memberNo + ", workoutDate=" + workoutDate
+        + ", walkCount=" + walkCount + ", etc=" + etc + ", member=" + member + "]";
   }
 
 
@@ -29,6 +29,14 @@ public class WorkoutList implements Serializable {
 
   public void setNo(int no) {
     this.no = no;
+  }
+
+  public int getMemberNo() {
+    return memberNo;
+  }
+
+  public void setMemberNo(int memberNo) {
+    this.memberNo = memberNo;
   }
 
   public Date getWorkoutDate() {
@@ -63,21 +71,18 @@ public class WorkoutList implements Serializable {
     this.member = member;
   }
 
-
-
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
     result = prime * result + ((etc == null) ? 0 : etc.hashCode());
     result = prime * result + ((member == null) ? 0 : member.hashCode());
+    result = prime * result + memberNo;
     result = prime * result + no;
     result = prime * result + walkCount;
     result = prime * result + ((workoutDate == null) ? 0 : workoutDate.hashCode());
     return result;
   }
-
-
 
   @Override
   public boolean equals(Object obj) {
@@ -97,6 +102,8 @@ public class WorkoutList implements Serializable {
       if (other.member != null)
         return false;
     } else if (!member.equals(other.member))
+      return false;
+    if (memberNo != other.memberNo)
       return false;
     if (no != other.no)
       return false;

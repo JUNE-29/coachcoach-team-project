@@ -9,8 +9,12 @@ public interface WorkoutListService {
 
   List<WorkoutList> list(int memberNo) throws Exception;
 
+  WorkoutList get(int no) throws Exception;
+
   int update(WorkoutList workoutList) throws Exception;
 
   int delete(int no) throws Exception;
+
+
 
 }

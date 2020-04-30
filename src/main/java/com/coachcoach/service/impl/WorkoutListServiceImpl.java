@@ -11,6 +11,7 @@ public class WorkoutListServiceImpl implements WorkoutListService {
 
   WorkoutListDao workoutListDao;
 
+
   public WorkoutListServiceImpl(WorkoutListDao workoutListDao) {
     this.workoutListDao = workoutListDao;
   }
@@ -18,24 +19,31 @@ public class WorkoutListServiceImpl implements WorkoutListService {
 
   @Override
   public int add(WorkoutList workoutList) throws Exception {
-    return this.workoutListDao.insert(workoutList);
+    return workoutListDao.insert(workoutList);
   }
+
 
   @Override
   public List<WorkoutList> list(int memberNo) throws Exception {
-    return this.workoutListDao.findAll(memberNo);
+    return workoutListDao.findAll(memberNo);
   }
+
+
+  @Override
+  public WorkoutList get(int no) throws Exception {
+    return workoutListDao.findByNo(no);
+  }
+
 
   @Override
   public int update(WorkoutList workoutList) throws Exception {
-    return this.workoutListDao.update(workoutList);
+    return workoutListDao.update(workoutList);
   }
+
 
   @Override
   public int delete(int no) throws Exception {
-    return this.workoutListDao.delete(no);
+    return workoutListDao.delete(no);
   }
-
-
 
 }

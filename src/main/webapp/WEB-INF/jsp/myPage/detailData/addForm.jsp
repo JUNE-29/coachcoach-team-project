@@ -4,15 +4,15 @@
 
 <h3>운동을 입력해주세요</h3>
 <form action='add' method='post'>
-<input name ='memberNo' readonly value='${memberNo}' type='hidden'>
+<input name ='no' value='${member.no}' type='hidden'>
 
-<p>날짜를 선택해주세요.</p><br>
+<p>날짜를 선택해주세요.</p>
 강의 시작일: <input name='startDate' type='date'><br>
 
-<p>오늘 몸무게를 입력해주세요.</p><br>
+<p>오늘 몸무게를 입력해주세요.</p>
 <input name='weight' type='text'><br>
 
-<p>오늘 걸음수를 입력해주세요.</p><br>
+<p>오늘 걸음수를 입력해주세요.</p>
 <input name='steps' type='text'><br>
 
 <br>
