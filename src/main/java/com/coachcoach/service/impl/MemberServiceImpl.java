@@ -2,6 +2,8 @@ package com.coachcoach.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Component;
 import com.coachcoach.dao.MemberDao;
 import com.coachcoach.domain.Member;
@@ -62,5 +64,10 @@ public class MemberServiceImpl implements MemberService {
 		params.put("id", id);
 		params.put("password", password);
 		return memberDao.findByNoAndidPassword(params);
+	}
+
+	@Override
+	public int updateWithdrawal(Map<String, Object> params) throws Exception {
+		return memberDao.updateWithdrawal(params);
 	}
 }

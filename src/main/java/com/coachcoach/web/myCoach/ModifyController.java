@@ -1,6 +1,10 @@
 package com.coachcoach.web.myCoach;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.coachcoach.domain.Member;
 import com.coachcoach.service.MemberService;
 
@@ -44,8 +49,7 @@ public class ModifyController {
 
 	@PostMapping("withdrawConfirm") // 아이디,비번 일치시 처리하는 메서드
 	public void withdrawConfirm(Model model, int no, String id, String password) throws Exception {
-		Member member = memberService.get(no, id, password);
-			model.addAttribute("member", member);
+			model.addAttribute("member", memberService.get(no, id, password));
 	}
 
 //	@GetMapping("withdrawReason") // 아이디,비번 일치시 처리하는 메서드
@@ -55,10 +59,11 @@ public class ModifyController {
 	
 	@PostMapping("withdraw") // 회원탈퇴 사유
 	public void withdraw(HttpSession session, int no, String withdrawalReason) throws Exception {
-		Member member = memberService.get(no);
-		member.setWithdrawalReason(withdrawalReason);
-		member.setWithdrawal(Integer.parseInt("0"));
-		memberService.update(member);
+		Map<String,Object> params = new HashMap<>();
+		params.put("no", no);
+		params.put("withdrawalReason", withdrawalReason);
+		params.put("withdrawal", 0);
+		memberService.updateWithdrawal(params);
 		session.invalidate();
 	}
 
