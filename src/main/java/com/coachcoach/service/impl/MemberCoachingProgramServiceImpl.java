@@ -47,7 +47,7 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
   }
 
   @Override
-  public List<MemberCoachingProgram> programNolist(int programNo) throws Exception {
+  public List<MemberCoachingProgram> detail(int programNo) throws Exception {
     return memberCoachingProgramDao.findByProgramNo(programNo);
   }
 
@@ -65,11 +65,6 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
   @Override
   public int updateEtc(Map<String, Object> params) throws Exception {
     return memberCoachingProgramDao.updateEtc(params);
-  }
-
-  @Override
-  public MemberCoachingProgram get2(int no) throws Exception {
-    return memberCoachingProgramDao.findByNo2(no);
   }
 
 }

@@ -17,7 +17,7 @@ import com.coachcoach.domain.Member;
 import com.coachcoach.service.MemberService;
 
 @Controller
-@RequestMapping("/mycoach/profile")
+@RequestMapping("/myCoach/profile")
 public class ProfileController {
 	@Autowired
 	ServletContext servletContext;

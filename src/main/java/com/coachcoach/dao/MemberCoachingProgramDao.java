@@ -42,8 +42,6 @@ public interface MemberCoachingProgramDao {
   MemberCoachingProgram findByNo(int no) throws Exception;
   // 신청프로그램 클릭시 디테일 보여주기 위함
 
-  MemberCoachingProgram findByNo2(int no) throws Exception;
-  // 프로그램 디테일(은정만듬)
 }
 
 

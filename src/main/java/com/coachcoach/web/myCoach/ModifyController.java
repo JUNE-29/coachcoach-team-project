@@ -12,7 +12,7 @@ import com.coachcoach.domain.Member;
 import com.coachcoach.service.MemberService;
 
 @Controller
-@RequestMapping("/mycoach/modify")
+@RequestMapping("/myCoach/modify")
 public class ModifyController {
 
 	@Autowired

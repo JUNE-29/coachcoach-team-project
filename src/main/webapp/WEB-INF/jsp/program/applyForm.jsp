@@ -18,11 +18,10 @@
 
 <h3>[프로그램 세부사항]</h3>
 프로그램명: ${program.name}<br>
-운동 시작일<input name=startDate type='text' placeholder='예)2020-05-01'><br>
+운동 시작일<input name='startDate' type='text' placeholder='예)2020-05-01'><br>
 <button>신청하기</button>
-<input name='endDate' type='hidden'><br>
-<input name='status' type='hidden' value='대기중'><br>
 <input name='programNo' type='hidden' value='${program.no}'>
+<input name='memberNo' type='hidden' value='${member.no}'>
 </form>
 
 <jsp:include page="../footer.jsp"/>

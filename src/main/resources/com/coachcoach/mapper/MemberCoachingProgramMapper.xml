@@ -19,8 +19,11 @@
     <result column="review" property="review"/>
     <result column="review_date" property="reviewDate"/>
     <result column="etc" property="etc"/>
-    <result column="program_name" property="programName"/>
     
+    <association property="programName" javaType="String">   
+    <result column="program_name" property="programName"/>
+    </association>
+        
     <association property="member" javaType="Member">
       <id column="member_no"              property="no"/>
 	    <result column="id"                 property="id"/>
@@ -101,9 +104,9 @@
         mcp.remark,            
         mcp.status,            
         DATE_FORMAT(mcp.request_date, "%Y/%m/%d") as request_date,
-        mcp.pay_date,          
-        mcp.start_date,        
-        mcp.end_date,          
+        mcp.pay_date,     
+        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
+        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date,
         mcp.star_rate,         
         mcp.review,            
         mcp.review_date,       
@@ -153,8 +156,9 @@
        end_date,          
        star_rate,         
        review,            
-       review_date,       
-       etc               
+       DATE_FORMAT(review_date, "%Y/%m/%d") as review_date,       
+       etc,
+       c.name program_name                
     from 
       member_coaching_programs mcp 
       join coaching_programs c on mcp.program_no=c.program_no
@@ -177,35 +181,13 @@
       #{memberNo},
       #{programNo},
       #{remark},
-      #{status},
+      '요청대기중',
       now(),
       #{startDate},
-      #{endDate}
+      #{startDate}
     )
   </insert>
- 
- <select id="findByNo2" resultMap="MemberCoachingProgramMap" parameterType="int">
-     select  
-       member_program_no,
-       member_no,       
-       program_no,        
-       remark,            
-       status,            
-       request_date,      
-       pay_date,          
-       start_date,        
-       end_date,          
-       star_rate,         
-       review,            
-       review_date,       
-       etc,
-       program_name               
-     from 
-      member_coaching_programs
-        where 
-      member_program_no=#{no}
-  </select>
- 
+
  
 </mapper>
 

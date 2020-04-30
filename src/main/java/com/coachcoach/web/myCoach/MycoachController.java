@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mycoach/mycoach")
+@RequestMapping("/myCoach/program")
 public class MycoachController {
 
   @GetMapping("list") // 마이코치

@@ -1,7 +1,6 @@
 package com.coachcoach.web.searchCoach;
 
 
-import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,9 +47,7 @@ public class SearchController {
   @GetMapping("detail") // 프로그램 상세보기
   public void detail(Model model, int programNo, int no) throws Exception {
     model.addAttribute("programList", coachingProgramService.get(programNo));
-    List<MemberCoachingProgram> memberProgram =
-        memberCoachingProgramService.programNolist(programNo);
-    model.addAttribute("memberProgram", memberProgram);
+    model.addAttribute("memberProgram", memberCoachingProgramService.detail(programNo));
 
   }
 
@@ -64,8 +61,7 @@ public class SearchController {
   @PostMapping("applyList") // 확인
   public void applyList(Model model, MemberCoachingProgram memberCoachingProgram) throws Exception {
     memberCoachingProgramService.add(memberCoachingProgram);
-    model.addAttribute("program", memberCoachingProgramService.get2(memberCoachingProgram.getNo()));
-    model.addAttribute("member", memberService.get(memberCoachingProgram.getMemberNo()));
+    model.addAttribute("program", memberCoachingProgramService.get(memberCoachingProgram.getNo()));
   }
 
 

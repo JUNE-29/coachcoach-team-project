@@ -9,7 +9,6 @@ public class MemberCoachingProgram implements Serializable {
   int no;
   int memberNo;
   int programNo;
-  String programName; 
   String remark; // 특이사항
   String status; // 결제대기, 결제완료, 진행중, 진행완료, 요청중 등..
   String requestDate;
@@ -22,7 +21,8 @@ public class MemberCoachingProgram implements Serializable {
   String etc; // 거절사유 등...
 
   Member member;
-
+  String programName; 
+  
   @Override
   public String toString() {
     return "MemberCoachingProgram [no=" + no + ", memberNo=" + memberNo + ", programNo=" + programNo

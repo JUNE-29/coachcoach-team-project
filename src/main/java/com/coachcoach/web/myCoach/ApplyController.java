@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mycoach/apply")
+@RequestMapping("/myCoach/apply")
 public class ApplyController {
 
   @GetMapping("list") // 신청내역
