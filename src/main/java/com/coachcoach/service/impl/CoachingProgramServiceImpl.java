@@ -50,5 +50,10 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
 	return coachingProgramDao.findAll();
   }
 
+  @Override
+  public List<CoachingProgram> applyList(int memberNo) throws Exception {
+	return coachingProgramDao.applyList(memberNo);
+  }
+
 
 }
