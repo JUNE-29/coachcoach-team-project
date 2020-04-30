@@ -175,6 +175,7 @@
          join member_coaching_programs mcp on cp.program_no=mcp.program_no
        where
         mcp.member_no=#{no}
+       order by mcp.member_program_no desc
    </select>
 </mapper>
 
