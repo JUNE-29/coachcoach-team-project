@@ -6,9 +6,14 @@
 
 <h1>공지사항</h1>
 <form action='add' method='post'>
+
 내용:<br>
 <textarea name='title' rows='5' cols='60'></textarea><br>
+
+
+
 <button>등록</button>
+
 </form>
 
 <jsp:include page="../../footer.jsp"/>

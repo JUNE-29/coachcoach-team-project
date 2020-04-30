@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.NoticeBoardDao">
+
+  <resultMap type="NoticeBoard" id="NoticeBoardMap">
+    <id column="NoticeBoard_id"   property="no"/>
+    <result column="conts"  property="title"/>
+    <result column="cdt"    property="date"/>
+    <result column="vw_cnt" property="viewCount"/>
+  </resultMap>
+  
+  <sql id="select1">
+    select 
+      NoticeBoard_id, 
+      conts, 
+      cdt, 
+      vw_cnt
+    from 
+      NoticeBoard
+  </sql>
+  
+  <select id="findAll" resultMap="NoticeBoardMap">
+    <include refid="select1"/>
+    order by 
+      NoticeBoard_id desc
+  </select>
+  
+  <insert id="insert" parameterType="NoticeBoard">
+    insert into NoticeBoard(conts) 
+    values(#{title})
+  </insert>
+  
+  <select id="findByNo" resultMap="NoticeBoardMap" parameterType="int">
+    <include refid="select1"/>
+    where 
+      NoticeBoard_id=#{no}
+  </select>
+  
+  <update id="update" parameterType="NoticeBoard">
+    update NoticeBoard set
+      conts=#{title}
+    where NoticeBoard_id=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from NoticeBoard
+    where NoticeBoard_id=#{no}
+  </delete>
+</mapper>
+
+
+
+
+
+
+
