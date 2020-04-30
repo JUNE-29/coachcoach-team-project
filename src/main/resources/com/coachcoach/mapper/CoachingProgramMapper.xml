@@ -23,7 +23,19 @@
       <result column="coach_introduce"  property="introduce"/>
       <result column="work_type"  property="workType"/>
     </association>
-    
+
+     <association property="mcp" javaType="MemberCoachingProgram">
+      <id column="member_program_no"  property="no"/>
+      <result column="member_no"       property="memberNo"/>
+      <result column="program_no"       property="programNo"/>
+      <result column="remark"  property="remark"/>
+      <result column="status"    property="status"/>
+      <result column="request_date" property="requestDate"/>
+      <result column="pay_date" property="payDate"/>
+      <result column="start_date" property="startDate"/>
+      <result column="end_date" property="endDate"/>
+      <result column="etc" property="etc"/>
+    </association>
    <!-- <collection property="coachingProgramTags" ofType="Integer">
       <id column="tag_no"   property="tagNo"/>
       <result column="program_no"  property="programNo"/>
@@ -139,6 +151,30 @@
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
       order by program_no desc
+   </select>
+   
+   <select id="applyList" resultMap="CoachingProgramMap">
+      select  
+        mcp.member_program_no,
+        mcp.member_no,       
+        mcp.program_no,        
+        mcp.remark,            
+        mcp.status,            
+        DATE_FORMAT(mcp.request_date, "%Y/%m/%d") as request_date,
+        mcp.pay_date,     
+        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
+        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date,
+        mcp.etc,
+        cp.name,
+        cp.fee,
+        cp.coaching_type,
+        c.name coach_name
+      from 
+        coaching_programs cp
+         join coaches c on cp.coach_no=c.coach_no
+         join member_coaching_programs mcp on cp.program_no=mcp.program_no
+       where
+        mcp.member_no=#{no}
    </select>
 </mapper>
 

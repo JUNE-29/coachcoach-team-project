@@ -17,15 +17,15 @@
       <th scope="col">상태</th>
     </tr>
   </thead>
-  <c:forEach items="${programList}" var="programList">
+  <c:forEach items="${programList}" var="list">
   <tbody>
     <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <th scope="row">${list.mcp.no}</th>
+      <td>${list.coach.name}</td>
+      <td>${list.name}</td>
+      <td>${list.fee}</td>
       <td><form action='reviewForm' method='get'>
-    <button>거절사유</button>
+    <button>${list.mcp.status}</button>
     </form></td>
     </tr>
   </tbody>

@@ -15,8 +15,7 @@ public class CoachingProgram implements Serializable {
 	String coachingType; // 코칭방식이름
 	List<Integer> coachingProgramTags;
 	Coach coach;
-	
-	
+	MemberCoachingProgram mcp;
 	public int getNo() {
 		return no;
 	}
@@ -65,6 +64,12 @@ public class CoachingProgram implements Serializable {
 	public void setCoach(Coach coach) {
 		this.coach = coach;
 	}
+	public MemberCoachingProgram getMcp() {
+		return mcp;
+	}
+	public void setMcp(MemberCoachingProgram mcp) {
+		this.mcp = mcp;
+	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -78,6 +83,7 @@ public class CoachingProgram implements Serializable {
 		result = prime * result + ((coachingType == null) ? 0 : coachingType.hashCode());
 		result = prime * result + fee;
 		result = prime * result + ((introduce == null) ? 0 : introduce.hashCode());
+		result = prime * result + ((mcp == null) ? 0 : mcp.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + no;
 		return result;
@@ -115,6 +121,11 @@ public class CoachingProgram implements Serializable {
 				return false;
 		} else if (!introduce.equals(other.introduce))
 			return false;
+		if (mcp == null) {
+			if (other.mcp != null)
+				return false;
+		} else if (!mcp.equals(other.mcp))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -124,13 +135,13 @@ public class CoachingProgram implements Serializable {
 			return false;
 		return true;
 	}
-	
 	@Override
 	public String toString() {
 		return "CoachingProgram [no=" + no + ", coachNo=" + coachNo + ", name=" + name + ", introduce=" + introduce
 				+ ", fee=" + fee + ", coachingType=" + coachingType + ", coachingProgramTags=" + coachingProgramTags
-				+ ", coach=" + coach + "]";
+				+ ", coach=" + coach + ", mcp=" + mcp + "]";
 	}
+	
 
 
 }
