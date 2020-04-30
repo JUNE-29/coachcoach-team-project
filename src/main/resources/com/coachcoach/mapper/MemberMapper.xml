@@ -90,7 +90,7 @@
     update members
     <set>
       <if test="name != null and name != ''">name=#{name},</if>
-      <if test="gender != null and gender != ''">gender=#{gender},</if>
+      <if test="gender != null">gender=#{gender},</if>
       <if test="birth != null and birth != ''">birth=#{birth},</if>        
       <if test="tel != null and tel != ''">tel=#{tel},</if> 
       <if test="email != null and email != ''">email=#{email},</if>       
