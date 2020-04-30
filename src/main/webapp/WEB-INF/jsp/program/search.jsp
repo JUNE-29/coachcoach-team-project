@@ -40,14 +40,14 @@
 </select>
 </div>
 
-<c:forEach items="${searchProgram}" var="searchProgram">
+<c:forEach items="${searchProgram}" var="list">
 <div style='border:1px solid gray; padding:10px; margin:5px'>
-<label>${searchProgram.no}</label>
-<img src='${pageContext.servletContext.contextPath}/upload/coach/${searchProgram.coach.photo}' height='200'>
-<a href='detail?programNo=${searchProgram.no}&no=${searchProgram.coachNo}'><label>${searchProgram.coach.name} 코치님</label></a><br> 
-<label>${searchProgram.name}</label><br> 
-<label>${searchProgram.introduce}</label><br> 
-<label>${searchProgram.fee}원 </label><br> 
+<label>${list.no}</label>
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${list.coach.photo}' height='200'>
+<a href='detail?programNo=${list.no}&no=${list.coachNo}'><label>${list.coach.name} 코치님</label></a><br> 
+<label>${list.name}</label><br> 
+<label>${list.introduce}</label><br> 
+<label>${list.fee}원 </label><br> 
 </div>
 </c:forEach>
 

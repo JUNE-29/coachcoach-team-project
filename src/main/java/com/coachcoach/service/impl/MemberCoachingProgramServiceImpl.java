@@ -47,7 +47,7 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
   }
 
   @Override
-  public List<MemberCoachingProgram> detail(int programNo) throws Exception {
+  public List<MemberCoachingProgram> programList(int programNo) throws Exception {
     return memberCoachingProgramDao.findByProgramNo(programNo);
   }
 

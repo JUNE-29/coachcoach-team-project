@@ -46,16 +46,16 @@ public class SearchController {
 
   @GetMapping("detail") // 프로그램 상세보기
   public void detail(Model model, int programNo, int no) throws Exception {
-    model.addAttribute("programList", coachingProgramService.get(programNo));
-    model.addAttribute("memberProgram", memberCoachingProgramService.detail(programNo));
+    model.addAttribute("program", coachingProgramService.get(programNo));
+    model.addAttribute("memberProgram", memberCoachingProgramService.programList(programNo));
 
   }
 
   @PostMapping("applyForm") // 신청서
-  public void applyForm(Model model, int no) throws Exception {
+  public void applyForm(Model model, int programNo) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("member", memberService.get(member.getNo()));
-    model.addAttribute("program", coachingProgramService.get(no));
+    model.addAttribute("program", coachingProgramService.get(programNo));
   }
 
   @PostMapping("applyList") // 확인

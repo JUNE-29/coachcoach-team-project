@@ -41,14 +41,14 @@
 
 
 
-<c:forEach items="${programList}" var="programList">
+<c:forEach items="${programList}" var="list">
 <div style='border:1px solid gray; padding:10px; margin:5px'>
-<label>${programList.no}</label>
-<img src='${pageContext.servletContext.contextPath}/upload/coach/${programList.coach.photo}' height='200'>
-<a href='detail?programNo=${programList.no}&no=${programList.coachNo}'><label>${programList.coach.name} 코치님</label></a><br> 
-<label>${programList.name}</label><br> 
-<label>${programList.introduce}</label><br> 
-<label>${programList.fee}원 </label><br> 
+<label>${list.no}</label>
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${list.coach.photo}' height='200'>
+<a href='detail?programNo=${list.no}&no=${list.coachNo}'><label>${list.coach.name} 코치님</label></a><br> 
+<label>${list.name}</label><br> 
+<label>${list.introduce}</label><br> 
+<label>${list.fee}원 </label><br> 
 </div>
 </c:forEach>
 

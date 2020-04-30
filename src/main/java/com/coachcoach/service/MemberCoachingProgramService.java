@@ -10,7 +10,7 @@ public interface MemberCoachingProgramService {
 
   List<MemberCoachingProgram> list(int memberNo) throws Exception;
 
-  List<MemberCoachingProgram> detail(int programNo) throws Exception;
+  List<MemberCoachingProgram> programList(int programNo) throws Exception;
 
   MemberCoachingProgram get(int no) throws Exception;
 
