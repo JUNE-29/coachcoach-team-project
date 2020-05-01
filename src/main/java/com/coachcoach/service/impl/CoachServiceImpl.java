@@ -55,6 +55,11 @@ public class CoachServiceImpl implements CoachService {
     return coachDao.update(coach);
   }
 
+  @Override
+  public int updateProfile(Coach coach) throws Exception {
+    return coachDao.updateProfile(coach);
+  }
+
 
 
 }

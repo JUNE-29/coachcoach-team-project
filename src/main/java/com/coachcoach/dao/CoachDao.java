@@ -14,6 +14,8 @@ public interface CoachDao {
 
   int update(Coach coach) throws Exception;
 
+  int updateProfile(Coach coach) throws Exception;
+
   int delete(int no) throws Exception;
 
   List<Coach> findByKeyword(String keyword) throws Exception;

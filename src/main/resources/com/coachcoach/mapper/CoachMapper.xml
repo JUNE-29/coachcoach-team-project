@@ -42,7 +42,7 @@
     tel,
     email,
     work_type,
-    photo
+    photo,
   </sql>
   
   
@@ -90,6 +90,18 @@
   <select id="findByNo" resultMap="CoachMap" parameterType="int">
     select 
       <include refid="select"/>
+      area, 
+     career,
+     certification,
+     introduce,
+     members,
+     create_date,
+     bank,
+     account,
+     work_type,
+     address,
+     latitude,
+     longitude
     from 
       coaches
     where 
@@ -97,6 +109,19 @@
   </select>
 
 
+  <update id="updateProfile" parameterType="Coach">
+    update coaches
+    <set>
+      <if test="area != null and area != ''">area=#{area},</if>
+      <if test="career != null and career != ''">career=#{career},</if> 
+      <if test="certification != null and certification != ''">certification=#{certification},</if>             
+      <if test="introduce != null and introduce != ''">introduce=#{introduce},</if>
+      <if test="photo != null and photo != ''">photo=#{photo},</if> 
+    </set>
+    where 
+      coach_no=#{no}
+  </update>
+  
   <update id="update" parameterType="Coach">
     update coaches
     <set>

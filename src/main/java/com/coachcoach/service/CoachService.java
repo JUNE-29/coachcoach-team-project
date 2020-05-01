@@ -19,4 +19,6 @@ public interface CoachService {
 
   int update(Coach coach) throws Exception;
 
+  int updateProfile(Coach coach) throws Exception;
+
 }
