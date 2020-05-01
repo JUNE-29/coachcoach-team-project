@@ -10,12 +10,15 @@ public class Weight implements Serializable {
   int memberNo;
   int weight;
   Date measureDate;
+  Member member;
+
 
   @Override
   public String toString() {
     return "Weight [no=" + no + ", memberNo=" + memberNo + ", weight=" + weight + ", measureDate="
-        + measureDate + "]";
+        + measureDate + ", member=" + member + "]";
   }
+
 
   public int getNo() {
     return no;
@@ -49,16 +52,27 @@ public class Weight implements Serializable {
     this.measureDate = measureDate;
   }
 
+  public Member getMember() {
+    return member;
+  }
+
+  public void setMember(Member member) {
+    this.member = member;
+  }
+
+
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
     result = prime * result + ((measureDate == null) ? 0 : measureDate.hashCode());
+    result = prime * result + ((member == null) ? 0 : member.hashCode());
     result = prime * result + memberNo;
     result = prime * result + no;
     result = prime * result + weight;
     return result;
   }
+
 
   @Override
   public boolean equals(Object obj) {
@@ -73,6 +87,11 @@ public class Weight implements Serializable {
       if (other.measureDate != null)
         return false;
     } else if (!measureDate.equals(other.measureDate))
+      return false;
+    if (member == null) {
+      if (other.member != null)
+        return false;
+    } else if (!member.equals(other.member))
       return false;
     if (memberNo != other.memberNo)
       return false;

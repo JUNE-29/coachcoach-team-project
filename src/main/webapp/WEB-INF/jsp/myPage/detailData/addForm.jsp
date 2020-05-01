@@ -4,20 +4,17 @@
 
 <h3>운동을 입력해주세요</h3>
 <form action='add' method='post'>
-<input name ='no' value='${member.no}' type='hidden'>
+<input name ='memberNo' value='${member.no}' type='hidden'>
 
 <p>날짜를 선택해주세요.</p>
-강의 시작일: <input name='startDate' type='date'><br>
-
-<p>오늘 몸무게를 입력해주세요.</p>
-<input name='weight' type='text'><br>
+강의 시작일: <input name='workoutDate' type='date'><br>
 
 <p>오늘 걸음수를 입력해주세요.</p>
-<input name='steps' type='text'><br>
+<input name='walkCount' type='text'><br>
 
 <br>
 <!-- 운동 종목/시간 입력 -->
-   
+<!--
 <script type="text/javascript">
 
   
@@ -35,6 +32,7 @@ document.getElementById('field').removeChild(obj.parentNode);
 
 
   <label for="image">오늘한 운동의 종목과 시간을 입력해주세요.</label>
+  
   <input type="button" value="추가" onclick="add_div()">
 
 
@@ -90,6 +88,7 @@ document.getElementById('field').removeChild(obj.parentNode);
 
 <div id="field"></div>
 
+-->
 
 <p>오늘 한 운동의 종목들</p><br>
 <textarea name='etc' rows='5' cols='60'></textarea><br>

@@ -5,12 +5,8 @@
     
 <jsp:include page="../../header.jsp"/>
 
-<h3>운동내역 그래프</h3>
-<button type="button" onclick="location.href='workoutGraphWeek'" >주</button>
-<button type="button" onclick="location.href='workoutGraphMonth'">월</button>
-<button type="button" onclick="location.href='workoutGraphYear'">년</button>
-
 <html>
+<h3>운동내역 그래프(일)</h3>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">

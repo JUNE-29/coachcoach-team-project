@@ -19,15 +19,15 @@
   
    <insert id="insert" parameterType="WorkoutList"
    useGeneratedKeys="true" keyColumn="workout_list_no" keyProperty="no">
-    insert into WorkoutList(
+    insert into workout_list(
       member_no,
       workout_date,
       walk_count,
       etc
     ) values(
       #{memberNo},
-      #{workoutDate}
-      #{walkCount}
+      #{workoutDate},
+      #{walkCount},
       #{etc}
     )
   </insert>
