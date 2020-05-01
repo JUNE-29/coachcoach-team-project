@@ -11,7 +11,7 @@ public interface WeightDao {
   // 체중 리스트(그래프)
   List<Weight> findAllByMemberNo(int memberNo) throws Exception;
 
-  // 체중 상세보기(미정)
+  // // 체중 상세보기(미정)
   // Weight findByNo(int no) throws Exception;
 
   // 체중 수정

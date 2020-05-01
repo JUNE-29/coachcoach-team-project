@@ -10,26 +10,35 @@
     <result column="member_no"       property="memberNo"/>
     <result column="weight"       property="weight"/>
     <result column="measure_date"  property="measureDate"/>
+    
+    <association property="member" javaType="Member">
+      <id column="member_no"              property="no"/>
+    </association>
   </resultMap>
   
-   <insert id="insert" parameterType="Weight">
+   <insert id="insert" parameterType="Weight"
+   useGeneratedKeys="true" keyColumn="weight_no" keyProperty="no">
     insert into weight(
       member_no,
-      weight
+      weight,
+      measure_date
     ) values(
       #{memberNo},
-      #{weight}
+      #{weight},
+      #{measureDate}
     )
   </insert>
   
-   <select id="findAllByMemberNo" resultMap="WeightMap" parameterType="int">
-    select 
-      weight,
-      measure_date
-    from 
-      weight
+   <select id="findAllByMemberNo" resultMap="WeightMap">
+    select
+      w.weight_no,
+      w.weight,
+      w.measure_date
+    from
+      weight w
+      join members m on w.member_no=m.member_no
     where
-      member_no=#{memberNo}
+      w.member_no=#{memberNo}
    </select>
    
     <update id="update" parameterType="Weight">

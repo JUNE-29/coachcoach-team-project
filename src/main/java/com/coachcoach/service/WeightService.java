@@ -5,7 +5,7 @@ import com.coachcoach.domain.Weight;
 
 public interface WeightService {
 
-  List<Weight> list(int memberNo) throws Exception;
+  List<Weight> findAllByMemberNo(int memberNo) throws Exception;
 
   int delete(int no) throws Exception;
 
