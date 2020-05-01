@@ -47,13 +47,16 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
 
   @Override // 코칭 프로그램 리스트
   public List<CoachingProgram> list() throws Exception {
-	return coachingProgramDao.findAll();
+    return coachingProgramDao.findAll();
   }
 
   @Override
   public List<CoachingProgram> applyList(int memberNo) throws Exception {
-	return coachingProgramDao.applyList(memberNo);
+    return coachingProgramDao.applyList(memberNo);
   }
 
-
+  @Override
+  public CoachingProgram getdetail(int no) throws Exception {
+    return coachingProgramDao.findByProgramNo(no);
+  }
 }

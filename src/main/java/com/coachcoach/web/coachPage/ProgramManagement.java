@@ -31,6 +31,7 @@ public class ProgramManagement {
 
   @PostMapping("addForm")
   public void addForm(int coachNo, Model model) throws Exception {
+    System.out.println(coachNo);
     model.addAttribute("coachNo", coachNo);
   }
 
@@ -51,7 +52,11 @@ public class ProgramManagement {
   public void delete2() {}
 
   @GetMapping("detail")
-  public void detail() {}
+  public void detail(int programNo, Model model) throws Exception {
+    CoachingProgram coachingProgram = coachingProgramService.getdetail(programNo);
+    model.addAttribute("program", coachingProgram);
+
+  }
 
   @GetMapping("list")
   public void list(Model model) throws Exception {
