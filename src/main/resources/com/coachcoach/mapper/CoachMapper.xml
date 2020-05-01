@@ -186,7 +186,7 @@
     where 
       id=#{id} 
       and password=password(#{password})
-      and withdrawal=null
+      and withdrawal IS NULL
   </select>
  
 </mapper>

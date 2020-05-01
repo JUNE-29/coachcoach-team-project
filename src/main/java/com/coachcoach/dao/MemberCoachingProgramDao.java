@@ -47,6 +47,9 @@ public interface MemberCoachingProgramDao {
   MemberCoachingProgram findByNo(int no) throws Exception;
   // 신청프로그램 클릭시 디테일 보여주기 위함
 
+  List<MemberCoachingProgram> findByCoachNo(int coachNo);
+  // 코치 결제페이지
+
 }
 
 

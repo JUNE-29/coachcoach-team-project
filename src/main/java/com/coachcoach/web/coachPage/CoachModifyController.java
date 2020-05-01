@@ -54,7 +54,7 @@ public class CoachModifyController {
     }
   }
 
-  @GetMapping("withdrawalReason") // 회원탈퇴
+  @GetMapping("withdrawalForm") // 회원탈퇴
   public void withdrawalReason() throws Exception {}
 
   @PostMapping("withdraw") // 회원탈퇴

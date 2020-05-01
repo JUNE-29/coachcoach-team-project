@@ -72,4 +72,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.updateReview(params);
   }
 
+  @Override
+  public List<MemberCoachingProgram> listByCoachNo(int coachNo) throws Exception {
+    return memberCoachingProgramDao.findByCoachNo(coachNo);
+  }
+
 }

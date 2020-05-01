@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.service.CoachService;
 
 @Controller
-@RequestMapping("/coachpage/notice")
+@RequestMapping("/coachPage/notice")
 public class NoticeController {
 
   @Autowired

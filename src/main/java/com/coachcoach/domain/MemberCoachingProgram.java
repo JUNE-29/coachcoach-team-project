@@ -21,15 +21,17 @@ public class MemberCoachingProgram implements Serializable {
   String etc; // 거절사유 등...
 
   Member member;
-  String programName; 
-  
+  String programName;
+  int fee;
+
+
   @Override
   public String toString() {
     return "MemberCoachingProgram [no=" + no + ", memberNo=" + memberNo + ", programNo=" + programNo
-        + ", programName=" + programName + ", remark=" + remark + ", status=" + status
-        + ", requestDate=" + requestDate + ", payDate=" + payDate + ", startDate=" + startDate
-        + ", endDate=" + endDate + ", starRate=" + starRate + ", review=" + review + ", reviewDate="
-        + reviewDate + ", etc=" + etc + ", member=" + member + "]";
+        + ", remark=" + remark + ", status=" + status + ", requestDate=" + requestDate
+        + ", payDate=" + payDate + ", startDate=" + startDate + ", endDate=" + endDate
+        + ", starRate=" + starRate + ", review=" + review + ", reviewDate=" + reviewDate + ", etc="
+        + etc + ", member=" + member + ", programName=" + programName + ", fee=" + fee + "]";
   }
 
   @Override
@@ -38,6 +40,7 @@ public class MemberCoachingProgram implements Serializable {
     int result = 1;
     result = prime * result + (endDate == null ? 0 : endDate.hashCode());
     result = prime * result + (etc == null ? 0 : etc.hashCode());
+    result = prime * result + fee;
     result = prime * result + (member == null ? 0 : member.hashCode());
     result = prime * result + memberNo;
     result = prime * result + no;
@@ -72,6 +75,8 @@ public class MemberCoachingProgram implements Serializable {
       if (other.etc != null)
         return false;
     } else if (!etc.equals(other.etc))
+      return false;
+    if (fee != other.fee)
       return false;
     if (member == null) {
       if (other.member != null)
@@ -127,6 +132,14 @@ public class MemberCoachingProgram implements Serializable {
     } else if (!status.equals(other.status))
       return false;
     return true;
+  }
+
+  public int getFee() {
+    return fee;
+  }
+
+  public void setFee(int fee) {
+    this.fee = fee;
   }
 
   public String getProgramName() {

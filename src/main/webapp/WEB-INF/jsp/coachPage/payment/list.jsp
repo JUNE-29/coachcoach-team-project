@@ -26,11 +26,21 @@
   <tr>
     <th>주문번호</th>
     <th>회원성함</th>
-    <th>결제완료일</th>
     <th>주문한 프로그램명</th>
+    <th>결제완료일</th>
     <th>결제금액</th>
     <th>상태</th>
   </tr>
+  <c:forEach items="${list}" var="item">
+    <tr>
+      <th scope="row">${item.no}</th>
+      <td>${item.member.name}</td>
+      <td>${item.programName}</td>
+      <td>${item.payDate}</td>
+      <td>${item.fee}</td>     
+    <td>${item.status}</td>
+    </tr>
+  </c:forEach>
   </table>
   
 <hr>

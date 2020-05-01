@@ -1,34 +1,33 @@
 package com.coachcoach.web.coachPage;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.coachcoach.service.CoachService;
+import com.coachcoach.domain.Coach;
+import com.coachcoach.service.MemberCoachingProgramService;
 
 @Controller
-@RequestMapping("/coachpage/payment")
+@RequestMapping("/coachPage/payment")
 public class PaymentController {
 
   @Autowired
   ServletContext servletContext;
 
   @Autowired
-  CoachService coachService;
+  MemberCoachingProgramService memberCoachingProgramService;
 
-  @GetMapping("addForm")
-  public void addForm() {}
-
-  @PostMapping("add")
-  public void add() {}
-
-  @GetMapping("delete")
-  public void delete() {}
+  @GetMapping("search")
+  public void search() throws Exception {}
 
   @GetMapping("list")
-  public void list() {}
+  public void list(HttpSession session, Model model) throws Exception {
+    Coach coach = (Coach) session.getAttribute("loginUser");
+    model.addAttribute("list", memberCoachingProgramService.listByCoachNo(coach.getNo()));
+  }
 
 
 }
