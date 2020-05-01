@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.service.CoachService;
 
 @Controller
-@RequestMapping("/coachpage/coachprofile")
+@RequestMapping("/coachPage/profile")
 public class CoachProfileController {
 
   @Autowired
