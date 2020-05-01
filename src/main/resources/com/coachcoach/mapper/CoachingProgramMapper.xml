@@ -74,7 +74,19 @@
       c.coach_no=#{coachNo}
       <!-- join workout_tags w on w.tag_no=ct.tag_no 태그는 코칭프로그램태그 맵퍼따로-->
   </select>
-
+  
+  <select id= "findByProgramNo" resultMap="CoachingProgramMap" parameterType="int">
+     select
+      program_no,
+      name,
+      introduce,
+      fee
+     from
+      coaching_programs
+     where
+      program_no=#{no}
+  </select>
+ 
   <select id="findByNo" resultMap="CoachingProgramMap" parameterType="int">
      select  
       cp.program_no,

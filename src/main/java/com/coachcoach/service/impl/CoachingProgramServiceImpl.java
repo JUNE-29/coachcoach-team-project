@@ -54,6 +54,7 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   @Override
   public List<CoachingProgram> applyList(int memberNo) throws Exception {
     return coachingProgramDao.applyList(memberNo);
+
   }
 
   @Override
@@ -61,5 +62,8 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
     return coachingProgramDao.findByGender(params);
   }
 
-
+  @Override
+  public CoachingProgram getdetail(int no) throws Exception {
+    return coachingProgramDao.findByProgramNo(no);
+  }
 }

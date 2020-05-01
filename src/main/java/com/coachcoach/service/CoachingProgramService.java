@@ -23,4 +23,6 @@ public interface CoachingProgramService {
   List<CoachingProgram> search(Map<String, Object> params) throws Exception;
 
   CoachingProgram get(int no) throws Exception;
+
+  CoachingProgram getdetail(int no) throws Exception;
 }

@@ -23,7 +23,7 @@
   <tr>
   <td align=center>${item.no}</td>
   <td align=center>${item.name}</td>
-  <th ><button type="button" onclick="location.href='detail'">자세히보기</button></th>
+  <th ><a href= 'detail?programNo=${item.no}'>자세히보기</a></th>
   <th><button type="button" onclick="location.href='updateForm'">수정</button></th>
   <th><button type="button" onclick="location.href='delete'">삭제</button></th>
   </tr>
