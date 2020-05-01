@@ -133,6 +133,24 @@
       order by program_no desc
   </select>
   
+  <select id="findByGender" resultMap="CoachingProgramMap" parameterType="map">
+    select 
+      cp.program_no,
+      c.name coach_name,
+      cp.name,
+      cp.introduce,
+      cp.fee
+    from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+    where
+      c.gender like #{gender}
+      and cp.coaching_type like #{coachingType}
+      order by program_no desc
+  </select>
+  
+  
+  
   <select id="findAll" resultMap="CoachingProgramMap">
     select  
       cp.program_no,

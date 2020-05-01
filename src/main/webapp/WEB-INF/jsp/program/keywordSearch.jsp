@@ -4,8 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../header.jsp"/>
+
 <div>
-<form action='keywordSearch' method='get'>
+<form action='search' method='get'>
 <input name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
 <button>검색</button>
 </form>
@@ -40,11 +41,9 @@
   <option value="saab">별점 높은 순</option>
   <option value="fiat">인기 많은 순</option>
 </select>
+</div>
 
-
-
-
-<c:forEach items="${programList}" var="list">
+<c:forEach items="${searchProgram}" var="list">
 <div style='border:1px solid gray; padding:10px; margin:5px'>
 <label>${list.no}</label>
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${list.coach.photo}' height='200'>
@@ -54,6 +53,9 @@
 <label>${list.fee}원 </label><br> 
 </div>
 </c:forEach>
+
+
+
 
 
 <jsp:include page="../footer.jsp"/>
