@@ -7,8 +7,6 @@ applyList.jsp<%@ page language="java" contentType="text/html; charset=UTF-8"
 
 
 <h3>수정하였습니다</h3>
-<form action='form' method='get'>
-<button>확인</button>
-</form>
+<button onclick="location.href='form'">확인</button>
 
 <jsp:include page="../../footer.jsp"/>

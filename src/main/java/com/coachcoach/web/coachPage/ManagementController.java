@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.service.CoachService;
 
 @Controller
-@RequestMapping("/coachpage/membermanagement")
-public class MemberManagementController {
+@RequestMapping("/coachPage/memberManagement")
+public class ManagementController {
 
   @Autowired
   ServletContext servletContext;

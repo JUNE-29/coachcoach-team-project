@@ -5,12 +5,14 @@
 
 <jsp:include page="../../header.jsp"/>
 
-<h1>회원 탈퇴</h1><br>
 <h3>비밀번호 재확인</h3>
-<form action='withdrawForm2' method='post' enctype='multipart/form-data'>
-아이디 <input name='name' type='text' value='${coach.name}'><br>
-비밀번호 <input name='name' type='password' value='${coach.name}'><br>
-<p><button>확인</button>
+<c:if test= '${message ne null}'>
+  <h4>${message}</h4><br>
+</c:if>
+
+<form action='checkPassword' method='post'>
+비밀번호 <input name='password' type='password'><br>
+<button>확인</button>
 </form>
 <br>
 

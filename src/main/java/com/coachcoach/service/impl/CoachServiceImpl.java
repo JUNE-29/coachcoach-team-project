@@ -2,6 +2,7 @@ package com.coachcoach.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.coachcoach.dao.CoachDao;
 import com.coachcoach.domain.Coach;
@@ -58,6 +59,12 @@ public class CoachServiceImpl implements CoachService {
   @Override
   public int updateProfile(Coach coach) throws Exception {
     return coachDao.updateProfile(coach);
+  }
+
+
+  @Override
+  public int updateWithdrawal(Map<String, Object> params) throws Exception {
+    return coachDao.updateWithdrawal(params);
   }
 
 

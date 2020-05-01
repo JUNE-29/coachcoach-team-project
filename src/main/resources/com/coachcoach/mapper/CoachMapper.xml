@@ -51,7 +51,6 @@
       <include refid="select"/>
       area,
       create_date
-      
     ) values(
       #{id},
       password(#{password}),
@@ -108,7 +107,6 @@
       coach_no=#{no}
   </select>
 
-
   <update id="updateProfile" parameterType="Coach">
     update coaches
     <set>
@@ -121,12 +119,22 @@
     where 
       coach_no=#{no}
   </update>
+
+  <update id="updateWithdrawal" parameterType="map">
+    update coaches
+      set
+        withdrawal=#{withdrawal},
+        withdrawal_date=now(),
+        withdrawal_reason=#{withdrawalReason}
+    where 
+      coach_no=#{no}
+  </update>
   
   <update id="update" parameterType="Coach">
     update coaches
     <set>
       <if test="name != null and name != ''">name=#{name},</if>
-      <if test="gender != null and gender != ''">gender=#{gender},</if> 
+      <if test="gender != null">gender=#{gender},</if> 
       <if test="birth != null and birth != ''">birth=#{birth},</if>             
       <if test="tel != null and tel != ''">tel=#{tel},</if> 
       <if test="email != null and email != ''">email=#{email},</if>       
@@ -178,6 +186,7 @@
     where 
       id=#{id} 
       and password=password(#{password})
+      and withdrawal=null
   </select>
  
 </mapper>
