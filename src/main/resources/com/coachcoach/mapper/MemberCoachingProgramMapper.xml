@@ -143,6 +143,14 @@
     where member_program_no=#{memberCoachingProgramNo}
   </update>
  
+   <update id="updateReview" parameterType="map">
+    update member_coaching_programs
+      set
+        review=#{review},
+        review_date=now()
+    where member_program_no=#{memberCoachingProgramNo}
+  </update>
+  
   <select id="findByProgramNo" resultMap="MemberCoachingProgramMap" parameterType="int">
      select  
        member_program_no,

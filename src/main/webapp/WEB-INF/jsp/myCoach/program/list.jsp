@@ -22,8 +22,6 @@
       <th scope="col">후기</th>
     </tr>
   </thead>
-  
-  
   <c:forEach items="${programList}" var="list">
   <tbody>
   <c:set var="status" value="${list.mcp.status}" />
@@ -37,6 +35,7 @@
     <td>
       <form action='reviewForm' method='get'>
      <button>등록</button>
+     <input name='no' type='hidden' value='${list.mcp.no}'>
       </form>
     </td>
     </c:if>
@@ -45,11 +44,7 @@
     </c:if>
     </tr>
   </c:if>
- 
- 
   </tbody>
- 
- 
   </c:forEach>
 </table>
 </div>
