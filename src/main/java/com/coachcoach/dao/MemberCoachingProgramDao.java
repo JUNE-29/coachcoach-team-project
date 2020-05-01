@@ -21,6 +21,8 @@ public interface MemberCoachingProgramDao {
   // 상태, 후기, 별점, 비고, 결제일 등 해당 칼럼값이 업데이트 될 시 사용(회원용 아님)
 
   int delete(int no) throws Exception;
+  // 신청취소
+
   // 회원이 본인이 신청한 프로그램 리스트에서
   // 어떤 프로그램을 목록에서 삭제 가능하도록 권한을 줄지는 고려해야 할 부분같음
   // 그러나 관리자가 쓸 수 있도록 만듦
@@ -35,6 +37,9 @@ public interface MemberCoachingProgramDao {
 
   int updateStatus(Map<String, Object> params) throws Exception;
   // 상태 변경시 사용
+
+  int updateReview(Map<String, Object> params) throws Exception;
+  // 후기 등록
 
   List<MemberCoachingProgram> findAllRequest(int coachNo) throws Exception;
   // 코치페이지 요청된 프로그램 리스트를 보기 위함.

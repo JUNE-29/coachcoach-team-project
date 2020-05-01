@@ -1,6 +1,8 @@
 package com.coachcoach.web.searchCoach;
 
 
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,10 +41,19 @@ public class SearchController {
     model.addAttribute("programList", coachingProgramService.list());
   }
 
-  @GetMapping("search") // 프로그램 검색
-  public void search(Model model, String keyword) throws Exception {
+  @GetMapping("keywordSearch") // 프로그램 검색
+  public void keywordSearch(Model model, String keyword) throws Exception {
     model.addAttribute("searchProgram", coachingProgramService.search(keyword));
   }
+
+  @GetMapping("detailSearch") // 조건으로 검색
+  public void detailSearch(Model model, String gender, String coachingType) throws Exception {
+    Map<String, Object> params = new HashMap<>();
+    params.put("gender", gender);
+    params.put("coachingType", coachingType);
+    model.addAttribute("searchProgram", coachingProgramService.search(params));
+  }
+
 
   @GetMapping("detail") // 프로그램 상세보기
   public void detail(Model model, int programNo, int no) throws Exception {
@@ -64,5 +75,15 @@ public class SearchController {
     model.addAttribute("program", memberCoachingProgramService.get(memberCoachingProgram.getNo()));
   }
 
+
+  @PostMapping("deleteApply") // 신청취소
+  public void deleteApply(Model model, int applyNo, int programNo) {
+    try {
+      memberCoachingProgramService.delete(applyNo);
+      coachingProgramService.delete(programNo);
+    } catch (Exception e) {
+
+    }
+  }
 
 }

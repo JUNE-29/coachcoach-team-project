@@ -23,10 +23,27 @@
       <th scope="row">${list.mcp.no}</th>
       <td>${list.coach.name}</td>
       <td>${list.name}</td>
-      <td>${list.fee}</td>
-      <td><form action='reviewForm' method='get'>
+      <td>${list.fee}</td>     
+ <c:set var="status" value="${list.mcp.status}" />
+  <c:choose>
+    <c:when test="${status eq '결제대기중'}">
+    <td>
+    <form action='reviewForm' method='get'>
     <button>${list.mcp.status}</button>
-    </form></td>
+    </form>
+    </td>
+  </c:when>
+  <c:when test="${status eq '요청거절됨'}">
+    <td>
+    <form action='reviewForm' method='get'>
+    <button>${list.mcp.status}</button>
+    </form>
+    </td>
+    </c:when>
+  <c:otherwise>
+    <td>${list.mcp.status}</td>
+  </c:otherwise>
+  </c:choose>
     </tr>
   </tbody>
   </c:forEach>

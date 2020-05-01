@@ -5,11 +5,13 @@
 
 <jsp:include page="../header.jsp"/>
 <div>
-<img src='/upload/member/' height='80'><br> 
- 이름<a href='coachDetail'>엄진영 코치님</a><br> 
-진행중인 프로그램<a href='programDetail'>엄진영과 함께하는 발레교실</a><br> 
+
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${program.coach.photo}' height='300'><br>
+ 이름<a href='coachDetail?no=${program.coachNo}'>엄진영 코치님</a><br> 
+진행중인 프로그램<a href='programDetail?no=${program.no}'>엄진영과 함께하는 발레교실</a><br> 
 연락처 : 010-0000-0000
 </div>
+
 <div>
   <h3>완료된 프로그램 내역</h3>
   <table class="table">
@@ -22,33 +24,30 @@
       <th scope="col">후기</th>
     </tr>
   </thead>
+  <c:forEach items="${programList}" var="list">
   <tbody>
+  <c:set var="status" value="${list.mcp.status}" />
+  <c:if test="${status eq '진행 완료'}">
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>후기완료</td>
+      <th scope="row">${list.mcp.no}</th>
+      <td>${list.coach.name}</td>
+      <td>${list.name}</td>
+      <td>${list.mcp.startDate} ~ ${list.mcp.endDate}</td>     
+    <c:if test="${empty list.mcp.review}">
+    <td>
+      <form action='reviewForm' method='get'>
+     <button>등록</button>
+     <input name='no' type='hidden' value='${list.mcp.no}'>
+      </form>
+    </td>
+    </c:if>
+    <c:if test="${not empty list.mcp.review}">
+    <td>완료</td>
+    </c:if>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><form action='reviewForm' method='get'>
-    <button>후기작성</button>
-    </form></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td><form action='reviewForm' method='get'>
-    <button>후기작성</button>
-    </form></td>
-    </tr>
+  </c:if>
   </tbody>
+  </c:forEach>
 </table>
 </div>
 

@@ -1,6 +1,7 @@
 package com.coachcoach.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.coachcoach.dao.CoachingProgramDao;
 import com.coachcoach.domain.CoachingProgram;
@@ -42,7 +43,7 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
 
   @Override
   public CoachingProgram get(int no) throws Exception {
-    return coachingProgramDao.findByNo(no);
+    return coachingProgramDao.findByProgramNo(no);
   }
 
   @Override // 코칭 프로그램 리스트
@@ -53,10 +54,23 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   @Override
   public List<CoachingProgram> applyList(int memberNo) throws Exception {
     return coachingProgramDao.applyList(memberNo);
+
+  }
+
+  @Override
+  public List<CoachingProgram> search(Map<String, Object> params) throws Exception {
+    return coachingProgramDao.findByGender(params);
   }
 
   @Override
   public CoachingProgram getdetail(int no) throws Exception {
     return coachingProgramDao.findByProgramNo(no);
   }
+
+  @Override
+  public CoachingProgram findByMemberNo(int no) throws Exception {
+    return coachingProgramDao.findByMemberNo(no);
+  }
+
+
 }

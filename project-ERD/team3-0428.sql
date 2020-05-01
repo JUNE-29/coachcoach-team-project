@@ -318,10 +318,17 @@ ALTER TABLE food_board_comments
 
 -- 체중
 CREATE TABLE weight (
+<<<<<<< HEAD
   weight_no    INTEGER NOT NULL COMMENT '체중번호', -- 체중번호
   member_no    INTEGER NOT NULL COMMENT '일반회원번호', -- 일반회원번호
   weight       INTEGER NOT NULL COMMENT '몸무게', -- 몸무게
   measure_date DATE    NULL     DEFAULT now() COMMENT '측정일' -- 측정일
+=======
+  weight_no    INTEGER  NOT NULL COMMENT '체중번호', -- 체중번호
+  member_no    INTEGER  NOT NULL COMMENT '일반회원번호', -- 일반회원번호
+  weight       INTEGER  NOT NULL COMMENT '몸무게', -- 몸무게
+  measure_date DATETIME NOT NULL DEFAULT now() COMMENT '측정일' -- 측정일
+>>>>>>> master
 )
 COMMENT '체중';
 
