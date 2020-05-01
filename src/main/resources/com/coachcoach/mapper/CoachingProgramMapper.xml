@@ -35,6 +35,7 @@
       <result column="start_date" property="startDate"/>
       <result column="end_date" property="endDate"/>
       <result column="etc" property="etc"/>
+      <result column="review" property="review"/>
     </association>
    <!-- <collection property="coachingProgramTags" ofType="Integer">
       <id column="tag_no"   property="tagNo"/>
@@ -195,6 +196,7 @@
         DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
         DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date,
         mcp.etc,
+        mcp.review,
         cp.name,
         cp.fee,
         cp.coaching_type,

@@ -22,33 +22,35 @@
       <th scope="col">후기</th>
     </tr>
   </thead>
+  
+  
+  <c:forEach items="${programList}" var="list">
   <tbody>
+  <c:set var="status" value="${list.mcp.status}" />
+  <c:if test="${status eq '진행 완료'}">
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>후기완료</td>
+      <th scope="row">${list.mcp.no}</th>
+      <td>${list.coach.name}</td>
+      <td>${list.name}</td>
+      <td>${list.mcp.startDate} ~ ${list.mcp.endDate}</td>     
+    <c:if test="${empty list.mcp.review}">
+    <td>
+      <form action='reviewForm' method='get'>
+     <button>등록</button>
+      </form>
+    </td>
+    </c:if>
+    <c:if test="${not empty list.mcp.review}">
+    <td>완료</td>
+    </c:if>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><form action='reviewForm' method='get'>
-    <button>후기작성</button>
-    </form></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td><form action='reviewForm' method='get'>
-    <button>후기작성</button>
-    </form></td>
-    </tr>
+  </c:if>
+ 
+ 
   </tbody>
+ 
+ 
+  </c:forEach>
 </table>
 </div>
 

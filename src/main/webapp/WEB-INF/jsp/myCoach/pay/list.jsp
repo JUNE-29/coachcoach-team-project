@@ -32,4 +32,6 @@
   </c:forEach>
 </table>
 </div>
+
+
 <jsp:include page="../footer.jsp"/>
