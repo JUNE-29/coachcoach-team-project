@@ -24,5 +24,7 @@ public interface CoachingProgramService {
 
   CoachingProgram get(int no) throws Exception;
 
+  CoachingProgram findByMemberNo(int no) throws Exception;
+
   CoachingProgram getdetail(int no) throws Exception;
 }

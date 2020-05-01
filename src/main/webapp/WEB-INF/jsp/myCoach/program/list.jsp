@@ -5,11 +5,13 @@
 
 <jsp:include page="../header.jsp"/>
 <div>
-<img src='/upload/member/' height='80'><br> 
- 이름<a href='coachDetail'>엄진영 코치님</a><br> 
-진행중인 프로그램<a href='programDetail'>엄진영과 함께하는 발레교실</a><br> 
+
+<img src='${pageContext.servletContext.contextPath}/upload/coach/${program.coach.photo}' height='300'><br>
+ 이름<a href='coachDetail?no=${program.coachNo}'>엄진영 코치님</a><br> 
+진행중인 프로그램<a href='programDetail?no=${program.no}'>엄진영과 함께하는 발레교실</a><br> 
 연락처 : 010-0000-0000
 </div>
+
 <div>
   <h3>완료된 프로그램 내역</h3>
   <table class="table">

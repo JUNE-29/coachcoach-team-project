@@ -43,7 +43,7 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
 
   @Override
   public CoachingProgram get(int no) throws Exception {
-    return coachingProgramDao.findByNo(no);
+    return coachingProgramDao.findByProgramNo(no);
   }
 
   @Override // 코칭 프로그램 리스트
@@ -66,4 +66,11 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   public CoachingProgram getdetail(int no) throws Exception {
     return coachingProgramDao.findByProgramNo(no);
   }
+
+  @Override
+  public CoachingProgram findByMemberNo(int no) throws Exception {
+    return coachingProgramDao.findByMemberNo(no);
+  }
+
+
 }

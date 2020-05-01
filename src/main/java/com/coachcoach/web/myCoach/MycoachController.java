@@ -31,6 +31,7 @@ public class MycoachController {
   public void mycoachList(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("programList", coachingProgramService.applyList(member.getNo()));
+    model.addAttribute("program", coachingProgramService.findByMemberNo(member.getNo()));
   }
 
   @GetMapping("coachDetail") // 코치 상세보기
@@ -45,9 +46,9 @@ public class MycoachController {
   }
 
   @PostMapping("reviewUpdate") // 후기등록완료
-  public void reviewUpdate(Model model, String no, String review) throws Exception {
+  public void reviewUpdate(Model model, int no, String review) throws Exception {
     Map<String, Object> params = new HashMap<>();
-    params.put("memberCoachingProgramNo", Integer.parseInt(no));
+    params.put("memberCoachingProgramNo", no);
     params.put("review", review);
     memberCoachingProgramService.updateReview(params);
   }

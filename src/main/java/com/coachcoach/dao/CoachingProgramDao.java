@@ -28,7 +28,10 @@ public interface CoachingProgramDao {
   List<CoachingProgram> findByGender(Map<String, Object> params) throws Exception;
 
   // 코칭 프로그램 상세보기
-  CoachingProgram findByNo(int no) throws Exception;
+  CoachingProgram findByNo(int programNo) throws Exception;
+
+  // 회원 번호로 찾기
+  CoachingProgram findByMemberNo(int no) throws Exception;
 
   // 코칭 프로그램 리스트(신청내역)
   List<CoachingProgram> applyList(int memberNo) throws Exception;
