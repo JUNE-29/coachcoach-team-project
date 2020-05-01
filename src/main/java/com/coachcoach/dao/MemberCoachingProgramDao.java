@@ -21,6 +21,8 @@ public interface MemberCoachingProgramDao {
   // 상태, 후기, 별점, 비고, 결제일 등 해당 칼럼값이 업데이트 될 시 사용(회원용 아님)
 
   int delete(int no) throws Exception;
+  // 신청취소
+
   // 회원이 본인이 신청한 프로그램 리스트에서
   // 어떤 프로그램을 목록에서 삭제 가능하도록 권한을 줄지는 고려해야 할 부분같음
   // 그러나 관리자가 쓸 수 있도록 만듦

@@ -187,6 +187,12 @@
       #{startDate}
     )
   </insert>
+  
+  <delete id="delete" parameterType="int">
+    delete from member_coaching_programs
+    where member_program_no=#{no}
+  </delete>
+ 
 
  
 </mapper>

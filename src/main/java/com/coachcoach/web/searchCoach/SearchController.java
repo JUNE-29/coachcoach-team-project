@@ -65,4 +65,14 @@ public class SearchController {
   }
 
 
+  @PostMapping("deleteApply") // 신청취소
+  public void deleteApply(Model model, int applyNo, int programNo) {
+    try {
+      memberCoachingProgramService.delete(applyNo);
+      coachingProgramService.delete(programNo);
+    } catch (Exception e) {
+
+    }
+  }
+
 }
