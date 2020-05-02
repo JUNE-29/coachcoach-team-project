@@ -22,6 +22,8 @@ public interface CoachService {
 
   int updateProfile(Coach coach) throws Exception;
 
+  int updateBankAccount(Coach coach) throws Exception;
+
   int updateWithdrawal(Map<String, Object> params) throws Exception;
 
 }

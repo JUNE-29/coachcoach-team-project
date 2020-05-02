@@ -77,4 +77,14 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.findByCoachNo(coachNo);
   }
 
+  @Override
+  public List<MemberCoachingProgram> searchDate(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.findByDate(params);
+  }
+
+  @Override
+  public List<MemberCoachingProgram> memberList(int coachNo) throws Exception {
+    return memberCoachingProgramDao.findAllMember(coachNo);
+  }
+
 }

@@ -21,7 +21,7 @@
 <p><button>수정</button>
 </form>
 <br>
-<form action='withdrawalReason' method='get'>
+<form action='withdrawalForm' method='get'>
 <button>탈퇴</button>
 </form>
 <br>

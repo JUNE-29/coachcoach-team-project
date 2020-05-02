@@ -22,7 +22,11 @@ public interface MemberCoachingProgramService {
 
   List<MemberCoachingProgram> search(String keyword) throws Exception;
 
+  List<MemberCoachingProgram> searchDate(Map<String, Object> params) throws Exception;
+
   List<MemberCoachingProgram> RequestList(int coachNo) throws Exception;
+
+  List<MemberCoachingProgram> memberList(int coachNo) throws Exception;
 
   int updateStatus(Map<String, Object> params) throws Exception;
 

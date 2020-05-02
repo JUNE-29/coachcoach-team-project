@@ -175,7 +175,32 @@
       mcp.program_no=#{no}
   </select>
   
-  <select id="findByCoachNo" resultMap="MemberCoachingProgramMap" parameterType="int">
+  <select id="findAllMember" resultMap="MemberCoachingProgramMap" parameterType="int">
+     select  
+       member_program_no,
+       mcp.member_no,       
+       mcp.program_no,        
+       remark,            
+       status,            
+       request_date,      
+       DATE_FORMAT(pay_date, "%Y/%m/%d") as pay_date,
+       DATE_FORMAT(start_date, "%Y/%m/%d") as start_date,          
+       DATE_FORMAT(end_date, "%Y/%m/%d") as end_date,       
+       etc,
+       cp.name program_name,
+       cp.fee as fee,
+       m.name as member_name
+    from 
+      member_coaching_programs mcp
+      left outer join members m on mcp.member_no = m.member_no 
+      left outer join coaching_programs cp on mcp.program_no=cp.program_no
+    where
+      cp.coach_no = #{no} 
+      AND pay_date IS NOT NULL
+      AND status = '진행중'
+  </select>
+  
+    <select id="findByDate" resultMap="MemberCoachingProgramMap" parameterType="map">
      select  
        member_program_no,
        mcp.member_no,       
@@ -198,7 +223,8 @@
       left outer join members m on mcp.member_no = m.member_no 
       left outer join coaching_programs cp on mcp.program_no=cp.program_no
     where
-      cp.coach_no = #{no} AND pay_date IS NOT NULL
+      cp.coach_no = #{no} 
+      AND pay_date between #{sDate} AND #{eDate}
   </select>
  
   <insert id="insert" parameterType="MemberCoachingProgram"

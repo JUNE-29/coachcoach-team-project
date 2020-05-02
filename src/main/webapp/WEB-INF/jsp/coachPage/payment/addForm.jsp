@@ -5,29 +5,32 @@
 
 <form action='add' method='post'>
 <h1>계좌관리</h1>
-이름 <input name='name' readonly type='text' value='${coach.name}'><br>
+<input type="hidden" name="no" value="${coach.no}">
+<p>${coach.name}님의 등록된 계좌</p>
 <table>
-    <tr>
-  <td>은행</td>
-  <td>
-    <select name="items">
-      <option value="우리은행">우리은행</option>
-      <option value="신한은행">신한은행</option>
-      <option value="하나은행">하나은행</option>
-    </select>
-  </td>
-	  <td> </td> 
-	  <td> </td>
-	  <td>가격</td>
-	  <td><input name='price' readonly type='text'>원 </td>
-   </tr>
+  <tr>
+    <th>은행</th>
+    <th>계좌번호</th>
+  </tr>
+  <tr>
+    <td>
+      ${coach.bank} <br>
+      <select id="bank" name="bank">
+		  <option value="기업">기업</option>
+		  <option value="농협">농협</option>
+		  <option value="국민">국민</option>
+		  <option value="하나">하나</option>
+		</td>
+    <td>${coach.account} <br>
+      <input type="text" name="account">
+    </td>
+  </tr>
 </table>
+<button type="button" onclick="location.href='#'">계좌 인증</button>
+<br>
 
-
-<button>확인</button>
-
-
+<button type="submit">수정하기</button>
 </form>
 
-
+<button type="button" onclick="location.href='list'">확인</button>
 <jsp:include page="../../footer.jsp"/>
