@@ -107,6 +107,16 @@
       coach_no=#{no}
   </select>
 
+  <update id="updateBankAccount" parameterType="Coach">
+    update coaches
+    <set>
+      <if test="bank != null and bank != ''">bank=#{bank},</if>
+      <if test="account != null and account != ''">account=#{account},</if> 
+    </set>
+    where 
+      coach_no=#{no}
+  </update>
+
   <update id="updateProfile" parameterType="Coach">
     update coaches
     <set>

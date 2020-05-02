@@ -200,6 +200,33 @@
     where
       cp.coach_no = #{no} AND pay_date IS NOT NULL
   </select>
+  
+    <select id="findByDate" resultMap="MemberCoachingProgramMap" parameterType="map">
+     select  
+       member_program_no,
+       mcp.member_no,       
+       mcp.program_no,        
+       remark,            
+       status,            
+       request_date,      
+       DATE_FORMAT(pay_date, "%Y/%m/%d") as pay_date,          
+       start_date,        
+       end_date,          
+       star_rate,         
+       review,            
+       DATE_FORMAT(review_date, "%Y/%m/%d") as review_date,       
+       etc,
+       cp.name program_name,
+       cp.fee as fee,
+       m.name as member_name
+    from 
+      member_coaching_programs mcp
+      left outer join members m on mcp.member_no = m.member_no 
+      left outer join coaching_programs cp on mcp.program_no=cp.program_no
+    where
+      cp.coach_no = #{no} 
+      AND pay_date between #{sDate} AND #{eDate}
+  </select>
  
   <insert id="insert" parameterType="MemberCoachingProgram"
   useGeneratedKeys="true" keyColumn="member_program_no" keyProperty="no">

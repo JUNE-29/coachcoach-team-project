@@ -18,6 +18,8 @@ public interface CoachDao {
 
   int updateWithdrawal(Map<String, Object> params) throws Exception;
 
+  int updateBankAccount(Coach coach) throws Exception;
+
   int delete(int no) throws Exception;
 
   List<Coach> findByKeyword(String keyword) throws Exception;
