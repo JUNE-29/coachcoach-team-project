@@ -23,7 +23,7 @@
   </tr>
   </table>
 <hr>
-  <a href='../membermanagement/list'>회원관리돌아가기</a>
+  <a href='../memberManagement/list'>회원관리돌아가기</a>
 
 <jsp:include page="../../footer.jsp"/>
     
