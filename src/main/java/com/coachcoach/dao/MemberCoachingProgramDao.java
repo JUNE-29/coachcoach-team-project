@@ -38,6 +38,8 @@ public interface MemberCoachingProgramDao {
   List<MemberCoachingProgram> findByCoachNo(int coachNo);
   // 코치 결제페이지
 
+  List<MemberCoachingProgram> findAllMember(int coachNo);
+
 }
 
 

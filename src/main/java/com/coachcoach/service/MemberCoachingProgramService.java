@@ -26,6 +26,8 @@ public interface MemberCoachingProgramService {
 
   List<MemberCoachingProgram> RequestList(int coachNo) throws Exception;
 
+  List<MemberCoachingProgram> memberList(int coachNo) throws Exception;
+
   int updateStatus(Map<String, Object> params) throws Exception;
 
   int updateEtc(Map<String, Object> params) throws Exception;
