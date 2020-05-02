@@ -10,15 +10,15 @@
 <button>검색</button>
 </form>
 키워드<br>
-<form action='search2' method='post'>
-<input class="btn btn-outline-success" type="button" value="상체튼튼">
-<input class="btn btn-outline-success" type="button" value="하체튼튼">
-<input class="btn btn-outline-success" type="button" value="근육위주">
-<input class="btn btn-outline-success" type="button" value="대회위주"><br>
-<input class="btn btn-outline-success" type="button" value="체력위주">
-<input class="btn btn-outline-success" type="button" value="체중감량">
-<input class="btn btn-outline-success" type="button" value="재활위주">
-<input class="btn btn-outline-success" type="button" value="생활개선">
+<form action='searchTag' method='post'>
+<input class="btn btn-outline-success" type="button" value="1">
+<input class="btn btn-outline-success" type="button" value="2">
+<input class="btn btn-outline-success" type="button" value="3">
+<input class="btn btn-outline-success" type="button" value="4"><br>
+<input class="btn btn-outline-success" type="button" value="5">
+<input class="btn btn-outline-success" type="button" value="6">
+<input class="btn btn-outline-success" type="button" value="7">
+<input class="btn btn-outline-success" type="button" value="8">
 </form>
 <br>코치성별<br>
 <form action='detailSearch' method='get'>

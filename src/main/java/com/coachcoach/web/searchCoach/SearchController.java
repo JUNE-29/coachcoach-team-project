@@ -54,6 +54,10 @@ public class SearchController {
     model.addAttribute("searchProgram", coachingProgramService.search(params));
   }
 
+  @GetMapping("searchTag") // 조건으로 검색
+  public void searchTag(Model model, String gender, String coachingType) throws Exception {
+  }
+
 
   @GetMapping("detail") // 프로그램 상세보기
   public void detail(Model model, int programNo, int no) throws Exception {
