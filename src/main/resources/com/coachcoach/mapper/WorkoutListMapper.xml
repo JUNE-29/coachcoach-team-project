@@ -14,7 +14,14 @@
     
   <association property="member" javaType="Member">
       <id column="member_no"              property="no"/>
-    </association>
+  </association>
+  
+  <association property="memberWorkoutTag" javaType="MemberWorkoutTag">
+      <id column="workout_no"              property="no"/>
+      <result column="name"                property="name"/>
+      <result column="unit"                property="unit"/>
+  </association>  
+    
   </resultMap>
   
    <insert id="insert" parameterType="WorkoutList"
@@ -31,7 +38,23 @@
       #{etc}
     )
   </insert>
+    
+    
+  <select id="graphList" resultMap="WorkoutListMap">
+    select
+      w.workout_date,
+      w.walk_count,
+      mwt.name,
+      mwt.unit
+    from
+      workout_list w
+      left outer join members m on w.member_no=m.member_no
+      left outer join workout_list_tag wlt on w.workout_list_no=wlt.workout_list_no
+      left outer join member_workout_tag mwt on wlt.workout_no=mwt.workout_no
+    where
+      w.member_no=#{memberNo}
   
+  </select>
  
   <select id="findAll" resultMap="WorkoutListMap">
     select

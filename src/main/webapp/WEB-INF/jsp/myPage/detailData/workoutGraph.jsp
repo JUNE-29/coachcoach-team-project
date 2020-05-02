@@ -3,13 +3,13 @@
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-<jsp:include page="../../header.jsp"/>
 
 <h3>운동내역 그래프</h3>
 <button type="button" onclick="location.href='workoutGraphWeek'" >주</button>
 <button type="button" onclick="location.href='workoutGraphMonth'">월</button>
 <button type="button" onclick="location.href='workoutGraphYear'">년</button>
 
+<!--  
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -18,16 +18,11 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['${memberWorkoutTag.name[]', ${memberWorkoutTag.unit[]}]
         ]);
 
         var options = {
-          title: 'My Daily Activities',
+          title: '오늘의 운동 내역',
           pieHole: 0.4,
         };
 
@@ -41,4 +36,4 @@
   </body>
 </html>
  
- <jsp:include page="../../footer.jsp"/>
+-->

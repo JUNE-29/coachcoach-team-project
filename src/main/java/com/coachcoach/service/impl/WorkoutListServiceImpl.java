@@ -28,6 +28,11 @@ public class WorkoutListServiceImpl implements WorkoutListService {
     return workoutListDao.findAll(memberNo);
   }
 
+  @Override
+  public List<WorkoutList> graphList(int memberNo) throws Exception {
+    return workoutListDao.graphList(memberNo);
+  }
+
 
   @Override
   public WorkoutList get(int no) throws Exception {

@@ -58,6 +58,13 @@ public class DetailDataController {
     model.addAttribute("memberNo", member.getNo());
   }
 
+  @GetMapping("graphList")
+  public void graphList(Model model) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    model.addAttribute("list", workoutListService.list(member.getNo()));
+    model.addAttribute("memberNo", member.getNo());
+  }
+
   // 나의 몸무게 기입
   @PostMapping("weightAddForm")
   public void weightAddForm(int memberNo, Model model) throws Exception {
@@ -84,14 +91,18 @@ public class DetailDataController {
 
 
   @GetMapping("updateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
-  public void updateForm() {}
+  public void updateForm(int memberNo, Model model) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    model.addAttribute("member", memberService.get(member.getNo()));
+  }
 
   @PostMapping("update")
   public void update() {}
 
+
+
   @GetMapping("delete")
   public void delete() {}
-
 
 
   // Workout Graph

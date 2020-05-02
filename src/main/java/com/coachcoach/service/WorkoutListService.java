@@ -15,6 +15,8 @@ public interface WorkoutListService {
 
   int delete(int no) throws Exception;
 
+  List<WorkoutList> graphList(int memberNo) throws Exception;
+
 
 
 }
