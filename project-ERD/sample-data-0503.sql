@@ -234,26 +234,26 @@ insert into member_program_calendar(member_program_no, plan)
   values(10,'운동계획');
   
   --코칭프로그램 게시판
-  insert into coaching_program_boards(coach_no, program_no,content)
-  values(1,1,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(2,2,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(3,3,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(4,4,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(5,5,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(6,6,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(7,7,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(8,8,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(9,9,'내용');
-    insert into coaching_program_boards(coach_no, program_no,content)
-  values(10,10,'내용');
+    insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(1,1,'제목1','내용1');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(1,1,'제목2','내용2');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(2,1,'제목3','내용3');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(2,1,'제목4','내용4');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(3,1,'제목5','내용5');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(3,1,'제목6','내용6');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(4,1,'제목7','내용7');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(5,1,'제목8','내용8');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(6,1,'제목9','내용9');
+   insert into coaching_program_boards(coach_no, program_no, title, content)
+  values(7,1,'제목10','내용10');
   
   
   -- food_boards 예제 데이터

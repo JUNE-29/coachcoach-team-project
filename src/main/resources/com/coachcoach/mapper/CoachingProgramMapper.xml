@@ -39,8 +39,7 @@
     </association>
     
      <collection property="coachingProgramTags" ofType="Integer">
-      <id column="tag_no"   property="tagNo"/>
-      <result column="program_no"  property="programNo"/>
+      <!-- <result column="id"/> -->
      </collection> 
   </resultMap>
   

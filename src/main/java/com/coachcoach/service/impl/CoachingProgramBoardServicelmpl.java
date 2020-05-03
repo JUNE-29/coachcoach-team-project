@@ -9,36 +9,40 @@ import com.coachcoach.service.CoachingProgramBoardService;
 @Component
 public class CoachingProgramBoardServicelmpl implements CoachingProgramBoardService{
 
-  CoachingProgramBoardDao coachingprogramboardDao;
+  CoachingProgramBoardDao coachingProgramBoardDao;
 
   public CoachingProgramBoardServicelmpl(CoachingProgramBoardDao coachingprogramboardDao) {
-   this.coachingprogramboardDao = coachingprogramboardDao;
+    this.coachingProgramBoardDao = coachingprogramboardDao;
   }
 
   @Override
-  public int add(CoachingProgramBoard coachingprogramboard) throws Exception {
-   coachingprogramboardDao.insert(coachingprogramboard);
-    return 0;
+  public int add(CoachingProgramBoard coachingProgramBoard) throws Exception {
+    return coachingProgramBoardDao.insert(coachingProgramBoard);
   }
 
   @Override
   public List<CoachingProgramBoard> list() throws Exception {
-    return coachingprogramboardDao.findAll();
+    return coachingProgramBoardDao.findAll();
   }
 
   @Override
   public int delete(int no) throws Exception {
-    return coachingprogramboardDao.delete(no);
+    return coachingProgramBoardDao.delete(no);
   }
 
   @Override
   public CoachingProgramBoard get(int no) throws Exception {
-    return coachingprogramboardDao.findByNo(no);
+    return coachingProgramBoardDao.findByNo(no);
   }
 
   @Override
-  public int update(CoachingProgramBoard coachingprogramboard) throws Exception {
-    return coachingprogramboardDao.update(coachingprogramboard);
+  public int update(CoachingProgramBoard coachingProgramBoard) throws Exception {
+    return coachingProgramBoardDao.update(coachingProgramBoard);
+  }
+
+  @Override
+  public List<CoachingProgramBoard> listByCoachNo(int coachNo) {
+    return coachingProgramBoardDao.findAllByCoachNo(coachNo);
   }
 
 }

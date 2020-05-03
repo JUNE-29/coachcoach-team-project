@@ -5,7 +5,7 @@ import com.coachcoach.domain.CoachingProgramBoard;
 
 public interface CoachingProgramBoardService {
 
-  int add(CoachingProgramBoard coachingprogramboard) throws Exception;
+  int add(CoachingProgramBoard coachingProgramBoard) throws Exception;
 
   List<CoachingProgramBoard> list() throws Exception;
 
@@ -14,4 +14,6 @@ public interface CoachingProgramBoardService {
   CoachingProgramBoard get(int no) throws Exception;
 
   int update(CoachingProgramBoard board) throws Exception;
+
+  List<CoachingProgramBoard> listByCoachNo(int coachNo) throws Exception;
 }
