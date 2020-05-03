@@ -17,7 +17,7 @@ public interface MemberDao {
 
   // 회원 정보 수정
   int update(Member member) throws Exception;
-  
+
   // 탈퇴 수정
   int updateWithdrawal(Map<String, Object> params) throws Exception;
 
@@ -29,9 +29,12 @@ public interface MemberDao {
 
   // 회원가입
   Member findByIdAndPassword(Map<String, Object> params) throws Exception;
-  
+
   // 회원가입
   Member findByNoAndidPassword(Map<String, Object> params) throws Exception;
+
+  // 운동정보 수정
+  int update(int no, Member member) throws Exception;
 }
 
 
