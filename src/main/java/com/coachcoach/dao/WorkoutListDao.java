@@ -21,6 +21,9 @@ public interface WorkoutListDao {
   // 회원 본인 운동내역이 자세하게 보여줄 수 있음.
   WorkoutList findByNo(int no) throws Exception;
 
+  // 운동내역번호로 찾기
+  WorkoutList findByWorkoutNo(int workoutListNo) throws Exception;
+
   // 회원 본인의 운동내역을 그래프로 보여야 하기 때문에 memberNo를 넣었음
   List<WorkoutList> graphList(int memberNo) throws Exception;
 

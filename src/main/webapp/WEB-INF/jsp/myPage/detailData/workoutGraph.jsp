@@ -4,13 +4,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 
-<h3>운동내역 그래프</h3>
+<h3>운동종목</h3>
+
+
 <button type="button" onclick="location.href='workoutGraphWeek'" >주</button>
 <button type="button" onclick="location.href='workoutGraphMonth'">월</button>
 <button type="button" onclick="location.href='workoutGraphYear'">년</button>
 
-<!--  
-<html>
+
+
+ <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -18,11 +21,16 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['${memberWorkoutTag.name[]', ${memberWorkoutTag.unit[]}]
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
         ]);
 
         var options = {
-          title: '오늘의 운동 내역',
+          title: '운동종목',
           pieHole: 0.4,
         };
 
@@ -35,5 +43,5 @@
     <div id="donutchart" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
+
  
--->

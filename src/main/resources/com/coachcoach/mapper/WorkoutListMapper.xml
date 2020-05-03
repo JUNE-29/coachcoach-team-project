@@ -71,15 +71,13 @@
   </select>
   
   
-    <update id="update" parameterType="Weight">
-    update
-      workout_date,
-      walk_count,
-      etc
-    set
-      workout_date=#{date}
-      walk_count={#walkCount}
-      etc={#etc}
+    <update id="update" parameterType="WorkoutList">
+    update workout_list
+    <set>
+      <if test="workoutDate !=null and workoutDate!= ''">workout_date=#{workoutDate},</if>
+      <if test="walkCount !=null and walkCount!= ''">walk_count=#{walkCount},</if>
+      <if test="etc !=null and etc!= ''">etc=#{etc}</if>
+    </set>
     where 
       member_no=#{no}
   </update>

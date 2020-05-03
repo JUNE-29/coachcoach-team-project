@@ -51,4 +51,12 @@ public class WorkoutListServiceImpl implements WorkoutListService {
     return workoutListDao.delete(no);
   }
 
+
+  @Override
+  public WorkoutList getWorkoutList(int no) throws Exception {
+    return workoutListDao.findByWorkoutNo(no);
+  }
+
+
+
 }
