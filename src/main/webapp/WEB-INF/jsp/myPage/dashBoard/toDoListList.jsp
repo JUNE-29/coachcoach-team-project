@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<h3>toDoList</h3>
+<h3>TODOLIST</h3>
 
 <form action='toDoListAddForm' method='post'>
       <input name='memberNo' type='hidden' value='${memberNo}'>
@@ -20,8 +20,8 @@
         <td align=center>${item.createDate}</td>
         
         
-        <th><button type="button" onclick="location.href='toDoListUpdate'">수정</button></th>
-        <th><button type="button" onclick="location.href='toDoListDelete'">삭제</button></th>
+        <th><button type="button" onclick="location.href='update'">수정</button></th>
+        <th><button type="button" onclick="location.href='delete'">삭제</button></th>
       </tr>
   </c:forEach>
       

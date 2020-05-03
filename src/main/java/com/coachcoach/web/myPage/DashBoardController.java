@@ -50,9 +50,13 @@ public class DashBoardController {
 
   @GetMapping("delete")
   public String delete(int no, int memberNo) throws Exception {
-    toDoListService.delete(no);
-    return "redirect:list?memberNo" + memberNo;
+    toDoListService.delete(memberNo);
+    return "redirect:list";
+  }
 
+  @GetMapping("updateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
+  public void updateForm(int memberNo, Model model) throws Exception {
+    model.addAttribute("memberNo", memberNo);
   }
 
 
