@@ -79,7 +79,7 @@
       coaching_program_boards cpb 
       left outer join member_coaching_programs mcp 
         on cpb.program_no = mcp.program_no 
-        AND create_date between mcp.start_date AND mcp.end_date
+        AND cpb.create_date between mcp.start_date AND mcp.end_date
       left outer join members m on mcp.member_no = m.member_no
       left outer join coaching_programs cp on cp.program_no = cpb.program_no 
     where

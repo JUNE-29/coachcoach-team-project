@@ -1,3 +1,4 @@
+<%@page import="com.coachcoach.domain.Member"%>
 <%@page import="com.coachcoach.domain.Coach"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,8 +13,21 @@
 등록일: ${foodBoard.modifiedDate}<br>
 사진: <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br>
 내용: ${foodBoard.content}<br>
-<p><a href='delete?no=${foodBoard.no}'>삭제</a> 
-<a href='updateForm?no=${foodBoard.no}'>변경</a></p>
+<%if (session.getAttribute("loginUser") instanceof Member) {%>
+<div class="row">
+	<div class="col-md-2">
+	<form action="delete" method="post">
+	  <button value="${foodBoard.no}" name="no">삭제</button> 
+	</form>
+	</div>
+	<div class="col-md-2">
+	<form action="updateForm" method="post">
+	  <input type='hidden' name='no' value='${foodBoard.no}'>
+	  <button>변경</button> 
+	</form>
+	</div>
+</div>
+<%}%>
 <br>
 댓글<br>
 
@@ -38,9 +52,26 @@
       <td>
         ${comment.createDate}
       </td>
-      <td>
-        <a href='comment/delete?foodBoardNo=${foodBoard.no}&no=${comment.no}'>삭제</a>
-      </td>
+      <%if (session.getAttribute("loginUser") instanceof Member) {%>
+	      <td>
+	      <form action='comment/delete' method='post'>
+	        <input type='hidden' name='foodBoardNo' value='${foodBoard.no}'>
+	        <input type='hidden' name='no' value='${comment.no}'>
+	        <button>삭제</button>
+	      </form>
+	      </td>
+      <%}%>
+      <%if (session.getAttribute("loginUser") instanceof Coach) {%>
+      <c:if test="${sessionScope.loginUser.no eq comment.coachNo}">
+        <td>
+        <form action='comment/delete' method='post'>
+          <input type='hidden' name='foodBoardNo' value='${foodBoard.no}'>
+          <input type='hidden' name='no' value='${comment.no}'>
+          <button>삭제</button>
+        </form>
+        </td>
+      </c:if>
+      <%}%>
     </tr>  
   </c:forEach>
 </table>

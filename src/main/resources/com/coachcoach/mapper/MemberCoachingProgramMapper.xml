@@ -198,6 +198,7 @@
       cp.coach_no = #{no} 
       AND pay_date IS NOT NULL
       AND status = '진행중'
+    order by start_date desc
   </select>
   
    <select id="findByCoachNo" resultMap="MemberCoachingProgramMap" parameterType="int">

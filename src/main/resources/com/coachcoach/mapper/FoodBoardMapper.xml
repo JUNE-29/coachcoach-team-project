@@ -63,7 +63,7 @@
       <if test="content != null and content != ''">content=#{content},</if>
       modified_date=now()
     </set>
-    where food_board_no=#{no}
+    where food_board_no=#{no} AND member_no=#{memberNo}
   </update>
 
   <delete id="delete" parameterType="int">
