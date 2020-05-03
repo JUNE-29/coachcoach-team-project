@@ -6,7 +6,7 @@
 <jsp:include page="../../header.jsp"/>
 
   <h1>고객센터 </h1>
-  <a href='form'>등록 </a> <br>
+  <a href='form'>새 공지사항 </a> <br>
   <table border='1'>
   <tr>
     <th>번호</th>
@@ -19,7 +19,7 @@
   <tr>
     <td>${item.no}</td> 
     <td><a href='detail?no=${item.no}'>=> ${item.title}</a></td> 
-     <td>${item.date}</td>
+    <td>${item.date}</td>
     <td>${item.viewCount}</td>
   </tr>
 </c:forEach>

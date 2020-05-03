@@ -15,7 +15,6 @@ public class NoticeBoardServiceimpl implements NoticeBoardService {
     this.noticeBoardDao = noticeBoardDao;
   }
 
-
   @Override
   public void add(NoticeBoard noticeboard) throws Exception {
     noticeBoardDao.insert(noticeboard);
