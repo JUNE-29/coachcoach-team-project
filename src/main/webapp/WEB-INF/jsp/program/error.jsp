@@ -6,9 +6,9 @@
 <jsp:include page="../header.jsp"/>
 
 
-<h3>신청되었습니다</h3>
-<form action='../myCoach/profile/list' method='get'>
-<button>확인</button>
+<p>로그인이 필요합니다</p>
+<form action='../auth/login' method='get'>
+<button>로그인하기</button>
 </form>
 
 <jsp:include page="../footer.jsp"/>
