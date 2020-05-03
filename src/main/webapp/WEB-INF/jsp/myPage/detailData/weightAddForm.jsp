@@ -10,7 +10,7 @@
 <input name='weight' type='text'>kg<br>
 
 <p>측정일</p>
-<input name='measureDate' type='date'><br>
+<input name='measureDate' type='date' ><br>
 
 <button>저장</button>
 </form>

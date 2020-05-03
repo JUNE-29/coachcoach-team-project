@@ -15,6 +15,7 @@ public class WeightServiceImpl implements WeightService {
     this.weightDao = weightDao;
   }
 
+
   @Override
   public List<Weight> findAllByMemberNo(int memberNo) throws Exception {
     return weightDao.findAllByMemberNo(memberNo);

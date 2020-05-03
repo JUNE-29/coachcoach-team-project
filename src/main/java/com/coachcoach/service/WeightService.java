@@ -13,4 +13,5 @@ public interface WeightService {
 
   int update(Weight weight) throws Exception;
 
+
 }
