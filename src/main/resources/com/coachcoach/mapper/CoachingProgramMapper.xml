@@ -114,14 +114,14 @@
   <update id="update" parameterType="CoachingProgram">
     update coaching_programs
     <set>
-      <if test="coachNo > 0">coach_no=#{coachNo},</if> 
-      <if test="name != null and name != ''">name=#{name},</if>             
+      <if test="name != null and name != ''">name=#{name},</if> 
       <if test="introduce != null and introduce != ''">introduce=#{introduce},</if> 
-      <if test="fee > 0">fee=#{fee},</if>       
-      <if test="coachingType != null and coachingType != ''">coaching_type=#{coachingType},</if>
+      <if test="fee > 0">fee=#{fee},</if> 
+      <if test="coachingType != null and coachingType != ''">coaching_type=#{coachingType}
+      </if>
     </set>
       where 
-        coach_no=#{coachNo}
+        program_no=#{no}
   </update>
   
    <delete id="delete" parameterType="int">
