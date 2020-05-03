@@ -24,8 +24,8 @@
   <td align=center>${item.no}</td>
   <td align=center>${item.name}</td>
   <th ><a href= 'detail?programNo=${item.no}'>자세히보기</a></th>
-  <th><button type="button" onclick="location.href='updateForm'">수정</button></th>
-  <th><button type="button" onclick="location.href='delete'">삭제</button></th>
+  <th><a href= 'updateForm?programNo=${item.no}'>수정하기</a></th>
+  <th><a href= 'delete?programNo=${item.no}'>삭제</a></th>
   </tr>
   </c:forEach>
   </table>

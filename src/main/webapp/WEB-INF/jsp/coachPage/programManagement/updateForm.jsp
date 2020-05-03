@@ -3,37 +3,21 @@
 
 <jsp:include page="../../header.jsp"/>
 
-<form action='add' method='post'>
 <h1>프로그램 수정</h1>
-<b>프로그램명:</b> <input name='name' readonly type='text' value='${coach.name}'><br>
-<b>프로그램 소개:</b> <textarea name='title' rows='5' cols='60'>${coach.introduce}</textarea><br>
-<b>수업효과 키워드:</b> <textarea name='title' rows='5' cols='60'></textarea><br>
-<b>프로그램수강료</b> 
-<table>
-    <tr>
-  <td>기간</td>
-  <td>
-    <select name="items">
-      <option value="2주">2주</option>
-      <option value="3주">3주</option>
-      <option value="4주">4주</option>
+<form action='update' method='post'>
+<input name='no' readonly type='text' value='${program.no}'><br>
+
+<b>프로그램명:</b><input name='name' value='${program.name}'><br>
+<b>프로그램 소개:</b><textarea name='introduce' rows='5' cols='60'>${program.introduce}</textarea><br>
+<b>수업효과 키워드:</b><br>
+<b>프로그램수강료</b> <input name='fee' type='text' value='${program.fee}'>원<br>
+<b>프로그램타입</b> <select name="coachingType">
+        <option selected> 선택</option>
+        <option value='온라인'>온라인</option>
+        <option value='오프라인'>오프라인</option>
+        <option value='온라인+오프라인'>온라인+오프라인</option>
     </select>
-  </td>
-    </tr>
-    
-    <tr>
-      <td>가격</td>
-      <td><input name='price' readonly type='text'>원 </td>
-    </tr>
-</table>
-
-
-
-
-<button>수정</button>
-
-
+<br>
+<button>수정하기</button>
 </form>
-
-
 <jsp:include page="../../footer.jsp"/>

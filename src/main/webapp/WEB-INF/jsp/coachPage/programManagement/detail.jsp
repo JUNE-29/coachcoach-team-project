@@ -12,6 +12,7 @@
   프로그램 소개: ${program.introduce} <br>
   수업효과 키워드: <br>
   프로그램 수강료: ${program.fee} <br>
+  프로그램타입: ${program.coachingType}<br>
   </c:if>
   
   <c:if test="${empty requestScope.program}">
