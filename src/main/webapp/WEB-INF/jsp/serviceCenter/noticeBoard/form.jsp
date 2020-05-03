@@ -10,9 +10,7 @@
 내용:<br>
 <textarea name='title' rows='5' cols='60'></textarea><br>
 
-
-
-<button>등록</button>
+<button>제출</button>
 
 </form>
 

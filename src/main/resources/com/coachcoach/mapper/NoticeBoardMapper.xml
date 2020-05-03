@@ -10,6 +10,7 @@
     <result column="conts"  property="title"/>
     <result column="cdt"    property="date"/>
     <result column="vw_cnt" property="viewCount"/>
+    <result column="file_path" property="file_path"/>
   </resultMap>
   
   <sql id="select1">
@@ -17,20 +18,16 @@
       NoticeBoard_id, 
       conts, 
       cdt, 
-      vw_cnt
+      vw_cnt,
+      file_path
     from 
       NoticeBoard
   </sql>
   
-  <select id="findAll" resultMap="NoticeBoardMap">
-    <include refid="select1"/>
-    order by 
-      NoticeBoard_id desc
-  </select>
-  
   <insert id="insert" parameterType="NoticeBoard">
-    insert into NoticeBoard(conts) 
-    values(#{title})
+    insert into NoticeBoard(conts, file_path) 
+    values(#{title},
+    #{file_path})
   </insert>
   
   <select id="findByNo" resultMap="NoticeBoardMap" parameterType="int">
@@ -41,7 +38,8 @@
   
   <update id="update" parameterType="NoticeBoard">
     update NoticeBoard set
-      conts=#{title}
+      conts=#{title},
+      file_path=#{file_path}
     where NoticeBoard_id=#{no}
   </update>
   
@@ -49,6 +47,18 @@
     delete from NoticeBoard
     where NoticeBoard_id=#{no}
   </delete>
+  
+  <select id="findAll" resultMap="NoticeBoardMap" parameterType="int">
+    select 
+      NoticeBoard_id, 
+      conts, 
+      cdt, 
+      vw_cnt,
+      file_path
+    from 
+      NoticeBoard
+   </select>
+  
 </mapper>
 
 
