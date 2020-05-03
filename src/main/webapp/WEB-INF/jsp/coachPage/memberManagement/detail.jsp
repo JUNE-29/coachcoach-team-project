@@ -5,21 +5,22 @@
 
 <jsp:include page="../../header.jsp"/>
 
-<h1>회원 상세정보</h1>
-<img src='/upload/member/' height='80'><br> 
-<form action='list' method='get' enctype='multipart/form-data'>
-이름: 홍길동 <br>
-아이디: hong01 <br>
-연락처: 010-000-0000 <br>
-이메일: aaa@test.com <br>
-나이: 20세 <br>
-프로그램명: 4주완성 체력기르기! <br>
-시작일: 2020-04-22<br>
-종료일: 2020-05-22<br>
-특이사항: 3개월 전 교통사고 때문에 다리 좀 아픔<br>
-<p><button>확인</button>
-</form>
-
+  <h1>회원정보</h1>
+  <img src='${pageContext.servletContext.contextPath}/upload/member/${detail.member.photo}' height='300'>
+  <br>
+  이름: ${detail.member.name} <br>
+  아이디: ${detail.member.id} <br>
+  전화번호: ${detail.member.tel} <br>
+  이메일: ${detail.member.email} <br>
+  생년월일: ${detail.member.birth} <br>
+  프로그램명: ${detail.programName} <br>
+  시작날짜: ${detail.startDate} <br>
+  종료날짜: ${detail.endDate} <br>
+  특이사항: ${detail.remark} <br>
+  
+  <br>
+  
+<hr>
 
 <jsp:include page="../../footer.jsp"/>
     

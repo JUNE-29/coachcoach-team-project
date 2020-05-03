@@ -27,6 +27,8 @@ public class ManagementController {
   }
 
   @GetMapping("detail")
-  public void detail() throws Exception {}
+  public void detail(Model model, int no) throws Exception {
+    model.addAttribute("detail", memberCoachingProgramService.get(no));
+  }
 
 }
