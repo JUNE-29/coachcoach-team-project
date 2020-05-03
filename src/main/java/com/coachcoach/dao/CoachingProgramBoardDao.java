@@ -17,8 +17,10 @@ public interface CoachingProgramBoardDao {
   int delete(int no) throws Exception;
   // 삭제
 
- CoachingProgramBoard findByNo(int no) throws Exception;
- // 공지사항 상세보기
+  CoachingProgramBoard findByNo(int no) throws Exception;
+  // 공지사항 상세보기
+
+  List<CoachingProgramBoard> findAllByCoachNo(int coachNo);
 
 }
 

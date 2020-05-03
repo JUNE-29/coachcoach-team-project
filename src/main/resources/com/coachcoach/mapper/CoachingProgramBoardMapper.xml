@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coachcoach.dao.CoachingProgramBoardDao">
+
+	<resultMap type="CoachingProgramBoard" id="CoachingProgramBoardMap">
+		<id column="program_board_no" property="no" />
+		<result column="coach_no" property="coachNo" />
+		<result column="program_no" property="programNo" />
+    <result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="create_date" property="createdDate" />
+		<result column="program_name" property="programName" />
+		
+		<collection property="members" ofType="Member">
+      <id column="member_no"              property="no"/>
+      <result column="id"                 property="id"/>
+      <result column="name"        property="name"/>
+      <result column="gender"             property="gender"/>
+      <result column="birth"              property="birth"/>
+      <result column="tel"                property="tel"/>
+      <result column="email"              property="email"/>
+      <result column="photo"              property="photo"/>
+    </collection>
+	</resultMap>
+
+	<insert id="insert" parameterType="CoachingProgramBoard">
+		insert into coaching_program_boards(
+		  coach_no,
+		  program_no,
+		  title,
+		  content,
+		  create_date
+		  )
+		values(
+			#{coachNo},
+			#{programNo},
+			#{title},
+			#{content},
+			now()
+		  )
+	</insert>
+
+	<select id="findAll" resultMap="CoachingProgramBoardMap"
+		parameterType="int">
+		select
+		program_board_no,
+		coach_no,
+		program_no,
+		content,
+		create_date
+		from
+		coaching_program_boards
+		where
+		program_board_no=#{coach_no}
+	</select>
+	
+  <select id="findAllByCoachNo" resultMap="CoachingProgramBoardMap"
+    parameterType="int">
+    select
+      cpb.program_board_no,
+      cpb.coach_no,
+      cpb.program_no,
+      cpb.title,
+      cpb.content,
+      DATE_FORMAT(cpb.create_date, "%Y/%m/%d %h:%i %p") as create_date,
+      m.member_no,
+      m.id,
+      m.name,
+      m.gender,
+      m.birth,
+      m.tel,
+      m.email,
+      m.photo,
+      cp.name as program_name
+    from
+      coaching_program_boards cpb 
+      left outer join member_coaching_programs mcp 
+        on cpb.program_no = mcp.program_no 
+        AND cpb.create_date between mcp.start_date AND mcp.end_date
+      left outer join members m on mcp.member_no = m.member_no
+      left outer join coaching_programs cp on cp.program_no = cpb.program_no 
+    where
+      cpb.coach_no=#{no}
+    order by cpb.create_date DESC 
+  </select>
+  
+  <select id="findByNo" resultMap="CoachingProgramBoardMap"
+    parameterType="int">
+    select
+      cpb.program_board_no,
+      cpb.coach_no,
+      cpb.program_no,
+      cpb.title,
+      cpb.content,
+      DATE_FORMAT(cpb.create_date, "%Y/%m/%d %h:%i %p") as create_date,
+      m.member_no,
+      m.id,
+      m.name,
+      m.gender,
+      m.birth,
+      m.tel,
+      m.email,
+      m.photo,
+      cp.name as program_name
+    from
+      coaching_program_boards cpb 
+      left outer join member_coaching_programs mcp on cpb.program_no = mcp.program_no
+      left outer join coaching_programs cp on cp.program_no = cpb.program_no
+      left outer join members m on mcp.member_no = m.member_no 
+    where
+      cpb.program_board_no=#{no} 
+  </select>
+
+	<update id="update" parameterType="CoachingProgramBoard">
+		update coaching_program_boards
+		set
+		  title= #{title},
+			content= #{content}
+		where
+		  program_board_no=#{no}
+	</update>
+
+
+	<delete id="delete" parameterType="int">
+		delete
+		from coaching_program_boards 
+		where
+		program_board_no=#{no}
+	</delete>
+
+</mapper>

@@ -9,7 +9,7 @@
 <form action='deleteApply ' method='post'>
 <h1>프로그램 확인</h1>
 <h3>[회원정보]</h3>
-신청번호: ${program.no}
+신청번호: ${program.no}<br>
 이름: ${program.member.name}<br>
 성별: ${program.member.gender}<br>
 생년월일: ${program.member.birth}<br>

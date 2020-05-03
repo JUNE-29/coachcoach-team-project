@@ -38,9 +38,8 @@
       <result column="review" property="review"/>
     </association>
     
-     <collection property="coachingProgramTags" ofType="CoachingProgramTag">
-      <id column="tag_no"   property="tagNo"/>
-      <result column="program_no"  property="programNo"/>
+     <collection property="coachingProgramTags" ofType="Integer">
+      <!-- <result column="id"/> -->
      </collection> 
   </resultMap>
   

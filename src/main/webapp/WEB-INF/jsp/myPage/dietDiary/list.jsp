@@ -1,3 +1,4 @@
+<%@page import="com.coachcoach.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
@@ -15,12 +16,18 @@
       </div>
 	  </c:forEach>	    
   </div>
-
+	<% 
+	Object loginUser = (Object) request.getSession().getAttribute("loginUser");
+	if (loginUser instanceof Member) {
+	%>
   <br>
 		<div >
 		<button type="button" onclick="location.href='addForm'" class="btn btn-block btn-primary">+</button>
 		</div>
 	<br>
+  <% 
+	}
+  %>
 </div>
 
 <jsp:include page="../../footer.jsp"/>

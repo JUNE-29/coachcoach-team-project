@@ -6,18 +6,30 @@
 <jsp:include page="../../header.jsp"/>
 
 <h1>공지사항</h1>
-<form action='list' method='get' enctype='multipart/form-data'>
-보낸날짜: 2020-04-22 <br>
-보낸회원목록: 홍길동, 유관순<br>
-날짜: 2020-04-02 ~ 2020-04-03<br>
-제목: [엄진영코치] 이틀 휴가입니다.<br>
-내용: 4월 2일,3일 휴가입니다. 휴가 갔다와서 차례대로 채팅하겠습니다.
-감사합니다.<br>
-<p><a href='delete'>삭제</a> 
-<a href='updateForm'>수정</a></p>
-<p><button>확인</button>
-</form>
+프로그램명: ${detail.programName} <br>
+보낸 회원 목록: <c:forEach items="${detail.members}" var="member">${member.name}님 </c:forEach><br>
+등록일: ${detail.createdDate}<br>
+제목: ${detail.title}<br>
+내용: <div>${detail.content}</div><br>
+<div class="row">
+	<div class="col-md-2">
+		<form action="delete" method="post">
+		  <input type="hidden" value="${detail.no}" name="no">
+		  <button>삭제</a> 
+		</form>
+	</div>
+	
+	<div class="col-md-2">
+		<form action="updateForm" method="post">
+		  <input type="hidden" value="${detail.no}" name="no">
+		  <button>변경</a> 
+		</form>
+	</div>
+</div>
+<br>
+<button onclick="location.href='list'" >확인</button>
 
+<hr>
 
 <jsp:include page="../../footer.jsp"/>
     
