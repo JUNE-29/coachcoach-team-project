@@ -7,6 +7,7 @@
 
   <resultMap type="ToDoList" id="ToDoListMap">
     <id column="to_do_list_no"      property="no"/>
+    <result column="member_no"       property="memberNo"/>
     <result column="memo"           property="memo"/>
     <result column="create_date"    property="createDate"/>
     
@@ -27,13 +28,13 @@
   
   <select id="findAll" parameterType="int" resultMap="ToDoListMap">
     select
-      memo
-      create_date
-    from to_do_list
+      t.memo,
+      t.create_date
+    from 
+      to_do_list t
+      join members m on t.member_no=m.member_no
     where
-      member_no=#{member.no}
-    order by
-      to_do_list_no desc
+      t.member_no=#{member.no}
   </select>
   
   <delete id="delete" parameterType="int">

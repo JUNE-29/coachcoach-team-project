@@ -2,7 +2,6 @@ package com.coachcoach.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Component;
-import com.coachcoach.dao.MemberDao;
 import com.coachcoach.dao.ToDoListDao;
 import com.coachcoach.domain.ToDoList;
 import com.coachcoach.service.ToDoListService;
@@ -11,16 +10,14 @@ import com.coachcoach.service.ToDoListService;
 public class ToDoListServiceImpl implements ToDoListService {
 
   ToDoListDao toDoListDao;
-  MemberDao memberDao;
 
-  public ToDoListServiceImpl(ToDoListDao toDoListDao, MemberDao memberDao) {
+  public ToDoListServiceImpl(ToDoListDao toDoListDao) {
     this.toDoListDao = toDoListDao;
-    this.memberDao = memberDao;
   }
 
   @Override
-  public void add(ToDoList toDoList) throws Exception {
-    this.toDoListDao.insert(toDoList);
+  public int add(ToDoList toDoList) throws Exception {
+    return this.toDoListDao.insert(toDoList);
   }
 
   @Override
@@ -31,5 +28,10 @@ public class ToDoListServiceImpl implements ToDoListService {
   @Override
   public int delete(int no) throws Exception {
     return toDoListDao.delete(no);
+  }
+
+  @Override
+  public int update(ToDoList toDoList) throws Exception {
+    return toDoListDao.update(toDoList);
   }
 }
