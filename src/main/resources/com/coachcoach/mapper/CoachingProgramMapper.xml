@@ -38,7 +38,7 @@
       <result column="review" property="review"/>
     </association>
     
-     <collection property="coachingProgramTags" ofType="Integer">
+     <collection property="coachingProgramTags" ofType="CoachingProgramTag">
       <id column="tag_no"   property="tagNo"/>
       <result column="program_no"  property="programNo"/>
      </collection> 
@@ -176,14 +176,7 @@
       join coaches c on cp.coach_no=c.coach_no
       join coaching_program_tags cpt on cp.program_no=cpt.program_no
     <where>
-     <if test="tagNo != null">tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
+     <if test="tag > 0">tag_no=${tag}</if>
     </where>
            order by program_no desc
   </select>

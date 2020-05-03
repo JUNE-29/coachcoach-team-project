@@ -26,6 +26,9 @@ public interface CoachingProgramDao {
 
   // 코칭 프로그램 검색(코치성별 or 방식)
   List<CoachingProgram> findByGender(Map<String, Object> params) throws Exception;
+  
+  // 코칭 프로그램 검색(코치성별 or 방식)
+  List<CoachingProgram> findByTag(Map<String, Object> params) throws Exception;
 
   // 코칭 프로그램 상세보기
   CoachingProgram findByNo(int programNo) throws Exception;

@@ -21,6 +21,8 @@ public interface CoachingProgramService {
   List<CoachingProgram> search(String keyword) throws Exception;
 
   List<CoachingProgram> search(Map<String, Object> params) throws Exception;
+  
+  List<CoachingProgram> searchTag(Map<String, Object> params) throws Exception;
 
   CoachingProgram get(int no) throws Exception;
 

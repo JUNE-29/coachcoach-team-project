@@ -6,23 +6,23 @@
 <jsp:include page="../header.jsp"/>
 
 <div>
-<form action='search' method='get'>
+<form action='searchKeyword' method='get'>
 <input name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
 <button>검색</button>
 </form>
 키워드<br>
-<form action='search2' method='post'>
-<input class="btn btn-outline-success" type="button" value="상체튼튼">
-<input class="btn btn-outline-success" type="button" value="하체튼튼">
-<input class="btn btn-outline-success" type="button" value="근육위주">
-<input class="btn btn-outline-success" type="button" value="대회위주"><br>
-<input class="btn btn-outline-success" type="button" value="체력위주">
-<input class="btn btn-outline-success" type="button" value="체중감량">
-<input class="btn btn-outline-success" type="button" value="재활위주">
-<input class="btn btn-outline-success" type="button" value="생활개선">
+<form action='searchTag' method='post'>
+<button type="submit" name="tag" value="1">하체튼튼</button>
+<button type="submit" name="tag" value="2">상체튼튼</button>
+<button type="submit" name="tag" value="3">근육위주</button>
+<button type="submit" name="tag" value="4">대회위주</button><br>
+<button type="submit" name="tag" value="5">체력위주</button>
+<button type="submit" name="tag" value="6">체중감량</button>
+<button type="submit" name="tag" value="7">재활위주</button>
+<button type="submit" name="tag" value="8">생활개선</button>
 </form>
 <br>코치성별<br>
-<form action='detailSearch' method='get'>
+<form action='searchDetail' method='get'>
 <input name='gender' type='radio' value='2' checked>무관
 <input name='gender' type='radio' value='0'>여자
 <input name='gender' type='radio' value='1'>남자

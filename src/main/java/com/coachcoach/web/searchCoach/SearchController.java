@@ -41,21 +41,24 @@ public class SearchController {
     model.addAttribute("programList", coachingProgramService.list());
   }
 
-  @GetMapping("keywordSearch") // 프로그램 검색
-  public void keywordSearch(Model model, String keyword) throws Exception {
+  @GetMapping("searchKeyword") // 프로그램 검색
+  public void searchKeyword(Model model, String keyword) throws Exception {
     model.addAttribute("searchProgram", coachingProgramService.search(keyword));
   }
 
-  @GetMapping("detailSearch") // 조건으로 검색
-  public void detailSearch(Model model, String gender, String coachingType) throws Exception {
+  @GetMapping("searchDetail") // 조건으로 검색
+  public void searchDetail(Model model, String gender, String coachingType) throws Exception {
     Map<String, Object> params = new HashMap<>();
     params.put("gender", gender);
     params.put("coachingType", coachingType);
     model.addAttribute("searchProgram", coachingProgramService.search(params));
   }
 
-  @GetMapping("searchTag") // 조건으로 검색
-  public void searchTag(Model model, String gender, String coachingType) throws Exception {
+  @PostMapping("searchTag") // 태그로 검색
+  public void searchTag(Model model, String tag) throws Exception {
+	  Map<String, Object> params = new HashMap<>();
+	    params.put("tag", tag);
+	    model.addAttribute("searchProgram", coachingProgramService.searchTag(params));
   }
 
 
