@@ -113,14 +113,14 @@
   <update id="update" parameterType="CoachingProgram">
     update coaching_programs
     <set>
-      <if test="coachNo > 0">coach_no=#{coachNo},</if> 
-      <if test="name != null and name != ''">name=#{name},</if>             
+      <if test="name != null and name != ''">name=#{name},</if> 
       <if test="introduce != null and introduce != ''">introduce=#{introduce},</if> 
-      <if test="fee > 0">fee=#{fee},</if>       
-      <if test="coachingType != null and coachingType != ''">coaching_type=#{coachingType},</if>
+      <if test="fee > 0">fee=#{fee},</if> 
+      <if test="coachingType != null and coachingType != ''">coaching_type=#{coachingType}
+      </if>
     </set>
       where 
-        coach_no=#{coachNo}
+        program_no=#{no}
   </update>
   
    <delete id="delete" parameterType="int">
@@ -156,9 +156,10 @@
     from 
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
-    where
-      c.gender like #{gender}
-      and cp.coaching_type like #{coachingType}
+    <where>
+      <if test="gender != 2"> c.gender like #{gender}</if>
+      <if test="coachingType != null">and cp.coaching_type like #{coachingType}</if>
+    </where>
       order by program_no desc
   </select>
   
@@ -175,14 +176,7 @@
       join coaches c on cp.coach_no=c.coach_no
       join coaching_program_tags cpt on cp.program_no=cpt.program_no
     <where>
-     <if test="tagNo != null">tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
-     <if test="tagNo != null">and tagNo=${}</if>
+     <if test="tag > 0">tag_no=${tag}</if>
     </where>
            order by program_no desc
   </select>

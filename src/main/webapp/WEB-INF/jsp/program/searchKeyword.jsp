@@ -35,17 +35,16 @@
 </div>
 
 
+
 <div class="dropdown">
 <select name="후기 많은 순">
   <option value="volvo">후기 많은 순</option>
   <option value="saab">별점 높은 순</option>
   <option value="fiat">인기 많은 순</option>
 </select>
+</div>
 
-
-
-
-<c:forEach items="${programList}" var="list">
+<c:forEach items="${searchProgram}" var="list">
 <div style='border:1px solid gray; padding:10px; margin:5px'>
 <label>${list.no}</label>
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${list.coach.photo}' height='200'>
@@ -55,6 +54,9 @@
 <label>${list.fee}원 </label><br> 
 </div>
 </c:forEach>
+
+
+
 
 
 <jsp:include page="../footer.jsp"/>

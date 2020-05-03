@@ -46,10 +46,12 @@ public class ProgramManagement {
   }
 
   @GetMapping("delete")
-  public void delete() {}
-
-  @GetMapping("delete2")
-  public void delete2() {}
+  public void delete(int programNo) throws Exception {
+    if (coachingProgramService.delete(programNo) > 0) {
+    } else {
+      throw new Exception("삭제할 게시물 번호가 유효하지 않습니다.");
+    }
+  }
 
   @GetMapping("detail")
   public void detail(int programNo, Model model) throws Exception {
@@ -66,9 +68,17 @@ public class ProgramManagement {
   }
 
   @PostMapping("update")
-  public void update() {}
+  public void update(CoachingProgram coachingProgram) throws Exception {
+    System.out.println(coachingProgram.getNo());
+    if (coachingProgramService.update(coachingProgram) > 0) {
+    } else {
+      throw new Exception(" 프로그램을 추가할 수 없습니다.");
+    }
+  }
 
   @GetMapping("updateForm")
-  public void updateForm() {}
+  public void updateForm(int programNo, Model model) throws Exception {
+    model.addAttribute("program", coachingProgramService.getdetail(programNo));
+  }
 
 }

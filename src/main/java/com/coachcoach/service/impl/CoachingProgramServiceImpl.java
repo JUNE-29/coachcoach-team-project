@@ -72,5 +72,10 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
     return coachingProgramDao.findByMemberNo(no);
   }
 
+@Override
+public List<CoachingProgram> searchTag(Map<String, Object> params) throws Exception {
+	return coachingProgramDao.findByTag(params);
+}
+
 
 }
