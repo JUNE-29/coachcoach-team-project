@@ -3,15 +3,19 @@ package com.coachcoach.web.myPage;
 import java.io.File;
 import java.util.UUID;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import com.coachcoach.domain.Coach;
 import com.coachcoach.domain.FoodBoard;
 import com.coachcoach.domain.FoodBoardComment;
+import com.coachcoach.domain.Member;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.FoodBoardCommentService;
 import com.coachcoach.service.FoodBoardService;
@@ -30,6 +34,9 @@ public class DietDiaryController {
 
   @Autowired
   ServletContext servletContext;
+
+  @Autowired
+  HttpSession session;
 
   @PostMapping("add")
   public void add(FoodBoard foodBoard, MultipartFile photoFile) throws Exception {
@@ -55,16 +62,18 @@ public class DietDiaryController {
 
 
   @GetMapping("addForm")
-  public void addForm() {}
+  public void addForm(Model model) {
+    model.addAttribute("member", session.getAttribute("loginUser"));
+  }
 
-  @GetMapping("delete")
+  @PostMapping("delete")
   public String delete(int no) throws Exception {
     foodBoardService.delete(no);
     return "redirect:list";
   }
 
 
-  @GetMapping("comment/delete")
+  @PostMapping("comment/delete")
   public String deleteComment(int no, int foodBoardNo) throws Exception {
     foodBoardCommentService.delete(no);
     return "redirect:../detail?no=" + foodBoardNo;
@@ -77,8 +86,12 @@ public class DietDiaryController {
   }
 
   @GetMapping("list")
-  public void list(Model model) throws Exception {
-    model.addAttribute("list", foodBoardService.list(1));
+  public void list(Model model, @RequestParam(defaultValue = "0") int no) throws Exception {
+    if (session.getAttribute("loginUser") instanceof Member) {
+      model.addAttribute("list", foodBoardService.list(((Member)session.getAttribute("loginUser")).getNo()));
+    } else if (session.getAttribute("loginUser") instanceof Coach) {
+      model.addAttribute("list", foodBoardService.list(no));
+    }
   }
 
   @PostMapping("update")
@@ -96,9 +109,10 @@ public class DietDiaryController {
     }
   }
 
-  @GetMapping("updateForm")
+  @PostMapping("updateForm")
   public void updateForm(int no, Model model) throws Exception {
     model.addAttribute("foodBoard", foodBoardService.get(no));
+    model.addAttribute("member", session.getAttribute("loginUser"));
   }
 
 }
