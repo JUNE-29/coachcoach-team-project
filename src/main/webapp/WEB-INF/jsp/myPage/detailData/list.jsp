@@ -31,12 +31,14 @@
   </c:forEach>
       
   </table>
+  <br>
+  <br>
   
-<  
-  
-    <jsp:include page='weightGraph.jsp'/>
+  <jsp:include page='weightList.jsp'/>
 
-    <jsp:include page='stepsGraph.jsp'/>
+  
+  <br>
+  <br>
 
     <jsp:include page='workoutGraph.jsp'/>
 

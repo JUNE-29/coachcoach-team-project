@@ -2,8 +2,6 @@ package com.coachcoach.web.myPage;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +18,6 @@ import com.coachcoach.service.WorkoutListService;
 @Controller
 @RequestMapping("/myPage/detailData")
 public class DetailDataController {
-
-  static Logger logger = LogManager.getLogger(DetailDataController.class);
 
   @Autowired
   HttpSession httpSession;
@@ -55,6 +51,7 @@ public class DetailDataController {
   public void list(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("list", workoutListService.list(member.getNo()));
+    model.addAttribute("findAllByMemberNo", weightService.findAllByMemberNo(member.getNo()));
     model.addAttribute("memberNo", member.getNo());
   }
 
@@ -81,33 +78,40 @@ public class DetailDataController {
     }
   }
 
-  // 나의 몸무게 리스트
-  @GetMapping("weightList") // detailData 페이지 (여기에는 그래프가 나와야 함)
-  public void weightList(Model model) throws Exception {
-    Member member = (Member) httpSession.getAttribute("loginUser");
-    model.addAttribute("findAllByMemberNo", weightService.findAllByMemberNo(member.getNo()));
-    model.addAttribute("memberNo", member.getNo());
-  }
-
 
   @GetMapping("updateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
-  public void updateForm(int memberNo, Model model) throws Exception {
-    Member member = (Member) httpSession.getAttribute("loginUser");
-    model.addAttribute("member", memberService.get(member.getNo()));
+  public void updateForm(int workoutListNo, Model model) throws Exception {
+    model.addAttribute("workoutList", workoutListService.getWorkoutList(workoutListNo));
   }
 
   @PostMapping("update")
-  public void update() {}
+  public String update(WorkoutList workoutList) throws Exception {
+    if (workoutListService.update(workoutList) > 0) {
+      return "redirect:list";
+    } else {
+      throw new Exception("변경할 운동내역 번호가 유효하지 않습니다.");
+    }
+  }
 
 
 
   @GetMapping("delete")
-  public void delete() {}
+  public void delete(int workoutListNo) throws Exception {
+    if (workoutListService.delete(workoutListNo) > 0) {
+    } else {
+      throw new Exception("삭제할 운동내역 번호가 유효하지 않습니다.");
+    }
+  }
 
 
   // Workout Graph
   @GetMapping("workoutGraph")
-  public void workoutGraph() {}
+  public void workoutGraph(WorkoutList workoutList) throws Exception {
+    System.out.println(workoutList.getMemberNo());
+    if (workoutListService.update(workoutList) > 0) {
+      return;
+    }
+  }
 
   @GetMapping("workoutGraphMonth")
   public void workoutGraphMonth() {}
