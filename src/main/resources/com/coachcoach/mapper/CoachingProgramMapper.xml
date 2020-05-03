@@ -157,9 +157,10 @@
     from 
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
-    where
-      c.gender like #{gender}
-      and cp.coaching_type like #{coachingType}
+    <where>
+      <if test="gender != 2"> c.gender like #{gender}</if>
+      <if test="coachingType != null">and cp.coaching_type like #{coachingType}</if>
+    </where>
       order by program_no desc
   </select>
   

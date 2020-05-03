@@ -116,29 +116,29 @@ value (12, 10, 66, '2020-04-02');
 -- 코칭프로그램 샘플데이터
 
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (1, 1, '4주안에 복근만들기1', '4주안에 복근을 만들 수 있습니다', 350000, 1);
+value (1, 1, '4주안에 복근만들기1', '4주안에 복근을 만들 수 있습니다', 350000, '온라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (2, 1, '4주안에 복근만들기1', '4주안에 복근을 만들 수 있습니다', 350000, 1);
+value (2, 1, '4주안에 복근만들기1', '4주안에 복근을 만들 수 있습니다', 350000, '온라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (3, 2, '4주안에 복근만들기2', '4주안에 복근을 만들 수 있습니다', 300000, 2);
+value (3, 2, '4주안에 복근만들기2', '4주안에 복근을 만들 수 있습니다', 300000, '온라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (4, 3, '4주안에 복근만들기3', '4주안에 복근을 만들 수 있습니다', 500000, 2);
+value (4, 3, '4주안에 복근만들기3', '4주안에 복근을 만들 수 있습니다', 500000, '온라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (5, 4, '4주안에 복근만들기4', '4주안에 복근을 만들 수 있습니다', 400000, 3);
+value (5, 4, '4주안에 복근만들기4', '4주안에 복근을 만들 수 있습니다', 400000, '오프라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (6, 5, '4주안에 복근만들기5', '4주안에 복근을 만들 수 있습니다', 700000, 3);
+value (6, 5, '4주안에 복근만들기5', '4주안에 복근을 만들 수 있습니다', 700000, '오프라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (7, 6, '4주안에 복근만들기6', '4주안에 복근을 만들 수 있습니다', 700000, 1);
+value (7, 6, '4주안에 복근만들기6', '4주안에 복근을 만들 수 있습니다', 700000, '오프라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (8, 7, '4주안에 복근만들기7', '4주안에 복근을 만들 수 있습니다', 100000, 2);
+value (8, 7, '4주안에 복근만들기7', '4주안에 복근을 만들 수 있습니다', 100000, '오프라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (9, 8, '4주안에 복근만들기8', '4주안에 복근을 만들 수 있습니다', 300000, 3);
+value (9, 8, '4주안에 복근만들기8', '4주안에 복근을 만들 수 있습니다', 300000, '오프라인+온라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (10, 8, '4주안에 복근만들기8', '4주안에 복근을 만들 수 있습니다', 300000, 3);
+value (10, 8, '4주안에 복근만들기8', '4주안에 복근을 만들 수 있습니다', 300000, '오프라인+온라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (11, 9, '4주안에 복근만들기9', '4주안에 복근을 만들 수 있습니다', 450000, 1);
+value (11, 9, '4주안에 복근만들기9', '4주안에 복근을 만들 수 있습니다', 450000, '오프라인+온라인');
 insert into coaching_programs(program_no, coach_no, name, introduce, fee, coaching_type)
-value (12, 10, '4주안에 복근만들기10', '4주안에 복근을 만들 수 있습니다', 650000, 2);
+value (12, 10, '4주안에 복근만들기10', '4주안에 복근을 만들 수 있습니다', 650000, '오프라인+온라인');
 
 
 
