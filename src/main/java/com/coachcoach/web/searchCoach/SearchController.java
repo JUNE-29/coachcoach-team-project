@@ -64,7 +64,7 @@ public class SearchController {
 
   @GetMapping("detail") // 프로그램 상세보기
   public void detail(Model model, int programNo, int no) throws Exception {
-    model.addAttribute("program", coachingProgramService.get(programNo));
+    model.addAttribute("program", coachingProgramService.getProgram(programNo));
     model.addAttribute("memberProgram", memberCoachingProgramService.programList(programNo));
 
   }

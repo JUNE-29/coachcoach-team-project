@@ -35,7 +35,6 @@
 </div>
 
 
-
 <div class="dropdown">
 <select name="후기 많은 순">
   <option value="volvo">후기 많은 순</option>

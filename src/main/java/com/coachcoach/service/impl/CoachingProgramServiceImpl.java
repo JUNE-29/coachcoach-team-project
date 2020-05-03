@@ -77,5 +77,10 @@ public List<CoachingProgram> searchTag(Map<String, Object> params) throws Except
 	return coachingProgramDao.findByTag(params);
 }
 
+@Override
+public CoachingProgram getProgram(int programNo) throws Exception {
+	return coachingProgramDao.findByNo(programNo);
+}
+
 
 }
