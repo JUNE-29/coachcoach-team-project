@@ -8,11 +8,12 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @ComponentScan(value = "com.coachcoach")
 @EnableWebMvc
-public class AppConfig {
+public class AppConfig implements WebMvcConfigurer {
 
   static Logger logger = LogManager.getLogger(AppConfig.class);
 
@@ -34,6 +35,13 @@ public class AppConfig {
     mr.setMaxUploadSizePerFile(5000000);
     return mr;
   }
+
+  // @Override
+  // public void addInterceptors(InterceptorRegistry registry) {
+  // registry.addInterceptor(new AuthInterceptor())//
+  // .addPathPatterns("/**"); // 모든 컨트롤러에 관해 인터셉터 적용
+  //
+  // } // 적용은 오는 6일에.
 }
 
 

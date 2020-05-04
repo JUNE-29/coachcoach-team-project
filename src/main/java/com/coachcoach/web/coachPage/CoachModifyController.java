@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.coachcoach.domain.Coach;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
 
+@Auth(role = Role.COACH)
 @Controller
 @RequestMapping("/coachPage/modify")
 public class CoachModifyController {

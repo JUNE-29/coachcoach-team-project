@@ -18,4 +18,7 @@ public class AuthController {
     return "redirect:login";
   }
 
+  @GetMapping("rejected")
+  public void rejected() {}
+
 }
