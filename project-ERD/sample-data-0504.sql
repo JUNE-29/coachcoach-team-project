@@ -210,28 +210,26 @@ insert into member_coaching_programs(member_no, program_no, remark, status, requ
   
 
 -- 회원코칭프로그램일정
-insert into member_program_calendar(member_program_no, plan)
-  values(1,'운동계획');
-  insert into member_program_calendar(member_program_no, plan)
-  values(1,'운동계획');
-  insert into member_program_calendar(member_program_no, plan)
-  values(2,'운동계획');
-  insert into member_program_calendar(member_program_no, plan)
-  values(3,'운동계획');
-  insert into member_program_calendar(member_program_no, plan)
-  values(4,'운동계획');
-  insert into member_program_calendar(member_program_no, plan)
-  values(5,'운동계획');
-  insert into member_program_calendar(member_program_no, plan)
-  values(6,'운동계획');
-    insert into member_program_calendar(member_program_no, plan)
-  values(7,'운동계획');
-    insert into member_program_calendar(member_program_no, plan)
-  values(8,'운동계획');
-     insert into member_program_calendar(member_program_no, plan)
-  values(9,'운동계획');
-     insert into member_program_calendar(member_program_no, plan)
-  values(10,'운동계획');
+  insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(1,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(2,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(3,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(2,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(3,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(4,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(5,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(6,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(7,'운동계획', '2020-05-03', '2020-05-20');
+    insert into member_program_calendar(member_program_no, plan, start_date, end_date)
+  values(8,'운동계획', '2020-05-03', '2020-05-20');
   
   --코칭프로그램 게시판
     insert into coaching_program_boards(coach_no, program_no, title, content)
