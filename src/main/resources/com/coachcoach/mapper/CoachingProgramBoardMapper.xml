@@ -46,15 +46,15 @@
 	<select id="findAll" resultMap="CoachingProgramBoardMap"
 		parameterType="int">
 		select
-		program_board_no,
-		coach_no,
-		program_no,
-		content,
-		create_date
+			program_board_no,
+			coach_no,
+			program_no,
+			content,
+			create_date
 		from
-		coaching_program_boards
+		  coaching_program_boards
 		where
-		program_board_no=#{coach_no}
+		  program_board_no=#{coach_no}
 	</select>
 	
   <select id="findAllByCoachNo" resultMap="CoachingProgramBoardMap"
@@ -126,9 +126,9 @@
 
 	<delete id="delete" parameterType="int">
 		delete
-		from coaching_program_boards 
+		  from coaching_program_boards 
 		where
-		program_board_no=#{no}
+		  program_board_no=#{no}
 	</delete>
 
 </mapper>

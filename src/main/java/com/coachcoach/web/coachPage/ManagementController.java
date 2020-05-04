@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Coach;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.MemberCoachingProgramService;
 
+@Auth(role = Role.COACH)
 @Controller
 @RequestMapping("coachPage/memberManagement")
 public class ManagementController {

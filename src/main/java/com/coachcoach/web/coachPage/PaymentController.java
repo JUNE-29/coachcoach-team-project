@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Coach;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.MemberCoachingProgramService;
 
+@Auth(role = Role.COACH)
 @Controller
 @RequestMapping("/coachPage/payment")
 public class PaymentController {
@@ -32,7 +35,7 @@ public class PaymentController {
   public void search(String date, String sDate, String eDate, Model model) throws Exception {
     if (date != null) {
       Calendar c;
-      switch(date) {
+      switch (date) {
         case "1week":
           c = Calendar.getInstance();
           c.add(Calendar.WEEK_OF_YEAR, -1);
@@ -59,7 +62,7 @@ public class PaymentController {
     Map<String, Object> params = new HashMap<>();
     params.put("sDate", sDate);
     params.put("eDate", eDate);
-    params.put("no", ((Coach)session.getAttribute("loginUser")).getNo());
+    params.put("no", ((Coach) session.getAttribute("loginUser")).getNo());
     model.addAttribute("list", memberCoachingProgramService.searchDate(params));
   }
 
@@ -71,7 +74,8 @@ public class PaymentController {
 
   @GetMapping("addForm")
   public void addForm(Model model) throws Exception {
-    model.addAttribute("coach", coachService.get(((Coach)session.getAttribute("loginUser")).getNo()));
+    model.addAttribute("coach",
+        coachService.get(((Coach) session.getAttribute("loginUser")).getNo()));
   }
 
   @PostMapping("add")
