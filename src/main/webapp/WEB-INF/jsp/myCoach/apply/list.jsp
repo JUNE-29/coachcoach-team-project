@@ -29,7 +29,7 @@
     <c:when test="${status eq '결제대기중'}">
     <td>
     <form action='reviewForm' method='get'>
-    <button>${list.mcp.status}</button>
+    <button>결제하기</button>
     </form>
     </td>
   </c:when>
