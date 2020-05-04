@@ -1,5 +1,8 @@
 package com.coachcoach.web.myCoach;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.coachcoach.domain.Member;
 import com.coachcoach.service.CoachingProgramService;
+import com.coachcoach.service.MemberService;
 
 @Controller
 @RequestMapping("/myCoach/apply")
@@ -20,6 +24,9 @@ public class ApplyController {
 
 	@Autowired
 	CoachingProgramService coachingProgramService;
+	
+	@Autowired	
+	MemberService memberService;
 
 	@GetMapping("list") // 신청내역
 	public void applyList(Model model) throws Exception {
@@ -30,5 +37,15 @@ public class ApplyController {
 	@GetMapping("rejectForm") // 거절사유
 	public void rejectForm() {}
 
+	@GetMapping("orderForm") // 결제
+	public void orderForm(Model model) throws Exception {
+		Member member = (Member) httpSession.getAttribute("loginUser");
+		model.addAttribute("member", memberService.get(member.getNo()));	
+		
+		Map<String, Object> params = new HashMap<>();
+		params.put("status", "결제대기중");
+		params.put("no", member.getNo());
+		model.addAttribute("item", coachingProgramService.findByMemberNo(params));	
+	}
 
 }

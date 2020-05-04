@@ -28,7 +28,7 @@ public interface CoachingProgramService {
   
   CoachingProgram getProgram(int no) throws Exception;
 
-  CoachingProgram findByMemberNo(int programNo) throws Exception;
+  CoachingProgram findByMemberNo(Map<String, Object> params) throws Exception;
 
   CoachingProgram getdetail(int no) throws Exception;
 }

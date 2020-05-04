@@ -31,7 +31,11 @@ public class MycoachController {
   public void mycoachList(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("programList", coachingProgramService.applyList(member.getNo()));
-    model.addAttribute("program", coachingProgramService.findByMemberNo(member.getNo()));
+    
+    Map<String, Object> params = new HashMap<>();
+    params.put("status", "진행중");
+    params.put("no", member.getNo());
+    model.addAttribute("program", coachingProgramService.findByMemberNo(params));
   }
 
   @GetMapping("coachDetail") // 코치 상세보기

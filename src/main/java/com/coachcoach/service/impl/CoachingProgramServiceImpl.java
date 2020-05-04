@@ -68,19 +68,19 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   }
 
   @Override
-  public CoachingProgram findByMemberNo(int no) throws Exception {
-    return coachingProgramDao.findByMemberNo(no);
+  public CoachingProgram findByMemberNo(Map<String, Object> params) throws Exception {
+    return coachingProgramDao.findByMemberNo(params);
   }
 
-@Override
-public List<CoachingProgram> searchTag(Map<String, Object> params) throws Exception {
+  @Override
+  public List<CoachingProgram> searchTag(Map<String, Object> params) throws Exception {
 	return coachingProgramDao.findByTag(params);
-}
+  }
 
-@Override
-public CoachingProgram getProgram(int programNo) throws Exception {
+  @Override
+  public CoachingProgram getProgram(int programNo) throws Exception {
 	return coachingProgramDao.findByNo(programNo);
-}
+  }
 
 
 }

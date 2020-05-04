@@ -228,7 +228,7 @@
        order by mcp.member_program_no desc
    </select>
    
-   <select id="findByMemberNo" resultMap="CoachingProgramMap" parameterType="int">
+   <select id="findByMemberNo" resultMap="CoachingProgramMap" parameterType="map">
       select  
         mcp.member_program_no,
         mcp.member_no,       
@@ -252,9 +252,11 @@
          join coaches c on cp.coach_no=c.coach_no
          join member_coaching_programs mcp on cp.program_no=mcp.program_no
        where
-        mcp.status='진행중' and mcp.member_no=#{no}
+        mcp.status=#{status} and mcp.member_no=#{no}
        order by mcp.member_program_no desc
    </select>
+   
+   
 </mapper>
 
 
