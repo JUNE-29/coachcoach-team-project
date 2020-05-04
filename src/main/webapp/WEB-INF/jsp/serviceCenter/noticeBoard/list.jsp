@@ -7,7 +7,7 @@
 
   <h1>고객센터 </h1>
   <a href='form'>새 공지사항 </a> <br>
-  <table border='1'>
+  <table border='1' width="500" height="100">
   <tr>
     <th>번호</th>
     <th>제목</th>
