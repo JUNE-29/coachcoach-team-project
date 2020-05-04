@@ -20,10 +20,29 @@
      ) values
     <foreach collection="files" item="file" separator=",">
       (#{no}, 
-      #{path}, 
-      #{fileType})
+      #{file.path}, 
+      #{file.fileType})
     </foreach>
   </insert>
+  
+  <select id="findByMemberProgramCalendarNo" resultMap="CalendarFileMap" parameterType="int">
+    select 
+      file_no,
+      calendar_no, 
+      path, 
+      file_type
+    from 
+      calendar_files
+    where 
+      calendar_no=#{calendarNo}
+    order by 
+      file_no asc
+  </select>
+  
+  <delete id="deleteAll" parameterType="int">
+    delete from calendar_files
+    where calendar_no=#{calendarNo}
+  </delete>
   
 </mapper>
 

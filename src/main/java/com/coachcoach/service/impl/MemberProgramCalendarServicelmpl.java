@@ -13,7 +13,8 @@ public class MemberProgramCalendarServicelmpl implements MemberProgramCalendarSe
   MemberProgramCalendarDao memberProgramCalendarDao;
   CalendarFileDao calendarFileDao;
 
-  public MemberProgramCalendarServicelmpl(MemberProgramCalendarDao memberProgramCalendarDao) {
+  public MemberProgramCalendarServicelmpl(MemberProgramCalendarDao memberProgramCalendarDao,
+      CalendarFileDao calendarFileDao) {
     this.memberProgramCalendarDao = memberProgramCalendarDao;
     this.calendarFileDao = calendarFileDao;
   }
@@ -31,18 +32,27 @@ public class MemberProgramCalendarServicelmpl implements MemberProgramCalendarSe
 
   @Override
   public int add(MemberProgramCalendar memberProgramCalendar) throws Exception {
-    calendarFileDao.insert(memberProgramCalendar);
-    return memberProgramCalendarDao.insert(memberProgramCalendar);
+    int i = memberProgramCalendarDao.insert(memberProgramCalendar);
+    if (!memberProgramCalendar.getFiles().isEmpty()) {
+      calendarFileDao.insert(memberProgramCalendar);
+    }
+    return i;
   }
 
   @Override
   public MemberProgramCalendar get(int no) throws Exception {
-    return memberProgramCalendarDao.findByNo(no);
+    return memberProgramCalendarDao.findByNo(no)
+        .setFiles(calendarFileDao.findByMemberProgramCalendarNo(no));
   }
 
   @Override
   public int update(MemberProgramCalendar memberProgramCalendar) throws Exception {
-    return memberProgramCalendarDao.update(memberProgramCalendar);
+    int i = memberProgramCalendarDao.update(memberProgramCalendar);
+    calendarFileDao.deleteAll(memberProgramCalendar.getNo());
+    if (!memberProgramCalendar.getFiles().isEmpty()) {
+      calendarFileDao.insert(memberProgramCalendar);
+    }
+    return i;
   }
 
   @Override

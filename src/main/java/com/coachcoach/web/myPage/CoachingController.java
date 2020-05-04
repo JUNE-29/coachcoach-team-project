@@ -49,10 +49,12 @@ public class CoachingController {
   @GetMapping("list") // 캘린더 페이지
   public void list(Model model, @RequestParam(defaultValue = "0") int memberCoachingProgramNo)
       throws Exception {
-    if (memberCoachingProgramNo == 0) {
-      // memberCoachingProgramNo == 0 이면 접속한 유저가 멤버라는 뜻.
+    if (session.getAttribute("loginUser") instanceof Member) {
       model.addAttribute("list", memberProgramCalendarService
           .listByMemberNo(((Member) session.getAttribute("loginUser")).getNo()));
+    } else if (memberCoachingProgramNo == 0) {
+      model.addAttribute("list", memberProgramCalendarService
+          .listByMemberCoachingProgramNo((int) session.getAttribute("memberCoachingProgramNo")));
     } else {
       model.addAttribute("list",
           memberProgramCalendarService.listByMemberCoachingProgramNo(memberCoachingProgramNo));
@@ -77,12 +79,12 @@ public class CoachingController {
   }
 
   @PostMapping("add")
-  public void add(MemberProgramCalendar memberProgramCalendar, MultipartFile[] files)
+  public void add(MemberProgramCalendar memberProgramCalendar, MultipartFile[] inputFiles)
       throws Exception {
     List<CalendarFile> list = new ArrayList<>();
 
-    String dirPath = servletContext.getRealPath("/upload/coachingCalendar");
-    for (MultipartFile f : files) {
+    String dirPath = servletContext.getRealPath("/upload/calendarFile");
+    for (MultipartFile f : inputFiles) {
       if (f.getSize() <= 0) {
         continue;
       }
@@ -105,10 +107,35 @@ public class CoachingController {
   }
 
   @PostMapping("updateForm") // 운동 코칭 수정
-  public void updateForm() throws Exception {}
+  public void updateForm(Model model, int no) throws Exception {
+    model.addAttribute("detail", memberProgramCalendarService.get(no));
+  }
 
   @PostMapping("update")
-  public void update(MemberProgramCalendar memberProgramCalendar) throws Exception {
+  public void update(MemberProgramCalendar memberProgramCalendar, MultipartFile[] inputFiles)
+      throws Exception {
+    List<CalendarFile> list = new ArrayList<>();
+
+    String dirPath = servletContext.getRealPath("/upload/calendarFile");
+    for (MultipartFile f : inputFiles) {
+      if (f.getSize() <= 0) {
+        continue;
+      }
+
+      String filename = UUID.randomUUID().toString();
+      File file = new File(dirPath + "/" + filename);
+      f.transferTo(new File(dirPath + "/" + filename));
+
+      InputStream inputStream = new FileInputStream(file);
+
+      if (checkImageMimeType(inputStream)) {
+        list.add(new CalendarFile().setPath(filename).setFileType("image"));
+      } else {
+        list.add(new CalendarFile().setPath(filename).setFileType("etc"));
+      }
+    }
+    memberProgramCalendar.setFiles(list);
+
     memberProgramCalendarService.update(memberProgramCalendar);
   }
 

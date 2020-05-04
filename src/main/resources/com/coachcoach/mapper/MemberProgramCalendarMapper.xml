@@ -9,7 +9,8 @@
     <id column="calendar_no"  property="no"/>
     <result column="member_program_no"       property="memberProgramNo"/>
     <result column="plan"  property="plan"/>
-    <result column="workout_date"    property="workoutDate"/>
+    <result column="start_date"    property="startDate"/>
+    <result column="end_date"    property="endDate"/>
     <result column="program_name" property="programName"/>
         
     <association property="member" javaType="Member">
@@ -55,7 +56,8 @@
      select  
         mpc.calendar_no,
         mpc.plan,
-        mpc.workout_date,
+        mpc.start_date,
+        mpc.end_date,
         cp.name as program_name,
         m.member_no,
         m.id as m_id,
@@ -76,9 +78,7 @@
         mcp.member_program_no,
         mcp.member_no,
         mcp.program_no,        
-        mcp.status,            
-        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
-        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date
+        mcp.status            
      from
        member_program_calendar mpc
        left outer join member_coaching_programs mcp on mpc.member_program_no = mcp.member_program_no
@@ -94,7 +94,8 @@
      select  
         mpc.calendar_no,
         mpc.plan,
-        mpc.workout_date,
+        mpc.start_date,
+        mpc.end_date,
         cp.name as program_name,
         m.member_no,
         m.id as m_id,
@@ -105,9 +106,7 @@
         mcp.member_program_no,
         mcp.member_no,
         mcp.program_no,        
-        mcp.status,            
-        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
-        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date
+        mcp.status            
      from
        member_program_calendar mpc
        left outer join member_coaching_programs mcp on mpc.member_program_no = mcp.member_program_no
@@ -125,7 +124,8 @@
         cf.file_type,
         mpc.calendar_no,
         mpc.plan,
-        mpc.workout_date,
+        DATE_FORMAT(mpc.start_date, "%Y/%m/%d") as start_date,
+        DATE_FORMAT(mpc.end_date, "%Y/%m/%d") as end_date,
         cp.name as program_name,
         m.member_no,
         m.id as m_id,
@@ -136,9 +136,7 @@
         mcp.member_program_no,
         mcp.member_no,
         mcp.program_no,        
-        mcp.status,            
-        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
-        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date
+        mcp.status            
      from
        member_program_calendar mpc
        left outer join member_coaching_programs mcp on mpc.member_program_no = mcp.member_program_no
@@ -150,17 +148,30 @@
        mpc.calendar_no = #{no}
   </select>
   
-  <insert id="insert" parameterType="MemberProgramCalendar">
+  <insert id="insert" parameterType="MemberProgramCalendar"
+   useGeneratedKeys="true" keyColumn="calendar_no" keyProperty="no">
     insert into member_program_calendar(
       member_program_no,
 	    plan,
-	    workout_date
+	    start_date,
+	    end_date
 	   ) values( 
 		  #{memberProgramNo},
 		  #{plan},
-		  #{workoutDate}
+		  #{startDate},
+		  #{endDate}
 	   )
   </insert>
+  
+  <update id="update" parameterType="MemberProgramCalendar">
+    update member_program_calendar
+	    <set>
+	      <if test="plan != null and plan != ''">plan=#{plan},</if>
+	      <if test="startDate != null and startDate != ''">start_date=#{startDate},</if>
+	      <if test="endDate != null and endDate != ''">end_date=#{endDate},</if>
+	    </set>
+    where calendar_no=#{no}
+  </update>
   
 </mapper>
 
