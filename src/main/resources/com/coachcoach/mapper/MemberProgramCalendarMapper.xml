@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.MemberProgramCalendarDao">
+
+  <resultMap type="MemberProgramCalendar" id="MemberProgramCalendarMap">
+    <id column="calendar_no"  property="no"/>
+    <result column="member_program_no"       property="memberProgramNo"/>
+    <result column="plan"  property="plan"/>
+    <result column="workout_date"    property="workoutDate"/>
+    <result column="program_name" property="programName"/>
+        
+    <association property="member" javaType="Member">
+      <id column="member_no"              property="no"/>
+	    <result column="m_id"                 property="id"/>
+	    <result column="m_name"        property="name"/>
+	    <result column="m_gender"             property="gender"/>
+	    <result column="m_birth"              property="birth"/>
+	    <result column="m_tel"                property="tel"/>
+	    <result column="m_email"              property="email"/>
+	    <result column="m_photo"              property="photo"/>
+    </association>
+    
+    <association property="coach" javaType="Coach">
+      <id column="coach_no"              property="no"/>
+      <result column="c_id"                 property="id"/>
+      <result column="c_name"        property="name"/>
+      <result column="c_gender"             property="gender"/>
+      <result column="c_birth"              property="birth"/>
+      <result column="c_tel"                property="tel"/>
+      <result column="c_email"              property="email"/>
+      <result column="c_photo"              property="photo"/>
+    </association>
+    
+    <association property="memberCoachingProgram" javaType="MemberCoachingProgram">
+      <id column="member_program_no"     property="no"/>
+      <result column="member_no"         property="memberNo"/>
+      <result column="program_no"         property="programNo"/>
+      <result column="start_date"        property="startDate"/>
+      <result column="end_date"             property="endDate"/>
+      <result column="status"              property="status"/>
+    </association>
+    
+    <collection property="files" ofType="CalendarFile">
+      <id column="file_no"     property="no"/>
+      <result column="calendar_no"         property="calendarNo"/>
+      <result column="path"         property="path"/>
+      <result column="file_type"        property="fileType"/>
+    </collection>
+  </resultMap>
+
+  <select id="findAllbyMemberCoachingProgramNo" resultMap="MemberProgramCalendarMap" parameterType="int"> 
+     select  
+        mpc.calendar_no,
+        mpc.plan,
+        mpc.workout_date,
+        cp.name as program_name,
+        m.member_no,
+        m.id as m_id,
+        m.photo as m_photo,
+        m.name as m_name,
+        m.gender as m_gender,
+        m.birth as m_birth,
+        m.tel as m_tel,
+        m.email as m_email,
+        c.coach_no,
+        c.id as c_id,
+        c.photo as c_photo,
+        c.name as c_name,
+        c.gender as c_gender,
+        c.birth as c_birth,
+        c.tel as c_tel,
+        c.email as c_email,
+        mcp.member_program_no,
+        mcp.member_no,
+        mcp.program_no,        
+        mcp.status,            
+        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
+        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date
+     from
+       member_program_calendar mpc
+       left outer join member_coaching_programs mcp on mpc.member_program_no = mcp.member_program_no
+       left outer join members m on mcp.member_no = m.member_no
+       left outer join coaching_programs cp on cp.program_no = mcp.program_no
+       left outer join coaches c on cp.coach_no = c.coach_no
+     where 
+       mpc.member_program_no=#{no}
+       AND mcp.status='진행중'
+  </select>
+  
+  <select id="findAllbyMemberNo" resultMap="MemberProgramCalendarMap" parameterType="int"> 
+     select  
+        mpc.calendar_no,
+        mpc.plan,
+        mpc.workout_date,
+        cp.name as program_name,
+        m.member_no,
+        m.id as m_id,
+        m.name as m_name,
+        c.coach_no,
+        c.id as c_id,
+        c.name as c_name,
+        mcp.member_program_no,
+        mcp.member_no,
+        mcp.program_no,        
+        mcp.status,            
+        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
+        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date
+     from
+       member_program_calendar mpc
+       left outer join member_coaching_programs mcp on mpc.member_program_no = mcp.member_program_no
+       left outer join members m on mcp.member_no = m.member_no
+       left outer join coaching_programs cp on cp.program_no = mcp.program_no
+       left outer join coaches c on cp.coach_no = c.coach_no
+     where 
+       m.member_no=#{no}
+  </select>
+  
+   <select id="findByNo" resultMap="MemberProgramCalendarMap" parameterType="int"> 
+     select  
+        cf.file_no,
+        cf.path,
+        cf.file_type,
+        mpc.calendar_no,
+        mpc.plan,
+        mpc.workout_date,
+        cp.name as program_name,
+        m.member_no,
+        m.id as m_id,
+        m.name as m_name,
+        c.coach_no,
+        c.name as c_name,
+        c.id as c_id,
+        mcp.member_program_no,
+        mcp.member_no,
+        mcp.program_no,        
+        mcp.status,            
+        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
+        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date
+     from
+       member_program_calendar mpc
+       left outer join member_coaching_programs mcp on mpc.member_program_no = mcp.member_program_no
+       left outer join members m on mcp.member_no = m.member_no
+       left outer join coaching_programs cp on cp.program_no = mcp.program_no
+       left outer join coaches c on cp.coach_no = c.coach_no
+       left outer join calendar_files cf on cf.calendar_no = mpc.calendar_no
+     where 
+       mpc.calendar_no = #{no}
+  </select>
+  
+  <insert id="insert" parameterType="MemberProgramCalendar">
+    insert into member_program_calendar(
+      member_program_no,
+	    plan,
+	    workout_date
+	   ) values( 
+		  #{memberProgramNo},
+		  #{plan},
+		  #{workoutDate}
+	   )
+  </insert>
+  
+</mapper>
+
+
+
+
+
+
+

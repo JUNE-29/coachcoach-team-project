@@ -47,7 +47,10 @@
     </a>
     </td>
     <td>
-      <a href='../../myPage/dietDiary/list?no=${item.member.no}'>회원페이지가기</a>
+	    <form action='../../myPage/coaching/list'>
+	      <input type='hidden' name='memberCoachingProgramNo' value='${item.no}'>
+	      <button>회원페이지가기</button>
+	    </form>
     </td>
     </tr>
   </c:forEach>

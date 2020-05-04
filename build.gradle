@@ -9,6 +9,8 @@ repositories {
 }
 
 dependencies {
+    // 첨부파일 확장자 확인용
+implementation 'org.apache.tika:tika-core:1.24.1'
     // 유효성검사 애노테이션 라이브러리
     implementation 'org.hibernate:hibernate-validator:6.1.4.Final'
     

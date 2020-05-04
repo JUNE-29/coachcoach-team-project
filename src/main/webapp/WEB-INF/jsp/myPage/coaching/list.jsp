@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../../header.jsp"/>
 <div>
@@ -8,16 +10,18 @@
 </div>
 <button type="button" onclick="location.href='addForm'">등록</button><br>
 
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
-<a href='detail'>캘린더~~~~~~~</a><br>
+	  	 <div class="row">
+	<c:forEach items="${list}" var="item">
+
+	 	<div class="col-md-2">
+      <form action="detail" Method="post">
+      <input type="hidden" name="no" value="${item.no}">
+		  <button>☆</button>
+      </form>
+	  </div>
+
+	</c:forEach>
+	     </div>
 
 
 <jsp:include page="../../footer.jsp"/>

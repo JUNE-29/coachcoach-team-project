@@ -29,24 +29,27 @@ public class CalendarFile implements Serializable {
     return calendarNo;
   }
 
-  public void setCalendarNo(int calendarNo) {
+  public CalendarFile setCalendarNo(int calendarNo) {
     this.calendarNo = calendarNo;
+    return this;
   }
 
   public String getPath() {
     return path;
   }
 
-  public void setPath(String path) {
+  public CalendarFile setPath(String path) {
     this.path = path;
+    return this;
   }
 
   public String getFileType() {
     return fileType;
   }
 
-  public void setFileType(String fileType) {
+  public CalendarFile setFileType(String fileType) {
     this.fileType = fileType;
+    return this;
   }
 
   @Override
@@ -54,9 +57,9 @@ public class CalendarFile implements Serializable {
     final int prime = 31;
     int result = 1;
     result = prime * result + calendarNo;
-    result = prime * result + ((fileType == null) ? 0 : fileType.hashCode());
+    result = prime * result + (fileType == null ? 0 : fileType.hashCode());
     result = prime * result + no;
-    result = prime * result + ((path == null) ? 0 : path.hashCode());
+    result = prime * result + (path == null ? 0 : path.hashCode());
     return result;
   }
 
