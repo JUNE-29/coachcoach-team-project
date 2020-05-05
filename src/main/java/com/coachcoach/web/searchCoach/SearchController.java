@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,8 +19,6 @@ import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberService;
-import com.coachcoach.web.myCoach.Criteria;
-import com.coachcoach.web.myCoach.PageMaker;
 
 @Controller
 @RequestMapping("/program")
@@ -41,12 +40,15 @@ public class SearchController {
 	MemberService memberService;
 
 	@GetMapping("list") // 프로그램 페이지
-	public void list(Model model, Criteria cri, @RequestParam(defaultValue="1") int page) throws Exception {
+	public void list(Model model, @ModelAttribute("cri") Criteria cri) throws Exception {
 		PageMaker pageMaker = new PageMaker();
-	    pageMaker.setCri(cri);
-	    pageMaker.setTotalCount(coachingProgramService.pageCount());
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(coachingProgramService.pageCount());
 
-		model.addAttribute("programList", coachingProgramService.pageList(cri));
+
+		Map<String,Object> params = new HashMap<>();
+		params.put("cri", cri);
+		model.addAttribute("programList", coachingProgramService.pageList(params));
 		model.addAttribute("pageMaker", pageMaker);
 	}
 
@@ -81,9 +83,9 @@ public class SearchController {
 	@PostMapping("applyForm") // 신청서
 	public String applyForm(Model model, int programNo)  {
 		try {
-		Member member = (Member) httpSession.getAttribute("loginUser");
-		model.addAttribute("member", memberService.get(member.getNo()));
-		model.addAttribute("program", coachingProgramService.get(programNo));
+			Member member = (Member) httpSession.getAttribute("loginUser");
+			model.addAttribute("member", memberService.get(member.getNo()));
+			model.addAttribute("program", coachingProgramService.get(programNo));
 			return "program/applyForm";
 		} catch (Exception e) {
 			return "redirect:error";		

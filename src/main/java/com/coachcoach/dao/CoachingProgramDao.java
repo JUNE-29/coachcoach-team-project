@@ -2,7 +2,7 @@ package com.coachcoach.dao;
 import java.util.List;
 import java.util.Map;
 import com.coachcoach.domain.CoachingProgram;
-import com.coachcoach.web.myCoach.Criteria;
+import com.coachcoach.web.searchCoach.Criteria;
 
 public interface CoachingProgramDao {
 
@@ -20,9 +20,6 @@ public interface CoachingProgramDao {
 
   // 코칭 프로그램 리스트
   List<CoachingProgram> findAll() throws Exception;
-  
-  // 코칭 프로그램 리스트
-  List<CoachingProgram> pageList(Criteria cri) throws Exception;
 
   // 코칭 프로그램 검색(코치이름 or 프로그램명)
   List<CoachingProgram> findByKeyword(String keyword) throws Exception;
@@ -45,7 +42,10 @@ public interface CoachingProgramDao {
   // 코치페이지- 코칭 프로그램관리(자세히보기)
   CoachingProgram findByProgramNo(int no) throws Exception;
   
-  // 
+  // 페이징처리 리스트
+  List<CoachingProgram> pageList(Map<String, Object> params) throws Exception;
+
+  // 페이징처리 글갯수
   int pageCount() throws Exception;
 }
 

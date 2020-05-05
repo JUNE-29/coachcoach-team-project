@@ -3,7 +3,7 @@ package com.coachcoach.service;
 import java.util.List;
 import java.util.Map;
 import com.coachcoach.domain.CoachingProgram;
-import com.coachcoach.web.myCoach.Criteria;
+import com.coachcoach.web.searchCoach.Criteria;
 
 public interface CoachingProgramService {
 
@@ -13,7 +13,7 @@ public interface CoachingProgramService {
 
   List<CoachingProgram> list() throws Exception;
   
-  List<CoachingProgram> pageList(Criteria cri) throws Exception;
+  List<CoachingProgram> pageList(Map<String, Object> params) throws Exception;
 
   List<CoachingProgram> applyList(int memberNo) throws Exception;
 

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.coachcoach.dao.CoachingProgramDao;
 import com.coachcoach.domain.CoachingProgram;
 import com.coachcoach.service.CoachingProgramService;
-import com.coachcoach.web.myCoach.Criteria;
+import com.coachcoach.web.searchCoach.Criteria;
 
 @Component
 public class CoachingProgramServiceImpl implements CoachingProgramService {
@@ -84,8 +84,8 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   }
 
   @Override
-  public List<CoachingProgram> pageList(Criteria cri) throws Exception {
-	return coachingProgramDao.pageList(cri);
+  public List<CoachingProgram> pageList(Map<String, Object> params) throws Exception {
+	return coachingProgramDao.pageList(params);
   }
 
 @Override

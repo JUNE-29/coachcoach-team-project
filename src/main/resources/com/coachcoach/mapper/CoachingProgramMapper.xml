@@ -274,14 +274,14 @@
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
      order by cp.program_no desc
-       limit #{pageStart}, #{perPageNum}
-
+       limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
+  
    <select id="pageCount" resultType="Integer">
        select
-            count(*)
+         count(*)
         from
-            coaching_programs
+         coaching_programs
   </select>
 
 </mapper>
