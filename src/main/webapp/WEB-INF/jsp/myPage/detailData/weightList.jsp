@@ -13,6 +13,8 @@
         <th style="text-align:ceter">번호</th>
         <th style="text-align:ceter">체중</th>
         <th style="text-align:ceter">측정일</th>
+        <th style="text-align:ceter">수정</th>
+        <th style="text-align:ceter">삭제</th>
       </tr>
       
    <c:forEach items="${findAllByMemberNo}" var="item">
@@ -20,10 +22,8 @@
         <td align=center>${item.no}</td>
         <td align=center>${item.weight}</td>
         <td align=center>${item.measureDate}</td>
-        
-        
-        <th><button type="button" onclick="location.href='updateForm'">수정</button></th>
-        <th><button type="button" onclick="location.href='delete'">삭제</button></th>
+         <th ><a href= 'weightUpdateForm?weightNo=${item.no}'>수정</a></th>
+        <th ><a href= 'weightDelete?weightNo=${item.no}'>삭제</a></th>
       </tr>
   </c:forEach>
       

@@ -8,13 +8,14 @@
    <form action='addForm' method='post'>
       <input name='memberNo' type='hidden' value='${memberNo}'>
       <button>등록하기</button>
-   </form>
    <table border='1'>
       <tr> 
         <th style="text-align:ceter">번호</th>
         <th style="text-align:ceter">시행날짜</th>
         <th style="text-align:ceter">걸음수</th>
         <th style="text-align:ceter">비고</th>
+        <th style="text-align:ceter">수정</th>
+        <th style="text-align:ceter">삭제</th>
       </tr>
       
    <c:forEach items="${list}" var="item">
@@ -23,14 +24,13 @@
         <td align=center>${item.workoutDate}</td>
         <td align=center>${item.walkCount}</td>
         <td align=center>${item.etc}</td>
-        
-        
-        <th><button type="button" onclick="location.href='updateForm'">수정</button></th>
-        <th><button type="button" onclick="location.href='delete'">삭제</button></th>
+        <th ><a href= 'updateForm?workoutListNo=${item.no}'>수정</a></th>
+        <th ><a href= 'delete?workoutListNo=${item.no}'>삭제</a></th>
       </tr>
   </c:forEach>
       
   </table>
+  </form>
   <br>
   <br>
   

@@ -37,4 +37,11 @@ public class WeightServiceImpl implements WeightService {
   }
 
 
+  @Override
+  public Weight findByweightNo(int weightNo) throws Exception {
+    return weightDao.findByweightNo(weightNo);
+  }
+
+
+
 }

@@ -41,13 +41,26 @@
       w.member_no=#{memberNo}
    </select>
    
+   
+   <select id="findByweightNo" resultMap="WeightMap">
+   select 
+     weight_no,
+     weight,
+     measure_date
+   from
+      weight
+   where 
+      weight_no=#{no}
+   </select>
+   
     <update id="update" parameterType="Weight">
     update
      weight
     set
-      weight=#{weight}
+      weight=#{weight},
+      measure_date=#{measureDate}
     where 
-      member_no=#{no}
+      weight_no=#{no}
   </update>
   
   
