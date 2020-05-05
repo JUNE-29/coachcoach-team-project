@@ -5,23 +5,24 @@
 <h3>TODOLIST</h3>
 
 <form action='toDoListAddForm' method='post'>
-      <input name='memberNo' type='hidden' value='${memberNo}'>
+      <input name='memberNo' type='hidden' value='${member.no}'>
       <button>등록하기</button>
    </form>
    <table border='1'>
       <tr> 
         <th style="text-align:ceter">메모</th>
         <th style="text-align:ceter">날짜</th>
+        <th style="text-align:ceter">수정</th>
+        <th style="text-align:ceter">삭제</th>
       </tr>
       
-   <c:forEach items="${list}" var="item">
+   <c:forEach items="${findAll}" var="item">
       <tr>
         <td align=center>${item.memo}</td>
         <td align=center>${item.createDate}</td>
         
-        
-        <th><button type="button" onclick="location.href='update'">수정</button></th>
-        <th><button type="button" onclick="location.href='delete'">삭제</button></th>
+        <th ><a href= 'toDoListUpdateForm?toDoListNo=${item.no}'>수정</a></th>
+        <th ><a href= 'toDoListDelete?toDoListNo=${item.no}'>삭제</a></th>
       </tr>
   </c:forEach>
       

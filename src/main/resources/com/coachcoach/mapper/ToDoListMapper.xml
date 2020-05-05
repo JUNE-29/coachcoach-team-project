@@ -21,13 +21,14 @@
   <insert id="insert" parameterType="ToDoList" 
   useGeneratedKeys="true" keyColumn="to_do_list_no" keyProperty="no">>
     insert into 
-      to_do_list(memo, member_no)
-      values(#{memo}, #{member.no})
+      to_do_list(member_no, memo, create_date)
+      values(#{memberNo}, #{memo}, #{createDate})
   </insert>
   
   
-  <select id="findAll" parameterType="int" resultMap="ToDoListMap">
+  <select id="findAll" resultMap="ToDoListMap">
     select
+      t.to_do_list_no,
       t.memo,
       t.create_date
     from 
@@ -37,8 +38,32 @@
       t.member_no=#{member.no}
   </select>
   
+  
+  <select id="findByNo" resultMap="ToDoListMap">
+   select 
+      to_do_list_no,
+      memo,
+      create_date
+   from
+      to_do_list
+   where
+      to_do_list_no=#{no}
+  </select>
+  
+  <update id="update" parameterType="ToDoList">
+    update
+     to_do_list
+    <set>
+      <if test="memo !=null and memo=''">memo=#{memo},</if>
+      <if test="createDate !=null">create_date=#{createDate}</if>
+    </set>
+    where 
+      to_do_list_no=#{no}
+  </update>
+  
+  
   <delete id="delete" parameterType="int">
-    delete from to_do_list
+    delete from to_do_list 
     where to_do_list_no=#{no}
   </delete>
   

@@ -21,7 +21,7 @@ public class ToDoListServiceImpl implements ToDoListService {
   }
 
   @Override
-  public List<ToDoList> list(int memberNo) throws Exception {
+  public List<ToDoList> findAll(int memberNo) throws Exception {
     return toDoListDao.findAll(memberNo);
   }
 
@@ -33,5 +33,10 @@ public class ToDoListServiceImpl implements ToDoListService {
   @Override
   public int update(ToDoList toDoList) throws Exception {
     return toDoListDao.update(toDoList);
+  }
+
+  @Override
+  public ToDoList findByNo(int toDoListNo) throws Exception {
+    return toDoListDao.findByNo(toDoListNo);
   }
 }
