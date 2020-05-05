@@ -8,7 +8,7 @@ public interface MemberCoachingProgramDao {
 
   int insert(MemberCoachingProgram memberCoachingProgram) throws Exception;
 
-  List<MemberCoachingProgram> findAll(int memberNo) throws Exception;
+  List<MemberCoachingProgram> findAllByMemberNo(int memberNo) throws Exception;
 
   List<MemberCoachingProgram> findByProgramNo(int programNo) throws Exception;
 
