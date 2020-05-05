@@ -28,16 +28,12 @@
   <c:choose>
     <c:when test="${status eq '결제대기중'}">
     <td>
-    <form action='reviewForm' method='get'>
-    <button>${list.mcp.status}</button>
-    </form>
+    <button type="button" onclick="location.href='orderForm'">결제하기</button>
     </td>
   </c:when>
   <c:when test="${status eq '요청거절됨'}">
     <td>
-    <form action='reviewForm' method='get'>
-    <button>${list.mcp.status}</button>
-    </form>
+    <input type="button" value="거절사유" onclick="showPopup();" />
     </td>
     </c:when>
   <c:otherwise>
@@ -49,4 +45,9 @@
   </c:forEach>
 </table>
 </div>
+
+
+ <script language="javascript">
+  function showPopup() { window.open("popup.jsp", "거절사유", "width=400, height=300, left=100, top=50"); }
+ </script>
 <jsp:include page="../footer.jsp"/>

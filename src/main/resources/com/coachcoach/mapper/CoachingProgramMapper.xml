@@ -228,7 +228,7 @@
        order by mcp.member_program_no desc
    </select>
    
-   <select id="findByMemberNo" resultMap="CoachingProgramMap" parameterType="int">
+   <select id="findByMemberNo" resultMap="CoachingProgramMap" parameterType="map">
       select  
         mcp.member_program_no,
         mcp.member_no,       
@@ -252,9 +252,38 @@
          join coaches c on cp.coach_no=c.coach_no
          join member_coaching_programs mcp on cp.program_no=mcp.program_no
        where
-        mcp.status='진행중' and mcp.member_no=#{no}
+        mcp.status=#{status} and mcp.member_no=#{no}
        order by mcp.member_program_no desc
    </select>
+   
+   <select id="pageList" resultMap="CoachingProgramMap" parameterType="map">
+     select  
+      cp.program_no,
+      cp.coach_no,
+      c.name coach_name,
+      c.photo,
+      c.area,
+      c.career,
+      c.certification,
+      c.introduce coach_introduce,
+      c.work_type,
+      cp.name,
+      cp.introduce,
+      cp.fee
+     from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+     order by cp.program_no desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
+  </select>
+  
+   <select id="pageCount" resultType="Integer">
+       select
+         count(*)
+        from
+         coaching_programs
+  </select>
+
 </mapper>
 
 

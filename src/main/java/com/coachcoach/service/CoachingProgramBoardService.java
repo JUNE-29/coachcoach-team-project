@@ -7,11 +7,11 @@ public interface CoachingProgramBoardService {
 
   int add(CoachingProgramBoard coachingProgramBoard) throws Exception;
 
-  List<CoachingProgramBoard> list() throws Exception;
-
   int delete(int no) throws Exception;
 
   CoachingProgramBoard get(int no) throws Exception;
+
+  List<CoachingProgramBoard> getByMemberNo(int memberNo) throws Exception;
 
   int update(CoachingProgramBoard board) throws Exception;
 

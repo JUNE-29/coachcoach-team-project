@@ -46,15 +46,15 @@
 	<select id="findAll" resultMap="CoachingProgramBoardMap"
 		parameterType="int">
 		select
-		program_board_no,
-		coach_no,
-		program_no,
-		content,
-		create_date
+			program_board_no,
+			coach_no,
+			program_no,
+			content,
+			create_date
 		from
-		coaching_program_boards
+		  coaching_program_boards
 		where
-		program_board_no=#{coach_no}
+		  program_board_no=#{no}
 	</select>
 	
   <select id="findAllByCoachNo" resultMap="CoachingProgramBoardMap"
@@ -107,13 +107,43 @@
       cp.name as program_name
     from
       coaching_program_boards cpb 
-      left outer join member_coaching_programs mcp on cpb.program_no = mcp.program_no
+      left outer join member_coaching_programs mcp 
+        on cpb.program_no = mcp.program_no
+        AND cpb.create_date between mcp.start_date AND mcp.end_date
       left outer join coaching_programs cp on cp.program_no = cpb.program_no
       left outer join members m on mcp.member_no = m.member_no 
     where
       cpb.program_board_no=#{no} 
   </select>
-
+  
+    <select id="findByMemberNo" resultMap="CoachingProgramBoardMap"
+    parameterType="int">
+    select
+      cpb.program_board_no,
+      cpb.coach_no,
+      cpb.program_no,
+      cpb.title,
+      cpb.content,
+      DATE_FORMAT(cpb.create_date, "%Y/%m/%d") as create_date,
+      m.member_no,
+      m.id,
+      m.name,
+      m.gender,
+      m.birth,
+      m.tel,
+      m.email,
+      m.photo,
+      cp.name as program_name
+    from
+      coaching_program_boards cpb 
+      left outer join member_coaching_programs mcp on cpb.program_no = mcp.program_no
+      left outer join coaching_programs cp on cp.program_no = cpb.program_no
+      left outer join members m on mcp.member_no = m.member_no 
+    where
+      m.member_no = #{no}
+      AND cpb.create_date > cast((now() - interval 7 day) as date)
+  </select>
+  
 	<update id="update" parameterType="CoachingProgramBoard">
 		update coaching_program_boards
 		set
@@ -126,9 +156,9 @@
 
 	<delete id="delete" parameterType="int">
 		delete
-		from coaching_program_boards 
+		  from coaching_program_boards 
 		where
-		program_board_no=#{no}
+		  program_board_no=#{no}
 	</delete>
 
 </mapper>

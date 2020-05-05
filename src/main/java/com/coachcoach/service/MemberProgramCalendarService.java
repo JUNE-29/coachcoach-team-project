@@ -5,18 +5,17 @@ import com.coachcoach.domain.MemberProgramCalendar;
 
 public interface MemberProgramCalendarService {
 
-  List<MemberProgramCalendar> list() throws Exception;
+  List<MemberProgramCalendar> listByMemberCoachingProgramNo(int memberProgramNo) throws Exception;
 
   int delete(int no) throws Exception;
 
-  int add(MemberProgramCalendar memberprogramcalendar) throws Exception;
+  int add(MemberProgramCalendar memberProgramCalendar) throws Exception;
 
   MemberProgramCalendar get(int no) throws Exception;
 
-  MemberProgramCalendar get(String email, String password) throws Exception;
+  int update(MemberProgramCalendar memberProgramCalendar) throws Exception;
 
-  List<MemberProgramCalendar> search(String keyword) throws Exception;
+  List<MemberProgramCalendar> listByMemberNo(int memberNo) throws Exception;
 
-  int update(MemberProgramCalendar memberprogramcalendar) throws Exception;
 
 }

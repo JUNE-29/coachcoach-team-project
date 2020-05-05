@@ -17,8 +17,9 @@
 </textarea><br>
 
 <h3>[프로그램 세부사항]</h3>
-프로그램명: ${program.name}<br>
-운동 시작일<input name='startDate' type='text' placeholder='예)2020/05/01'><br>
+프로그램명  ${program.name}<br>
+운동 시작일<input name='startDate' type='text' placeholder='예)2021/05/01'><br>
+* 모든 프로그램은 한달 단위로 진행됩니다.<br>
 <button>신청하기</button>
 <input name='programNo' type='hidden' value='${program.no}'>
 <input name='memberNo' type='hidden' value='${member.no}'>

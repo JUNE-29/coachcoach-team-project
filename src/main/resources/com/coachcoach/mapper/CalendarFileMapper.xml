@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.CalendarFileDao">
+
+  <resultMap type="CalendarFile" id="CalendarFileMap">
+    <id column="file_no"   property="no"/>
+    <result column="calendar_no"  property="calendarNo"/>
+    <result column="path"  property="path"/>
+    <result column="file_type"  property="fileType"/>
+  </resultMap>
+    
+  <insert id="insert" parameterType="MemberProgramCalendar">
+    insert into calendar_files(
+      calendar_no,
+      path, 
+      file_type
+     ) values
+    <foreach collection="files" item="file" separator=",">
+      (#{no}, 
+      #{file.path}, 
+      #{file.fileType})
+    </foreach>
+  </insert>
+  
+  <select id="findByMemberProgramCalendarNo" resultMap="CalendarFileMap" parameterType="int">
+    select 
+      file_no,
+      calendar_no, 
+      path, 
+      file_type
+    from 
+      calendar_files
+    where 
+      calendar_no=#{calendarNo}
+    order by 
+      file_no asc
+  </select>
+  
+  <delete id="deleteAll" parameterType="int">
+    delete from calendar_files
+    where calendar_no=#{calendarNo}
+  </delete>
+  
+</mapper>
+
+
+
+
+
+
+

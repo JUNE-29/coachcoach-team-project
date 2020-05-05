@@ -2,30 +2,27 @@ package com.coachcoach.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Component;
+import com.coachcoach.dao.CalendarFileDao;
 import com.coachcoach.dao.MemberProgramCalendarDao;
 import com.coachcoach.domain.MemberProgramCalendar;
+import com.coachcoach.service.MemberProgramCalendarService;
+
 @Component
-public class MemberProgramCalendarServicelmpl implements MemberProgramCalendarDao{
+public class MemberProgramCalendarServicelmpl implements MemberProgramCalendarService {
 
   MemberProgramCalendarDao memberProgramCalendarDao;
+  CalendarFileDao calendarFileDao;
 
-  public MemberProgramCalendarServicelmpl(MemberProgramCalendarDao memberProgramCalendarDao) {
-  this.memberProgramCalendarDao = memberProgramCalendarDao;
+  public MemberProgramCalendarServicelmpl(MemberProgramCalendarDao memberProgramCalendarDao,
+      CalendarFileDao calendarFileDao) {
+    this.memberProgramCalendarDao = memberProgramCalendarDao;
+    this.calendarFileDao = calendarFileDao;
   }
 
   @Override
-  public int insert(MemberProgramCalendar memberprogramcalendar) throws Exception {
-    return memberProgramCalendarDao.insert(memberprogramcalendar);
-  }
-
-  @Override
-  public List<MemberProgramCalendar> findAllByCoachNo(int No) throws Exception {
-    return memberProgramCalendarDao.findAllByCoachNo(No);
-  }
-
-  @Override
-  public int update(MemberProgramCalendar memberprogramcalendar) throws Exception {
-    return memberProgramCalendarDao.update(memberprogramcalendar);
+  public List<MemberProgramCalendar> listByMemberCoachingProgramNo(int memberProgramNo)
+      throws Exception {
+    return memberProgramCalendarDao.findAllbyMemberCoachingProgramNo(memberProgramNo);
   }
 
   @Override
@@ -34,12 +31,35 @@ public class MemberProgramCalendarServicelmpl implements MemberProgramCalendarDa
   }
 
   @Override
-  public List<MemberProgramCalendar> findByKeyword(String keyword) throws Exception {
-    return memberProgramCalendarDao.findByKeyword(keyword);
+  public int add(MemberProgramCalendar memberProgramCalendar) throws Exception {
+    int i = memberProgramCalendarDao.insert(memberProgramCalendar);
+    if (!memberProgramCalendar.getFiles().isEmpty()) {
+      calendarFileDao.insert(memberProgramCalendar);
+    }
+    return i;
   }
 
   @Override
-  public MemberProgramCalendar findByNo(int no) throws Exception {
-    return memberProgramCalendarDao.findByNo(no);
+  public MemberProgramCalendar get(int no) throws Exception {
+    return memberProgramCalendarDao.findByNo(no)
+        .setFiles(calendarFileDao.findByMemberProgramCalendarNo(no));
   }
+
+  @Override
+  public int update(MemberProgramCalendar memberProgramCalendar) throws Exception {
+    int i = memberProgramCalendarDao.update(memberProgramCalendar);
+    calendarFileDao.deleteAll(memberProgramCalendar.getNo());
+    if (!memberProgramCalendar.getFiles().isEmpty()) {
+      calendarFileDao.insert(memberProgramCalendar);
+    }
+    return i;
+  }
+
+  @Override
+  public List<MemberProgramCalendar> listByMemberNo(int memberNo) throws Exception {
+    return memberProgramCalendarDao.findAllbyMemberNo(memberNo);
+  }
+
+
+
 }

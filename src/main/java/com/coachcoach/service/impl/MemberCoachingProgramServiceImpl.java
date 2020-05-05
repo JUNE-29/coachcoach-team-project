@@ -21,9 +21,8 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.insert(memberCoachingProgram);
   }
 
-  @Override
   public List<MemberCoachingProgram> list(int memberNo) throws Exception {
-    return memberCoachingProgramDao.findAll(memberNo);
+    return memberCoachingProgramDao.findAllByMemberNo(memberNo);
   }
 
   @Override

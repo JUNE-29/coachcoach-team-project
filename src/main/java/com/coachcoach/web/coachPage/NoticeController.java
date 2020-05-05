@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Coach;
 import com.coachcoach.domain.CoachingProgram;
 import com.coachcoach.domain.CoachingProgramBoard;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachingProgramBoardService;
 import com.coachcoach.service.CoachingProgramService;
 
+@Auth(role = Role.COACH)
 @Controller
 @RequestMapping("/coachPage/notice")
 public class NoticeController {
@@ -29,14 +32,14 @@ public class NoticeController {
 
   @GetMapping("addForm")
   public void addForm(Model model) throws Exception {
-    int coachNo = ((Coach)session.getAttribute("loginUser")).getNo();
+    int coachNo = ((Coach) session.getAttribute("loginUser")).getNo();
     List<CoachingProgram> list = coachingProgramService.list(coachNo);
     model.addAttribute("list", list);
   }
 
   @PostMapping("add")
   public void add(CoachingProgramBoard coachingProgramBoard, int programNo) throws Exception {
-    coachingProgramBoard.setCoachNo(((Coach)session.getAttribute("loginUser")).getNo());
+    coachingProgramBoard.setCoachNo(((Coach) session.getAttribute("loginUser")).getNo());
     coachingProgramBoard.setProgramNo(programNo);
     System.out.println(coachingProgramBoard.getProgramNo());
     coachingProgramBoardService.add(coachingProgramBoard);
@@ -57,7 +60,7 @@ public class NoticeController {
 
   @GetMapping("list")
   public void list(Model model) throws Exception {
-    int coachNo = ((Coach)session.getAttribute("loginUser")).getNo();
+    int coachNo = ((Coach) session.getAttribute("loginUser")).getNo();
     model.addAttribute("list", coachingProgramBoardService.listByCoachNo(coachNo));
   }
 
