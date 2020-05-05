@@ -9,10 +9,8 @@ public interface WorkoutListService {
 
   List<WorkoutList> list(int memberNo) throws Exception;
 
-  WorkoutList get(int no) throws Exception;
-
   // 운동내역으로 찾기
-  WorkoutList getWorkoutList(int no) throws Exception;
+  WorkoutList getWorkoutList(int workoutListNo) throws Exception;
 
   List<WorkoutList> graphList(int memberNo) throws Exception;
 

@@ -15,6 +15,7 @@ import com.coachcoach.service.MemberService;
 import com.coachcoach.service.WeightService;
 import com.coachcoach.service.WorkoutListService;
 
+
 @Controller
 @RequestMapping("/myPage/detailData")
 public class DetailDataController {
@@ -55,12 +56,21 @@ public class DetailDataController {
     model.addAttribute("memberNo", member.getNo());
   }
 
-  @GetMapping("graphList")
-  public void graphList(Model model) throws Exception {
-    Member member = (Member) httpSession.getAttribute("loginUser");
-    model.addAttribute("list", workoutListService.list(member.getNo()));
-    model.addAttribute("memberNo", member.getNo());
+  @GetMapping("updateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
+  public void updateForm(int workoutListNo, Model model) throws Exception {
+    model.addAttribute("workoutList", workoutListService.getWorkoutList(workoutListNo));
   }
+
+  @PostMapping("update")
+  public void update(WorkoutList workoutList) throws Exception {
+    workoutListService.update(workoutList);
+  }
+
+  @GetMapping("delete")
+  public void delete(int workoutListNo) throws Exception {
+    workoutListService.delete(workoutListNo);
+  }
+
 
   // 나의 몸무게 기입
   @PostMapping("weightAddForm")
@@ -78,29 +88,20 @@ public class DetailDataController {
     }
   }
 
-
-  @GetMapping("updateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
-  public void updateForm(int workoutListNo, Model model) throws Exception {
-    model.addAttribute("workoutList", workoutListService.getWorkoutList(workoutListNo));
-  }
-
-  @PostMapping("update")
-  public String update(WorkoutList workoutList) throws Exception {
-    if (workoutListService.update(workoutList) > 0) {
-      return "redirect:list";
-    } else {
-      throw new Exception("변경할 운동내역 번호가 유효하지 않습니다.");
-    }
+  @GetMapping("weightDelete")
+  public void weightDelete(int weightNo) throws Exception {
+    weightService.delete(weightNo);
   }
 
 
+  @GetMapping("weightUpdateForm")
+  public void weightUpdateForm(int weightNo, Model model) throws Exception {
+    model.addAttribute("weight", weightService.findByweightNo(weightNo));
+  }
 
-  @GetMapping("delete")
-  public void delete(int workoutListNo) throws Exception {
-    if (workoutListService.delete(workoutListNo) > 0) {
-    } else {
-      throw new Exception("삭제할 운동내역 번호가 유효하지 않습니다.");
-    }
+  @PostMapping("weightUpdate")
+  public void weightUpdate(Weight weight) throws Exception {
+    weightService.update(weight);
   }
 
 
@@ -111,6 +112,13 @@ public class DetailDataController {
     if (workoutListService.update(workoutList) > 0) {
       return;
     }
+  }
+
+  @GetMapping("graphList")
+  public void graphList(Model model) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    model.addAttribute("list", workoutListService.list(member.getNo()));
+    model.addAttribute("memberNo", member.getNo());
   }
 
   @GetMapping("workoutGraphMonth")

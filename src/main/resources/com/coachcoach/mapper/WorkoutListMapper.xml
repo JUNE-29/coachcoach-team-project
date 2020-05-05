@@ -70,17 +70,30 @@
   
   </select>
   
+    <select id="findByWorkoutNo" resultMap="WorkoutListMap">
+    select
+      workout_list_no,
+      workout_date,
+      walk_count,
+      etc
+    from
+      workout_list
+    where
+      workout_list_no=#{no}
+  </select>
+  
   
     <update id="update" parameterType="WorkoutList">
     update workout_list
     <set>
-      <if test="workoutDate !=null and workoutDate!= ''">workout_date=#{workoutDate},</if>
+      <if test="workoutDate !=null">workout_date=#{workoutDate},</if>
       <if test="walkCount !=null and walkCount!= ''">walk_count=#{walkCount},</if>
       <if test="etc !=null and etc!= ''">etc=#{etc}</if>
     </set>
     where 
-      member_no=#{no}
+      workout_list_no=#{no}
   </update>
+  
   
   
   <delete id="delete" parameterType="int">

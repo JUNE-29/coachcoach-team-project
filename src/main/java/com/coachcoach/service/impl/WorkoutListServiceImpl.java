@@ -35,12 +35,6 @@ public class WorkoutListServiceImpl implements WorkoutListService {
 
 
   @Override
-  public WorkoutList get(int no) throws Exception {
-    return workoutListDao.findByNo(no);
-  }
-
-
-  @Override
   public int update(WorkoutList workoutList) throws Exception {
     return workoutListDao.update(workoutList);
   }
@@ -53,8 +47,8 @@ public class WorkoutListServiceImpl implements WorkoutListService {
 
 
   @Override
-  public WorkoutList getWorkoutList(int no) throws Exception {
-    return workoutListDao.findByWorkoutNo(no);
+  public WorkoutList getWorkoutList(int workoutListNo) throws Exception {
+    return workoutListDao.findByWorkoutNo(workoutListNo);
   }
 
 
