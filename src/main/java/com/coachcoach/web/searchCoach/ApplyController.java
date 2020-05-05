@@ -1,4 +1,4 @@
-package com.coachcoach.web.myCoach;
+package com.coachcoach.web.searchCoach;
 
 import java.util.HashMap;
 import java.util.Map;

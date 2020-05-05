@@ -10,12 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberService;
+import com.coachcoach.web.myCoach.Criteria;
+import com.coachcoach.web.myCoach.PageMaker;
 
 @Controller
 @RequestMapping("/program")
@@ -37,8 +41,13 @@ public class SearchController {
 	MemberService memberService;
 
 	@GetMapping("list") // 프로그램 페이지
-	public void list(Model model) throws Exception {
-		model.addAttribute("programList", coachingProgramService.list());
+	public void list(Model model, Criteria cri, @RequestParam(defaultValue="1") int page) throws Exception {
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCri(cri);
+	    pageMaker.setTotalCount(coachingProgramService.pageCount());
+
+		model.addAttribute("programList", coachingProgramService.pageList(cri));
+		model.addAttribute("pageMaker", pageMaker);
 	}
 
 	@GetMapping("searchKeyword") // 프로그램 검색

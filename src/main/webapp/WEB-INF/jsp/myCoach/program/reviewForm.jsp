@@ -59,7 +59,7 @@ div.container {
 <h1>후기작성</h1>
 
 <p id="star_grade">
-        <a href="star_rate">★</a>
+        <a href="#">★</a>
         <a href="#">★</a>
         <a href="#">★</a>
         <a href="#">★</a>

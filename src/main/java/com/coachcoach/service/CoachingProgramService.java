@@ -3,6 +3,7 @@ package com.coachcoach.service;
 import java.util.List;
 import java.util.Map;
 import com.coachcoach.domain.CoachingProgram;
+import com.coachcoach.web.myCoach.Criteria;
 
 public interface CoachingProgramService {
 
@@ -11,6 +12,8 @@ public interface CoachingProgramService {
   List<CoachingProgram> list(int coachNo) throws Exception;
 
   List<CoachingProgram> list() throws Exception;
+  
+  List<CoachingProgram> pageList(Criteria cri) throws Exception;
 
   List<CoachingProgram> applyList(int memberNo) throws Exception;
 
@@ -31,4 +34,6 @@ public interface CoachingProgramService {
   CoachingProgram findByMemberNo(Map<String, Object> params) throws Exception;
 
   CoachingProgram getdetail(int no) throws Exception;
+  
+  int pageCount() throws Exception;
 }
