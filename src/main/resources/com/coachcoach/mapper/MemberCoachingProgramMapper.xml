@@ -300,7 +300,7 @@
       '요청대기중',
       now(),
       #{startDate},
-      #{startDate}
+      DATE_ADD(#{startDate}, INTERVAL 1 MONTH)
     )
   </insert>
   

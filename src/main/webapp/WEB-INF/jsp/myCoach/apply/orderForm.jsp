@@ -20,6 +20,12 @@
       전화번호 ${member.tel}<br>
       이메일 ${member.email}<br>
 </div>
+<form action='searchDetail' method='get'>
+<input name='coachingType' type='radio' value='카카오페이'>카카오페이
+<input name='coachingType' type='radio' value='신용카드'>신용카드<br>
+<button>결제하기</button>
+</form>
+
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
