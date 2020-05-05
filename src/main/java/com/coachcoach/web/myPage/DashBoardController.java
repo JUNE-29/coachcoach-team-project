@@ -1,5 +1,6 @@
 package com.coachcoach.web.myPage;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +18,11 @@ import com.coachcoach.service.ToDoListService;
 public class DashBoardController {
 
   @Autowired
+  ServletContext servletContext;
+  @Autowired
   HttpSession httpSession;
-
   @Autowired
   ToDoListService toDoListService;
-
   @Autowired
   MemberService memberService;
 
@@ -29,12 +30,14 @@ public class DashBoardController {
   @GetMapping("list")
   public void list(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
-    model.addAttribute("member", member);
-    model.addAttribute("list", toDoListService.list(member.getNo()));
+    model.addAttribute("findAll", toDoListService.findAll(member.getNo()));
+    model.addAttribute("findByNo", toDoListService.findByNo(member.getNo()));
+    model.addAttribute("memberNo", member.getNo());
   }
 
   @PostMapping("toDoListAddForm")
   public void toDoListAddForm(int memberNo, Model model) throws Exception {
+    System.out.println("확인");
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("member", member);
   }
@@ -48,15 +51,20 @@ public class DashBoardController {
     }
   }
 
-  @GetMapping("delete")
-  public String delete(int no, int memberNo) throws Exception {
-    toDoListService.delete(memberNo);
+  @GetMapping("toDoListDelete")
+  public String toDoListDelete(int toDoListNo) throws Exception {
+    toDoListService.delete(toDoListNo);
     return "redirect:list";
   }
 
-  @GetMapping("updateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
-  public void updateForm(int memberNo, Model model) throws Exception {
-    model.addAttribute("memberNo", memberNo);
+  @GetMapping("toDoListUpdateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
+  public void toDoListUpdateForm(int toDoListNo, Model model) throws Exception {
+    model.addAttribute("toDoList", toDoListService.findByNo(toDoListNo));
+  }
+
+  @PostMapping("toDoListUpdate")
+  public void toDoListUpdate(ToDoList toDoList) throws Exception {
+    toDoListService.update(toDoList);
   }
 
 
