@@ -7,7 +7,7 @@ import com.coachcoach.domain.CoachingProgramBoard;
 import com.coachcoach.service.CoachingProgramBoardService;
 
 @Component
-public class CoachingProgramBoardServicelmpl implements CoachingProgramBoardService{
+public class CoachingProgramBoardServicelmpl implements CoachingProgramBoardService {
 
   CoachingProgramBoardDao coachingProgramBoardDao;
 
@@ -18,11 +18,6 @@ public class CoachingProgramBoardServicelmpl implements CoachingProgramBoardServ
   @Override
   public int add(CoachingProgramBoard coachingProgramBoard) throws Exception {
     return coachingProgramBoardDao.insert(coachingProgramBoard);
-  }
-
-  @Override
-  public List<CoachingProgramBoard> list() throws Exception {
-    return coachingProgramBoardDao.findAll();
   }
 
   @Override
@@ -43,6 +38,11 @@ public class CoachingProgramBoardServicelmpl implements CoachingProgramBoardServ
   @Override
   public List<CoachingProgramBoard> listByCoachNo(int coachNo) {
     return coachingProgramBoardDao.findAllByCoachNo(coachNo);
+  }
+
+  @Override
+  public List<CoachingProgramBoard> getByMemberNo(int memberNo) throws Exception {
+    return coachingProgramBoardDao.findByMemberNo(memberNo);
   }
 
 }

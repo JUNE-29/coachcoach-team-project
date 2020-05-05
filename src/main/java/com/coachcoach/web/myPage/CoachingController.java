@@ -25,6 +25,7 @@ import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberProgramCalendar;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
+import com.coachcoach.service.CoachingProgramBoardService;
 import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberProgramCalendarService;
 
@@ -45,13 +46,20 @@ public class CoachingController {
   @Autowired
   MemberCoachingProgramService memberCoachingProgramService;
 
+  @Autowired
+  CoachingProgramBoardService coachingProgramBoardService;
+
   @Auth(role = {Role.COACH, Role.MEMBER})
   @GetMapping("list") // 캘린더 페이지
   public void list(Model model, @RequestParam(defaultValue = "0") int memberCoachingProgramNo)
       throws Exception {
+    // 일반 회원은 멤버번호로 접근, 코치는 멤버코칭프로그램번호로 접근
     if (session.getAttribute("loginUser") instanceof Member) {
       model.addAttribute("list", memberProgramCalendarService
           .listByMemberNo(((Member) session.getAttribute("loginUser")).getNo()));
+      model.addAttribute("notice", coachingProgramBoardService
+          .getByMemberNo(((Member) session.getAttribute("loginUser")).getNo()));
+      return;
     } else if (memberCoachingProgramNo == 0) {
       model.addAttribute("list", memberProgramCalendarService
           .listByMemberCoachingProgramNo((int) session.getAttribute("memberCoachingProgramNo")));
@@ -60,13 +68,25 @@ public class CoachingController {
           memberProgramCalendarService.listByMemberCoachingProgramNo(memberCoachingProgramNo));
       session.setAttribute("memberCoachingProgramNo", memberCoachingProgramNo);
     }
+    model.addAttribute("notice",
+        coachingProgramBoardService.getByMemberNo(memberCoachingProgramService
+            .get((int) session.getAttribute("memberCoachingProgramNo")).getMemberNo()));
+    System.out.println(model.getAttribute("notice"));
   }
 
   @Auth(role = {Role.COACH, Role.MEMBER})
   @PostMapping("detail")
   public void detail(Model model, int no) throws Exception {
-    model.addAttribute("detail", memberProgramCalendarService.get(no));
+    String plan = memberProgramCalendarService.get(no).getPlan().replace("\n", "<br>");
+    model.addAttribute("detail", memberProgramCalendarService.get(no).setPlan(plan));
   }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @GetMapping("noticeDetail")
+  public void noticeDetail(Model model, int no) throws Exception {
+    model.addAttribute("detail", coachingProgramBoardService.get(no));
+  }
+
 
   // 회원, 코치 둘다 접근 가능 ^^^^^^
 

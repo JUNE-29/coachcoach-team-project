@@ -20,6 +20,8 @@ public interface CoachingProgramBoardDao {
   CoachingProgramBoard findByNo(int no) throws Exception;
   // 공지사항 상세보기
 
+  List<CoachingProgramBoard> findByMemberNo(int memberNo) throws Exception;
+
   List<CoachingProgramBoard> findAllByCoachNo(int coachNo);
 
 }

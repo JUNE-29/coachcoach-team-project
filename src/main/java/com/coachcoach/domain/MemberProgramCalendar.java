@@ -206,8 +206,9 @@ public class MemberProgramCalendar implements Serializable {
     return plan;
   }
 
-  public void setPlan(String plan) {
+  public MemberProgramCalendar setPlan(String plan) {
     this.plan = plan;
+    return this;
   }
 
 
