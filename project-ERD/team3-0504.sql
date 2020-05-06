@@ -145,7 +145,8 @@ CREATE TABLE coaching_programs (
   name          VARCHAR(30) NOT NULL COMMENT '프로그램명', -- 프로그램명
   introduce     TEXT        NOT NULL COMMENT '소개', -- 소개
   fee           INTEGER     NOT NULL COMMENT '수강료', -- 수강료
-  coaching_type VARCHAR(30) NOT NULL COMMENT '코칭방식이름' -- 코칭방식이름
+  coaching_type VARCHAR(30) NOT NULL COMMENT '코칭방식이름', -- 코칭방식이름
+  delete        INTEGER     NULL     COMMENT '삭제여부' -- 삭제여부
 )
 COMMENT '코칭프로그램';
 
