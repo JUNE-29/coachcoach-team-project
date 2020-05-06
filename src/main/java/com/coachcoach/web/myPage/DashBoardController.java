@@ -36,8 +36,7 @@ public class DashBoardController {
   }
 
   @PostMapping("toDoListAddForm")
-  public void toDoListAddForm(int memberNo, Model model) throws Exception {
-    System.out.println("확인");
+  public void toDoListAddForm(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("member", member);
   }

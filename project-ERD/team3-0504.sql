@@ -240,10 +240,10 @@ ALTER TABLE member_coaching_programs
 
 -- toDoList
 CREATE TABLE to_do_list (
-  to_do_list_no INTEGER  NOT NULL COMMENT '해야할일번호', -- 해야할일번호
-  member_no     INTEGER  NOT NULL COMMENT '일반회원번호', -- 일반회원번호
-  memo          TEXT     NOT NULL COMMENT '해야할것', -- 해야할것
-  create_date   DATETIME NOT NULL DEFAULT now() COMMENT '등록일' -- 등록일
+  to_do_list_no INTEGER NOT NULL COMMENT '해야할일번호', -- 해야할일번호
+  member_no     INTEGER NOT NULL COMMENT '일반회원번호', -- 일반회원번호
+  memo          TEXT    NOT NULL COMMENT '해야할것', -- 해야할것
+  create_date   DATE    NOT NULL DEFAULT now() COMMENT '등록일' -- 등록일
 )
 COMMENT 'toDoList';
 
