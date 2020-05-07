@@ -73,6 +73,7 @@
       join coaches ch on c.coach_no=ch.coach_no
     where 
       c.coach_no=#{coachNo}
+      AND c.delete_status IS NULL
       <!-- join workout_tags w on w.tag_no=ct.tag_no 태그는 코칭프로그램태그 맵퍼따로-->
   </select>
   
