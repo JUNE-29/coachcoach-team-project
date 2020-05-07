@@ -36,7 +36,7 @@
 
 <form action="selectOption" >
 <select name="option" onchange="this.form.submit()">
-  <option value="null">조회</option>
+  <option value="none">=== 선택 ===</option>
   <option value="review">후기 많은 순</option>
   <option value="star">별점 높은 순</option>
 </select>

@@ -76,6 +76,8 @@ public class SearchController {
   public void selectOption(Model model, String option) throws Exception {
     if (option.equals("review")) {
       model.addAttribute("searchProgram", coachingProgramService.searchReview());
+    } else {
+      model.addAttribute("searchProgram", coachingProgramService.searchStar());
     }
   }
 

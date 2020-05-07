@@ -28,6 +28,8 @@ public interface CoachingProgramService {
 
   List<CoachingProgram> searchReview() throws Exception;
 
+  List<CoachingProgram> searchStar() throws Exception;
+
   CoachingProgram get(int no) throws Exception;
 
   CoachingProgram getProgram(int no) throws Exception;
