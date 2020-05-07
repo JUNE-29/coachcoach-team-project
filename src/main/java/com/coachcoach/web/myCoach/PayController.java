@@ -7,8 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Member;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachingProgramService;
 
+@Auth(role = Role.MEMBER)
 @Controller
 @RequestMapping("/myCoach/pay")
 public class PayController {
