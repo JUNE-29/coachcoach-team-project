@@ -182,21 +182,23 @@
   </select>
   
   
-     <select id="findByOption" resultMap="CoachingProgramMap" parameterType="map">
-    select 
+   <select id="findByReview" resultMap="CoachingProgramMap">
+    select DISTINCT 
       cp.program_no,
       c.name coach_name,
       cp.name,
       cp.introduce,
-      cp.fee
+      cp.fee,
+      rc.count
     from 
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
-      join coaching_program_tags cpt on cp.program_no=cpt.program_no
-    <where>
-     <if test="tag > 0">tag_no=${tag}</if>
-    </where>
-           order by program_no desc
+      join member_coaching_programs mcp on cp.program_no=mcp.program_no
+      join (select mcp.program_no, count(*) count from member_coaching_programs mcp
+    where 
+     mcp.review is not null 
+    group by mcp.program_no) as rc on cp.program_no=rc.program_no
+      order by rc.count desc
   </select>
   
   <select id="findAll" resultMap="CoachingProgramMap">

@@ -44,8 +44,7 @@
   <h3>수강후기</h3>
   <c:forEach items="${memberProgram}" var="memberProgram">
     <c:if test="${memberProgram.review ne null}">
-      ${memberProgram.review}
-      ${memberProgram.reviewDate}
+      ${memberProgram.review}&nbsp${memberProgram.reviewDate}<br>
       </c:if>
   </c:forEach>
 

@@ -72,7 +72,9 @@ public class SearchController {
 
   @GetMapping("selectOption") // 옵션으로 검색
   public void selectOption(Model model, String option) throws Exception {
-    model.addAttribute("programList", coachingProgramService.list());
+    if (option.equals("review")) {
+      model.addAttribute("searchProgram", coachingProgramService.searchReview());
+    }
   }
 
 

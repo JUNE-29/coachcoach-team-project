@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import com.coachcoach.dao.CoachingProgramDao;
 import com.coachcoach.domain.CoachingProgram;
 import com.coachcoach.service.CoachingProgramService;
-import com.coachcoach.web.searchCoach.Criteria;
 
 @Component
 public class CoachingProgramServiceImpl implements CoachingProgramService {
@@ -75,23 +74,28 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
 
   @Override
   public List<CoachingProgram> searchTag(Map<String, Object> params) throws Exception {
-	return coachingProgramDao.findByTag(params);
+    return coachingProgramDao.findByTag(params);
   }
 
   @Override
   public CoachingProgram getProgram(int programNo) throws Exception {
-	return coachingProgramDao.findByNo(programNo);
+    return coachingProgramDao.findByNo(programNo);
   }
 
   @Override
   public List<CoachingProgram> pageList(Map<String, Object> params) throws Exception {
-	return coachingProgramDao.pageList(params);
+    return coachingProgramDao.pageList(params);
   }
 
-@Override
-public int pageCount() throws Exception {
-	return coachingProgramDao.pageCount();
-}
+  @Override
+  public int pageCount() throws Exception {
+    return coachingProgramDao.pageCount();
+  }
+
+  @Override
+  public List<CoachingProgram> searchReview() throws Exception {
+    return coachingProgramDao.findByReview();
+  }
 
 
 }
