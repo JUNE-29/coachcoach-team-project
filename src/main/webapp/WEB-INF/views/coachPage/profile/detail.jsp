@@ -3,10 +3,10 @@
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+<div class="profile">
   <h1>프로필</h1>
 
-  <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' height='70'><br>
+  <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' class="img-fluid rounded-circle"><br>
  
   <table border='1'>
   <tr>
@@ -34,5 +34,5 @@
   <button onclick="location.href='form'" class="btn btn-primary col-md-4" style="margin : 10px;">내 프로필 수정</button>
 
 <hr>
-
+</div>
 

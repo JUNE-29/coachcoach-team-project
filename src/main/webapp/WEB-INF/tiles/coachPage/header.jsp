@@ -23,8 +23,5 @@
   <span class='navbar-text'>${loginUser.name}</span>
   <a href='/coachcoach-team-project/app/auth/logout' class='btn btn-success btn-sm'>로그아웃</a>
 </c:if>
-<c:if test="${empty loginUser}">
-  <a href='/coachcoach-team-project/app/auth/login' class='btn btn-success btn-sm'>로그인</a>
-</c:if> 
 </div>
 </nav>
