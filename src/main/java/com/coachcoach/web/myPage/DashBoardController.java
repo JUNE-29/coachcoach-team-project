@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.ToDoList;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.MemberService;
 import com.coachcoach.service.ToDoListService;
 
+@Auth(role = {Role.MEMBER})
 @Controller
 @RequestMapping("/myPage/dashBoard")
 public class DashBoardController {

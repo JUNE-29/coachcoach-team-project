@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.Weight;
 import com.coachcoach.domain.WorkoutList;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.MemberService;
 import com.coachcoach.service.WeightService;
 import com.coachcoach.service.WorkoutListService;
 
-
+@Auth(role = {Role.MEMBER})
 @Controller
 @RequestMapping("/myPage/detailData")
 public class DetailDataController {
