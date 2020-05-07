@@ -27,6 +27,9 @@ public class CoachProfileController {
   @Autowired
   CoachService coachService;
 
+  @Autowired
+  HttpSession session;
+
   @PostMapping("update")
   public String update(Coach coach, MultipartFile photoFile) throws Exception {
     if (photoFile.getSize() > 0) {
@@ -40,6 +43,7 @@ public class CoachProfileController {
     } else {
       throw new Exception("프로필 업데이트 실패");
     }
+    session.setAttribute("loginUser", coach);
     return "redirect:detail";
   }
 
