@@ -34,15 +34,14 @@
 </form>
 </div>
 
-
-
 <form action="selectOption" >
 <select name="option" onchange="this.form.submit()">
-  <option value="null">조회</option>
+  <option value="none">=== 선택 ===</option>
   <option value="review">후기 많은 순</option>
   <option value="star">별점 높은 순</option>
 </select>
 </form>
+
 
 <c:forEach items="${searchProgram}" var="list">
 <div style='border:1px solid gray; padding:10px; margin:5px'>
@@ -55,8 +54,23 @@
 </div>
 </c:forEach>
 
-
-
+<ul class="btn-group pagination">
+    <c:if test="${pageMaker.prev}">
+    <li>
+        <a href='list?page=${pageMaker.startPage-1}'><i class="fa fa-chevron-left"></i></a>
+    </li>
+    </c:if>
+    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
+    <li>
+        <a href='list?page=${pageNum}'><i class="fa">${pageNum}</i></a>
+    </li>
+    </c:forEach>
+    <c:if test="${pageMaker.next && pageMaker.endPage>0}">
+    <li>
+        <a href='list?page=${pageMaker.endPage+1}'><i class="fa fa-chevron-right"></i></a>
+    </li>
+    </c:if>
+</ul>
 
 
 <jsp:include page="../footer.jsp"/>
