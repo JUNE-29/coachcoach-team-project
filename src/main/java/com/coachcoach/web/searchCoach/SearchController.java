@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberCoachingProgram;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.MemberCoachingProgramService;
@@ -85,6 +87,7 @@ public class SearchController {
 
   }
 
+  @Auth(role = Role.MEMBER)
   @PostMapping("applyForm") // 신청서
   public String applyForm(Model model, int programNo) {
     try {
@@ -97,6 +100,7 @@ public class SearchController {
     }
   }
 
+  @Auth(role = Role.MEMBER)
   @PostMapping("applyList") // 확인
   public void applyList(Model model, MemberCoachingProgram memberCoachingProgram) throws Exception {
     memberCoachingProgramService.add(memberCoachingProgram);
@@ -106,6 +110,7 @@ public class SearchController {
   @GetMapping("error") // 로그인페이지 이동
   public void error() throws Exception {}
 
+  @Auth(role = Role.MEMBER)
   @PostMapping("deleteApply") // 신청취소
   public void deleteApply(Model model, int applyNo, int programNo) {
     try {
