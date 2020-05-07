@@ -34,15 +34,13 @@
 </form>
 </div>
 
-
-<div class="dropdown">
-<select name="후기 많은 순">
-  <option value="volvo">후기 많은 순</option>
-  <option value="saab">별점 높은 순</option>
-  <option value="fiat">인기 많은 순</option>
+<form action="selectOption" >
+<select name="option" onchange="this.form.submit()">
+  <option value="none">=== 선택 ===</option>
+  <option value="review">후기 많은 순</option>
+  <option value="star">별점 높은 순</option>
 </select>
-
-
+</form>
 
 
 <c:forEach items="${programList}" var="list">
@@ -73,5 +71,6 @@
     </li>
     </c:if>
 </ul>
+
 
 <jsp:include page="../footer.jsp"/>

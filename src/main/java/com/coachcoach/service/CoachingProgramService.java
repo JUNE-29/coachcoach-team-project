@@ -3,7 +3,6 @@ package com.coachcoach.service;
 import java.util.List;
 import java.util.Map;
 import com.coachcoach.domain.CoachingProgram;
-import com.coachcoach.web.searchCoach.Criteria;
 
 public interface CoachingProgramService {
 
@@ -12,7 +11,7 @@ public interface CoachingProgramService {
   List<CoachingProgram> list(int coachNo) throws Exception;
 
   List<CoachingProgram> list() throws Exception;
-  
+
   List<CoachingProgram> pageList(Map<String, Object> params) throws Exception;
 
   List<CoachingProgram> applyList(int memberNo) throws Exception;
@@ -24,16 +23,20 @@ public interface CoachingProgramService {
   List<CoachingProgram> search(String keyword) throws Exception;
 
   List<CoachingProgram> search(Map<String, Object> params) throws Exception;
-  
+
   List<CoachingProgram> searchTag(Map<String, Object> params) throws Exception;
 
+  List<CoachingProgram> searchReview() throws Exception;
+
+  List<CoachingProgram> searchStar() throws Exception;
+
   CoachingProgram get(int no) throws Exception;
-  
+
   CoachingProgram getProgram(int no) throws Exception;
 
   CoachingProgram findByMemberNo(Map<String, Object> params) throws Exception;
 
   CoachingProgram getdetail(int no) throws Exception;
-  
+
   int pageCount() throws Exception;
 }

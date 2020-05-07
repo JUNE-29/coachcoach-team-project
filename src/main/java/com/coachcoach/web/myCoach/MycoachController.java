@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Member;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.MemberCoachingProgramService;
 
+@Auth(role = Role.MEMBER)
 @Controller
 @RequestMapping("/myCoach/program")
 public class MycoachController {
@@ -31,7 +34,7 @@ public class MycoachController {
   public void mycoachList(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("programList", coachingProgramService.applyList(member.getNo()));
-    
+
     Map<String, Object> params = new HashMap<>();
     params.put("status", "진행중");
     params.put("no", member.getNo());

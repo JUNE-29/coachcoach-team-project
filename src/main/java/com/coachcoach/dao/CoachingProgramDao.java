@@ -1,8 +1,8 @@
 package com.coachcoach.dao;
+
 import java.util.List;
 import java.util.Map;
 import com.coachcoach.domain.CoachingProgram;
-import com.coachcoach.web.searchCoach.Criteria;
 
 public interface CoachingProgramDao {
 
@@ -26,9 +26,15 @@ public interface CoachingProgramDao {
 
   // 코칭 프로그램 검색(코치성별 or 방식)
   List<CoachingProgram> findByGender(Map<String, Object> params) throws Exception;
-  
+
   // 코칭 프로그램 검색(코치성별 or 방식)
   List<CoachingProgram> findByTag(Map<String, Object> params) throws Exception;
+
+  // 후기 많은순 조회
+  List<CoachingProgram> findByReview() throws Exception;
+
+  // 별점 높은순 조회
+  List<CoachingProgram> findByStar() throws Exception;
 
   // 코칭 프로그램 상세보기
   CoachingProgram findByNo(int programNo) throws Exception;
@@ -41,7 +47,7 @@ public interface CoachingProgramDao {
 
   // 코치페이지- 코칭 프로그램관리(자세히보기)
   CoachingProgram findByProgramNo(int no) throws Exception;
-  
+
   // 페이징처리 리스트
   List<CoachingProgram> pageList(Map<String, Object> params) throws Exception;
 

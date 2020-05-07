@@ -46,15 +46,17 @@
 	<select id="findAll" resultMap="CoachingProgramBoardMap"
 		parameterType="int">
 		select
-			program_board_no,
-			coach_no,
-			program_no,
-			content,
-			create_date
+			cpb.program_board_no,
+			cpb.coach_no,
+			cpb.program_no,
+			cpb.content,
+			cpb.create_date
 		from
-		  coaching_program_boards
+		  coaching_program_boards cpb
+		  left outer join coaching_programs cp on cpb.program_no = cp.program_no
 		where
 		  program_board_no=#{no}
+		  AND delete_status IS NULL
 	</select>
 	
   <select id="findAllByCoachNo" resultMap="CoachingProgramBoardMap"
@@ -84,6 +86,7 @@
       left outer join coaching_programs cp on cp.program_no = cpb.program_no 
     where
       cpb.coach_no=#{no}
+      AND cp.delete_status IS NULL
     order by cpb.create_date DESC 
   </select>
   
@@ -142,6 +145,7 @@
     where
       m.member_no = #{no}
       AND cpb.create_date > cast((now() - interval 7 day) as date)
+      AND cp.delete_status IS NULL
   </select>
   
 	<update id="update" parameterType="CoachingProgramBoard">
