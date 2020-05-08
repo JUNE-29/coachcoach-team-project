@@ -12,7 +12,7 @@ Member member = (Member) request.getAttribute("member");
 
 
 <h1>회원 정보수정</h1>
-<form action='modify' method='post' enctype='multipart/form-data'>
+<form action='modify' method='post' enctype='multipart/form-data' onsubmit='return frmsubmit();'>
 <input name='no' type='hidden' readonly value='${member.no}'><br>
 <label>아이디</label><input name='id' type='text' readonly value='${member.id}'><br>
 <label>이름</label> <input name='name' type='text' readonly value='${member.name}'><br>
@@ -54,6 +54,20 @@ function isSame() {
 	  }
   }
 }
+
+function frmsubmit() {
+	if (document.getElementById("pw").value.length < 8){
+	    alert("비밀번호는 8자이상 사용가능합니다.")
+	    return false;
+	  } 
+	
+	if (document.getElementById("pw").value!=document.getElementById("pwCheck").value){
+	   	alert("비밀번호가 일치하지 않습니다.");
+		 return false;
+	    }
+	  
+	return true;
+	}
 
 
 </script>
