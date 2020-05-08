@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>코치코치페이지에 오신걸 환영합니다.</title>
         
        
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
@@ -29,11 +29,9 @@
                 <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/navbar-logo.svg" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">코치코치소개</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">코치찾기</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">고객센터</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,9 +39,10 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To Our Studio!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                <div class="masthead-subheading">원하는 시간에, 원하는 장소로</div>
+                <div class="masthead-heading text-uppercase">
+                 검증된 코치가 찾아갑니다</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services"> More</a>
             </div>
         </header>
         <!-- Services-->
