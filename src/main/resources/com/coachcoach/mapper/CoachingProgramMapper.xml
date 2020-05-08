@@ -184,7 +184,7 @@
   
   
    <select id="findByReview" resultMap="CoachingProgramMap">
-    select DISTINCT 
+    select distinct 
       cp.program_no,
       c.name coach_name,
       cp.name,
@@ -200,6 +200,25 @@
      mcp.review is not null 
     group by mcp.program_no) as rc on cp.program_no=rc.program_no
       order by rc.count desc
+  </select>
+  
+  <select id="findByStar" resultMap="CoachingProgramMap">
+   select distinct 
+      cp.program_no,
+      c.name coach_name,
+      cp.name,
+      cp.introduce,
+      cp.fee,
+      sr.avg
+    from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+      join member_coaching_programs mcp on cp.program_no=mcp.program_no
+      join (select mcp.program_no, avg(star_rate) avg from member_coaching_programs mcp
+    where 
+     mcp.star_rate is not null 
+     group by mcp.program_no) as sr on cp.program_no=sr.program_no
+     order by sr.avg desc
   </select>
   
   <select id="findAll" resultMap="CoachingProgramMap">

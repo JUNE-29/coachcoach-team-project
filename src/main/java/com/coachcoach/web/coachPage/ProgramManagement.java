@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.coachcoach.domain.Coach;
 import com.coachcoach.domain.CoachingProgram;
+import com.coachcoach.interceptor.Auth;
+import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 
+@Auth(role = Role.COACH)
 @Controller
 @RequestMapping("/coachPage/programManagement")
 public class ProgramManagement {

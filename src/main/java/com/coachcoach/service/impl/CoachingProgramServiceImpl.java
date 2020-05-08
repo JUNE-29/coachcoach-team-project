@@ -97,5 +97,10 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
     return coachingProgramDao.findByReview();
   }
 
+  @Override
+  public List<CoachingProgram> searchStar() throws Exception {
+    return coachingProgramDao.findByStar();
+  }
+
 
 }

@@ -33,6 +33,9 @@ public interface CoachingProgramDao {
   // 후기 많은순 조회
   List<CoachingProgram> findByReview() throws Exception;
 
+  // 별점 높은순 조회
+  List<CoachingProgram> findByStar() throws Exception;
+
   // 코칭 프로그램 상세보기
   CoachingProgram findByNo(int programNo) throws Exception;
 
