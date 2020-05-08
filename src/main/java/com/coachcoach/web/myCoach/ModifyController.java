@@ -38,11 +38,10 @@ public class ModifyController {
     if (updatePassword[0].equals(updatePassword[1])) {
       member.setPassword(updatePassword[0]);
       memberService.update(member);
-
     }
   }
 
-  @PostMapping("withdrawForm") // 비밀번호 재확인
+  @GetMapping("withdrawForm") // 비밀번호 재확인
   public void withdrawForm(Model model, int no) throws Exception {
     model.addAttribute("member", memberService.get(no));
   }
