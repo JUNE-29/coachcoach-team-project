@@ -58,6 +58,7 @@ div.container {
 
 <h1>후기작성</h1>
 
+<form action='reviewUpdate' method='post' enctype='multipart/form-data'>
 <p id="star_grade">
         <a href="#">★</a>
         <a href="#">★</a>
@@ -66,7 +67,6 @@ div.container {
         <a href="#">★</a>
 </p>
 
-<form action='reviewUpdate' method='post' enctype='multipart/form-data'>
 <textarea name='review' rows='5' cols='60' value="후기를 등록해주세요!"></textarea><br>
 <input name='no' type='hidden' value='${no}'><br>
 <button>확인</button>

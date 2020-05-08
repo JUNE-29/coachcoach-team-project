@@ -51,16 +51,13 @@ public class ModifyController {
     model.addAttribute("member", memberService.get(no, id, password));
   }
 
-  // @GetMapping("withdrawReason") // 아이디,비번 일치시 처리하는 메서드
-  // public void withdrawReason(Model model, Member member) throws Exception {
-  // model.addAttribute("member", member);
-  // }
 
   @PostMapping("withdraw") // 회원탈퇴 사유
-  public void withdraw(HttpSession session, int no, String withdrawalReason) throws Exception {
+  public void withdraw(HttpSession session, int no,
+      @RequestParam("withdrawalReason") String[] withdrawalReason) throws Exception {
     Map<String, Object> params = new HashMap<>();
     params.put("no", no);
-    params.put("withdrawalReason", withdrawalReason);
+    params.put("withdrawalReason", withdrawalReason[0] + "," + withdrawalReason[1]);
     params.put("withdrawal", 0);
     memberService.updateWithdrawal(params);
     session.invalidate();
