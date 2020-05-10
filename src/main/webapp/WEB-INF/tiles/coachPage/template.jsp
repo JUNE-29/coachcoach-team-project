@@ -28,15 +28,13 @@
 
 </head>
 <body>
- 
+
 <tiles:insertAttribute name="side"/>
 
-<main id='main' class='container'>
+<main class="container" id="main">
 <tiles:insertAttribute name="body"/>
-</main>
-
 <tiles:insertAttribute name="footer"/>
-
+</main>
   <!-- Vendor JS Files -->
   <script src="${pageContext.servletContext.contextPath}/resources_k/assets/vendor/jquery/jquery.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/resources_k/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -52,6 +50,6 @@
 
   <!-- Template Main JS File -->
   <script src="${pageContext.servletContext.contextPath}/resources_k/assets/js/main.js"></script>
-  
+
 </body>
-</html>    
+</html>
