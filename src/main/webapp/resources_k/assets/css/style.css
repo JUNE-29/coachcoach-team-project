@@ -11,6 +11,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
+  overflow-x: hidden;
 }
 
 a {
@@ -121,7 +122,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #main {
   margin-left: 300px;
+  width: 150%;
+  position: relative;
 }
+
 
 @media (max-width: 1199px) {
   #header {
@@ -130,6 +134,22 @@ h1, h2, h3, h4, h5, h6 {
   #main {
     margin-left: 0;
   }
+}
+
+.detailProfile {
+  position: relative;
+  width: 90%;
+}
+
+.detailProfile img {
+  width: 150px;
+}
+
+.detail section {
+  width : 300px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 10;
 }
 
 /*--------------------------------------------------------------
@@ -896,6 +916,7 @@ section {
   background: #37b3ed;
 }
 
+/*
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -913,7 +934,7 @@ section {
     transform: rotate(360deg);
   }
 }
-
+*/
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
@@ -1052,12 +1073,11 @@ section {
   padding: 15px;
   color: #f4f6fd;
   font-size: 14px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  z-index: 9999;
+  left: -30px;
+  width: 90%;
   background: #040b14;
+  position: relative;
+  overflow: visible;
 }
 
 #footer .copyright {
@@ -1065,16 +1085,9 @@ section {
 }
 
 #footer .credits {
-  padding-top: 5px;
+  padding: 5px;
+  overflow: visible;
   text-align: center;
   font-size: 13px;
   color: #eaebf0;
-}
-
-@media (max-width: 1199px) {
-  #footer {
-    position: static;
-    width: auto;
-    padding-right: 20px 15px;
-  }
 }

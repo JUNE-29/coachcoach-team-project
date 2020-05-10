@@ -29,6 +29,13 @@ public class ProfileController {
   @Autowired
   MemberService memberService;
 
+  @GetMapping("delete")
+  public String delete(Member member) throws Exception {
+    member.setPhoto("images");
+    memberService.update(member);
+    return "redirect:form";
+  }
+
   @GetMapping("form") // 내프로필
   public void form(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
@@ -51,10 +58,10 @@ public class ProfileController {
     }
   }
 
-  @GetMapping("delete")
-  public String delete(Member member) throws Exception {
-    member.setPhoto("images");
-    memberService.update(member);
-    return "redirect:form";
-  }
+  //  private static BufferedImage getSquareImg(byte[] originImg) throws Exception {
+  //    InputStream in = new ByteArrayInputStream(originImg);
+  //    BufferedImage origin = ImageIO.read(in);
+  //    BufferedImage croppedImg = origin.getSubimage(300,150, 300, 600);
+  //    return croppedImg;
+  //  }
 }

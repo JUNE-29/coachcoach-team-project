@@ -8,11 +8,13 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
+import com.coachcoach.interceptor.AuthInterceptor;
 
 @ComponentScan(value = "com.coachcoach")
 @EnableWebMvc
@@ -24,11 +26,11 @@ public class AppConfig implements WebMvcConfigurer {
     logger.debug("AppConfig 객체 생성!");
   }
 
-  @Bean
-  public ViewResolver viewResolver() {
-    InternalResourceViewResolver vr = new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
-    vr.setOrder(2);
-    return vr;
+  @Override
+  public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(new AuthInterceptor())//
+    .addPathPatterns("/**"); // 모든 컨트롤러에 관해 인터셉터 적용
+
   }
 
   @Bean
@@ -56,12 +58,12 @@ public class AppConfig implements WebMvcConfigurer {
     return vr;
   }
 
-  // @Override
-  // public void addInterceptors(InterceptorRegistry registry) {
-  // registry.addInterceptor(new AuthInterceptor())//
-  // .addPathPatterns("/**"); // 모든 컨트롤러에 관해 인터셉터 적용
-  //
-  // } // 적용은 오는 6일에.
+  @Bean
+  public ViewResolver viewResolver() {
+    InternalResourceViewResolver vr = new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
+    vr.setOrder(2);
+    return vr;
+  }
 }
 
 
