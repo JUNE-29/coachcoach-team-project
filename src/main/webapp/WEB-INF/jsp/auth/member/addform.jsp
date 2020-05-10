@@ -7,7 +7,7 @@
 <h1>회원 가입</h1>
 <form id="form" action='add' method='post' enctype='multipart/form-data' >
 아이디:<input type='text' name='id' id='id'>4~12자의 영문대소문자와 숫자<br>
-비밀번호: <input type='password' name='password' >4~12자의 영문대소문자와 숫자<br>
+비밀번호: <input type='password' name='password'  id='password'>4~12자의 영문대소문자와 숫자<br>
 비밀번호확인: <input type='password' name='password2'><br>
 이름:     <input type='text' name='name'><br>
 성별:     <input type="radio" name="member" value="0"/>여자
