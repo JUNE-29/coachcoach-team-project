@@ -5,7 +5,14 @@
 
 <jsp:include page="../header.jsp"/>
 
-<div>
+<style>
+.innerCont { overflow:hidden;}
+.leftArea { float:left; width:354px;}
+.rightArea  { float:right; width:760px;}
+</style>
+
+<div class="innerCont">
+  <div class="leftArea">
 <form action='searchKeyword' method='get'>
 <input name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
 <button>검색</button>
@@ -34,6 +41,7 @@
 </form>
 </div>
 
+<div class="rightArea">
 <form action="selectOption" >
 <select name="option" onchange="this.form.submit()">
   <option value="none">=== 선택 ===</option>
@@ -71,6 +79,8 @@
     </li>
     </c:if>
 </ul>
+</div>
+</div>
 
 
 <jsp:include page="../footer.jsp"/>
