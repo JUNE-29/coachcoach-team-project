@@ -13,7 +13,7 @@
 <script type="text/javascript">
   var no = "<c:out value='${item.mcp.no}'/>"
 	var prog_name = "<c:out value='${item.name}'/>"
-	var fee = "<c:out value='${item.fee}'/>"
+	/*var fee = "<c:out value='${item.fee}'/>"*/
 	var email = "<c:out value='${member.email}'/>"
 	var name = "<c:out value='${member.name}'/>"
 	var tel = "<c:out value='${member.tel}'/>"
@@ -27,9 +27,9 @@
         IMP.request_pay({
             pg : 'kakaopay',
             pay_method : 'card',
-            merchant_uid : no + new Date().getTime(),
+            merchant_uid : no,
             name : '주문명:' + prog_name,
-            amount :  fee, //판매 가격
+            amount :  '100', //판매 가격
             buyer_email : email,
             buyer_name : name,
             buyer_tel : tel
@@ -60,12 +60,12 @@
                     }
                 });
                 //성공시 이동할 페이지
-                location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
+                location.href='<%=request.getContextPath()%>/app/myCoach/order/paySuccess?no='+no+'&msg='+msg;
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
+                location.href="<%=request.getContextPath()%>/app/myCoach/order/payFail";
                 alert(msg);
             }
         });

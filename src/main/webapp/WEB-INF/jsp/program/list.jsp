@@ -16,6 +16,7 @@
 .leftArea .inner .box > strong { display:block; padding-bottom:12px; font-size:20px; font-weight:normal; border-bottom:1px solid #E0E0DF}
 .leftArea .inner .box .tag { overflow:hidden; }
 .leftArea .inner .box .tag button { float:left; margin:8px 0 0 7px; padding:0 5px; min-width:65px; height:30px; line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; background:#fff;}
+.leftArea .inner .box .tag button.active (border-color:#00A0CC;)
 .leftArea .inner .box .detailBtn { margin-top:15px; width:100%; height:40px; line-height:40px; border-radius:20px; border:none; background:#ddd;}
 .leftArea .inner .box .tit { margin:15px 0; font-size:17px; font-weight:500;}
 .rightArea  { float:right; width:760px;}

@@ -94,7 +94,7 @@
 	     left outer join coaching_programs cp on cp.program_no = mcp.program_no
 	   where 
 	     cp.coach_no = #{no} and mcp.status REGEXP ('요청대기중|결제대기중')
-	     AND cp.delete_status IS NULL
+	      AND cp.delete_status IS NULL 
   </select>
 
 <!-- memberCoachProgramNo로 객체 하나 찾기 -->
@@ -128,7 +128,7 @@
        left outer join coaching_programs cp on cp.program_no = mcp.program_no
      where 
        mcp.member_program_no=#{no}
-       AND cp.delete_status IS NULL
+      <!--AND cp.delete_status IS NULL-->
   </select>
   
   <update id="updateStatus" parameterType="map">
@@ -226,7 +226,7 @@
       left outer join members m on mcp.member_no = m.member_no 
       left outer join coaching_programs cp on mcp.program_no=cp.program_no
     where
-      cp.coach_no = #{no} AND pay_date IS NOT NULL
+      cp.coach_no = #{no} AND pay_date IS NOT NULL  
   </select>
   
   <select id="findAllByMemberNo" resultMap="MemberCoachingProgramMap" parameterType="int">
