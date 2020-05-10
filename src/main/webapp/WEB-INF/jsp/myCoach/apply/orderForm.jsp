@@ -20,30 +20,32 @@
       전화번호 ${member.tel}<br>
       이메일 ${member.email}<br>
 </div>
-<form action='payments' name='frm' method='get' >
+<form action='payments' name='frm' method='get'>
 <input name='payment' type='radio' value='kakaoPay'>카카오페이
 <input name='payment' type='radio' value='creditCard'>신용카드<br>
-<button>결제하기</button>
+<input type='button' value='결제하기' onclick='payChk()'>
 </form>
-
 
 <script>
 "use strict"
 
+
 function payChk() {
+	//console.log('ddd');
 	var chk_pay = document.getElementsByName('payment');
-	var chk_cnt; 
+	var chk_cnt = 0; 
 	for(var i=0; i<chk_pay.length; i++) {
 	    if(chk_pay[i].checked == true) {
 	    	chk_cnt++
 	    } 
 	}
 
-	if (chk_cnt<1){
+	if (chk_cnt == 0){
 		alert("결제수단을 선택해주세요");
 		return;
-	}
+	} 
 
+	document.frm.submit();
 }
 
 </script>
