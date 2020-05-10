@@ -14,6 +14,10 @@ body {
   overflow-x: hidden;
 }
 
+.body-footer {
+  margin-bottom: 100px;
+	}
+
 a {
   color: #149ddd;
 }
@@ -122,7 +126,6 @@ h1, h2, h3, h4, h5, h6 {
 
 #main {
   margin-left: 300px;
-  width: 150%;
   position: relative;
 }
 
@@ -137,19 +140,139 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .detailProfile {
+  overflow: hidden;
+	margin: 60px;
   position: relative;
-  width: 90%;
+  width: 100%;
 }
 
-.detailProfile img {
+.detailProfile .photo {
+	margin-left: 60px;
+	margin-top: 18px; 
+  float:left;
   width: 150px;
+	}
+	
+	.detailProfile h1 {
+  padding-left: 50px;
+  }
+  
+.detailProfile .content_box {
+  margin-left: 50px;
+  float:left;
+  width: 700px;
+  }
+
+.detailProfile section {
+	overflow: hidden;
+  margin: 10px;
+  margin-left: 0px;
+	padding: 7px;
+  width : 600px;
 }
 
-.detail section {
-  width : 300px;
-  border: 1px;
+.detailProfile .content_box .name .col1 {
+	padding: 7px;
+	width : 150px;
+	float: left;
+	border-width: 1px;
   border-style: solid;
-  border-radius: 10;
+}
+
+.detailProfile .content_box .name .value {
+  padding: 7px;
+  width : 400px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.detailProfile .content_box .area .col1 {
+  padding: 7px;
+  width : 150px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.detailProfile .content_box .area .value {
+  padding: 7px;
+  width : 400px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.detailProfile .content_box .career .col1 {
+  padding: 7px;
+  width : 150px;
+  height: 70px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.detailProfile .content_box .career .value {
+  padding: 7px;
+  width : 400px;
+  height: 70px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+  overflow-y: scroll;
+}
+
+.detailProfile .content_box .certification .col1 {
+  padding: 7px;
+  width : 150px;
+  height: 70px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.detailProfile .content_box .certification .value {
+  padding: 7px;
+  width : 400px;
+  height: 70px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+  overflow-y: scroll;
+}
+
+.detailProfile .content_box .introduce .col1 {
+  padding: 7px;
+  width : 150px;
+  height: 300px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.detailProfile .content_box .introduce .value {
+  padding: 7px;
+  width : 400px;
+  height: 300px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+  overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.value::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.value {
+    -ms-overflow-style: none;
+}
+
+.detailProfile .content_box section button {
+	margin-top:20px;
+	margin-left:420px;
 }
 
 /*--------------------------------------------------------------
@@ -1073,11 +1196,12 @@ section {
   padding: 15px;
   color: #f4f6fd;
   font-size: 14px;
-  left: -30px;
-  width: 90%;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
   background: #040b14;
   position: relative;
-  overflow: visible;
+  margin-top: 50px;
 }
 
 #footer .copyright {

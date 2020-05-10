@@ -5,30 +5,37 @@
 
 <div class="detailProfile">
   <h1>프로필</h1>
-<div class="content">
+  <div class="row">
+  <div class="photo">
   <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' class="img-thumbnail"><br>
+  </div>
+  
+  <div class="content_box">
+  <section class="name">
+    <div class="col1">이름</div>
+    <div class="value">${coach.name}</div>
+  </section>
+  <section class="area">
+    <div class="col1">수업가능지역</div>
+    <div class="value">${coach.area}</div>
+  </section>
+  <section class="career">
+    <div class="col1">경력사항</div>
+    <div class="value">${coach.career}</div>
+  </section>
+  <section class="certification">
+    <div class="col1">보유자격증</div>
+    <div class="value">${coach.certification}</div>
+  </section>
+  <section class="introduce">
+    <div class="col1">강사소개</div>
+    <div class="value">${coach.introduce}</div>
+  </section>
+  <section class="button1">
+	  <button onclick="location.href='form'" class="btn btn-primary" >내 프로필 수정</button>
+	 </section>
+  </div>
+  
+  </div>
 
-  <section class="name row">
-    <div class="col-md-2">이름</div>
-    <div class="col-md-4">${coach.name}</div>
-  </section>
-  <section class="area row">
-    <div class="col-md-2">수업가능지역</div>
-    <div class="col-md-4">${coach.area}</div>
-  </section>
-  <section class="career row">
-    <div class="col-md-2">경력사항</div>
-    <div class="col-md-4">${coach.career}</div>
-  </section>
-  <section class="certification row">
-    <div class="col-md-2">보유자격증</div>
-    <div class="col-md-4">${coach.certification}</div>
-  </section>
-  <section class="introduce row">
-    <div class="col-md-2">강사소개</div>
-    <div class="col-md-4">${coach.introduce}</div>
-  </section>
-
-  <button onclick="location.href='form'" class="btn btn-primary col-md-4" style="margin : 10px;">내 프로필 수정</button>
-</div>
 </div>
