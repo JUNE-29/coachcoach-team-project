@@ -14,8 +14,8 @@
 .leftArea .inner .searchInp button { position:absolute; top:50%; right:10px; transform:translateY(-50%); width:65px; height:30px; border:none; border-radius:20px; background:#ddd; }
 .leftArea .inner .box { padding:9px 16px; margin-top:20px; border-radius:20px; background:#fff;}
 .leftArea .inner .box > strong { display:block; padding-bottom:12px; font-size:20px; font-weight:normal; border-bottom:1px solid #E0E0DF}
-.leftArea .inner .box .tag { overflow:hidden; }
-.leftArea .inner .box .tag button { float:left; margin:8px 0 0 7px; padding:0 5px; min-width:65px; height:30px; line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; background:#fff;}
+.leftArea .inner .box .tag #ck-button { overflow:hidden; }
+.leftArea .inner .box .tag #ck-button checkbox { float:left; margin:8px 0 0 7px; padding:0 5px; min-width:65px; height:30px; line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; background:#fff;}
 .leftArea .inner .box .detailBtn { margin-top:15px; width:100%; height:40px; line-height:40px; border-radius:20px; border:none; background:#ddd;}
 .leftArea .inner .box .tit { margin:15px 0; font-size:17px; font-weight:500;}
 .rightArea  { float:right; width:760px;}
@@ -40,15 +40,49 @@
 </form>
 <div class="box">
 <strong>키워드</strong>
-<form action='searchTag' method='post' class="tag">
-<button type="submit" name="tag" value="1">하체튼튼</button>
-<button type="submit" name="tag" value="2">상체튼튼</button>
-<button type="submit" name="tag" value="3">근육위주</button>
-<button type="submit" name="tag" value="4">대회위주</button><br>
-<button type="submit" name="tag" value="5">체력위주</button>
-<button type="submit" name="tag" value="6">체중감량</button>
-<button type="submit" name="tag" value="7">재활위주</button>
-<button type="submit" name="tag" value="8">생활개선</button>
+<form name='keyword' action='searchTag' method='post' class="tag" onchange="chk_keyword()">
+<div>
+<div id="ck-button">
+<label>
+    <input type="checkbox" name="tags" value="1">하체튼튼</button>
+</label>
+ </div>
+ <div id="ck-button">
+<label>
+    <input type="checkbox" name="tags" value="2">상체튼튼</button>
+</label>
+ </div>
+ <div id="ck-button">
+<label>
+    <input type="checkbox" name="tags" value="3">근육위주</button>
+</label>
+ </div>
+<div id="ck-button">
+<label>
+    <input type="checkbox" name="tags" value="4">대회위주</button>
+</label>
+ </div><br>
+<div id="ck-button">
+<label>
+    <input type="checkbox" name="tags" value="5">체력위주</button>
+</label>
+ </div>
+ <div id="ck-button">
+<label>
+    <input type="checkbox" name="tags" value="6">체중감량</button>
+</label>
+ </div>
+  <div id="ck-button">
+<label>
+    <input type="checkbox" name="tags" value="7">재활위주</button>
+      </label>
+    </div>
+ <div id="ck-button">
+<label>
+    <input type="checkbox" name="tags" value="8">생활개선</button>
+  </label>
+    </div>
+</div>
 </form>
 </div>
 <div class="box">
@@ -117,5 +151,27 @@
 </div>
 </div>
 
+
+<script>
+"use strict"
+
+function chk_keyword() {
+  var chk_kwd = document.getElementsByName('keyword');
+  var chk_cnt = 0; 
+  for(var i=0; i<chk_kwd.length; i++) {
+      if(chk_kwd[i].checked == true) {
+        chk_cnt++
+      } 
+  }
+
+  if (chk_cnt > 4){
+    alert("최대 3개까지 선택 가능합니다.");
+    return;
+  } 
+
+  document.keyword.submit();
+}
+
+</script>
 
 <jsp:include page="../footer.jsp"/>

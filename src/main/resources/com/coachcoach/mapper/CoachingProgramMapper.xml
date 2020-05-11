@@ -176,9 +176,11 @@
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
       join coaching_program_tags cpt on cp.program_no=cpt.program_no
-    <where>
-     <if test="tag > 0">tag_no=${tag}</if>
-    </where>
+    where tag_no in
+  <foreach item="item" index="index" collection="tags"
+      open="(" separator="," close=")">
+        #{item}
+  </foreach>
            order by program_no desc
   </select>
   

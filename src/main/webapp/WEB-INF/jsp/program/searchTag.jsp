@@ -41,15 +41,15 @@
 </form>
 <div class="box">
 <strong>키워드</strong>
-<form action='searchTag' method='post' class="tag">
-<button type="submit" name="tag" value="1">하체튼튼</button>
-<button type="submit" name="tag" value="2">상체튼튼</button>
-<button type="submit" name="tag" value="3">근육위주</button>
-<button type="submit" name="tag" value="4">대회위주</button><br>
-<button type="submit" name="tag" value="5">체력위주</button>
-<button type="submit" name="tag" value="6">체중감량</button>
-<button type="submit" name="tag" value="7">재활위주</button>
-<button type="submit" name="tag" value="8">생활개선</button>
+<form name='keyword' action='searchTag' method='post' class="tag" onchange="chk_keyword()">
+<input type="checkbox" name="tags" value="1">하체튼튼</button>
+<input type="checkbox" name="tags" value="2">상체튼튼</button>
+<input type="checkbox" name="tags" value="3">근육위주</button>
+<input type="checkbox" name="tags" value="4">대회위주</button><br>
+<input type="checkbox" name="tags" value="5">체력위주</button>
+<input type="checkbox" name="tags" value="6">체중감량</button>
+<input type="checkbox" name="tags" value="7">재활위주</button>
+<input type="checkbox" name="tags" value="8">생활개선</button>
 </form>
 </div>
 <div class="box">

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.interceptor.Auth;
@@ -45,7 +46,6 @@ public class SearchController {
     pageMaker.setCri(cri);
     pageMaker.setTotalCount(coachingProgramService.pageCount());
 
-
     Map<String, Object> params = new HashMap<>();
     params.put("cri", cri);
     model.addAttribute("programList", coachingProgramService.pageList(params));
@@ -66,10 +66,13 @@ public class SearchController {
   }
 
   @PostMapping("searchTag") // 태그로 검색
-  public void searchTag(Model model, String tag) throws Exception {
+  public void searchTag(Model model, @RequestParam("tags") String[] tags) throws Exception {
     Map<String, Object> params = new HashMap<>();
-    params.put("tag", tag);
+    params.put("tags", tags);
     model.addAttribute("searchProgram", coachingProgramService.searchTag(params));
+    for (int i = 1; i < tags.length; i++) {
+      model.addAttribute("tag", tags[i]);
+    }
   }
 
   @GetMapping("selectOption") // 옵션으로 검색
