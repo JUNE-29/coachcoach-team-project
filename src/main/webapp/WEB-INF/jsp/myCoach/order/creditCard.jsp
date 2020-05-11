@@ -14,7 +14,7 @@
 <script>
 var no = "<c:out value='${item.mcp.no}'/>"
 var prog_name = "<c:out value='${item.name}'/>"
-var fee = "<c:out value='${item.fee}'/>"
+/*var fee = "<c:out value='${item.fee}'/>"*/
 var email = "<c:out value='${member.email}'/>"
 var name = "<c:out value='${member.name}'/>"
 var tel = "<c:out value='${member.tel}'/>"
@@ -27,7 +27,7 @@ IMP.request_pay({
     pay_method : 'vbank',
     merchant_uid : no,
     name : '주문명:' + prog_name,
-    amount :  fee, //판매 가격
+    amount :  '100', //판매 가격
     buyer_email : email,
     buyer_name : name,
     buyer_tel : tel
@@ -38,7 +38,7 @@ IMP.request_pay({
         msg += '상점 거래ID : ' + rsp.merchant_uid;
         msg += '결제 금액 : ' + rsp.paid_amount;
         msg += '카드 승인번호 : ' + rsp.apply_num;
-        location.href='<%=request.getContextPath()%>/app/myCoach/order/paySuccess?msg='+msg;
+        location.href='<%=request.getContextPath()%>/app/myCoach/order/paySuccess?no='+no+'&msg='+msg;
     } else {
         var msg = '결제에 실패하였습니다.';
         msg += '에러내용 : ' + rsp.error_msg;
