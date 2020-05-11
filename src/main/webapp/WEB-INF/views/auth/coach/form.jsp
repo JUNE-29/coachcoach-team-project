@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 
-<jsp:include page="../../header.jsp"/>
 
 <h1>로그인</h1>
 <form action='login' method='post'>
@@ -15,4 +14,3 @@ password: <input name='password' type='password'><br>
 <button type="button" onclick="location.href='findpasswordform'">비밀번호 찾기</button>
 </form>
 
-<jsp:include page="../../footer.jsp"/>
