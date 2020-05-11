@@ -53,6 +53,7 @@ public class DashBoardController {
     }
   }
 
+  // 선택삭제
   @GetMapping("toDoListDelete")
   public String toDoListDelete(int toDoListNo) throws Exception {
     toDoListService.delete(toDoListNo);
@@ -68,6 +69,7 @@ public class DashBoardController {
   public void toDoListUpdate(ToDoList toDoList) throws Exception {
     toDoListService.update(toDoList);
   }
+
 
 
 }

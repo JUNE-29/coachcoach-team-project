@@ -15,4 +15,6 @@ public interface ToDoListService {
 
   int update(ToDoList toDoList) throws Exception;
 
+  void deleteCheckBox(ToDoList toDoList) throws Exception;
+
 }

@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<jsp:include page="../../header.jsp"/>
 목표<br>
 체중감량!!<br>
 <br>
@@ -24,4 +23,3 @@ ToDoList<br>
 <a href='../coaching/list'>더보기</a>
 <br><br>
 코치와 채팅하기
-<jsp:include page='../../footer.jsp'/>

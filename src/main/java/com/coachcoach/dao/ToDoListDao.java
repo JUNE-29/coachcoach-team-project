@@ -19,6 +19,9 @@ public interface ToDoListDao {
 
   // 게시글 삭제시 사용
   int delete(int no) throws Exception;
+
+  // 체크시 삭제
+  void deleteCheckBox(ToDoList toDoList) throws Exception;
 }
 
 

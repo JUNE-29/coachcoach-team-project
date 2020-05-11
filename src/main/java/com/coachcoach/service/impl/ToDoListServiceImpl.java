@@ -39,4 +39,11 @@ public class ToDoListServiceImpl implements ToDoListService {
   public ToDoList findByNo(int toDoListNo) throws Exception {
     return toDoListDao.findByNo(toDoListNo);
   }
+
+  // 체크박스 섹제
+  @Override
+  public void deleteCheckBox(ToDoList toDoList) throws Exception {
+    toDoListDao.deleteCheckBox(toDoList);
+  }
+
 }
