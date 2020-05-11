@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 
-<jsp:include page="../../header.jsp"/>
 
 <h1>코치 비밀번호 찾기</h1>
 <form action='findpassword' method='post'>
@@ -19,4 +18,3 @@
 <button>확인</button>
 </form>
 
-<jsp:include page="../../footer.jsp"/>

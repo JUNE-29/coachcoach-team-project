@@ -3,8 +3,13 @@
     trimDirectiveWhitespaces="true"%>
 
 
+<style>
+
+</style>
+
 <h1>회원 가입</h1>
 <form name="form" action='add' method='post' enctype='multipart/form-data' >
+
 아이디:<input type='text' name='id' id='id' onkeyup='insertId()'>
 <span id='alertText'><span style='color #777'> ※ 아이디를 입력해주세요</span></span><br>
 

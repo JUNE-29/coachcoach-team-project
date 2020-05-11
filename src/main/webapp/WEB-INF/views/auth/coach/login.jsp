@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../../header.jsp"/>
 
 <h1>로그인 결과</h1>
 <c:if test="${not empty loginUser}">
@@ -15,5 +14,4 @@
 </c:if>
 
 
-<jsp:include page="../../footer.jsp"/>
     
