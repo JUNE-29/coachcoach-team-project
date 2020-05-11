@@ -70,7 +70,11 @@ public class MemberAuthController {
   public void memberAddForm() {} // 회원가입폼
 
   @PostMapping("add")
-  public void memberAdd(Member member, MultipartFile photoFile) throws Exception {
+  public void memberAdd(Member member, MultipartFile photoFile, String tel1, String tel2,
+      String tel3) throws Exception {
+
+    String tel = tel1 + tel2 + tel3;
+    member.setTel(tel);
 
     if (photoFile.getSize() > 0) {
       String dirPath = servletContext.getRealPath("/upload/member");

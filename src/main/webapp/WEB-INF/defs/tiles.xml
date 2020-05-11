@@ -12,11 +12,24 @@
     </definition>
     
     
+<<<<<<< HEAD
     <definition name="myPage/*/*" template="/WEB-INF/tiles/myPage/template.jsp">
          
         <put-attribute name="side" value="/WEB-INF/tiles/myPage/side.jsp" />
         <put-attribute name="body" value="/WEB-INF/views/myPage/{1}/{2}.jsp" />
         <put-attribute name="footer" value="/WEB-INF/tiles/myPage/footer.jsp" />
+=======
+    <definition name="auth/*/*" template="/WEB-INF/tiles/auth/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/auth/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/auth/{1}/{2}.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/auth/footer.jsp" />
+    </definition>
+    
+    <definition name="auth/*" template="/WEB-INF/tiles/auth/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/auth/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/auth/{1}.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/auth/footer.jsp" />
+>>>>>>> master
     </definition>
     
 </tiles-definitions>
