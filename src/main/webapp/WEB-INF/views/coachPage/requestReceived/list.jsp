@@ -6,9 +6,9 @@
 
   <h1>받은요청</h1>
   
-  <div style='padding:20px; margin:20px auto;'>
+  <div>
   총 ${fn:length(list)}개 요청 건<br>
-  <div style='text-align: center;'>
+  <div>
   <table border='1px'>
   <tr>
     <th>번호</th>
@@ -51,5 +51,4 @@
   </table>
   </div>
   </div>
-<hr>
 

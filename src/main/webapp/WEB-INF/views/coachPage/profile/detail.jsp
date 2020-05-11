@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="detailProfile">
-  <h1>프로필</h1>
+  <h1 class="highlight">프로필</h1>
   <div class="row">
   <div class="photo">
   <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' class="img-thumbnail"><br>
@@ -32,7 +32,7 @@
     <div class="value">${coach.introduce}</div>
   </section>
   <section class="button1">
-	  <button onclick="location.href='form'" class="btn btn-primary" >내 프로필 수정</button>
+	  <button onclick="location.href='form'" class="btn" >내 프로필 수정</button>
 	 </section>
   </div>
   

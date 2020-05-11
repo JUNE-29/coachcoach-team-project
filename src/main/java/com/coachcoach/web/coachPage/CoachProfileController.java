@@ -77,9 +77,9 @@ public class CoachProfileController {
     int height = origin.getHeight();
     BufferedImage croppedImg = null;
     if (width >= height) {
-      croppedImg = origin.getSubimage(0,0, height, height);
+      croppedImg = origin.getSubimage(width / 2 - height / 2, 0, height, height);
     } else {
-      croppedImg = origin.getSubimage(0,0, width, width);
+      croppedImg = origin.getSubimage(0, 0, width, width);
     }
     return croppedImg;
   }

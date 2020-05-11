@@ -102,5 +102,10 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
     return coachingProgramDao.findByStar();
   }
 
+  @Override
+  public CoachingProgram findByOrderNo(Map<String, Object> params) throws Exception {
+    return coachingProgramDao.findByOrderNo(params);
+  }
+
 
 }

@@ -32,4 +32,7 @@ public class OrderController {
     memberCoachingProgramService.updatePaydate(params);
     model.addAttribute("msg", msg);
   }
+
+  @GetMapping("payFail") // 결제성공
+  public void payFail(Model model) throws Exception {}
 }
