@@ -35,8 +35,8 @@
 <div class="body-footer">
 <tiles:insertAttribute name="body"/>
 </div>
-<tiles:insertAttribute name="footer"/>
 </main>
+<tiles:insertAttribute name="footer"/>
   <!-- Vendor JS Files -->
   <script src="${pageContext.servletContext.contextPath}/resources_k/assets/vendor/jquery/jquery.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/resources_k/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
