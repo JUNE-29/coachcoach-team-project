@@ -24,16 +24,15 @@
 
       <nav class="nav-menu">
         <ul>
-          <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about"><i class="bx bx-list-check"></i> <span>받은 요청</span></a></li>
-          <li><a href="#resume"><i class="bx bxs-message"></i> <span>채팅</span></a></li>
-          <li><a href="#portfolio"><i class="bx bx-user"></i> 프로필</a></li>
-          <li><a href="#services"><i class="bx bxs-calendar-plus"></i> 프로그램 등록</a></li>
-          <li><a href="#contact"><i class="bx bxs-user-detail"></i> 회원 관리</a></li>
-          <li><a href="#contact"><i class="bx bx-won"></i> 결제 관리</a></li>
-          <li><a href="#contact"><i class="bx bxs-pencil"></i> 개인정보 수정</a></li>
+          <li><a href="../requestReceived/list"><i class="bx bx-list-check"></i> <span>받은 요청</span></a></li>
+          <li><a href="#"><i class="bx bxs-message"></i> <span>채팅</span></a></li>
+          <li><a href="../profile/detail"><i class="bx bx-user"></i> 프로필</a></li>
+          <li><a href="../programManagement/list"><i class="bx bxs-calendar-plus"></i> 프로그램 등록</a></li>
+          <li><a href="../memberManagement/list"><i class="bx bxs-user-detail"></i> 회원 관리</a></li>
+          <li><a href="../payment/list"><i class="bx bx-won"></i> 결제 관리</a></li>
+          <li><a href="../modify/checkPasswordForm"><i class="bx bxs-pencil"></i> 개인정보 수정</a></li>
 
-          <li><a href="#contact"><i class="bx bxs-log-out-circle"></i> 로그아웃</a></li>
+          <li><a href="../../auth/logout"><i class="bx bxs-log-out-circle"></i> 로그아웃</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 

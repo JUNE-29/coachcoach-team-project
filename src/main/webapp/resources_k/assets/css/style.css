@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9997;
   transition: all 0.5s;
   padding: 0 15px;
-  background: #040b14;
+  background: #ff8c55;
   overflow-y: auto;
 }
 
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   display: block;
   height: 130px;
-  border: 8px solid #2c2f3f;
+  border: 8px solid #ffffff;
   border-radius: 50%;
 }
 
@@ -127,6 +127,7 @@ h1, h2, h3, h4, h5, h6 {
 #main {
   margin-left: 300px;
   position: relative;
+  background-color: #e6e6e6;
 }
 
 
@@ -141,26 +142,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .detailProfile {
   overflow: hidden;
-	margin: 60px;
   position: relative;
-  width: 100%;
 }
 
 .detailProfile .photo {
-	margin-left: 60px;
+	margin-left: 15px;
 	margin-top: 18px; 
+	margin-right: 50px; 
   float:left;
-  width: 150px;
+  width: 180px;
 	}
 	
-	.detailProfile h1 {
-  padding-left: 50px;
-  }
-  
 .detailProfile .content_box {
-  margin-left: 50px;
   float:left;
   width: 700px;
+  margin-left: 15px;
   }
 
 .detailProfile section {
@@ -273,12 +269,34 @@ h1, h2, h3, h4, h5, h6 {
 .detailProfile .content_box section button {
 	margin-top:20px;
 	margin-left:420px;
+	margin-bottom:50px;
+  background-color: #ff8c55 !important;
+  color: white;
 }
 
 /*--------------------------------------------------------------
-# Navigation Menu
 --------------------------------------------------------------*/
-/* Desktop Navigation */
+
+.highlight {
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #ff8c55 50%);
+  width: 180px;
+}
+
+#content {
+	  padding-top: 60px;
+    padding-left: 60px;
+    padding-right: 300px;
+    min-height: 758px;
+    width: 1300px;
+}
+
+#end-line {
+	 width: 1000px;
+	 background-color: white;
+}
+
+
+
 .nav-menu {
   padding-top: 30px;
 }
@@ -297,7 +315,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a {
   display: flex;
   align-items: center;
-  color: #a8a9b4;
+  color: #ffffff;
   padding: 12px 15px;
   margin-bottom: 8px;
   transition: 0.3s;
@@ -307,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a i {
   font-size: 24px;
   padding-right: 8px;
-  color: #6f7180;
+  color: #ffffff;
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -316,7 +334,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
-  color: #149ddd;
+  color: #fff31c;
+   transition: 0.5s ease-out ;
 }
 
 /* Mobile Navigation */
@@ -1193,15 +1212,15 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
+	
   padding: 15px;
-  color: #f4f6fd;
+  color: #000000;
   font-size: 14px;
   left: 0px;
   bottom: 0px;
   width: 100%;
-  background: #040b14;
+  background: #ffffff;
   position: relative;
-  margin-top: 50px;
 }
 
 #footer .copyright {
@@ -1213,5 +1232,5 @@ section {
   overflow: visible;
   text-align: center;
   font-size: 13px;
-  color: #eaebf0;
+  color: #000000;
 }
