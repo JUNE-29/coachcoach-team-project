@@ -8,7 +8,7 @@
 체중감량!!<br>
 <br>
 ToDoList<br>
-<jsp:include page='../dashBoard/toDoListList.jsp'/>
+<jsp:include page='../dashBoard/toDoListList1.jsp'/>
 <br>
 이번 주 운동종목 그래프
 <a href='../detailData/list'>더보기</a><br>
