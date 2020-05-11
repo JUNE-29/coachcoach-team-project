@@ -138,6 +138,14 @@
     where member_program_no=#{memberCoachingProgramNo}
   </update>
   
+  <update id="updatePaydate" parameterType="map">
+    update member_coaching_programs
+      set
+        status=#{status},
+        pay_date=now()
+    where member_program_no=#{memberCoachingProgramNo}
+  </update>
+  
   <update id="updateEtc" parameterType="map">
     update member_coaching_programs
       set

@@ -23,11 +23,14 @@ public interface MemberCoachingProgramDao {
   int updateEtc(Map<String, Object> params) throws Exception;
   // 거절사유 etc 작성시 사용
 
-  int updateStatus(Map<String, Object> params) throws Exception;
   // 상태 변경시 사용
+  int updateStatus(Map<String, Object> params) throws Exception;
 
-  int updateReview(Map<String, Object> params) throws Exception;
+  //
+  int updatePaydate(Map<String, Object> params) throws Exception;
+
   // 후기 등록
+  int updateReview(Map<String, Object> params) throws Exception;
 
   List<MemberCoachingProgram> findAllRequest(int coachNo) throws Exception;
   // 코치페이지 요청된 프로그램 리스트를 보기 위함.
