@@ -56,6 +56,8 @@ public interface CoachingProgramDao {
 
   // 페이징처리 글갯수
   int pageCount() throws Exception;
+
+  int deleteUpdate(int programNo);
 }
 
 

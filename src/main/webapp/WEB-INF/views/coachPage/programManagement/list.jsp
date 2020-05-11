@@ -12,7 +12,7 @@
   <table border='1'>
   <tr>
     <th style="text-align:center">번호</th>
-    <th style="text-align:center">수업가능지역</th>
+    <th style="text-align:center">프로그램명</th>
     <th style="text-align:center">자세히보기</th>
     <th style="text-align:center">수정</th>
     <th style="text-align:center">삭제</th>

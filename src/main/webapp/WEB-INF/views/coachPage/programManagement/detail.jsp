@@ -9,7 +9,9 @@
 <c:if test="${not empty program}">
   프로그램명: ${program.name}<br>
   프로그램 소개: ${program.introduce} <br>
-  수업효과 키워드: <br>
+  수업효과 키워드: 
+  <c:forEach items="${program.coachingProgramTags}" var="tag">
+  <label>${tag.name}</label> </c:forEach><br>
   프로그램 수강료: ${program.fee} <br>
   프로그램타입: ${program.coachingType}<br>
   </c:if>
