@@ -74,6 +74,7 @@
     where 
       c.coach_no=#{coachNo}
       AND c.delete_status IS NULL
+    order by program_no desc
       <!-- join workout_tags w on w.tag_no=ct.tag_no 태그는 코칭프로그램태그 맵퍼따로-->
   </select>
   
@@ -81,6 +82,7 @@
      select
       program_no,
       name,
+      coaching_type,
       introduce,
       fee
      from
@@ -122,6 +124,14 @@
     </set>
       where 
         program_no=#{no}
+  </update>
+  
+  <update id="deleteUpdate" parameterType="int">
+    update coaching_programs
+      set
+      delete_status='1'
+    where 
+      program_no=#{no}
   </update>
   
    <delete id="delete" parameterType="int">

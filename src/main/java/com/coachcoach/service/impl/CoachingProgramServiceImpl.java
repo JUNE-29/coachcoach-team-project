@@ -63,7 +63,7 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   }
 
   @Override
-  public CoachingProgram getdetail(int no) throws Exception {
+  public CoachingProgram getDetail(int no) throws Exception {
     return coachingProgramDao.findByProgramNo(no);
   }
 
@@ -100,6 +100,11 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   @Override
   public List<CoachingProgram> searchStar() throws Exception {
     return coachingProgramDao.findByStar();
+  }
+
+  @Override
+  public int deleteUpdate(int programNo) {
+    return coachingProgramDao.deleteUpdate(programNo);
   }
 
 
