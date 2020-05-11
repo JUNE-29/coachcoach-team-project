@@ -36,6 +36,8 @@ public interface CoachingProgramService {
 
   CoachingProgram findByMemberNo(Map<String, Object> params) throws Exception;
 
+  CoachingProgram findByOrderNo(Map<String, Object> params) throws Exception;
+
   CoachingProgram getdetail(int no) throws Exception;
 
   int pageCount() throws Exception;

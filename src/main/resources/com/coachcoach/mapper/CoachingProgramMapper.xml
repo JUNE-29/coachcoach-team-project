@@ -295,6 +295,35 @@
        order by mcp.member_program_no desc
    </select>
    
+   <select id="findByOrderNo" resultMap="CoachingProgramMap" parameterType="map">
+      select  
+        mcp.member_program_no,
+        mcp.member_no,       
+        mcp.program_no,        
+        mcp.remark,            
+        mcp.status,            
+        DATE_FORMAT(mcp.request_date, "%Y/%m/%d") as request_date,
+        mcp.pay_date,     
+        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
+        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date,
+        mcp.etc,
+        mcp.review,
+        cp.coach_no,
+        cp.name,
+        cp.fee,
+        cp.coaching_type,
+        c.name coach_name,
+        c.photo
+      from 
+        coaching_programs cp
+         join coaches c on cp.coach_no=c.coach_no
+         join member_coaching_programs mcp on cp.program_no=mcp.program_no
+       where
+        mcp.status=#{status} and member_program_no=#{no}
+       order by mcp.member_program_no desc
+   </select>
+   
+   
    <select id="pageList" resultMap="CoachingProgramMap" parameterType="map">
      select  
       cp.program_no,

@@ -28,7 +28,7 @@
   <c:choose>
     <c:when test="${status eq '결제대기중'}">
     <td>
-    <button type="button" onclick="location.href='orderForm'">결제하기</button>
+    <button type="button" onclick="location.href='orderForm?no=${list.mcp.no}'">결제하기</button>
     </td>
   </c:when>
   <c:when test="${status eq '요청거절됨'}">

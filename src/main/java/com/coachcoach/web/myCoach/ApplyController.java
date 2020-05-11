@@ -2,7 +2,6 @@ package com.coachcoach.web.myCoach;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,58 +20,46 @@ import com.coachcoach.service.MemberService;
 @RequestMapping("/myCoach/apply")
 public class ApplyController {
 
-	@Autowired
-	HttpSession httpSession;
+  @Autowired
+  HttpSession httpSession;
 
-	@Autowired
-	CoachingProgramService coachingProgramService;
+  @Autowired
+  CoachingProgramService coachingProgramService;
 
-	@Autowired
-	MemberService memberService;
+  @Autowired
+  MemberService memberService;
 
-	@GetMapping("list") // 신청내역
-	public void applyList(Model model) throws Exception {
-		Member member = (Member) httpSession.getAttribute("loginUser");
-		model.addAttribute("programList", coachingProgramService.applyList(member.getNo()));
-	}
+  @GetMapping("list") // 신청내역
+  public void applyList(Model model) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    model.addAttribute("programList", coachingProgramService.applyList(member.getNo()));
+  }
 
-	@GetMapping("rejectForm") // 거절사유
-	public void rejectForm() {}
+  @GetMapping("rejectForm") // 거절사유
+  public void rejectForm() {}
 
-	@GetMapping("orderForm") // 결제
-	public void orderForm(Model model) throws Exception {
-		Member member = (Member) httpSession.getAttribute("loginUser");
-		model.addAttribute("member", memberService.get(member.getNo()));
+  @GetMapping("orderForm") // 결제
+  public void orderForm(Model model, int no) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    model.addAttribute("member", memberService.get(member.getNo()));
 
-		Map<String, Object> params = new HashMap<>();
-		params.put("status", "결제대기중");
-		params.put("no", member.getNo());
-		model.addAttribute("item", coachingProgramService.findByMemberNo(params));
-	}
+    Map<String, Object> params = new HashMap<>();
+    params.put("status", "결제대기중");
+    params.put("no", no);
+    httpSession.setAttribute("item", coachingProgramService.findByOrderNo(params));
+  }
 
 
-	@GetMapping("payments") // 결제
-	public String payments(Model model, String payment) throws Exception{
-		Member member = (Member) httpSession.getAttribute("loginUser");
-		if (payment.equals("creditCard")) {
-			model.addAttribute("member", memberService.get(member.getNo()));
-			Map<String, Object> params = new HashMap<>();
-			params.put("status", "결제대기중");
-			params.put("no", member.getNo());
-			model.addAttribute("item", coachingProgramService.findByMemberNo(params));
-			return "myCoach/order/creditCard";
-		} else {
-			model.addAttribute("member", memberService.get(member.getNo()));
-			Map<String, Object> params = new HashMap<>();
-			params.put("status", "결제대기중");
-			params.put("no", member.getNo());
-			model.addAttribute("item", coachingProgramService.findByMemberNo(params));
-			return "myCoach/order/kakaoPay";
-		}
-	}
+  @GetMapping("payments") // 결제
+  public String payments(Model model, String payment) throws Exception {
+    if (payment.equals("creditCard")) {
+      return "myCoach/order/creditCard";
+    } else {
+      return "myCoach/order/kakaoPay";
+    }
+  }
 
-	
-	@PostMapping("payments/complete") // 신청내역
-	public void complete(Model model) throws Exception {
-	}
+
+  @PostMapping("payments/complete") // 신청내역
+  public void complete(Model model) throws Exception {}
 }

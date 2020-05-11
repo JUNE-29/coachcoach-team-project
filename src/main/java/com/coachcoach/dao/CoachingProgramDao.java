@@ -48,6 +48,9 @@ public interface CoachingProgramDao {
   // 코치페이지- 코칭 프로그램관리(자세히보기)
   CoachingProgram findByProgramNo(int no) throws Exception;
 
+  // 프로그램번호로 찾기
+  CoachingProgram findByOrderNo(Map<String, Object> params) throws Exception;
+
   // 페이징처리 리스트
   List<CoachingProgram> pageList(Map<String, Object> params) throws Exception;
 
