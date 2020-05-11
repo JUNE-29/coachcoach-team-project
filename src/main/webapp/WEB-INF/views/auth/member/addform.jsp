@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 
-<jsp:include page="../../header.jsp"/>
 
 <h1>회원 가입</h1>
 <form name="form" action='add' method='post' enctype='multipart/form-data' >
@@ -137,5 +136,4 @@ function insertBirth() {
 
 </script>
 
-<jsp:include page="../../footer.jsp"/>
     
