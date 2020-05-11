@@ -11,6 +11,8 @@
 <form name="form" action='add' method='post' enctype='multipart/form-data' >
 
 아이디:<input type='text' name='id' id='id' onkeyup='insertId()'>
+<input type='button' value="ID중복확인" onclick="idCheck()">
+<br>
 <span id='alertText'><span style='color #777'> ※ 아이디를 입력해주세요</span></span><br>
 
 비밀번호: <input type='password' name='password' onkeyup='insertPwd()'><br>
@@ -113,6 +115,15 @@ function insertId() {
 		document.getElementById("alertText").innerHTML=('<span style="color: green;">정상적으로 입력되었습니다.</span>');
 	}
 }
+
+// id 중복체크
+function idCheck(){
+	//새 창만들기
+	// 파일명, 새창 이름, 다양한 옵션
+	window.open("idCheckForm","idwin","width=400, height=350");
+}
+
+
 
 function insertPwd() {
 	var form = document.form;

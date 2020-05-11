@@ -90,4 +90,14 @@ public class MemberAuthController {
     }
 
   } // 회원가입
+
+  @GetMapping("idCheckForm")
+  public void memberIdCheck() {
+
+  }
+
+  @PostMapping("idCheckPro")
+  public void memberIdCheckPro() {
+
+  }
 }

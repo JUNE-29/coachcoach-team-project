@@ -32,7 +32,12 @@
 <tiles:insertAttribute name="header"/>
 
 <main id="main">
-<div class="body-footer">
+<div class="body-footer" style="
+border-bottom-width: 100px;
+margin-bottom: 0px;
+height: 610px;
+padding-top: 10px;
+">
 <tiles:insertAttribute name="body"/>
 </div>
 </main>
