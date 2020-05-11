@@ -41,7 +41,6 @@
 <div class="box">
 <strong>키워드</strong>
 <form name='keyword' action='searchTag' method='post' class="tag" onchange="chk_keyword()">
-<div>
 <div id="ck-button">
 <label>
     <input type="checkbox" name="tags" value="1">하체튼튼</button>
@@ -82,7 +81,6 @@
     <input type="checkbox" name="tags" value="8">생활개선</button>
   </label>
     </div>
-</div>
 </form>
 </div>
 <div class="box">
