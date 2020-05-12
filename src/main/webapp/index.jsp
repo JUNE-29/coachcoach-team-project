@@ -61,9 +61,9 @@
         <ul>
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">코치소개</a></li>
-          <li><a href="#portfolio">코치찾기</a></li>
-          <li><a href="#services">회원가입</a></li>
-          <li><a href="#team">로그인</a></li>
+          <li><a href="app/program/list">코치찾기</a></li>
+          <li><a href="app/auth/signup">회원가입</a></li>
+          <li><a href="app/auth/login">로그인</a></li>
           <li class="drop-down"><a href="">고객센터</a>
             <ul>
               <li><a href="#">FAQ</a></li>
