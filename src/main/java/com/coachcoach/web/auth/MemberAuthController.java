@@ -1,6 +1,8 @@
 package com.coachcoach.web.auth;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import com.coachcoach.domain.Member;
@@ -97,7 +100,19 @@ public class MemberAuthController {
   }
 
   @PostMapping("idCheckPro")
-  public void memberIdCheckPro() {
 
+  @RequestMapping("idcheck")
+  public Map<Object, Object> idcheck(@RequestBody String userid) throws Exception {
+
+    System.out.println("여기");
+
+    int count = 0;
+    Map<Object, Object> map = new HashMap<Object, Object>();
+
+    count = memberService.idcheck(userid);
+    map.put("cnt", count);
+
+    return map;
   }
 }
+

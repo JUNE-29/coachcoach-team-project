@@ -35,6 +35,9 @@ public interface MemberDao {
 
   // 운동정보 수정
   int update(int no, Member member) throws Exception;
+
+  // ID 중복체크
+  int checkid(String inputId) throws Exception;
 }
 
 
