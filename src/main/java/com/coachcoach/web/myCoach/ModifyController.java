@@ -26,8 +26,21 @@ public class ModifyController {
   @Autowired
   HttpSession httpSession;
 
-  @GetMapping("form") // 회원정보 수정
-  public void form(Model model) throws Exception {
+  @GetMapping("checkPasswordForm")
+  public void checkPasswordForm() throws Exception {}
+
+  @PostMapping("checkPassword") // 비밀번호 재확인
+  public String withdrawForm(HttpSession session, String password) throws Exception {
+    Member member = (Member) session.getAttribute("loginUser");
+    if (memberService.get(member.getNo(), member.getId(), password) != null) {
+      return "redirect:form";
+    }
+    return "redirect:checkPasswordForm"; // 틀렸을시.
+  }
+
+
+  @PostMapping("form") // 회원정보 수정
+  public void form(Model model, String password) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("member", memberService.get(member.getNo()));
   }
