@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.coachcoach.dao.MemberDao;
 import com.coachcoach.domain.Member;
 import com.coachcoach.service.MemberService;
@@ -76,10 +78,9 @@ public class MemberServiceImpl implements MemberService {
 
   }
 
+
   @Override
   public int idcheck(String inputId) throws Exception {
-
-    int idCnt = memberDao.checkid(inputId);
-    return idCnt;
+    return memberDao.checkid(inputId);
   }
 }

@@ -20,7 +20,7 @@
     <tbody>
           <tr>
               <th>아이디</th>
-          <td><input type='text' name='id' id='id' onkeyup='insertId()'>
+          <td><input type='text' name='id' id='userid' onkeyup='insertId()'>
           <!-- <input type='button' value="ID중복확인" onclick="idCheck()"><br> -->
           <input type='button' id='idck' value="ID중복확인" onclick='checkid()'>
           <span id='alertText'><span style='color #777'> ※ 아이디를 입력해주세요</span></span><br></td>
@@ -74,10 +74,12 @@
         </table>
 </form>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <script>
 "use strict"
 
+
+     
 document.querySelector("#btn").onclick = () => {
 	var form = document.form
 	
@@ -164,37 +166,26 @@ function idCheck(){
 	window.open("idCheckForm","idwin","width=400, height=350");
 }
 */
-
 var idck = 0;
-
-function checkid() {
-	console.log("e");
-	 //idck 버튼을 클릭했을 때
-	 $("#idck").click(function(){
-		 
-		 var userid2 = $("#id").val();
-		 
-		 console.log(userid2);
-		 
-		 $.ajax({
-			 async: false,
-			 type: 'POST',
-			 data: {userid:userid2},
-			 url: "idcheck",
-			 dataType : "json",
-	     contentType: "application/json; charset=UTF-8",
-			 sucess: function(data){
-				 if(data.cnt > 0){
-					 alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
-				 } else{
-					 alert("사용가능한 아이디입니다.");
-					 // 아이디가 중복하지 않으면 idck = 1
-					 idck=1;
-				 }
-			  }
-			 });
-		 });
-}
+function checkid(){
+     $.ajax({
+       type: 'POST',
+       datatype: "json",
+       data: {userid : $("#userid").val()},
+       url: "idcheck",
+       success : function(result){
+           if (result == 0){
+               console.log("넘어온 값 : " + result);
+               alert('사용가능합니다');
+           } else {
+        	   idck = 1;
+             console.log("넘어온 값 : " + result);
+               alert('중복입니다');
+           }
+       }
+       });
+     };
+     
 //});
 
 
