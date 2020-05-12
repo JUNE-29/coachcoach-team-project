@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
 <a class='navbar-brand' href='#'>코치코치</a>
 <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
@@ -23,5 +24,8 @@
   <span class='navbar-text'>${loginUser.name}</span>
   <a href='/coachcoach-team-project/app/auth/logout' class='btn btn-success btn-sm'>로그아웃</a>
 </c:if>
+<c:if test="${empty loginUser}">
+  <a href='/coachcoach-team-project/app/auth/login' class='btn btn-success btn-sm'>로그인</a>
+</c:if> 
 </div>
 </nav>

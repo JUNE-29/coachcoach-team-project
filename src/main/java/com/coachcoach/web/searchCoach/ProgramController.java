@@ -23,7 +23,7 @@ import com.coachcoach.service.MemberService;
 
 @Controller
 @RequestMapping("/program")
-public class SearchController {
+public class ProgramController {
 
   @Autowired
   HttpSession httpSession;

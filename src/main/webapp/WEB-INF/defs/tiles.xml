@@ -31,6 +31,8 @@
         <put-attribute name="footer" value="/WEB-INF/tiles/auth/footer.jsp" />
     </definition>
     
+    
+    
     <definition name="myCoach/*/*" template="/WEB-INF/tiles/myCoach/template.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/myCoach/header.jsp" />
         <put-attribute name="side" value="/WEB-INF/tiles/myCoach/side.jsp" />
@@ -38,18 +40,19 @@
         <put-attribute name="footer" value="/WEB-INF/tiles/myCoach/footer.jsp" />
     </definition>    
     
-        <definition name="myCoach/*/*" template="/WEB-INF/tiles/myCoach/template.jsp">
-        <put-attribute name="header" value="/WEB-INF/tiles/myCoach/header.jsp" />
-        <put-attribute name="side" value="/WEB-INF/tiles/myCoach/side.jsp" />
-        <put-attribute name="body" value="/WEB-INF/views/myCoach/{1}/{2}.jsp" />
-        <put-attribute name="footer" value="/WEB-INF/tiles/myCoach/footer.jsp" />
+     <definition name="program/*" template="/WEB-INF/tiles/program/template1.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/program/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/program/{1}.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/program/footer.jsp" />
+    </definition> 
+        
+     <definition name="program/apply/*" template="/WEB-INF/tiles/program/template2.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/program/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/program/apply/{1}.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/program/footer.jsp" />
     </definition>    
     
-        <definition name="searchCoach/*/*" template="/WEB-INF/tiles/searchCoach/template.jsp">
-        <put-attribute name="header" value="/WEB-INF/tiles/searchCoach/header.jsp" />
-        <put-attribute name="body" value="/WEB-INF/views/searchCoach/{1}/{2}.jsp" />
-        <put-attribute name="footer" value="/WEB-INF/tiles/searchCoach/footer.jsp" />
-    </definition>    
+   
 </tiles-definitions>
 
 

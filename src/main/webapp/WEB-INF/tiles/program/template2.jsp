@@ -8,17 +8,21 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<c:if test="${not empty refreshUrl}">
-<meta http-equiv="Refresh" content="${refreshUrl}">
-</c:if>
-<title>CoachCoach-team-project</title>
- <link href="${pageContext.servletContext.contextPath}/resources_e/css/style.css" rel="stylesheet">
+<title>CoachCoach</title>
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
+<tiles:insertAttribute name="header"/>
 
-<tiles:insertAttribute name="side"/>
+<div class='container'>
+
 <tiles:insertAttribute name="body"/>
+
+
 <tiles:insertAttribute name="footer"/>
+
+</div>
 
 </body>
 </html>
