@@ -75,4 +75,11 @@ public class MemberServiceImpl implements MemberService {
     return memberDao.update(no, member);
 
   }
+
+  @Override
+  public int idcheck(String inputId) throws Exception {
+
+    int idCnt = memberDao.checkid(inputId);
+    return idCnt;
+  }
 }
