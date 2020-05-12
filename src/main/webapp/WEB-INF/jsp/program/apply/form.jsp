@@ -3,9 +3,9 @@
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="../header.jsp"/>
+<jsp:include page="../../header.jsp"/>
 
-<form action='applyList' method='post'>
+<form action='list' method='post'>
 <h1>프로그램 신청서</h1>
 <h3>[회원정보]</h3>
 이름: ${member.name}<br>
@@ -25,4 +25,4 @@
 <input name='memberNo' type='hidden' value='${member.no}'>
 </form>
 
-<jsp:include page="../footer.jsp"/>
+<jsp:include page="../../footer.jsp"/>

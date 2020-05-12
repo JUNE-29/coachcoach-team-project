@@ -4,9 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<jsp:include page="../header.jsp"/>
+<jsp:include page="../../header.jsp"/>
 
-<form action='deleteApply ' method='post'>
+<form action='delete' method='post'>
 <h1>프로그램 확인</h1>
 <h3>[회원정보]</h3>
 신청번호: ${program.no}<br>
@@ -23,7 +23,7 @@
 <input name='applyNo' type='hidden' value='${program.no}'>
 <input name='programNo' type='hidden' value='${program.programNo}'>
 </form>
-<button type="button" onclick="location.href='list.jsp'">확인</button>
+<button type="button" onclick="location.href='accept.jsp'">확인</button>
 
 
-<jsp:include page="../footer.jsp"/>
+<jsp:include page="../../footer.jsp"/>

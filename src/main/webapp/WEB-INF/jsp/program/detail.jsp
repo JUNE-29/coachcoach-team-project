@@ -8,7 +8,7 @@
 <jsp:include page="../header.jsp"/>
 
 <div style='border:1px solid gray; padding:10px; margin:5px'>
-<form action='applyForm' method='post'>
+<form action='apply/form' method='post'>
 <h3>프로그램</h3>
 번호: ${program.no}<br>
 프로그램명: ${program.name}<br>
