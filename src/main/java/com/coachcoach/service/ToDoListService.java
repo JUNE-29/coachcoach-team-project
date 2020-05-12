@@ -11,10 +11,12 @@ public interface ToDoListService {
 
   ToDoList findByNo(int toDoListNo) throws Exception;
 
+  // 선택삭제도 delete 같이 사용
   int delete(int no) throws Exception;
 
   int update(ToDoList toDoList) throws Exception;
 
   void deleteCheckBox(ToDoList toDoList) throws Exception;
+
 
 }

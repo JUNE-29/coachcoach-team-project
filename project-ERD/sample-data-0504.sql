@@ -425,7 +425,7 @@ insert into workout_tags(tag_no, name)
 insert into workout_tags(tag_no, name)
   values (5,'체력위주');
 insert into workout_tags(tag_no, name)
-  values (6,'체중감략');
+  values (6,'체중감량)';
 insert into workout_tags(tag_no, name)
   values (7,'제활위주');
 insert into workout_tags(tag_no, name)

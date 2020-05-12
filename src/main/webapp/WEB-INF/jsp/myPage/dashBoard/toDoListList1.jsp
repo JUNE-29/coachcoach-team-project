@@ -15,11 +15,11 @@
 
  <c:forEach items="${findAll}" var="item">
   
-  <tr>
+  <tr> 
      <td align=center><input type="checkbox" name="toDoList">${item.no}</td>
      <td align=center>${item.memo}</td>
      <td align=center>${item.createDate}</td>
-        
+         
       <th ><a href= 'toDoListUpdateForm?toDoListNo=${item.no}'>수정</a></th>
       <th ><a href= 'toDoListDelete?toDoListNo=${item.no}'>삭제</a></th>
    </tr>

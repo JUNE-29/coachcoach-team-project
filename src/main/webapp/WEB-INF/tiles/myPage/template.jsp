@@ -33,7 +33,7 @@
 
 <main id="main">
 <div class="body-footer">
-<tiles:insertAttribute name="body"/>
+<tiles:insertAttribute name="body"/>  
 </div>
 <tiles:insertAttribute name="footer"/>
 </main>
