@@ -33,12 +33,6 @@
   <!-- Template Main CSS File -->
   <link href="./resources/assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: MyBiz - v2.0.0
-  * Template URL: https://bootstrapmade.com/mybiz-free-business-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -49,13 +43,6 @@
       <div class="contact-info mr-auto">
         <i class="icofont-envelope"></i><a href="mailto:contact@example.com">coach@naver.com</a>
         <i class="icofont-phone phone-icon"></i> +1 5589 55488 55
-      </div>
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
       </div>
     </div>
   </section>
@@ -74,9 +61,9 @@
         <ul>
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">코치소개</a></li>
-          <li><a href="#services"></a></li>
           <li><a href="#portfolio">코치찾기</a></li>
-          <li><a href="#team"></a></li>
+          <li><a href="#services">회원가입</a></li>
+          <li><a href="#team">로그인</a></li>
           <li class="drop-down"><a href="">고객센터</a>
             <ul>
               <li><a href="#">FAQ</a></li>
@@ -336,10 +323,10 @@
         <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter="*" class="filter-active">전체</li>
+              <li data-filter=".filter-app">아침</li>
+              <li data-filter=".filter-card">점심</li>
+              <li data-filter=".filter-web">저녁</li>
             </ul>
           </div>
         </div>
@@ -498,12 +485,6 @@
                 <p>수업 효과: 체형관리, 근력향상, 바른체형</p>
                   <p>수업 지역 : 선택가능</p>
                     <p>수업 가능 시간: 추후공지</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
               </div>
             </div>
           </div>
@@ -517,12 +498,6 @@
                 <p>수업 효과: 체형관리, 근력향상, 바른체형</p>
                   <p>수업 지역 : 선택가능</p>
                     <p>수업 가능 시간: 추후공지</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
               </div>
             </div>
           </div>
@@ -536,12 +511,6 @@
                 <p>수업 효과: 체형관리, 근력향상, 바른체형</p>
                   <p>수업 지역 : 선택가능</p>
                     <p>수업 가능 시간: 추후공지</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
               </div>
             </div>
           </div>
@@ -555,16 +524,9 @@
                 <p>수업 효과: 체형관리, 근력향상, 바른체형</p>
                   <p>수업 지역 : 선택가능</p>
                     <p>수업 가능 시간: 추후공지</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
               </div>
             </div>
           </div>
-
         </div>
 
       </div>
@@ -636,74 +598,6 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="section-title">
-          <span>지도</span>
-          <h2>지도</h2>
-          <p>나와 가까운 코치진 위치를 알수 있어요</p>
-        </div>
-      </div>
-
-      <div class="map">
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div class="container">
-
-        <div class="info-wrap mt-5">
-          <div class="row">
-            <div class="col-lg-4 info">
-              <i class="ri-map-pin-line"></i>
-              <h4>Location:</h4>
-              <p>대한민국<br>서울</p>
-            </div>
-
-            <div class="col-lg-4 info mt-4 mt-lg-0">
-              <i class="ri-mail-line"></i>
-              <h4>Email:</h4>
-              <p>coach@naver.com<br>coach@gmail.com</p>
-            </div>
-
-            <div class="col-lg-4 info mt-4 mt-lg-0">
-              <i class="ri-phone-line"></i>
-              <h4>Call:</h4>
-              <p>+1 5589 55488 51<br>+1 5589 22475 14</p>
-            </div>
-          </div>
-        </div>
-
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-          <div class="form-row">
-            <div class="col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-6 form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-            <div class="validate"></div>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
-        </form>
-
-      </div>
-    </section><!-- End Contact Section -->
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -716,23 +610,16 @@
             <div class="footer-info">
               <h3>CoachCoach</h3>
               <p>
-                서울특별시 강남구 <br>
-                비트캠프<br><br>
+                조장: <br>
+                조원:<br><br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> coach@naver.com<br>
               </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
             </div>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>사이트맵</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">코치소개</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">코치찾기</a></li>
@@ -741,17 +628,6 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">회원가입</a></li>
             </ul>
           </div>
-
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>검색</h4>
-            <p>찾을단어를 입력해주세요</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
-
         </div>
       </div>
     </div>
