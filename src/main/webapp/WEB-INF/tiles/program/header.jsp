@@ -16,10 +16,10 @@
     <a class="nav-link" href="#">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">코치찾기</a>
+    <a class="nav-link" href="list">코치찾기</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">로그인</a>
+    <a class="nav-link" href="../auth/login">로그인</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">회원가입</a>

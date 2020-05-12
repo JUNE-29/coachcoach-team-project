@@ -12,7 +12,7 @@
           <li><a href="../program/list">마이코치</a></li>
           <li><a href="../apply/list">신청내역</a></li>
           <li><a href="../pay/list">결제내역</a></li>
-          <li><a href="../modify/checkPassword">회원정보수정</a></li>
+          <li><a href="../modify/checkPasswordForm">회원정보수정</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 

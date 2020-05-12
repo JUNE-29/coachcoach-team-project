@@ -39,8 +39,8 @@ public class ModifyController {
   }
 
 
-  @PostMapping("form") // 회원정보 수정
-  public void form(Model model, String password) throws Exception {
+  @GetMapping("form") // 회원정보 수정
+  public void form(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("member", memberService.get(member.getNo()));
   }
