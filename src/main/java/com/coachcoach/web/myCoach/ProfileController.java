@@ -1,7 +1,11 @@
 package com.coachcoach.web.myCoach;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.InputStream;
 import java.util.UUID;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +49,12 @@ public class ProfileController {
   @PostMapping("updateForm") // 프로필 사진 수정
   public String updateForm(Member member, MultipartFile photoFile) throws Exception {
     if (photoFile.getSize() > 0) {
+      BufferedImage croppedImage = getSquareImg(photoFile.getBytes());
+
       String dirPath = servletContext.getRealPath("/upload/member");
       String filename = UUID.randomUUID().toString();
-      photoFile.transferTo(new File(dirPath + "/" + filename));
+
+      ImageIO.write(croppedImage, "jpg", new File(dirPath + "/" + filename));
       member.setPhoto(filename);
     }
 
@@ -58,10 +65,17 @@ public class ProfileController {
     }
   }
 
-  //  private static BufferedImage getSquareImg(byte[] originImg) throws Exception {
-  //    InputStream in = new ByteArrayInputStream(originImg);
-  //    BufferedImage origin = ImageIO.read(in);
-  //    BufferedImage croppedImg = origin.getSubimage(300,150, 300, 600);
-  //    return croppedImg;
-  //  }
+  private static BufferedImage getSquareImg(byte[] originImg) throws Exception {
+    InputStream in = new ByteArrayInputStream(originImg);
+    BufferedImage origin = ImageIO.read(in);
+    int width = origin.getWidth();
+    int height = origin.getHeight();
+    BufferedImage croppedImg = null;
+    if (width >= height) {
+      croppedImg = origin.getSubimage(width / 2 - height / 2, 0, height, height);
+    } else {
+      croppedImg = origin.getSubimage(0, 0, width, width);
+    }
+    return croppedImg;
+  }
 }

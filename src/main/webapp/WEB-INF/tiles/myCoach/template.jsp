@@ -8,52 +8,25 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<c:if test="${not empty refreshUrl}">
-<meta http-equiv="Refresh" content="${refreshUrl}">
-</c:if>
 <title>CoachCoach-team-project</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="${pageContext.servletContext.contextPath}/resources_e/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources_e/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources_e/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources_e/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources_e/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources_e/vendor/aos/aos.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="${pageContext.servletContext.contextPath}/resources_e/css/style.css" rel="stylesheet">
-
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
+<link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
+<link href="${pageContext.servletContext.contextPath}/resources_e/css/style.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
 
+<tiles:insertAttribute name="header"/>
+<div class="innerCont">
+<div class="sidebar">
 <tiles:insertAttribute name="side"/>
-
-<main id="main">
-<div id="end-line">
-<div id="content">
+</div>
+<div class="content">
 <tiles:insertAttribute name="body"/>
 </div>
 </div>
 <tiles:insertAttribute name="footer"/>
-</main>
-  <!-- Vendor JS Files -->
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/jquery/jquery.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/php-email-form/validate.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/counterup/counterup.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/venobox/venobox.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_e/vendor/typed.js/typed.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}}/resources_e/vendor/aos/aos.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="${pageContext.servletContext.contextPath}}/resources_e/js/main.js"></script>
 
 </body>
 </html>
+

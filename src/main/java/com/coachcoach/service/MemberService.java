@@ -26,6 +26,6 @@ public interface MemberService {
 
   Member get(int no, String id, String password) throws Exception;
 
-
+  int idcheck(String inputId) throws Exception;
 
 }

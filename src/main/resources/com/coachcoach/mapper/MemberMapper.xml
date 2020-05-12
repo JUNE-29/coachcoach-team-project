@@ -158,6 +158,16 @@
       and id=#{id}
       and password=password(#{password})
   </select>
+  
+  
+  <select id="checkid" resultType="Integer" parameterType="String" >
+  select
+    count(*)
+  from
+   members
+  where
+    id=#{id}
+  </select>
  
 </mapper>
 
