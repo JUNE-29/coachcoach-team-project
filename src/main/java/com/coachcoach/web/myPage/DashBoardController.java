@@ -70,6 +70,17 @@ public class DashBoardController {
     toDoListService.update(toDoList);
   }
 
+  @GetMapping("toDoListTestDelete")
+  public void toDoListTestDelete(String str) throws Exception {
+    System.out.println(str);
+    String str1[] = str.split(";");
+    int itemNo = 0;
+    for (int i = 0; i < str1.length; i++) {
+      System.out.println(str1[i]);
+      itemNo = Integer.parseInt(str1[i]);
+      toDoListService.delete(itemNo);
+    }
 
 
+  }
 }
