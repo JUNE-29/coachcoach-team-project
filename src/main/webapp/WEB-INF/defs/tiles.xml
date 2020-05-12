@@ -40,13 +40,13 @@
         <put-attribute name="footer" value="/WEB-INF/tiles/myCoach/footer.jsp" />
     </definition>    
     
-     <definition name="program/*" template="/WEB-INF/tiles/program/template1.jsp">
+     <definition name="program/*" template="/WEB-INF/tiles/program/pTemplate.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/program/header.jsp" />
         <put-attribute name="body" value="/WEB-INF/views/program/{1}.jsp" />
         <put-attribute name="footer" value="/WEB-INF/tiles/program/footer.jsp" />
     </definition> 
         
-     <definition name="program/apply/*" template="/WEB-INF/tiles/program/template2.jsp">
+     <definition name="program/apply/*" template="/WEB-INF/tiles/program/template.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/program/header.jsp" />
         <put-attribute name="body" value="/WEB-INF/views/program/apply/{1}.jsp" />
         <put-attribute name="footer" value="/WEB-INF/tiles/program/footer.jsp" />
