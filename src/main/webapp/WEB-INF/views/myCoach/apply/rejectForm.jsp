@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<jsp:include page="../header.jsp"/>
 
-<h3>신청이 취소되었습니다.</h3>
+
+<h3>거절사유</h3>
+○○ 코치님이 보낸 메세지입니다.<br>
+<p>죄송하지만 블라블라~~.......</p>
 <form action='list' method='get'>
 <button>확인</button>
 </form>
 
-<jsp:include page="../footer.jsp"/>

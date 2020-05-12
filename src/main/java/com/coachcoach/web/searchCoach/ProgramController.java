@@ -23,7 +23,7 @@ import com.coachcoach.service.MemberService;
 
 @Controller
 @RequestMapping("/program")
-public class SearchController {
+public class ProgramController {
 
   @Autowired
   HttpSession httpSession;
@@ -93,20 +93,20 @@ public class SearchController {
   }
 
   @Auth(role = Role.MEMBER)
-  @PostMapping("applyForm") // 신청서
+  @PostMapping("apply/form") // 신청서
   public String applyForm(Model model, int programNo) {
     try {
       Member member = (Member) httpSession.getAttribute("loginUser");
       model.addAttribute("member", memberService.get(member.getNo()));
       model.addAttribute("program", coachingProgramService.get(programNo));
-      return "program/applyForm";
+      return "program/apply/form";
     } catch (Exception e) {
       return "redirect:error";
     }
   }
 
   @Auth(role = Role.MEMBER)
-  @PostMapping("applyList") // 확인
+  @PostMapping("apply/list") // 확인
   public void applyList(Model model, MemberCoachingProgram memberCoachingProgram) throws Exception {
     memberCoachingProgramService.add(memberCoachingProgram);
     model.addAttribute("program", memberCoachingProgramService.get(memberCoachingProgram.getNo()));
@@ -115,8 +115,11 @@ public class SearchController {
   @GetMapping("error") // 로그인페이지 이동
   public void error() throws Exception {}
 
+  @GetMapping("apply/accept") // 확인
+  public void applyAccept() throws Exception {}
+
   @Auth(role = Role.MEMBER)
-  @PostMapping("deleteApply") // 신청취소
+  @PostMapping("apply/delete") // 신청취소
   public void deleteApply(Model model, int applyNo, int programNo) {
     try {
       memberCoachingProgramService.delete(applyNo);

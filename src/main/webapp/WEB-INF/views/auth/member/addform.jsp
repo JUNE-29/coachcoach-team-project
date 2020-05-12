@@ -4,34 +4,74 @@
 
 
 <style>
-
+.join_box{width:800px; margin:0 auto;}
+.join_box table{width:100%;}
+.join_box table > input{height:30px; border:1px solid red}
+.join_box table button {min-width:120px;}
 </style>
 
 <h1>회원 가입</h1>
+<div class="join_box">
 <form name="form" action='add' method='post' enctype='multipart/form-data' >
-
-아이디:<input type='text' name='id' id='id' onkeyup='insertId()'>
-<input type='button' value="ID중복확인" onclick="idCheck()">
+<table>
+  <colgroup>
+      <col style="width:30%" />
+        <col style="width:70%" />
+    </colgroup>
+    <tbody>
+          <tr>
+              <th>아이디</th>
+          <td><input type='text' name='id' id='id' onkeyup='insertId()'>
+          <input type='button' value="ID중복확인" onclick="idCheck()"><br>
+          <span id='alertText'><span style='color #777'> ※ 아이디를 입력해주세요</span></span><br></td>
+          </tr>
+          <tr>
+              <th>비밀번호</th>
+          <td><input type='password' name='password' onkeyup='insertPwd()'></td>
+          </tr>
+          <tr>
+              <th>비밀번호확인</th>
+          <td><input type='password' name='password2' onkeyup='insertPwd()'><br>
+              <span id='alertPwd'><span style='color #777'>※ 패스워드를 한번 더 입력해주세요</span></span>
+          </td>
+         </tr>
+        <tr>
+              <th>이름</th>
+        <td><input type='text' name='name'></td>
+        </tr>
+        <tr>
+              <th>성별</th>
+          <td><input type="radio" name="gender" value="0"/>여자
+          <input type="radio" name="gender" value="1"/>남자<br></td>
+         </tr>
+         <tr>
+              <th>생년월일</th>
+         <td><input type='text' name= 'birth' onkeyup='insertBirth()'><br>
+             <span id='alertBirth'><span style='color #777'>※ 생년월일을 입력해주세요 예)19990101</span></span>
 <br>
-<span id='alertText'><span style='color #777'> ※ 아이디를 입력해주세요</span></span><br>
-
-비밀번호: <input type='password' name='password' onkeyup='insertPwd()'><br>
-비밀번호확인: <input type='password' name='password2' onkeyup='insertPwd()'>
-<span id='alertPwd'><span style='color #777'>※ 패스워드를 한번 더 입력해주세요</span></span>
-<br> 
-이름:     <input type='text' name='name'><br>
-
-성별:     <input type="radio" name="gender" value="0"/>여자
-          <input type="radio" name="gender" value="1"/>남자<br>
-생년월일: <input type='text' name= 'birth' onkeyup='insertBirth()'>
-<span id='alertBirth'><span style='color #777'>※ 생년월일을 입력해주세요 예)19990101</span></span>
-<br>
-연락처:   <input type='tel' name='tel1' size = "3" maxlength= "3"> -
+         </td>
+         </tr>
+         <tr>
+              <th>연락처</th>
+           <td>
+          <input type='tel' name='tel1' size = "3" maxlength= "3"> -
           <input type='tel' name='tel2' size = "4" maxlength= "4"> -
-          <input type='tel' name='tel3' size = "4" maxlength= "4"><br>
-이메일:   <input type='email' name='email'><button> 인증하기</button><br>
-사진:     <input type='file' name='photoFile' ><br>
-<button id="btn" type="button">가입하기</button>
+          <input type='tel' name='tel3' size = "4" maxlength= "4">
+          </td>
+          </tr>
+          <tr>
+              <th>이메일</th>
+            <td><input type='email' name='email'><button> 인증하기</button></td>
+          </tr>
+          <tr>
+          <th>사진</th>
+          <td><input type='file' name='photoFile' ></td>
+          </tr>
+        <tr>
+          <td colspan="2"><button id="btn" type="button">가입하기</button></td>
+        </tr>
+        </tbody>
+        </table>
 </form>
 
 <script>

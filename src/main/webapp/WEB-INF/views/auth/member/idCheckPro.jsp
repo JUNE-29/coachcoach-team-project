@@ -14,20 +14,21 @@ out.println("입력 ID:<strong>" + id + "</strong>");
 if(cnt == 0){
   out.println("<p> 사용 가능한 아이디입니다.</p>");
   out.println("<a href='javascript:apply(\"" + id + "\")'>[적용]</a>");
-} else {
 %>
 
 <script>
 "use strict"
 
 function apply(id){
+	console.log(id);
 	// 중복 확인 id를 부모창에 적용 , 부모창 opener
- opener.document.from.id.value=id;
+ opener.document.form.id.value=id;
 	window.close();
 }
 </script>
 
 <%
+} else {
   out.println("<p style='color: red'>해당 아이디는 사용하실 수 없습니다.</p>");
 }
 %>
