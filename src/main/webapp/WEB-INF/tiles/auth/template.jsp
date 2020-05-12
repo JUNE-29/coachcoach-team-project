@@ -21,17 +21,19 @@
   <link href="${pageContext.servletContext.contextPath}/resources_k/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/resources_k/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/resources_k/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources_K/assets/vendor/aos/aos.css" rel="stylesheet">
+ <!--  <link href="${pageContext.servletContext.contextPath}/resources_K/assets/vendor/aos/aos.css" rel="stylesheet">  -->
 
   <!-- Template Main CSS File -->
   <link href="${pageContext.servletContext.contextPath}/resources_k/assets/css/style.css" rel="stylesheet">
-
 </head>
+
 <body>
 
 <tiles:insertAttribute name="header"/>
 
-<main id="main">
+<main id="main" style=" 
+    margin-left: 0px;
+">
 <div class="body-footer" style="
 border-bottom-width: 100px;
 margin-bottom: 0px;
