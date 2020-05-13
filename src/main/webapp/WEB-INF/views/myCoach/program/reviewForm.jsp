@@ -36,8 +36,8 @@
 
         function send() {
         	  document.frm.submit();
-        	  window.close();
-        	  location.reload();
+        	  window.opener.location.reload(); 
+        	  window.close(); 
         	}
         
 </script>
