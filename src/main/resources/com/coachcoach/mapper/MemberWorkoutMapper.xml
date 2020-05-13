@@ -19,11 +19,6 @@
       <result column="unit"           property="unit"/>
   </association>
   
-  <association property="workout" javaType="workout">
-      <id column="workout_no"              property="no"/>
-      <result column="name"                property="name"/>
-  </association>  
-    
   </resultMap>
   
    <insert id="insert" parameterType="MemberWorkout"

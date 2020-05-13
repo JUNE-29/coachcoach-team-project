@@ -5,7 +5,7 @@
   
 <mapper namespace="com.coachcoach.dao.WorkoutUnitDao">
 
-  <resultMap type="workout" id="workout">
+  <resultMap type="WorkoutUnit" id="workoutUnit">
       <id column="workout_no"              property="no"/>
       <result column="name"                property="name"/>
   </resultMap>
