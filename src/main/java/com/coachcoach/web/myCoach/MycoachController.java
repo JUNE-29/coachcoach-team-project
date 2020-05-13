@@ -47,16 +47,17 @@ public class MycoachController {
   @GetMapping("programDetail") // 프로그램 상세보기
   public void programDetail() {}
 
-  @GetMapping("reviewForm") // 후기양식
-  public void reviewForm(Model model, int no) {
+  @GetMapping("reviewForm")
+  public void reviewForm(Model model, String no) {
     model.addAttribute("no", no);
   }
 
   @PostMapping("reviewUpdate") // 후기등록완료
-  public void reviewUpdate(Model model, int no, String review) throws Exception {
+  public String reviewUpdate(Model model, int no, String review) throws Exception {
     Map<String, Object> params = new HashMap<>();
     params.put("memberCoachingProgramNo", no);
     params.put("review", review);
     memberCoachingProgramService.updateReview(params);
+    return "myCoach/program/list";
   }
 }

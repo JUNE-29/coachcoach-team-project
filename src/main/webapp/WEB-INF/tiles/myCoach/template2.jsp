@@ -2,11 +2,15 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
-
-
-<h3>후기를 작성해주셔서 감사합니다</h3>
-<form action='list' method='get'>
-<button>확인</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+</head>
+<body>
+<tiles:insertAttribute name="body"/>
+</body>
+</html>
 
