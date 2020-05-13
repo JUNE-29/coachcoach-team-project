@@ -338,7 +338,7 @@ border-radius: 0 5px 5px 0;
   z-index: 9998;
   border: 0;
   background: none;
-  font-size: 24px;
+  font-size: 36px;
   transition: all 0.4s;
   outline: none !important;
   line-height: 1;
@@ -347,7 +347,7 @@ border-radius: 0 5px 5px 0;
 }
 
 .mobile-nav-toggle i {
-  color: #149ddd;
+  color: #ff8000;
 }
 
 .mobile-nav-active {
@@ -359,7 +359,7 @@ border-radius: 0 5px 5px 0;
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
-  color: #fff;
+  color: #ff8000;
 }
 
 /*--------------------------------------------------------------
