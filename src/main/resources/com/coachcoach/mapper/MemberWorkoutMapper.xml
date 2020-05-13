@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.MemberWorkoutDao">
+
+  <resultMap type="MemberWorkout" id="MemberWorkoutMap">
+    <id column="workout_list_no"     property="no"/>
+    <result column="member_no"       property="memberNo"/>
+    <result column="workout_unit_no" property="workoutUnitNo"/>
+    <result column="workout_date"    property="workoutDate"/>
+    <result column="weight"          property="weight"    />
+    <result column="walk_count"  property="walkCount"/>
+    
+  <association property="workoutUnit" javaType="workoutUnit">
+      <id column="workout_unit_no"    property="no"/>
+      <result column="workout_no"     property="workoutNo"/>
+      <result column="unit"           property="unit"/>
+  </association>
+  
+  </resultMap>
+  
+   <insert id="insert" parameterType="MemberWorkout"
+   useGeneratedKeys="true" keyColumn="workout_list_no" keyProperty="no">
+    insert into member_workouts(
+      member_no,
+      workout_unit_no,
+      workout_date,
+      weight,
+      walk_count
+      ) values(
+      #{memberNo},
+      #{workoutUnitNo},
+      #{workoutDate},
+      #{weight},      
+      #{walkCount}
+     )
+  </insert>
+  
+  
+</mapper>
+
+
+
+
+
+
+
