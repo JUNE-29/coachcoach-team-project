@@ -21,8 +21,7 @@
           <tr>
               <th>아이디</th>
           <td><input type='text' name='id' id='userid' onkeyup='insertId()'>
-          <!-- <input type='button' value="ID중복확인" onclick="idCheck()"><br> -->
-          <input type='button' id='idck' value="ID중복확인" onclick='checkid()'>
+          <input type='button' id='idck' value="ID중복확인" onclick='checkid()'><br>
           <span id='alertText'><span style='color #777'> ※ 아이디를 입력해주세요</span></span><br></td>
           </tr>
           <tr>
@@ -158,14 +157,6 @@ function insertId() {
 	}
 }
 
-/*
-// id 중복체크
-function idCheck(){
-	//새 창만들기
-	// 파일명, 새창 이름, 다양한 옵션
-	window.open("idCheckForm","idwin","width=400, height=350");
-}
-*/
 var idck = 0;
 function checkid(){
      $.ajax({
@@ -176,22 +167,15 @@ function checkid(){
        success : function(result){
            if (result == 0){
                console.log("넘어온 값 : " + result);
-               alert('사용가능합니다');
+               alert('사용가능한 아이디입니다.');
            } else {
         	   idck = 1;
              console.log("넘어온 값 : " + result);
-               alert('중복입니다');
+               alert('아이디가 존재합니다. 다른 아이디를 입력해주세요.');
            }
        }
        });
      };
-     
-//});
-
-
-
-
-
 
 function insertPwd() {
 	var form = document.form;
