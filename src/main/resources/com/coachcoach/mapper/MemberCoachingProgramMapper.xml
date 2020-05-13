@@ -158,7 +158,8 @@
     update member_coaching_programs
       set
         review=#{review},
-        review_date=now()
+        review_date=now(),
+        star_rate=#{starRate}
     where member_program_no=#{memberCoachingProgramNo}
   </update>
   

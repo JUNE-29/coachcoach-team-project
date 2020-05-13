@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.coachcoach.domain.Member;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
@@ -52,9 +55,12 @@ public class MycoachController {
     model.addAttribute("no", no);
   }
 
-  @PostMapping("reviewUpdate") // 후기등록완료
-  public String reviewUpdate(Model model, int no, String review) throws Exception {
+  
+  @ResponseBody
+  @RequestMapping(value="reviewUpdate", method=RequestMethod.GET)
+  public String reviewUpdate(Model model, int no, String review, int starRate) throws Exception {
     Map<String, Object> params = new HashMap<>();
+    params.put("starRate", starRate);
     params.put("memberCoachingProgramNo", no);
     params.put("review", review);
     memberCoachingProgramService.updateReview(params);
