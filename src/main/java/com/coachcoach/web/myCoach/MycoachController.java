@@ -53,10 +53,11 @@ public class MycoachController {
   }
 
   @PostMapping("reviewUpdate") // 후기등록완료
-  public void reviewUpdate(Model model, int no, String review) throws Exception {
+  public String reviewUpdate(Model model, int no, String review) throws Exception {
     Map<String, Object> params = new HashMap<>();
     params.put("memberCoachingProgramNo", no);
     params.put("review", review);
     memberCoachingProgramService.updateReview(params);
+    return "myCoach/program/list";
   }
 }
