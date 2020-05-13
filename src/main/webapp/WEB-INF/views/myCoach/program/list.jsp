@@ -33,10 +33,10 @@
       <td>${list.mcp.startDate} ~ ${list.mcp.endDate}</td>     
     <c:if test="${empty list.mcp.review}">
     <td>
-      <form action='reviewForm' method='get'>
-     <button>등록</button>
-     <input name='no' type='hidden' value='${list.mcp.no}'>
-      </form>
+    <form name="form">
+     <input type='hidden' id='mcpno' name='no'  value='${list.mcp.no}'>
+     <input type="button" id='pop' value='등록' onclick='showpop(this.form)'>
+     </form>
     </td>
     </c:if>
     <c:if test="${not empty list.mcp.review}">
@@ -48,5 +48,24 @@
   </c:forEach>
 </table>
 </div>
+
+<script type="text/javascript">
+
+function showpop(frmData){
+	    var url    ="reviewForm";
+	    var title  = "testpop";
+	    var status = "scrollbars=no,width=500,height=500,menubar=false";
+	
+    window.open("",title,status) ;
+     
+    frmData.target = title;                    
+    frmData.action = url;                    
+    frmData.method = "get";
+    frmData.submit();    
+     
+}
+
+
+</script>
 
 

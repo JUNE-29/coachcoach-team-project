@@ -19,10 +19,20 @@
 <button>확인</button>
 </form>
 
+<input type='button' value='취소' onclick='winclose()'>
+
 <script>
         $('#star_grade a').click(function(){
             $(this).parent().children("a").removeClass("on"); 
             $(this).addClass("on").prevAll("a").addClass("on");
             return false;
         });
+        
+        
+        function winclose(){
+        	window.close(); 
+       }
+
+
+    
 </script>
