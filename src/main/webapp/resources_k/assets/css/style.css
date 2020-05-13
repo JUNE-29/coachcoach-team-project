@@ -97,33 +97,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
 }
 
-#header .profile h1 a, #header .profile h1 a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-#header .profile .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #212431;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
-
-
-#header .profile .social-links a:hover {
-  background: #149ddd;
-  color: #fff;
-  text-decoration: none;
-}
-
 #main {
   margin-left: 300px;
   position: relative;
@@ -165,6 +138,19 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 0px;
 	padding: 7px;
   width : 600px;
+}
+
+.detailProfile .col1 {
+	color: white;
+	background-color: #ff8c55;
+  border-color: #ff9966;
+  border-radius: 5px 0 0 5px;
+}
+
+.detailProfile .value { 
+	background-color: white;
+	border-color: #ff9966;
+border-radius: 0 5px 5px 0;
 }
 
 .detailProfile .content_box .name .col1 {
@@ -285,13 +271,14 @@ h1, h2, h3, h4, h5, h6 {
 #content {
 	  padding-top: 60px;
     padding-left: 60px;
-    padding-right: 300px;
     min-height: 758px;
-    width: 1300px;
+    width: 1000px;
+    background-color: #fffff0;
+    
 }
 
 #end-line {
-	 width: 1000px;
+	 width: 1300px;
 	 background-color: white;
 }
 
@@ -330,12 +317,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
   text-decoration: none;
-  color: #fff;
+  color: #fff31c;
+   transition: 0.5s ease-out ;
 }
 
 .nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
   color: #fff31c;
    transition: 0.5s ease-out ;
+}
+
+.nav-menu .active > a, .nav-menu .active > a i {
+	size: 120%;
 }
 
 /* Mobile Navigation */
