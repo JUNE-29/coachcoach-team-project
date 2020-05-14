@@ -12,12 +12,11 @@
   
   
 function chk_keyword() {
-  var chk_kwd = document.getElementsByName('tags');
     var chk_kwd = document.getElementsByName('tags');
     var chk_cnt = 0; 
     for(var i=0; i<chk_kwd.length; i++) {
         if(chk_kwd[i].checked == true) {
-          
+        	chk_cnt++;
         } 
     }
     
