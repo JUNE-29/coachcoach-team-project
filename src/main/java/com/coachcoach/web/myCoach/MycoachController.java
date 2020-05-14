@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Member;
-import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachingProgramService;
@@ -50,19 +49,18 @@ public class MycoachController {
   public void programDetail() {}
 
   @GetMapping("reviewForm")
-  public void reviewForm(Model model, String no) {
+  public void reviewForm(Model model, int no) {
     model.addAttribute("no", no);
   }
 
 
   @ResponseBody
   @RequestMapping(value = "reviewUpdate", method = RequestMethod.POST)
-  public String reviewUpdate(Model model, MemberCoachingProgram memberCoachingProgram)
-      throws Exception {
+  public String reviewUpdate(Model model, int no, String review, int starRate) throws Exception {
     Map<String, Object> params = new HashMap<>();
-    params.put("starRate", memberCoachingProgram.getStarRate());
-    params.put("memberCoachingProgramNo", memberCoachingProgram.getNo());
-    params.put("review", memberCoachingProgram.getReview());
+    params.put("starRate", starRate);
+    params.put("memberCoachingProgramNo", no);
+    params.put("review", review);
     memberCoachingProgramService.updateReview(params);
     return "myCoach/program/list";
   }

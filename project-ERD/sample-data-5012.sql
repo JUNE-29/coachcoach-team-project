@@ -237,6 +237,15 @@ insert into member_coaching_programs(member_no, program_no, remark, status, requ
                         start_date, end_date, star_rate, review, review_date, etc)
   values(2, 7, '허리가 아파요', '진행 완료', '2020-01-01', '2020-01-01', '2020-04-10', '2020-05-01',
          null, null, null, null);
+insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
+                        start_date, end_date, star_rate, review, review_date, etc)
+  values(2, 8, '허리가 아파요', '결제대기중', '2020-01-01', null, '2020-01-10', '2020-02-01',
+         null, null, null, null);
+insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
+                        start_date, end_date, star_rate, review, review_date, etc)
+  values(2, 9, '허리가 아파요', '결제대기중', '2020-01-01', null, '2020-01-10', '2020-02-01',
+         null, null, null, null);
+                  
          
 -- 회원코칭프로그램일정
   insert into member_program_calendar(member_program_no, plan, start_date, end_date)
