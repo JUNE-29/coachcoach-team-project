@@ -13,9 +13,10 @@
 </c:if>
 <title>CoachCoach-team-project</title>
   
-  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
-  <link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources_e/css/style.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/venobox/venobox/venobox.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
 
 </head>
 
@@ -29,6 +30,16 @@
 </div>
 </main>
 <tiles:insertAttribute name="footer"/>
+
+  <!-- Vendor JS Files -->
+  <script src="${pageContext.servletContext.contextPath}/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/jquery.easing/bower_components/jquery-easing-original/jquery.easing.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/venobox/venobox/venobox.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/typed.js/lib/typed.min.js"></script>
 
 </body>
 </html>
