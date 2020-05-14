@@ -39,7 +39,6 @@
     </tr>
   </c:forEach>
   </table>
-<hr>
 
 <input type="button" value="계좌관리" onclick="location.href='addForm'" style="btn btn-primary">
 

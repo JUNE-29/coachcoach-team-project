@@ -8,6 +8,22 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+/* 테이블 스타일 관련--------------------------------------------------------------
+--------------------------------------------------------------*/
+
+.table-head {
+	background-color: #ff8c55;
+	color: white;
+}
+
+th, td {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+--------------------------------------------------------------*/
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
@@ -19,17 +35,18 @@ body {
 	}
 
 a {
-  color: #149ddd;
+  color: #ecb304;
 }
 
 a:hover {
-  color: #37b3ed;
+  color: #ff8040;
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
+
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -62,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-# Header
+# Header 및 프로필 관련
 --------------------------------------------------------------*/
 #header {
   position: fixed;
@@ -260,13 +277,56 @@ border-radius: 0 5px 5px 0;
   color: white;
 }
 
-/*--------------------------------------------------------------
+.detailProfile .content_box section button:hover {
+  margin-top:20px;
+  margin-left:420px;
+  margin-bottom:50px;
+  background-color: #ea7306 !important;
+  color: white;
+}
+
+
+/*버튼 관련--------------------------------------------------------------
+--------------------------------------------------------------*/
+
+/*부트스트랩 버튼 변형... 클릭시 테두리에 색 생기는거 바꿈*/
+.btn:focus, .btn:active:focus, .btn.active {
+  box-shadow: none;
+}
+
+.addForm {
+  text-align: right;
+}
+	
+.orange-button {
+	margin-top:20px;
+  background-color: #ff8c55 !important;
+  color: white;
+  outline: none;
+  box-shadow: none;
+}
+
+/*버튼 꾹 클릭시 파란 테두리 안나오게 하기*/
+.orange-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.orange-button:hover {
+  background-color: #ea7306 !important;
+  color: white;
+}
+
+/* 타이틀 하이라이트--------------------------------------------------------------
 --------------------------------------------------------------*/
 
 .highlight {
   background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #ff8c55 50%);
-  width: 180px;
 }
+
+
+/*content 영역--------------------------------------------------------------
+--------------------------------------------------------------*/
 
 #content {
 	  padding-top: 60px;
@@ -282,7 +342,47 @@ border-radius: 0 5px 5px 0;
 	 background-color: white;
 }
 
+/* 결제페이지 관련--------------------------------------------------------------
+--------------------------------------------------------------*/
+#searchPayBox2 {
+  float: right;
+  padding-right: 60px;
+}
 
+/*코치 개인정보 수정관련--------------------------------------------------------------
+--------------------------------------------------------------*/
+#coachModForm {
+  position: relative;
+  overflow: hidden;
+}
+
+#coachMod {
+	float:left;
+	padding-right:50px;
+}
+
+#coachModInput {
+  float:left;
+  height:500px;
+  text-align: right;
+}
+
+#coachModInput > div{
+  text-align: left;
+}
+
+#coachModInput input{
+	margin-bottom: 1px;
+}
+
+#coachModInput input[type='radio']{
+  margin-top: 10px;
+  margin-bottom: 11px;
+  left:0 ;
+}
+
+/*--------------------------------------------------------------
+--------------------------------------------------------------*/
 
 .nav-menu {
   padding-top: 30px;
@@ -318,7 +418,7 @@ border-radius: 0 5px 5px 0;
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
   text-decoration: none;
   color: #fff31c;
-   transition: 0.5s ease-out ;
+   transition: 0.5s ease-out  
 }
 
 .nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {

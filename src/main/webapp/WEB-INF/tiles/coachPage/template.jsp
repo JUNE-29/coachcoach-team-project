@@ -38,7 +38,7 @@
 <tiles:insertAttribute name="footer"/>
 </main>
   <!-- Vendor JS Files -->
-  <script src="${pageContext.servletContext.contextPath}/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/jquery/dist/jquery.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/jquery.easing/bower_components/jquery-easing-original/jquery.easing.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
@@ -46,9 +46,11 @@
   <script src="${pageContext.servletContext.contextPath}/node_modules/venobox/venobox/venobox.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/typed.js/lib/typed.min.js"></script>
+  
 
   <!-- Template Main JS File -->
   <script src="${pageContext.servletContext.contextPath}/resources_k/js/main.js"></script>
+
 
 </body>
 </html>
