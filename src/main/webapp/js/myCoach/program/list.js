@@ -1,4 +1,3 @@
-console.log('myCoach/program/list.js 로딩됨!');
 
 
 var regBtn = $("#regBtn");

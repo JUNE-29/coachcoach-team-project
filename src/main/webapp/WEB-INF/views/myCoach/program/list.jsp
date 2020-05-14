@@ -35,7 +35,6 @@
     <td>
     <form name="form">
      <input type='hidden' id='mcpno' name='no'  value='${list.mcp.no}'>
-     <input type="button" id='pop' value='등록' onclick='showpop(this.form)'>
      </form>
      <button data-no="${list.mcp.no}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
       등록

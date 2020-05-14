@@ -21,6 +21,7 @@ div.container {
    text-align: center;
 }
 
+
 .innerCont { overflow:hidden;}
 .leftArea { float:left; width:354px;}
 .leftArea .inner { padding:18px; border-radius:20px; box-sizing:border-box; background:#CFDDF3;}
