@@ -133,4 +133,60 @@
     items: 1
   });
 
+  var li = document.querySelectorAll(".nav-menu li");
+  $(li).click(function() {
+    for (var i = 0; i < li.length; i++) {
+      li[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        if(current.length > 0) {
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        } else {
+          this.className += " active";
+        }
+      })
+    }
+  })
+
+//  $(".go").click(function(){
+//    var link = $(this).attr("href");
+//    $.ajax(
+//        { type: 'get' , 
+//          url: link, 
+//          success: 
+//            function(data) {
+//            console.log(link);
+//            console.log(data);
+//              $("#content").html(data);
+//            }
+//        });
+//  });
+  
+  $('#updateCoachProfileSubmit').on('click', function(e) {
+    e.preventDefault();
+      var form = $('.modal .updateForm')[0];
+      var data = new FormData(form);
+
+      $.ajax({
+          type: "POST",
+          enctype: 'multipart/form-data',
+          url: "update",
+          data: data,
+          processData: false,
+          contentType: false,
+          cache: false,
+          timeout: 600000,
+          success: function (data) {
+              $('.modal').modal("hide");
+              location.reload();
+          },
+          error: function (e) {
+              alert("ERROR : ", "수정 실패");
+          }
+    });
+    return false;
+});
 })(jQuery);
+
+
+

@@ -44,20 +44,23 @@ public class CoachProfileController {
 
       ImageIO.write(croppedImage, "jpg", new File(dirPath + "/" + filename));
       coach.setPhoto(filename);
+    } else {
+      coach.setPhoto("");
     }
 
     if (coachService.updateProfile(coach) > 0) {
     } else {
       throw new Exception("프로필 업데이트 실패");
     }
-    session.setAttribute("loginUser", coach);
+    session.setAttribute("loginUser", coachService.get(coach.getNo()));
     return "redirect:detail";
   }
 
   @GetMapping("form")
   public void form(HttpSession httpSession, Model model) throws Exception {
     int coachNo = ((Coach) httpSession.getAttribute("loginUser")).getNo();
-    model.addAttribute("coach", coachService.get(coachNo));
+    Coach coach = coachService.get(coachNo);
+    model.addAttribute("coach", coach);
   }
 
   @GetMapping("detail")
@@ -68,6 +71,7 @@ public class CoachProfileController {
     coach.setCertification(coach.getCertification().replace("\n", "<br>"));
     coach.setIntroduce(coach.getIntroduce().replace("\n", "<br>"));
     model.addAttribute("coach", coach);
+    model.addAttribute("coach2", coachService.get(coachNo));
   }
 
   private static BufferedImage getSquareImg(byte[] originImg) throws Exception {

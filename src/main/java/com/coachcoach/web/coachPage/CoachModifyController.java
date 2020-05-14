@@ -54,7 +54,7 @@ public class CoachModifyController {
     if (updatePassword[0].equals(updatePassword[1])) {
       coach.setPassword(updatePassword[0]);
       coachService.update(coach);
-      httpSession.setAttribute("loginUser", coach);
+      httpSession.setAttribute("loginUser", coachService.get(coach.getNo()));
     }
   }
 

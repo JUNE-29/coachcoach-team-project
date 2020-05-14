@@ -14,10 +14,10 @@
 	<table>
 	
 	<tr><td>이름</td> <td><input name='name' readonly type='text' value='${coach.name}'></td></tr>
-	<tr><td>수업가능지역</td> <td><textarea name='area' rows='5' cols='60'>${coach.area}</textarea></td></tr>
-	<tr><td>경력사항</td> <td><textarea name='career' rows='5' cols='60'>${coach.career}</textarea></td></tr>
-	<tr><td>보유자격증</td> <td><textarea name='certification' rows='5' cols='60'>${coach.certification}</textarea></td></tr>
-	<tr><td>강사소개</td> <td><textarea name='introduce' rows='5' cols='60'>${coach.introduce}</textarea></td></tr>
+	<tr><td>수업가능지역</td> <td><textarea name='area' rows='5' cols='40'>${coach.area}</textarea></td></tr>
+	<tr><td>경력사항</td> <td><textarea name='career' rows='5' cols='40'>${coach.career}</textarea></td></tr>
+	<tr><td>보유자격증</td> <td><textarea name='certification' rows='5' cols='40'>${coach.certification}</textarea></td></tr>
+	<tr><td>강사소개</td> <td><textarea name='introduce' rows='5' cols='40'>${coach.introduce}</textarea></td></tr>
 	
 	</table>
 	<button>내 프로필 수정</button>
