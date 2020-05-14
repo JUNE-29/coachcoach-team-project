@@ -4,9 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<div class="innerCont">
-<div class="leftArea">
-<div class="inner">
+<div class="bar">
+<div class="rightArea">
+<div class="content">
 <h3>프로그램</h3>
 번호: ${program.no}<br>
 프로그램명: ${program.name}<br>

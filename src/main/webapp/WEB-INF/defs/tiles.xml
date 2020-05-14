@@ -41,9 +41,6 @@
         <put-attribute name="jsFilename" value="{1}/{2}.js" />
     </definition>    
     
-      <definition name="myCoach/program/reviewForm" template="/WEB-INF/tiles/myCoach/template2.jsp">
-        <put-attribute name="body" value="/WEB-INF/views/myCoach/program/reviewForm.jsp" />
-    </definition>    
     
      <definition name="program/*" template="/WEB-INF/tiles/program/pTemplate.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/program/header.jsp" />
