@@ -66,8 +66,8 @@
           <li><a href="app/auth/login">로그인</a></li>
           <li class="drop-down"><a href="">고객센터</a>
             <ul>
-              <li><a href="#">FAQ</a></li>
-              <li class="drop-down"><a href="#">공지사항</a>
+              <li><a href="app/serviceCenter/FAQ/list">FAQ</a></li>
+              <li class="drop-down"><a href="app/serviceCenter/noticeBoard/list">공지사항</a>
           </li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -610,8 +610,9 @@
             <div class="footer-info">
               <h3>CoachCoach</h3>
               <p>
-                조장: <br>
-                조원:<br><br>
+               조장:김다혜 <br>
+                조원:김동영,김은정,<br>
+                정지윤,노기현<br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> coach@naver.com<br>
               </p>
@@ -621,11 +622,11 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>사이트맵</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">코치소개</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">코치찾기</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">고객센터</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">로그인</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">회원가입</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">코치소개</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="app/program/list">코치찾기</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="app/serviceCenter/FAQ/list">고객센터</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="app/auth/signup">로그인</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="app/auth/login">회원가입</a></li>
             </ul>
           </div>
         </div>

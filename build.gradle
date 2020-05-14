@@ -9,6 +9,12 @@ repositories {
 }
 
 dependencies {
+
+    // 이메일수신 라이브러리와 관련있는 프레임워크
+ //   implementation 'org.springframework:spring-context-support:5.2.6.RELEASE'
+    // 이메일수신 관련 라이브러리
+ //   implementation 'javax.mail:mailapi:1.4.3'
+
     // Tiles-jsp 라이브러리
     implementation 'org.apache.tiles:tiles-jsp:3.0.8'
     
