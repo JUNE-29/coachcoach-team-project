@@ -13,22 +13,24 @@
 </c:if>
 <title>CoachCoach-team-project</title>
   
+ 
   <link href="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/venobox/venobox/venobox.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
-  
+
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!--  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
 <tiles:insertAttribute name="header"/>
 <div class="innerCont" style="
-    height: 535px;
-    width: 500px;"
+    height: 600px;
+    width: 800px;
+    padding-top: 0px;"
 >
 <div class="content">
 <tiles:insertAttribute name="body"/>
