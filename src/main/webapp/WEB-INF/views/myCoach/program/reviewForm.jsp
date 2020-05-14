@@ -75,13 +75,19 @@ var starRating = function(){
         function send() {
             window.opener.location.reload(); 
             
+            var starRate =  $("input[name='star-input']:checked").val();
+            var no = $("#no").val();
+            var review = $("#review").val();
+            var form = {
+                    star:starRate,
+                    no:no,
+                    review:review
+                    }
+            
             $.ajax({
-            	  url: 'reviewUpdate',   
-            	  type: 'get',
-            	  data: {star:$("#star").val(),
-            		       no:$("#no").val(),
-            		       review:$("#review").val()},
-            	  dataType: 'json',
+            	  url: "reviewUpdate",   
+            	  type: "Post",
+            	  data: form,
             	  done: function(response) {
             	    // 성공 시 동작
             	  },
