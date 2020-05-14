@@ -17,7 +17,7 @@ background:url('http://localhost:9999/coachcoach-team-project/upload/img/grade_i
 .star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;}
 .star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
 .star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
-star-input>.input.focus{outline:1px dotted #ddd;}
+.star-input>.input.focus{outline:1px dotted #ddd;}
 .star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
 .star-input>.input>label:hover,
 .star-input>.input>input:focus+label,

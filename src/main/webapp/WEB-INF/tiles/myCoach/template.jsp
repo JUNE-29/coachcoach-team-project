@@ -9,10 +9,9 @@
 <head>
 <meta charset='UTF-8'>
 <title>CoachCoach-team-project</title>
-<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
+<link rel='stylesheet' href='${pageContext.getServletContext().getContextPath()}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/style.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
 
@@ -27,6 +26,11 @@
 </div>
 <tiles:insertAttribute name="footer"/>
 
+<script src='${pageContext.getServletContext().getContextPath()}/node_modules/jquery/dist/jquery.min.js'></script>
+<script src='${pageContext.getServletContext().getContextPath()}/node_modules/@popperjs/core/dist/umd/popper.min.js'></script>
+<script src='${pageContext.getServletContext().getContextPath()}/node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+<script src='${pageContext.getServletContext().getContextPath()}/node_modules/sweetalert/dist/sweetalert.min.js'></script>
+<script src='${pageContext.getServletContext().getContextPath()}/js/myCoach/<tiles:getAsString name="jsFilename"></tiles:getAsString>'></script>
 </body>
 </html>
 

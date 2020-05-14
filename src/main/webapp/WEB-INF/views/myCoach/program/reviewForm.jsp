@@ -5,26 +5,25 @@
 
 <h1>후기작성</h1>
 
-<form name='frm' action='reviewUpdate' method='post' enctype='multipart/form-data'>
+<form name='frmData'>
 <span class="star-input">
  <span class="input">
-      <input type="radio" name="star-input" value="1" id="p1">
+      <input type="radio" name="starRate" value="1" id="p1">
       <label for="p1">1</label>
-      <input type="radio" name="star-input" value="2" id="p2">
+      <input type="radio" name="starRate" value="2" id="p2">
       <label for="p2">2</label>
-      <input type="radio" name="star-input" value="3" id="p3">
+      <input type="radio" name="starRate" value="3" id="p3">
       <label for="p3">3</label>
-      <input type="radio" name="star-input" value="4" id="p4">
+      <input type="radio" name="starRate" value="4" id="p4">
       <label for="p4">4</label>
-      <input type="radio" name="star-input" value="5" id="p5">
+      <input type="radio" name="starRate" value="5" id="p5">
       <label for="p5">5</label>
     </span>
 </span>
 
-
-<input id='no' type='hidden' value='${no}'>
-<textarea id='review'  rows='5' cols='50' placeholder='후기를 등록해주세요!'></textarea><br>
-<input type='button' value='등록' onclick='send()'>
+<input name='no' type='hidden' value='${no}'>
+<textarea name='review'  rows='5' cols='50' placeholder='후기를 등록해주세요!'></textarea><br>
+<input type='button' value='등록' onclick='send(this.form)'>
 </form>
 <input type='button' value='취소' onclick='winclose()'>
 
@@ -72,34 +71,12 @@ var starRating = function(){
         	window.close(); 
        }
 
-        function send() {
-            window.opener.location.reload(); 
-            
-            var starRate =  $("input[name='star-input']:checked").val();
-            var no = $("#no").val();
-            var review = $("#review").val();
-            var form = {
-                    star:starRate,
-                    no:no,
-                    review:review
-                    }
-            
-            $.ajax({
-            	  url: "reviewUpdate",   
-            	  type: "Post",
-            	  data: form,
-            	  done: function(response) {
-            	    // 성공 시 동작
-            	  },
-            	  fail: function(error) {
-            	    // 실패 시 동작
-            	  },
-            	  always: function(response) {
-            	    // 성공하든 실패하든 항상 할 동작
-            	  }
-            	});
-            
+        function send(frmData) {
+          frmData.action = "reviewUpdate";               
+          frmData.method = "post";
+          frmData.submit();    
             window.close(); 
+          opener.window.location.reload();
         	}
         
 
