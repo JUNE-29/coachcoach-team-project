@@ -6,7 +6,6 @@
 
 
   <h1><span class="highlight">회원관리</span></h1>
-  <a href='../notice/list'>공지사항관리</a>
   <br>
   회원 수: 총 ${fn:length(list)}명 <br>
 
@@ -64,5 +63,3 @@
    </tbody>
 	 </table>
 	 </div>
-
-    
