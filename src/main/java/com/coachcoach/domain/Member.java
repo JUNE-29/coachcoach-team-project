@@ -26,6 +26,21 @@ public class Member implements Serializable {
   String goal;
   int goalIn;
 
+  // 이메일 인증 관련 필드 추가
+  String authKey;
+  int authStatus;
+
+
+  @Override
+  public String toString() {
+    return "Member [no=" + no + ", id=" + id + ", name=" + name + ", gender=" + gender + ", birth="
+        + birth + ", tel=" + tel + ", email=" + email + ", password=" + password + ", photo="
+        + photo + ", createDate=" + createDate + ", withdrawal=" + withdrawal + ", withdrawalDate="
+        + withdrawalDate + ", withdrawalReason=" + withdrawalReason + ", goal=" + goal + ", goalIn="
+        + goalIn + ", authKey=" + authKey + ", authStatus=" + authStatus + "]";
+  }
+
+
   public int getNo() {
     return no;
   }
@@ -146,29 +161,43 @@ public class Member implements Serializable {
     this.goalIn = goalIn;
   }
 
-  public static long getSerialversionuid() {
-    return serialVersionUID;
+  public String getAuthKey() {
+    return authKey;
+  }
+
+  public void setAuthKey(String authKey) {
+    this.authKey = authKey;
+  }
+
+  public int getAuthStatus() {
+    return authStatus;
+  }
+
+  public void setAuthStatus(int authStatus) {
+    this.authStatus = authStatus;
   }
 
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + (birth == null ? 0 : birth.hashCode());
-    result = prime * result + (createDate == null ? 0 : createDate.hashCode());
-    result = prime * result + (email == null ? 0 : email.hashCode());
+    result = prime * result + ((authKey == null) ? 0 : authKey.hashCode());
+    result = prime * result + authStatus;
+    result = prime * result + ((birth == null) ? 0 : birth.hashCode());
+    result = prime * result + ((createDate == null) ? 0 : createDate.hashCode());
+    result = prime * result + ((email == null) ? 0 : email.hashCode());
     result = prime * result + gender;
-    result = prime * result + (goal == null ? 0 : goal.hashCode());
+    result = prime * result + ((goal == null) ? 0 : goal.hashCode());
     result = prime * result + goalIn;
-    result = prime * result + (id == null ? 0 : id.hashCode());
-    result = prime * result + (name == null ? 0 : name.hashCode());
+    result = prime * result + ((id == null) ? 0 : id.hashCode());
+    result = prime * result + ((name == null) ? 0 : name.hashCode());
     result = prime * result + no;
-    result = prime * result + (password == null ? 0 : password.hashCode());
-    result = prime * result + (photo == null ? 0 : photo.hashCode());
-    result = prime * result + (tel == null ? 0 : tel.hashCode());
+    result = prime * result + ((password == null) ? 0 : password.hashCode());
+    result = prime * result + ((photo == null) ? 0 : photo.hashCode());
+    result = prime * result + ((tel == null) ? 0 : tel.hashCode());
     result = prime * result + withdrawal;
-    result = prime * result + (withdrawalDate == null ? 0 : withdrawalDate.hashCode());
-    result = prime * result + (withdrawalReason == null ? 0 : withdrawalReason.hashCode());
+    result = prime * result + ((withdrawalDate == null) ? 0 : withdrawalDate.hashCode());
+    result = prime * result + ((withdrawalReason == null) ? 0 : withdrawalReason.hashCode());
     return result;
   }
 
@@ -181,6 +210,13 @@ public class Member implements Serializable {
     if (getClass() != obj.getClass())
       return false;
     Member other = (Member) obj;
+    if (authKey == null) {
+      if (other.authKey != null)
+        return false;
+    } else if (!authKey.equals(other.authKey))
+      return false;
+    if (authStatus != other.authStatus)
+      return false;
     if (birth == null) {
       if (other.birth != null)
         return false;
@@ -245,15 +281,6 @@ public class Member implements Serializable {
     } else if (!withdrawalReason.equals(other.withdrawalReason))
       return false;
     return true;
-  }
-
-  @Override
-  public String toString() {
-    return "Member [no=" + no + ", id=" + id + ", name=" + name + ", gender=" + gender + ", birth="
-        + birth + ", tel=" + tel + ", email=" + email + ", password=" + password + ", photo="
-        + photo + ", createDate=" + createDate + ", withdrawal=" + withdrawal + ", withdrawalDate="
-        + withdrawalDate + ", withdrawalReason=" + withdrawalReason + ", goal=" + goal + ", goalIn="
-        + goalIn + "]";
   }
 
 

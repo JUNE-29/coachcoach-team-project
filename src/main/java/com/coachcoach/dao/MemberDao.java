@@ -38,6 +38,12 @@ public interface MemberDao {
 
   // ID 중복체크
   int checkid(String inputId) throws Exception;
+
+  // 이메일 인증 관련 - 유저 인증키 생성 메서드
+  void updateAuthkey(Member member);
+
+  // 이메일 인증 관련 - 유저 인증키 Y로 바꿔주는 메서드
+  void updateAuthStatus(Member member);
 }
 
 

@@ -10,7 +10,7 @@ public interface MemberService {
 
   int delete(int no) throws Exception;
 
-  int add(Member member) throws Exception;
+  void add(Member member) throws Exception;
 
   Member get(int no) throws Exception;
 
@@ -27,5 +27,7 @@ public interface MemberService {
   Member get(int no, String id, String password) throws Exception;
 
   int idcheck(String inputId) throws Exception;
+
+  void updateAuthStatus(Member member);
 
 }

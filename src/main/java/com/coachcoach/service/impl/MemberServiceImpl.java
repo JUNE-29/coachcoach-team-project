@@ -3,15 +3,20 @@ package com.coachcoach.service.impl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.coachcoach.dao.MemberDao;
 import com.coachcoach.domain.Member;
 import com.coachcoach.service.MemberService;
+import com.coachcoach.util.MailUtils;
+import com.coachcoach.util.TempKey;
 
 @Component
 public class MemberServiceImpl implements MemberService {
+
+  @Autowired
+  private JavaMailSender mailSender;
 
   MemberDao memberDao;
 
@@ -30,8 +35,39 @@ public class MemberServiceImpl implements MemberService {
   }
 
   @Override
-  public int add(Member member) throws Exception {
-    return memberDao.insert(member);
+  public void add(Member member) throws Exception {
+
+    memberDao.insert(member);
+
+    // 임의의 auth키 생성
+    String authkey = new TempKey().getKey(50, false);
+    member.setAuthKey(authkey);
+    memberDao.updateAuthkey(member);
+
+    // mail 작성 관련
+    MailUtils sendMail = new MailUtils(mailSender);
+
+    sendMail.setSubject("회원가입 이메일 인증");
+
+    sendMail.setText(new StringBuffer().append("<h1>[이메일 인증]</h1>")
+
+        .append("<p>아래 링크를 클릭하시면 이메일 인증이 완료됩니다.</p>")
+
+        .append(
+            "<a href='http://localhost:9999/coachcoach-team-project/app/auth/member/joinConfirm?authKey=")
+
+        .append(member.getAuthKey())
+
+        .append("'>이메일 인증 확인</a>")
+
+        .toString());
+
+    sendMail.setFrom("coachcoach.service@gmail.com", "Coachcoach");
+
+    sendMail.setTo(member.getEmail());
+
+    sendMail.send();
+
   }
 
   @Override
@@ -82,5 +118,10 @@ public class MemberServiceImpl implements MemberService {
   @Override
   public int idcheck(String inputId) throws Exception {
     return memberDao.checkid(inputId);
+  }
+
+  @Override
+  public void updateAuthStatus(Member member) {
+    memberDao.updateAuthStatus(member);
   }
 }

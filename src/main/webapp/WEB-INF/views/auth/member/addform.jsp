@@ -60,7 +60,7 @@
           </tr>
           <tr>
               <th>이메일</th>
-            <td><input type='email' name='email'><button> 인증하기</button></td>
+            <td><input type='email' name='email'></td>
           </tr>
           <tr>
           <th>사진</th>

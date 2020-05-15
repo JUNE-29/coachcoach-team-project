@@ -21,6 +21,8 @@
     <result column="withdrawal_reason"  property="withdrawalReason"/>
     <result column="goal"               property="goal"/>
     <result column="goal_in"            property="goalIn"/>
+    <result column="userkey"            property="authKey"/>
+    <result column="auth_status"        property="authStatus"/>
   </resultMap>
   
   <sql id="select">
@@ -67,6 +69,18 @@
       now()
     )
   </insert>
+  
+  <update id="updateAuthkey" parameterType="Member">
+    update members
+      set userkey=#{authKey}
+    where email=#{email}
+  </update>
+  
+  <update id="updateAuthStatus" parameterType="Member">
+    update members
+     set auth_status = 1
+    where userkey=#{authKey}
+  </update>
   
    <select id="findAll" resultMap="MemberMap">
     select 

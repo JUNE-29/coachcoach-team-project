@@ -1,8 +1,6 @@
 package com.coachcoach.web.auth;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,7 +46,7 @@ public class MemberAuthController {
     Member member = memberService.get(id, password);
     if (member != null) {
       session.setAttribute("loginUser", member);
-      model.addAttribute("refreshUrl", "2;url=../../index.jsp");
+      model.addAttribute("refreshUrl", "2;url=../../../index.jsp");
     } else {
       session.invalidate();
       model.addAttribute("refreshUrl", "2;url=form");
@@ -75,7 +72,7 @@ public class MemberAuthController {
   public void memberAddForm() {} // 회원가입폼
 
   @PostMapping("add")
-  public void memberAdd(Member member, MultipartFile photoFile, String tel1, String tel2,
+  public String memberAdd(Member member, MultipartFile photoFile, String tel1, String tel2,
       String tel3) throws Exception {
 
     String tel = tel1 + tel2 + tel3;
@@ -88,11 +85,14 @@ public class MemberAuthController {
       member.setPhoto(filename);
     }
 
-    if (memberService.add(member) > 0) {
-      // return "redirect:list";
-    } else {
-      throw new Exception("회원 가입을 할 수 없습니다.");
-    }
+    // if (memberService.add(member) > 0) {
+    // // return "redirect:list";
+    // } else {
+    // throw new Exception("회원 가입을 할 수 없습니다.");
+    // }
+
+    memberService.add(member);
+    return "auth/member/add";
 
   } // 회원가입
 
@@ -102,12 +102,20 @@ public class MemberAuthController {
   }
 
   @ResponseBody
-  @RequestMapping(value="idcheck", method=RequestMethod.POST)
+  @RequestMapping(value = "idcheck", method = RequestMethod.POST)
   public int idcheck(String userid) throws Exception {
-		System.out.println(userid);	  
-	int count = memberService.idcheck(userid);
-	System.out.println(count);
+    System.out.println(userid);
+    int count = memberService.idcheck(userid);
+    System.out.println(count);
     return count;
+  }
+
+
+  @RequestMapping(value = "joinConfirm", method = RequestMethod.GET)
+  public void emailConfirm(Member member, Model model) throws Exception {
+    System.out.println(member.getEmail() + ": auth confirmed");
+    memberService.updateAuthStatus(member); // 권한 업데이트
+    model.addAttribute("auth_check", 1);
   }
 }
 
