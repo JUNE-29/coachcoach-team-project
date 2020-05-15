@@ -162,7 +162,7 @@
           <div class="footer-info">
             <h3>CoachCoach</h3>
             <p>
-              조장:김다혜 <br> 조원:김동영,김은정,<br> 정지윤,노기현<br> <strong>Phone:</strong>
+              조장:김다혜 <br> 조원:손동영,신은정,<br> 정지윤,노기현<br> <strong>Phone:</strong>
               +1 5589 55488 55<br> <strong>Email:</strong> coach@naver.com<br>
             </p>
           </div>
@@ -171,11 +171,11 @@
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Site map</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">코치소개</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">코치찾기</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">고객센터</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">로그인</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">회원가입</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="${pageContext.servletContext.contextPath}/index.jsp">코치소개</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="${pageContext.servletContext.contextPath}/app/program/list">코치찾기</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="${pageContext.servletContext.contextPath}/app/serviceCenter/FAQ/list">고객센터</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="${pageContext.servletContext.contextPath}/app/auth/login">로그인</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="${pageContext.servletContext.contextPath}/app/auth/signup">회원가입</a></li>
           </ul>
         </div>
       </div>
