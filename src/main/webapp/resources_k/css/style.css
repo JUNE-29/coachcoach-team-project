@@ -11,6 +11,29 @@
 
 /* 테이블 스타일 관련--------------------------------------------------------------
 --------------------------------------------------------------*/
+a.page-link {
+  background-color: white !important;
+  color: #ea7306 ;
+  outline: none;
+  box-shadow: none;
+}
+
+a.page-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+a.page-link:hover {
+  background-color: #ea7306 !important;
+  color: #ea7306;
+}
+
+a.page-link:active {
+  background-color: #ea7306 !important;
+  color: #ea7306;
+}
+
+
 
 .table-head {
 	background-color: #ff8c55;
