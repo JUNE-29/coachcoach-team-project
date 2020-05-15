@@ -8,10 +8,8 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<c:if test="${not empty refreshUrl}">
-<meta http-equiv="Refresh" content="${refreshUrl}">
-</c:if>
 <title>CoachCoach-team-project</title> 
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -32,16 +30,21 @@
 
   <!-- Template Main CSS File -->
   <link href="${pageContext.servletContext.contextPath}/resources/assets/css/style.css" rel="stylesheet">
+  
 </head>
+
 <body>
 
 <tiles:insertAttribute name="header"/>
 
-<div class="content">
+<div class='container'>
+
 <tiles:insertAttribute name="body"/>
-</div>
+
 
 <tiles:insertAttribute name="footer"/>
+
+</div>
 
   <!-- Vendor JS Files -->
   <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>

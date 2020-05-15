@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 
-<jsp:include page="../../header.jsp"/>
 
 <h1>공지사항</h1>
 <form action='add' method='post'>
@@ -14,5 +13,4 @@
 
 </form>
 
-<jsp:include page="../../footer.jsp"/>
      

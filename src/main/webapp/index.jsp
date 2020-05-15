@@ -56,8 +56,10 @@
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">코치소개</a></li>
           <li><a href="app/program/list">코치찾기</a></li>
-          <li><a href="app/auth/signup">회원가입</a></li>
-          <li><a href="app/auth/login">로그인</a></li>
+             <c:if test="${sessionScope.loginUser eq null}">
+          <li><a href="${pageContext.servletContext.contextPath}/app/auth/signup">회원가입</a></li>
+          <li><a href="${pageContext.servletContext.contextPath}/app/auth/login" >로그인</a></li>
+           </c:if> 
           <li class="drop-down"><a href="">고객센터</a>
             <ul>
               <li><a href="app/serviceCenter/FAQ/list">FAQ</a></li>
