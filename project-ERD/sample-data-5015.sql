@@ -364,25 +364,296 @@ insert into workout(workout_no, name)
   
 -- 운동시간 예제 데이터
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(1, 1, '60');
+  values(1, 1, '10');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(2, 1, '120');
+  values(2, 1, '20');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(3, 2, '240');
+  values(3, 1, '30');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(4, 2, '120');
+  values(4, 1, '40');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(5, 3, '30');
+  values(5, 1, '50');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(6, 3, '40');
+  values(6, 1, '60');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(7, 4, '50');
+  values(7, 1, '70');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(8, 4, '50');
+  values(8, 1, '80');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(9, 5, '60');
+  values(9, 1, '90');
 insert into workout_unit(workout_unit_no, workout_no, unit)
-  values(10, 6, '60');
+  values(10, 1, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(11, 1, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(12, 1, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(13, 1, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(14, 1, '210');
+
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(15, 2, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(16, 2, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(17, 2, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(18, 2, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(19, 2, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(20, 2, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(21, 2, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(22, 2, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(23, 2, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(24, 2, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(25, 2, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(26, 2, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(27, 2, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(28, 2, '210');
+  
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(29, 3, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(30, 3, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(31, 3, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(32, 3, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(33, 3, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(34, 3, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(35, 3, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(36, 3, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(37, 3, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(38, 3, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(39, 3, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(40, 3, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(41, 3, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(42, 3, '210');
+
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(43, 4, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(44, 4, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(45, 4, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(46, 4, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(47, 4, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(48, 4, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(49, 4, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(50, 4, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(51, 4, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(52, 4, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(53, 4, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(54, 4, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(55, 4, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(56, 4, '210');
+
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(57, 5, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(58, 5, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(59, 5, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(60, 5, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(61, 5, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(62, 5, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(63, 5, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(64, 5, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(65, 5, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(66, 5, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(67, 5, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(68, 5, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(69, 5, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(70, 5, '210');
+
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(71, 6, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(72, 6, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(73, 6, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(74, 6, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(75, 6, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(76, 6, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(77, 6, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(78, 6, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(79, 6, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(80, 6, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(81, 6, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(82, 6, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(83, 6, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(84, 6, '210');
+
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(85, 7, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(86, 7, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(87, 7, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(88, 7, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(89, 7, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(90, 7, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(91, 7, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(92, 7, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(93, 7, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(94, 7, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(95, 7, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(96, 7, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(97, 7, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(98, 7, '210');
+
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(99, 8, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(100, 8, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(101, 8, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(102, 8, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(103, 8, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(104, 8, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(105, 8, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(106, 8, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(107, 8, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(108, 8, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(109, 8, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(110, 8, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(111, 8, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(112, 8, '210');
+
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(113, 9, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(114, 9, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(115, 9, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(116, 9, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(117, 9, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(118, 9, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(119, 9, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(120, 9, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(121, 9, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(122, 9, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(123, 9, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(124, 9, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(125, 9, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(126, 9, '210');
+
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(127, 10, '10');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(128, 10, '20');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(129, 10, '30');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(130, 10, '40');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(131, 10, '50');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(132, 10, '60');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(133, 10, '70');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(134, 10, '80');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(135, 10, '90');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(136, 10, '100');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(137, 10, '120');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(138, 10, '150');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(139, 10, '180');
+insert into workout_unit(workout_unit_no, workout_no, unit)
+  values(140, 10, '210');
+
+
   
   
   -- 운동내역 예제 데이터
