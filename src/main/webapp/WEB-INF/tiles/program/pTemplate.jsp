@@ -22,9 +22,9 @@
 <tiles:insertAttribute name="body"/>
 
 
-<tiles:insertAttribute name="footer"/>
 
 </div>
+<tiles:insertAttribute name="footer"/>
 
   <script src="${pageContext.servletContext.contextPath}/resources_e/js/pMain.js"></script>
  </body>
