@@ -167,9 +167,14 @@
   
   $('#updateCoachProfileSubmit').on('click', function(e) {
     e.preventDefault();
-      var form = $('.modal .updateForm')[0];
+      $('.area textarea').val($('.modal .area .value').text());
+      $('.career textarea').val($('.modal .career .value').text());
+      $('.certification textarea').val($('.modal .certification .value').text());
+      $('.introduce textarea').val($('.modal .introduce .value').text());
+
+      var form = $('.updateForm')[0];
       var data = new FormData(form);
-      
+
       $.ajax({
           type: "POST",
           enctype: 'multipart/form-data',
@@ -294,7 +299,6 @@
   })
 
   $('.programAddFormSubmit').on('click', function(e) {
-    
     if(!$("#program-title").val()){
       if ($(".title-box").children('p').length < 1) {
         $(".title-box").append('<p style="font-size:15px; color:red;">프로그램명을 입력해주세요<p>');
@@ -366,6 +370,99 @@
       });
     return false;
   });
+  
+  // 프로그램 삭제시
+  var deleteButton = $('.delete').children('a');
+  deleteButton.on('click', function() {
+	  Swal.fire({
+		  title: '정말 삭제하시겠어요?',
+		  text: "삭제하시면 복구가 불가능합니다!",
+		  icon: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: '삭제할래요.'
+	  }).then((result) => {
+		  if (result.value) {
+		    var form = $('.delete')[0];
+	      var data = new FormData(form);
+			  $.ajax({
+		          type: "POST",
+		          enctype: 'multipart/form-data',
+		          url: "delete",
+		          data: data,
+		          processData: false,
+		          contentType: false,
+		          cache: false,
+		          timeout: 600000,
+		          success: function (data) {
+		              Swal.fire({
+		                title: '삭제완료!',
+		                text: '삭제했습니다.',
+		                icon: 'success',
+		                confirmButtonText: '확인'
+		              }).then(() => {
+		                location.reload()
+		                })
+		              },
+		          error: function (e) {
+		            Swal.fire({
+		              title: '프로그램에 등록된 회원이 있는지 확인해주세요.',
+		              text: '프로그램에 아직 등록된 회원이 있다면 삭제하실 수 없어요.',
+		              icon: 'error',
+		              confirmButtonText: '확인'
+		              })
+		            }
+			       })
+		       }
+	      })
+     })
+  
+  var deleteNoticeButton = $('.delete-notice').children('a, button');
+  deleteNoticeButton.on('click', function() {
+    Swal.fire({
+      title: '정말 삭제하시겠어요?',
+      text: "삭제하시면 복구가 불가능합니다!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '삭제할래요.'
+    }).then((result) => {
+      if (result.value) {
+        var form = $('.delete-notice')[0];
+        var data = new FormData(form);
+        $.ajax({
+              type: "POST",
+              enctype: 'multipart/form-data',
+              url: "delete",
+              data: data,
+              processData: false,
+              contentType: false,
+              cache: false,
+              timeout: 600000,
+              success: function (data) {
+                  Swal.fire({
+                    title: '삭제완료!',
+                    text: '삭제했습니다.',
+                    icon: 'success',
+                    confirmButtonText: '확인'
+                  }).then(() => {
+                    location.href = 'list';
+                    })
+                  },
+              error: function (e) {
+                Swal.fire({
+                  title: '아이고...',
+                  text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+                  icon: 'error',
+                  confirmButtonText: '확인'
+                  })
+                }
+             })
+           }
+        })
+     })
   
   // 페이징 처리
   $('.coach-table').DataTable();

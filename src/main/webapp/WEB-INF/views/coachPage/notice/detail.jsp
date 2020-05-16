@@ -12,22 +12,21 @@
 내용: <div>${detail.content}</div><br>
 <div class="row">
 	<div class="col-md-2">
-		<form action="delete" method="post">
-		  <input type="hidden" value="${detail.no}" name="no">
-		  <button>삭제</a> 
-		</form>
+    <form class='delete-notice' method='post'>
+      <input name='no' value='${detail.no}' type='hidden'>
+      <button type='button' class='btn btn-danger'>삭제</button>
+    </form>
 	</div>
 	
 	<div class="col-md-2">
-		<form action="updateForm" method="post">
-		  <input type="hidden" value="${detail.no}" name="no">
-		  <button>변경</a> 
+		<form class='update-notice' method="post">
+		  <input value="${detail.no}" name="no" type="hidden" >
+		  <button type='button' class='btn orange-button-detail'>변경</button> 
 		</form>
 	</div>
 </div>
-<br>
-<button onclick="location.href='list'" >확인</button>
-
 <hr>
+<a href='list' >뒤로 가기</a>
+
 
     

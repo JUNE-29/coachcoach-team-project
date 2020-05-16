@@ -23,7 +23,7 @@
   <br>
   
   <div class="table-responsive" style="padding-right:60px;">
-    <table class='table table-hover'>
+    <table class='table table-hover coach-table'>
     <thead class='table-head'> 
       <tr>
         <th scope="col">번호</th>

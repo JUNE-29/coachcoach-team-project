@@ -11,11 +11,11 @@
 
 /* 테이블 스타일 관련--------------------------------------------------------------
 --------------------------------------------------------------*/
-a.page-link {
-  background-color: white !important;
-  color: #ea7306 ;
-  outline: none;
-  box-shadow: none;
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #ea7306;
+    border-color: #ea7306;
 }
 
 a.page-link:focus {
@@ -23,17 +23,17 @@ a.page-link:focus {
   box-shadow: none;
 }
 
+
+a.page-link {
+  outline: none;
+  box-shadow: none;
+  color: #ea7306;
+}
+
 a.page-link:hover {
-  background-color: #ea7306 !important;
+  border-color: #ea7306;
   color: #ea7306;
 }
-
-a.page-link:active {
-  background-color: #ea7306 !important;
-  color: #ea7306;
-}
-
-
 
 .table-head {
 	background-color: #ff8c55;
@@ -44,8 +44,18 @@ th, td {
 	text-align: center;
 }
 
+/*모달 관련*--------------------------------------------------------------
+--------------------------------------------------------------*/
+.modal-header h5{
+  color: #ff8c55;
+}
+
+#program-title {
+	width: 374px;
+}
 /*--------------------------------------------------------------
 --------------------------------------------------------------*/
+
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -172,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 15px;
   }
 
-.detailProfile section {
+.detailProfile section, .detailProfileUpdate section{
 	overflow: hidden;
   margin: 10px;
   margin-left: 0px;
@@ -180,20 +190,41 @@ h1, h2, h3, h4, h5, h6 {
   width : 600px;
 }
 
-.detailProfile .col1 {
+.col1 {
 	color: white;
 	background-color: #ff8c55;
   border-color: #ff9966;
   border-radius: 5px 0 0 5px;
 }
 
-.detailProfile .value { 
+.value { 
 	background-color: white;
 	border-color: #ff9966;
-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
 }
 
-.detailProfile .content_box .name .col1 {
+.modal .col1 {
+	color: white;
+  background-color: #ff8c55;
+  border-color: #ff9966;
+  border-radius: 5px 0 0 5px;
+}
+
+.modal 
+section {
+	width: 580px;
+}
+
+.modal .updateForm {
+	width: 600px;
+}
+
+.detailProfileUpdate .modal-content {
+	margin-left: 100px;
+	width:602px;
+}
+
+.name .col1 {
 	padding: 7px;
 	width : 150px;
 	float: left;
@@ -201,7 +232,7 @@ border-radius: 0 5px 5px 0;
   border-style: solid;
 }
 
-.detailProfile .content_box .name .value {
+.name .value {
   padding: 7px;
   width : 400px;
   float: left;
@@ -209,7 +240,7 @@ border-radius: 0 5px 5px 0;
   border-style: solid;
 }
 
-.detailProfile .content_box .area .col1 {
+.area .col1 {
   padding: 7px;
   width : 150px;
   float: left;
@@ -217,7 +248,7 @@ border-radius: 0 5px 5px 0;
   border-style: solid;
 }
 
-.detailProfile .content_box .area .value {
+.area .value {
   padding: 7px;
   width : 400px;
   float: left;
@@ -225,7 +256,7 @@ border-radius: 0 5px 5px 0;
   border-style: solid;
 }
 
-.detailProfile .content_box .career .col1 {
+.career .col1 {
   padding: 7px;
   width : 150px;
   height: 70px;
@@ -234,7 +265,7 @@ border-radius: 0 5px 5px 0;
   border-style: solid;
 }
 
-.detailProfile .content_box .career .value {
+.career .value {
   padding: 7px;
   width : 400px;
   height: 70px;
@@ -244,7 +275,7 @@ border-radius: 0 5px 5px 0;
   overflow-y: scroll;
 }
 
-.detailProfile .content_box .certification .col1 {
+.certification .col1 {
   padding: 7px;
   width : 150px;
   height: 70px;
@@ -253,7 +284,7 @@ border-radius: 0 5px 5px 0;
   border-style: solid;
 }
 
-.detailProfile .content_box .certification .value {
+.certification .value {
   padding: 7px;
   width : 400px;
   height: 70px;
@@ -263,7 +294,7 @@ border-radius: 0 5px 5px 0;
   overflow-y: scroll;
 }
 
-.detailProfile .content_box .introduce .col1 {
+.introduce .col1 {
   padding: 7px;
   width : 150px;
   height: 300px;
@@ -272,7 +303,7 @@ border-radius: 0 5px 5px 0;
   border-style: solid;
 }
 
-.detailProfile .content_box .introduce .value {
+.introduce .value {
   padding: 7px;
   width : 400px;
   height: 300px;
@@ -329,13 +360,20 @@ border-radius: 0 5px 5px 0;
   box-shadow: none;
 }
 
-/*버튼 꾹 클릭시 파란 테두리 안나오게 하기*/
-.orange-button:focus {
+.orange-button-detail {
+  background-color: #ff8c55 !important;
+  color: white;
   outline: none;
   box-shadow: none;
 }
 
-.orange-button:hover {
+/*버튼 꾹 클릭시 파란 테두리 안나오게 하기*/
+.orange-button:focus, .orange-button-detail:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.orange-button:hover, .orange-button-detail:hover {
   background-color: #ea7306 !important;
   color: white;
 }

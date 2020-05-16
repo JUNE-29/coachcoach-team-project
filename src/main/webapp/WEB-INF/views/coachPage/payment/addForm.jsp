@@ -15,10 +15,11 @@
     <td>
       ${coach.bank} <br>
       <select id="bank" name="bank">
-		  <option value="기업">기업</option>
-		  <option value="농협">농협</option>
-		  <option value="국민">국민</option>
-		  <option value="하나">하나</option>
+			  <option value="기업">기업</option>
+			  <option value="농협">농협</option>
+			  <option value="국민">국민</option>
+			  <option value="하나">하나</option>
+			</select>
 		</td>
     <td>${coach.account} <br>
       <input type="text" name="account">

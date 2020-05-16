@@ -62,6 +62,7 @@ public class NoticeController {
   public void list(Model model) throws Exception {
     int coachNo = ((Coach) session.getAttribute("loginUser")).getNo();
     model.addAttribute("list", coachingProgramBoardService.listByCoachNo(coachNo));
+    model.addAttribute("programList", coachingProgramService.list(coachNo));
   }
 
   @PostMapping("update")

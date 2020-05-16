@@ -9,7 +9,7 @@
   총 ${fn:length(list)}개 요청 건<br>
 
 	<div class="table-responsive" style="padding-right:60px;">
-    <table class='table table-hover'>
+    <table class='table table-hover coach-table'>
     <thead class='table-head'> 
       <tr>
         <th scope="col">번호</th>
@@ -20,8 +20,8 @@
         <th scope="col">상태</th>
       </tr>
       </thead>
+
     <c:set var="i" value="${fn:length(list)}"/>  
-		
 		<tbody>
         <c:if test="${empty list}"> 
           <tr>

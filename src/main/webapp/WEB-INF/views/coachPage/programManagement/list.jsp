@@ -7,7 +7,6 @@
 <h1><span class="highlight">프로그램관리</span></h1>
 <br>
 
-
 <div class="table-responsive" style="padding-right:60px;">
   <table class='coach-table table table-hover'>
   <thead class='table-head'>
@@ -15,13 +14,11 @@
 	    <th scope="col">번호</th>
 	    <th scope="col">프로그램명</th>
 	    <th scope="col">자세히보기</th>
-	    <th scope="col">수정</th>
-	    <th scope="col">삭제</th>
 	  </tr>
   </thead>
 
 	<tbody>
-	<c:set var="i" value="${fn:length(list)}"/>
+	<c:set var="i" value="0"/>
 		<c:if test="${empty list}"> 
 	    <tr>
 	     <td colspan="6">아직 등록된 프로그램이 없어요!</td>
@@ -29,12 +26,12 @@
 	  </c:if>
 	<c:forEach items="${list}" var="item">
 		  <tr>
+			  <c:set var="i" value="${i+1}"/>
 			  <td scope='row'>${i}</td>
-			  <c:set var="i" value="${i-1}"/>
 			  <td>${item.name}</td>
-			  <th><a href= 'detail?programNo=${item.no}'>자세히보기</a></th>
-			  <th><a href= 'updateForm?programNo=${item.no}'>수정하기</a></th>
-			  <th><a href= 'delete?programNo=${item.no}'>삭제</a></th>
+			  <th>
+			    <a href= 'detail?programNo=${item.no}'>자세히보기</a>
+			  </th>
 		  </tr>
 	  </c:forEach>
  </tbody>
@@ -94,7 +91,7 @@
 					</label>
 					
 					<label class="btn btn-primary"> 
-					<input name="tags" type="checkbox" value="8" hidden>생활개선
+					<input name="tags" type="checkbox" value="8" type='hidden'>생활개선
 					</label>
 					
 					</div>

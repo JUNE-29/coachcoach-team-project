@@ -10,7 +10,7 @@
   회원 수: 총 ${fn:length(list)}명 <br>
 
 	 <div class="table-responsive" style="padding-right:60px;">
-	 <table class="table table-hover">
+	 <table class="table table-hover coach-table">
 	 <thead class="table-head">
 	 <tr>
 	   <th scope="col">번호</th>
@@ -22,16 +22,16 @@
    </tr>
 	 </thead>
 
-	 <c:set var="i" value="0"/>
-	 <tbody>
-   <c:if test="${empty list}"> 
+	<c:set var="i" value="0"/>
+	<tbody>
+	  <c:if test="${empty list}"> 
+	   <tr>
+	    <td colspan="6">아직 등록된 회원이 없어요!</td>
+	   </tr>
+	  </c:if>
+  <c:forEach items="${list}" var="item">
+    <c:set var="i" value="${i+1}"/>
     <tr>
-     <td colspan="6">아직 등록된 회원이 없어요!</td>
-    </tr>
-   </c:if>
-	 <c:forEach items="${list}" var="item">
-     <c:set var="i" value="${i+1}"/>
-		 <tr>
 		   <td scope="row">
         ${i}
 		   </td>
@@ -60,6 +60,6 @@
 		   </td>
 		 </tr>
 	 </c:forEach>
-   </tbody>
-	 </table>
-	 </div>
+  </tbody>
+</table>
+</div>

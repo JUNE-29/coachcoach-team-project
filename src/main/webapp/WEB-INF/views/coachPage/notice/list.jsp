@@ -42,7 +42,7 @@
 		      <c:forEach items="${item.members}" var="member">${member.name}님 </c:forEach>
 		    </td>
 		    <td>
-		    <a href='detail?no=${item.no}'>${item.title}</a>
+		      <a href='detail?no=${item.no}'>${item.title}</a>
 		    </td>
 		    <td>
 		      ${item.createdDate}
@@ -93,8 +93,4 @@
     </div>
   </div>
 </div>
-	
-	  
 
-
-    

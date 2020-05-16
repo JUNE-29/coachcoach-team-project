@@ -64,7 +64,7 @@ public class ProgramManagementController {
   }
 
   @Transactional
-  @GetMapping("delete")
+  @PostMapping("delete")
   public void delete(int programNo) throws Exception {
     if (coachingProgramService.deleteUpdate(programNo) > 0) {
     } else {
