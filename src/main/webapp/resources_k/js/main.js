@@ -207,71 +207,7 @@
   
  
   
-// 공지사항 등록 모달 관련
-  $('#board-title').keyup(function() {
-    if($("#board-title").val()){
-      $(".title-box p").remove();
-    }
-  })
-  
-  $('#board-content').keyup(function() {
-    if($("#board-title").val()){
-      $(".content-box p").remove();
-    }
-  })
 
-  $('.addFormSubmit').on('click', function(e) {
-    if(!$("#board-title").val()){
-      if ($(".title-box").children('p').length < 1) {
-        $(".title-box").append('<p style="font-size:15px; color:red;">제목을 입력해주세요<p>');
-      }
-      return;
-    }
-    
-    if(!$("#board-content").val()){
-      if ($(".content-box").children('p').length < 1) {
-        $(".content-box").append('<p style="font-size:15px; color:red;">내용을 입력해주세요<p>');
-      }
-      return;
-    } 
-    e.preventDefault();
-      var form = $('.modal #addForm')[0];
-      var data = new FormData(form);
-
-      $.ajax({
-          type: "POST",
-          enctype: 'multipart/form-data',
-          url: "add",
-          data: data,
-          processData: false,
-          contentType: false,
-          cache: false,
-          timeout: 600000,
-          success: function (data) {
-              $('.modal').modal("hide");
-              Swal.fire({
-                title: '야호!',
-                text: '등록했습니다!',
-                icon: 'success',
-                confirmButtonText: '확인'
-              }).then(() => {
-                location.reload()
-                }
-              )
-          },
-          error: function (e) {
-            Swal.fire({
-              title: '아이고...',
-              text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
-              icon: 'error',
-              confirmButtonText: '확인'
-              }
-            )
-          }
-      });
-    return false;
-  });
-  
   
   // 프로그램 등록 모달 관련
   $('.program-title').keyup(function() {
@@ -534,8 +470,161 @@
 	      })
      })
   
-  var deleteNoticeButton = $('.delete-notice').children('a, button');
-  deleteNoticeButton.on('click', function() {
+     
+  // 
+     // 공지사항 등록 모달 관련
+  $('#addNoticeBoard .board-title').keyup(function() {
+    if($("#addNoticeBoard .board-title").val()){
+      $("#addNoticeBoard .title-box p").remove();
+    }
+  })
+  
+  $('#addNoticeBoard .board-content').keyup(function() {
+    if($("#addNoticeBoard .board-content").val()){
+      $("#addNoticeBoard .content-box p").remove();
+    }
+  })
+
+  $('.addFormSubmit').on('click', function(e) {
+    if(!$("#addNoticeBoard .board-title").val()){
+      if ($("#addNoticeBoard .title-box").children('p').length < 1) {
+        $("#addNoticeBoard .title-box").append('<p style="font-size:15px; color:red;">제목을 입력해주세요<p>');
+      }
+      return;
+    }
+    
+    if(!$("#addNoticeBoard .summernote").summernote('code')){
+      if ($("#addNoticeBoard .content-box").children('p').length < 1) {
+        $("#addNoticeBoard .content-box").append('<p style="font-size:15px; color:red;">내용을 입력해주세요<p>');
+      }
+      return;
+    } 
+    e.preventDefault();
+      var form = $('.modal #addForm')[0];
+      var data = new FormData(form);
+
+      $.ajax({
+          type: "POST",
+          enctype: 'multipart/form-data',
+          url: "add",
+          data: data,
+          processData: false,
+          contentType: false,
+          cache: false,
+          timeout: 600000,
+          success: function (data) {
+              $('.modal').modal("hide");
+              Swal.fire({
+                title: '야호!',
+                text: '등록했습니다!',
+                icon: 'success',
+                confirmButtonText: '확인'
+              }).then(() => {
+                location.reload()
+                }
+              )
+          },
+          error: function (e) {
+            Swal.fire({
+              title: '아이고...',
+              text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+              icon: 'error',
+              confirmButtonText: '확인'
+              }
+            )
+          }
+      });
+    return false;
+  });
+  
+  
+
+  $('#notice-table a').on('click', function() {
+    var no = $(this).parent().children('input[name="no"]').val();
+    $.ajax({
+      type: "GET",
+      url: "detail",
+      data: {
+        no:no
+      },
+      dataType: "json",
+      timeout: 600000,
+      success: function (detail) {
+        $('#updateNoticeBoard input[name="no"]').val(detail.no);
+        $('#updateNoticeBoard .program-name').append("<span>"+detail.programName+"</span>");
+        $('#updateNoticeBoard .update-date').append("<span>"+detail.createdDate+"</span>");
+        for (var member of detail.members) {
+          $('#updateNoticeBoard .members-name').append("<span>"+member.name+"님 "+"</span>");
+        }
+        $('.board-title').val(detail.title);
+        $("#updateNoticeBoard .summernote").summernote("code", detail.content);
+      }
+    });
+  })
+  
+    $('#updateNoticeBoard .board-title').keyup(function() {
+    if($("#updateNoticeBoard .board-title").val()){
+      $("#updateNoticeBoard .title-box p").remove();
+    }
+  })
+  
+  $('#updateNoticeBoard .board-content').keyup(function() {
+    if($("#updateNoticeBoard .board-content").val()){
+      $("#updateNoticeBoard .content-box p").remove();
+    }
+  })
+  
+  $('.updateNoticeSubmit').on('click', function() {
+    if(!$("#updateNoticeBoard .board-title").val()){
+      if ($("#updateNoticeBoard .title-box").children('p').length < 1) {
+        $("#updateNoticeBoard .title-box").append('<p style="font-size:15px; color:red;">제목을 입력해주세요<p>');
+      }
+      return;
+    }
+    
+    console.log($("#updateNoticeBoard .summernote").summernote('code'));
+    if(!$("#updateNoticeBoard .summernote").summernote('code')){
+      if ($("#updateNoticeBoard .content-box").children('p').length < 1) {
+        $("#updateNoticeBoard .content-box").append('<p style="font-size:15px; color:red;">내용을 입력해주세요<p>');
+      }
+      return;
+    } 
+    
+    var no = $('#updateNoticeBoard input[name="no"]').val();
+    $.ajax({
+      type: "POST",
+      enctype: 'multipart/form-data',
+      url: "update",
+      data: {
+        no:no,
+        content:$("#updateNoticeBoard .summernote").summernote('code'),
+        title:$("#updateNoticeBoard .board-title").val()
+      },
+      enctype: 'multipart/form-data',
+      cache: false,
+      timeout: 600000,
+      success: function (data) {
+          Swal.fire({
+            title: '수정 완료!',
+            text: '수정했습니다.',
+            icon: 'success',
+            confirmButtonText: '확인'
+          }).then(() => {
+            location.href = 'list';
+            })
+          },
+      error: function (e) {
+        Swal.fire({
+          title: '아이고...',
+          text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+          icon: 'error',
+          confirmButtonText: '확인'
+          })
+        }
+     })
+   })
+  
+  $('.deleteNoticeSubmit').on('click', function() {
     Swal.fire({
       title: '정말 삭제하시겠어요?',
       text: "삭제하시면 복구가 불가능합니다!",
@@ -546,15 +635,13 @@
       confirmButtonText: '삭제할래요.'
     }).then((result) => {
       if (result.value) {
-        var form = $('.delete-notice')[0];
-        var data = new FormData(form);
+        var no = $('#updateNoticeBoard input[name="no"]').val();
         $.ajax({
               type: "POST",
-              enctype: 'multipart/form-data',
               url: "delete",
-              data: data,
-              processData: false,
-              contentType: false,
+              data: {
+                no:no
+              },
               cache: false,
               timeout: 600000,
               success: function (data) {
@@ -579,10 +666,28 @@
            }
         })
      })
+     
+  // 모달 close했을때 데이터 리셋
+  $('.modal').on('hidden.bs.modal', function (e) {
+    $(this).find('form')[0].reset();
+    $(this).find('.program-name span, .update-date span, .members-name span').remove();
+    $("#updateNoticeBoard .title-box p").remove();
+    $("#updateNoticeBoard .content-box p").remove();
+  });
   
   // 페이징 처리
   $('.coach-table').DataTable();
   
+  // 서머노트 에디터
+  $('.summernote').summernote({
+    height: 300,                 // 에디터 높이
+    minHeight: null,             // 최소 높이
+    maxHeight: null,             // 최대 높이
+    focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+    lang: "ko-KR",          // 한글 설정
+    placeholder: '최대 21,844자까지 쓸 수 있습니다'  //placeholder 설정
+        
+  });
 })(jQuery);
 
 

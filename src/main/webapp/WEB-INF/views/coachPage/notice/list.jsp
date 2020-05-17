@@ -4,17 +4,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
   <h1><span class="highlight">공지사항 관리</span></h1>
   
   <br>
 		<div class="table-responsive" style="padding-right:60px;">
-		 <table class='table table-hover coach-table'>
+		 <table class='table table-hover coach-table' id='notice-table'>
 		 <thead class='table-head'>	
 		  <tr>
 		    <th scope="col">번호</th>
 		    <th scope="col">프로그램명</th>
-		    <th scope="col">받는회원</th>
+		    <th scope="col">회원수</th>
 		    <th scope="col">제목</th>
 		    <th scope="col">공지날짜</th>
 		  </tr>
@@ -27,22 +26,23 @@
 		   </tr>
 		  </c:if>
 
-		  <c:set var="i" value="${fn:length(list)}"/>
+		  <c:set var="i" value="0"/>
 
 		  <c:forEach items="${list}" var="item">
 		  <tr>
+        <c:set var="i" value="${i+1}"/>
 		    <td>
 		      ${i}
 		    </td>
-        <c:set var="i" value="${i-1}"/>
 		    <td>
 		      ${item.programName}
 		    </td>
 		    <td>
-		      <c:forEach items="${item.members}" var="member">${member.name}님 </c:forEach>
+		      ${fn:length(item.members)}명
 		    </td>
 		    <td>
-		      <a href='detail?no=${item.no}'>${item.title}</a>
+		      <input name='no' value='${item.no}' type='hidden'>
+		      <a href='#' data-toggle="modal" data-target="#updateNoticeBoard">${item.title}</a>
 		    </td>
 		    <td>
 		      ${item.createdDate}
@@ -78,17 +78,57 @@
 					</select>
 					<hr>
 					<div class='title-box'>
-					제목 <input id="board-title" name='title' type='text' style="width:423px;">
+					제목 <input class="board-title" name='title' type='text' style="width:423px;">
 					</div>
 					<hr>
 					<div class= 'content-box' style="float:left; margin-right: 4px;">
 					내용  
-					<textarea id="board-content" name='content' rows='5' cols='55'></textarea><br>
+					<textarea class="summernote board-content" name='content' rows='5' cols='55'></textarea><br>
 					</div>
 				</form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn orange-button addFormSubmit">등록</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="updateNoticeBoard" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">공지사항</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class='updateNoticeForm'>
+		      <input name='no' value='' type='hidden'>
+          <div class='program-name'>
+            프로그램명: 
+          </div>
+					<div class='members-name'>
+					  보낸 회원 목록: 
+          </div>
+					<div class='update-date'>
+					  수정일: 
+          </div>
+          <hr>
+					<div class='title-box'>
+          제목 <input class="board-title" name='title' type='text' style="width:423px;">
+          </div>
+          <hr>
+          <div class= 'content-box' style="float:left; margin-right: 4px;">
+          내용  
+          <textarea class="summernote board-content" name='content' rows='5' cols='55'></textarea><br>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type='button' class='btn btn-danger deleteNoticeSubmit'>삭제</button>
+        <button type='button' class='btn orange-button-detail updateNoticeSubmit'>변경</button> 
       </div>
     </div>
   </div>
