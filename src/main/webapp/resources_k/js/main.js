@@ -19,8 +19,6 @@
       backDelay: 2000
     });
   }
-
-  
   // 모바일 토글 설정 
   $(document).on('click', '.mobile-nav-toggle', function(e) {
     $('body').toggleClass('mobile-nav-active');
@@ -308,7 +306,6 @@
   
   $('#program-table a').on('click', function(e) {
     var programNo = $(this).parent().children('input[name="programNo"]').val();
-    console.log(programNo);
     $.ajax({
       type: "GET",
       url: "detail",
@@ -343,7 +340,9 @@
   
   // 모달 close했을때 태그 체크 리셋
   $('.modal').on('hidden.bs.modal', function (e) {
-    $(this).find('form')[0].reset();
+    if($(this).children('form').length > 0) {
+      $(this).find('form')[0].reset();
+    }
     var tags = $('.program-tags').find('input[name="tags"]');
     for (var tag of tags) {
       $(tag).parent().removeClass(' active');
@@ -669,7 +668,9 @@
      
   // 모달 close했을때 데이터 리셋
   $('.modal').on('hidden.bs.modal', function (e) {
-    $(this).find('form')[0].reset();
+    if($(this).children('form').length > 0) {
+      $(this).find('form')[0].reset();
+    }
     $(this).find('.program-name span, .update-date span, .members-name span').remove();
     $("#updateNoticeBoard .title-box p").remove();
     $("#updateNoticeBoard .content-box p").remove();
@@ -686,8 +687,137 @@
     focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
     lang: "ko-KR",          // 한글 설정
     placeholder: '최대 21,844자까지 쓸 수 있습니다'  //placeholder 설정
-        
   });
+  
+  
+  // 받은 요청 모달 처리
+  $('.request-table a').on('click', function() {
+    var no = $(this).children('input[name="no"]').val();
+    $.ajax({
+      type: "GET",
+      url: "detail",
+      data: {
+        no:no
+      },
+      dataType: "json",
+      cache: false,
+      timeout: 600000,
+      success: function (detail) {
+        $('#requestDetail td.name').text(detail.member.name)
+        $('#requestDetail td.id').text(detail.member.id)
+        $('#requestDetail td.tel').text(detail.member.tel)
+        $('#requestDetail td.email').text(detail.member.email)
+        $('#requestDetail td.birth').text(detail.member.birth)
+        $('#requestDetail td.programName').text(detail.programName)
+        $('#requestDetail td.requestDate').text(detail.requestDate)
+        $('#requestDetail td.startDate').text(detail.startDate)
+        $('#requestDetail td.remark').text(detail.remark)
+        $('#requestDetail input[name="memberCoachingProgramNo"]').val(detail.no)
+        if(detail.status != "요청대기중") {
+          $('#requestDetail .modal-footer button').hide('button');
+        } else if(detail.status == "요청대기중") {
+          $('#requestDetail .modal-footer button').show('button');
+        }
+          },
+      error: function (e) {
+        Swal.fire({
+          title: '아이고...',
+          text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+          icon: 'error',
+          confirmButtonText: '확인'
+          })
+        }
+    })
+  })
+  
+  $('#requestAccept').on('click', function() {
+    var memberCoachingProgramNo = $('#requestDetail input[name="memberCoachingProgramNo"]').val();
+        Swal.fire({
+          title: '수락 확인',
+          text: "수락하시겠어요?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText:'잠시만요!',
+          confirmButtonText: '수락!'
+        }).then((result) => {
+          if (result.value) {
+            $.ajax({
+                  type: "POST",
+                  enctype: 'multipart/form-data',
+                  url: "accept",
+                  data: {
+                    memberCoachingProgramNo:memberCoachingProgramNo
+                  },
+                  cache: false,
+                  success: function (data) {
+                      Swal.fire({
+                        title: '수락완료!',
+                        text: '수락했습니다.',
+                        icon: 'success',
+                        confirmButtonText: '확인'
+                      }).then(() => {
+                        location.reload()
+                        })
+                      },
+                  error: function (e) {
+                    Swal.fire({
+                      title: '아이고...',
+                      text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+                      icon: 'error',
+                      confirmButtonText: '확인'
+                      })
+                    }
+             })
+         }
+      })
+  })
+  
+  $('#requestReject').on('click', function() {
+    var memberCoachingProgramNo = $('#requestDetail input[name="memberCoachingProgramNo"]').val();
+        Swal.fire({
+          title: '거절 확인',
+          text: "거절하시겠어요?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText:'잠시만요!',
+          confirmButtonText: '거절'
+        }).then((result) => {
+          if (result.value) {
+            $.ajax({
+                  type: "POST",
+                  enctype: 'multipart/form-data',
+                  url: "reject",
+                  data: {
+                    memberCoachingProgramNo:memberCoachingProgramNo
+                  },
+                  cache: false,
+                  success: function (data) {
+                      Swal.fire({
+                        title: '거절완료!',
+                        text: '거절했습니다.',
+                        icon: 'success',
+                        confirmButtonText: '확인'
+                      }).then(() => {
+                        location.reload()
+                        })
+                      },
+                  error: function (e) {
+                    Swal.fire({
+                      title: '아이고...',
+                      text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+                      icon: 'error',
+                      confirmButtonText: '확인'
+                      })
+                    }
+             })
+         }
+      })
+  })
+
 })(jQuery);
 
 
