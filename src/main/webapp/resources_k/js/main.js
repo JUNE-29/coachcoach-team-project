@@ -167,11 +167,11 @@
   
   $('#updateCoachProfileSubmit').on('click', function(e) {
     e.preventDefault();
-      $('.area textarea').val($('.modal .area .value').text());
-      $('.career textarea').val($('.modal .career .value').text());
-      $('.certification textarea').val($('.modal .certification .value').text());
-      $('.introduce textarea').val($('.modal .introduce .value').text());
-
+      $('.area textarea').val($('.modal .area .value').html().trim());
+      $('.career textarea').val($('.modal .career .value').html().trim());
+      $('.certification textarea').val($('.modal .certification .value').html().trim());
+      console.log($('.modal .introduce .value').html().trim());
+      $('.introduce textarea').val($('.modal .introduce .value').html().trim());
       var form = $('.updateForm')[0];
       var data = new FormData(form);
 
@@ -274,60 +274,58 @@
   
   
   // 프로그램 등록 모달 관련
-  $('#program-title').keyup(function() {
-    if($("#program-title").val()){
+  $('.program-title').keyup(function() {
+    if($(".program-title").val()){
       $(".title-box p").remove();
     }
   })
   
-  $('#program-introduce').keyup(function() {
-    if($("#program-introduce").val()){
+  $('.program-introduce').keyup(function() {
+    if($(".program-introduce").val()){
       $(".introduce-box p").remove();
     }
   })
   
-  $('#program-tags').on('click', function() {
-    if($("#program-tags .active").length > 0 && $("#program-tags .active").length < 4){
-      $("#orogram-tags p").remove();
-    }
+  $('.program-tags').on('click', function() {
+      $(".program-tags p").remove();
   })
   
-  $('#program-fee').keyup(function() {
-    if($("#program-fee").val()){
+  $('.program-fee').keyup(function() {
+    if($(".program-fee").val()){
       $(".fee-box p").remove();
     }
   })
 
   $('.programAddFormSubmit').on('click', function(e) {
-    if(!$("#program-title").val()){
+    if(!$(".program-title").val()){
       if ($(".title-box").children('p').length < 1) {
         $(".title-box").append('<p style="font-size:15px; color:red;">프로그램명을 입력해주세요<p>');
       }
       return;
     }
     
-    if(!$("#program-introduce").val()){
+    if(!$(".program-introduce").val()){
       if ($(".introduce-box").children('p').length < 1) {
         $(".introduce-box").append('<p style="font-size:15px; color:red;">내용을 입력해주세요<p>');
       }
       return;
     }
     
-    if($("#program-tags .active").length < 1 ||$("#program-tags .active").length > 3){
-      if ($("#program-tags").children('p').length < 1) {
-        $("#program-tags").append('<p style="font-size:15px; color:red;">태그를 1개 이상 3개 이하 선택해주세요<p>');
+    if($(".program-tags .active").length < 1 ||$(".program-tags .active").length > 3){
+      if ($(".program-tags").children('p').length < 1) {
+        $(".program-tags").append('<p style="font-size:15px; color:red;">태그를 1개 이상 3개 이하 선택해주세요<p>');
       }
       return;
     }
     
-    if(!$.isNumeric($("#program-fee").val())){
+    if(!$.isNumeric($(".program-fee").val())){
       if ($(".fee-box").children('p').length < 1) {
         $(".fee-box").append('<p style="font-size:15px; color:red;">제대로 된 형식을 입력해주세요<p>');
       }
       return;
     }
     
-    if(!$("#program-fee").val()){
+    if(!$(".program-fee").val()){
       if ($(".fee-box").children('p').length < 1) {
         $(".fee-box").append('<p style="font-size:15px; color:red;">금액을 입력해주세요<p>');
       }
@@ -371,8 +369,129 @@
     return false;
   });
   
+  
+  $('#program-table a').on('click', function(e) {
+    var programNo = $(this).parent().children('input[name="programNo"]').val();
+    console.log(programNo);
+    $.ajax({
+      type: "GET",
+      url: "detail",
+      data: {
+        programNo:programNo
+      },
+      dataType: "json",
+      timeout: 600000,
+      success: function (detail) {
+        $('#updateProgram input[name="no"]').val(detail.no);
+        $('#updateProgram .program-title').val(detail.name);
+        $('#updateProgram .program-introduce').val(detail.introduce);
+        $('#updateProgram .program-fee').val(detail.fee);
+        var tags = $('.program-tags').find('input[name="tags"]');
+        for (var i = 0; i < detail.coachingProgramTags.length; i++) {
+          for (var tag of tags) {
+            if ($(tag).val() == detail.coachingProgramTags[i].tagNo) {
+              $(tag).parent().addClass('active');
+              $(tag).prop('checked', true);
+            }
+          }
+        }
+        var typeObtions = $('#programUpdateForm select[name="coachingType"]').children();
+        for (var obtion of typeObtions) {
+          if ($(obtion).val() == detail.coachingType) {
+            $(obtion).prop('selected', true);
+          }
+        }
+      }
+    });
+  })
+  
+  // 모달 close했을때 태그 체크 리셋
+  $('.modal').on('hidden.bs.modal', function (e) {
+    $(this).find('form')[0].reset();
+    var tags = $('.program-tags').find('input[name="tags"]');
+    for (var tag of tags) {
+      $(tag).parent().removeClass(' active');
+      $(tag).prop('checked', false);
+    }
+  });
+  
+  // 프로그램 수정시
+  $('.programUpdateFormSubmit').on('click', function(e) {
+    
+    if(!$("#updateProgram .program-title").val()){
+      if ($("#updateProgram .title-box").children('p').length < 1) {
+        $("#updateProgram .title-box").append('<p style="font-size:15px; color:red;">프로그램명을 입력해주세요<p>');
+      }
+      return;
+    }
+    
+    if(!$("#updateProgram .program-introduce").val()){
+      if ($("#updateProgram .introduce-box").children('p').length < 1) {
+        $("#updateProgram .introduce-box").append('<p style="font-size:15px; color:red;">내용을 입력해주세요<p>');
+      }
+      return;
+    }
+    
+    if($("#updateProgram .program-tags .active").length < 1 ||$("#updateProgram .program-tags .active").length > 3){
+      if ($("#updateProgram .program-tags").children('p').length < 1) {
+        $("#updateProgram .program-tags").append('<p style="font-size:15px; color:red;">태그를 1개 이상 3개 이하 선택해주세요<p>');
+      }
+      return;
+    }
+    
+    if(!$.isNumeric($("#updateProgram .program-fee").val())){
+      if ($("#updateProgram .fee-box").children('p').length < 1) {
+        $("#updateProgram .fee-box").append('<p style="font-size:15px; color:red;">제대로 된 형식을 입력해주세요<p>');
+      }
+      return;
+    }
+    
+    if(!$("#updateProgram .program-fee").val()){
+      if ($("#updateProgram .fee-box").children('p').length < 1) {
+        $("#updateProgram .fee-box").append('<p style="font-size:15px; color:red;">금액을 입력해주세요<p>');
+      }
+      return;
+    }
+    e.preventDefault();
+      var form = $('.modal #programUpdateForm')[0];
+      var data = new FormData(form);
+      console.log(data);
+      $.ajax({
+          type: "POST",
+          enctype: 'multipart/form-data',
+          url: "update",
+          data: data,
+          processData: false,
+          contentType: false,
+          cache: false,
+          timeout: 600000,
+          success: function (data) {
+              $('.modal').modal("hide");
+              Swal.fire({
+                title: '영차',
+                text: '수정했습니다!',
+                icon: 'success',
+                confirmButtonText: '확인'
+              }).then(() => {
+                location.reload()
+                }
+              )
+          },
+          error: function (e) {
+            Swal.fire({
+              title: '아이고...',
+              text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+              icon: 'error',
+              confirmButtonText: '확인'
+              }
+            )
+          }
+      });
+    return false;
+  });
+  
   // 프로그램 삭제시
-  var deleteButton = $('.delete').children('a');
+  var deleteButton = $('.programDeleteFormSubmit');
   deleteButton.on('click', function() {
 	  Swal.fire({
 		  title: '정말 삭제하시겠어요?',
@@ -384,17 +503,14 @@
 		  confirmButtonText: '삭제할래요.'
 	  }).then((result) => {
 		  if (result.value) {
-		    var form = $('.delete')[0];
-	      var data = new FormData(form);
 			  $.ajax({
 		          type: "POST",
 		          enctype: 'multipart/form-data',
 		          url: "delete",
-		          data: data,
-		          processData: false,
-		          contentType: false,
+		          data: {
+		            "no":$('#programUpdateForm input[name="no"]').val()
+		          },
 		          cache: false,
-		          timeout: 600000,
 		          success: function (data) {
 		              Swal.fire({
 		                title: '삭제완료!',
