@@ -1,8 +1,10 @@
 package com.coachcoach.web.coachPage;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,7 @@ import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.CoachingProgramTagService;
+import com.google.gson.Gson;
 
 @Auth(role = Role.COACH)
 @Controller
@@ -41,11 +44,6 @@ public class ProgramManagementController {
   @Autowired
   CoachingProgramTagService coachingProgramTagService;
 
-  @PostMapping("addForm")
-  public void addForm(Model model) throws Exception {
-    model.addAttribute("coachNo", ((Coach) session.getAttribute("loginUser")).getNo());
-  }
-
   @Transactional
   @PostMapping("add")
   public String add(CoachingProgram coachingProgram, @RequestParam("tags") int[] tags)
@@ -65,19 +63,22 @@ public class ProgramManagementController {
 
   @Transactional
   @PostMapping("delete")
-  public void delete(int programNo) throws Exception {
-    if (coachingProgramService.deleteUpdate(programNo) > 0) {
+  public void delete(int no) throws Exception {
+    if (coachingProgramService.deleteUpdate(no) > 0) {
     } else {
       throw new Exception("삭제할 게시물 번호가 유효하지 않습니다.");
     }
   }
 
   @GetMapping("detail")
-  public void detail(int programNo, Model model) throws Exception {
+  public void detail(int programNo, HttpServletResponse response) throws Exception {
     CoachingProgram coachingProgram = coachingProgramService.getDetail(programNo);
     coachingProgram.setCoachingProgramTags(coachingProgramTagService.list(programNo));
-    model.addAttribute("program", coachingProgram);
-
+    Gson json = new Gson();
+    response.setCharacterEncoding("UTF-8");
+    PrintWriter out = response.getWriter();
+    out.print(json.toJson(coachingProgram));
+    out.flush();
   }
 
   @GetMapping("list")
@@ -102,11 +103,6 @@ public class ProgramManagementController {
     } else {
       throw new Exception("프로그램을 추가할 수 없습니다.");
     }
-  }
-
-  @GetMapping("updateForm")
-  public void updateForm(int programNo, Model model) throws Exception {
-    model.addAttribute("program", coachingProgramService.getDetail(programNo));
   }
 
 }

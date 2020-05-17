@@ -53,9 +53,9 @@
       <div class="modal-body">
 			<form class="updateForm" action='update' method='POST' enctype='multipart/form-data'>
 				  <input class='coach-no' type='hidden' name='no' value='${coach.no}'>
-				  <div class="photo">
+				  <div class="photo" style="padding-left:7px;">
 				  <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' class="img-thumbnail" style='width:300px'>
-				  <input type='file' name='photoFile' value='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}'>
+		        <input type='file' name='photoFile' value='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}'>
 				  </div>
 				  
 					<section class="name">

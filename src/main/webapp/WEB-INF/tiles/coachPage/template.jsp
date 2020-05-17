@@ -16,12 +16,13 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/venobox/venobox/venobox.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="${pageContext.servletContext.contextPath}/resources_k/css/style.css" rel="stylesheet">
 
@@ -50,6 +51,7 @@
   <script src="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net/js/jquery.dataTables.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="${pageContext.servletContext.contextPath}/resources_k/js/main.js"></script>
