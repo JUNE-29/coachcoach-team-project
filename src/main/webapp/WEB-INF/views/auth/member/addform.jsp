@@ -3,52 +3,72 @@
     trimDirectiveWhitespaces="true"%>
     
 <style>
-.join_box{width:800px; margin:0 auto;}
-.join_box table{width:100%;}
-.join_box table > input{height:30px; border:1px solid red}
+.tit {margin-bottom: 20px;font-size: 35px;letter-spacing: -1px;font-weight: bold;}
+.join_box{width:100%;}
+.join_box table{width:100%; border-top:2px solid #000; border-bottom:2px solid #000;}
+.join_box table tr {border-bottom:1px solid #ddd;}
+.join_box table tr:last-child {border-bottom:0;}
+.join_box table tr.border_N {border-bottom:0;}
+.join_box table tr th {padding:20px;letter-spacing:-1px;color:#aaa; font-size:13px; font-weight:normal;}
+.join_box table tr td {padding:20px;}
+.join_box table tr td .info_T{color:#ddd; font-size:12px;}
+.join_box table tr td .info_T_box {display:block;}
+.join_box table input{height:30px; font-size:12px;}
+.join_box table input[type=text], .join_box table input[type=password] {width:45%; padding-left:10px; border:1px solid #aaa;}
+.join_box table input.confim {padding:0 10px; background:#aaa; color:#000; border:0;}
+.join_box table input:placeholder {color:#777;}
 .join_box table button {min-width:120px;}
+.join_box table tr td.gender input[type=radio] {vertical-align:middle;}
+.join_box table tr td.gender label {display:inline-block; margin-left:5px; font-size:13px;}
+.join_ok_area {margin-top:20px; text-align:center;}
+.join_ok_area button[type=button] {display:inline-block; width:50%; height:50px; background:#01b1d7; font-weight:bold; font-size:15px; color:#fff; border:none;}
 </style>
 
-<h1>회원 가입</h1>
+<h1 class="tit">회원 가입</h1>
 <div class="join_box">
 <form name="form" action='add' method='post' enctype='multipart/form-data' >
 <table>
   <colgroup>
-      <col style="width:30%" />
+      <col style="width:20%" />
         <col style="width:70%" />
     </colgroup>
     <tbody>
           <tr>
               <th>아이디</th>
-          <td><input type='text' name='id' id='userid' onkeyup='insertId()'>
-          <input type='button' id='idck' value="ID중복확인" onclick='checkid()'><br>
-          <span id='alertText'><span style='color #777'> ※ 아이디를 입력해주세요</span></span><br></td>
+		          <td>
+		            <input type='text' name='id' id='userid' onkeyup='insertId()'>
+			          <input type='button' id='idck' value="ID중복확인" onclick='checkid()' class="confim"><br>
+			          <span id='alertText'><span class="info_T"> ※ 아이디를 입력해주세요</span></span><br>
+			        </td>
           </tr>
           <tr>
               <th>비밀번호</th>
-          <td><input type='password' name='password' onkeyup='insertPwd()'></td>
+		          <td>
+		            <div><input type='password' name='password' placeholder="비밀번호를 입력해주세요." onkeyup='insertPwd()'></div>
+		            <div style="margin-top:5px;">
+		              <input type='password' name='password2' onkeyup='insertPwd()'>
+		              <span class="info_T_box" id='alertPwd'>
+		                <span class="info_T">※ 패스워드를 한번 더 입력해주세요</span>
+		              </span>
+		            </div>
+		          </td>
           </tr>
+	        <tr>
+	            <th>이름</th>
+	            <td><input type='text' name='name'></td>
+	        </tr>
           <tr>
-              <th>비밀번호확인</th>
-          <td><input type='password' name='password2' onkeyup='insertPwd()'><br>
-              <span id='alertPwd'><span style='color #777'>※ 패스워드를 한번 더 입력해주세요</span></span>
-          </td>
-         </tr>
-        <tr>
-              <th>이름</th>
-        <td><input type='text' name='name'></td>
-        </tr>
-        <tr>
               <th>성별</th>
-          <td><input type="radio" name="gender" value="0"/>여자
-          <input type="radio" name="gender" value="1"/>남자<br></td>
-         </tr>
+              <td class="gender">
+                <label for="wm"><input type="radio" name="gender" id="wm" value="0"/>여자</label>
+                <label for="man"><input type="radio" name="gender" id="man" value="1"/>남자</label>
+             </td>
+          </tr>
          <tr>
-              <th>생년월일</th>
-         <td><input type='text' name= 'birth' onkeyup='insertBirth()'><br>
-             <span id='alertBirth'><span style='color #777'>※ 생년월일을 입력해주세요 예)19990101</span></span>
-<br>
-         </td>
+            <th>생년월일</th>
+	           <td><input type='text' name= 'birth' onkeyup='insertBirth()'><br>
+	             <span id='alertBirth'><span class="info_T">※ 생년월일을 입력해주세요 예)19990101</span></span>
+	           </td>
          </tr>
          <tr>
               <th>연락처</th>
@@ -66,12 +86,11 @@
           <th>사진</th>
           <td><input type='file' name='photoFile' ></td>
           </tr>
-        <tr>
-          <td colspan="2"><button id="btn" type="button">가입하기</button></td>
-        </tr>
         </tbody>
         </table>
-        
+        <div class="join_ok_area">
+          <button id="btn" type="button">가입하기</button>
+        </div>
 </form>
 </div>
 

@@ -46,7 +46,8 @@ public class MemberAuthController {
     Member member = memberService.get(id, password);
     if (member != null) {
       session.setAttribute("loginUser", member);
-      model.addAttribute("refreshUrl", "2;url=../../../index.jsp");
+      // model.addAttribute("refreshUrl", "2;url=../../../index.jsp");
+      return "redirect:../../../index.jsp";
     } else {
       session.invalidate();
       model.addAttribute("refreshUrl", "2;url=form");

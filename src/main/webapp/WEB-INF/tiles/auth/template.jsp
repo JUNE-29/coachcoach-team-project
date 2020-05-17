@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-
+<link rel="stylesheet" href="" />
 <!--  
 <c:if test="${not empty refreshUrl}">
 <meta http-equiv="Refresh" content="${refreshUrl}">
@@ -40,6 +40,9 @@
   <!-- Template Main CSS File -->
   <link href="${pageContext.servletContext.contextPath}/resources/assets/css/style.css" rel="stylesheet">
 
+  <style>
+    .innerCont {margin:50px auto; width:1050px;}
+  </style>
 </head>
 
 <body>
@@ -49,14 +52,7 @@
     margin-top: 0px;"
 >
 
-<div class="innerCont" style="
-    margin-top: 100px;
-    margin-bottom: 300px;
-    margin-left: 100px;
-    margin-right: 0px;
-    border-left-width: 100px;
-    padding-left: 100px;
-">
+<div class="innerCont">
 <tiles:insertAttribute name="body"/>
 </div>
 <tiles:insertAttribute name="footer"/>
