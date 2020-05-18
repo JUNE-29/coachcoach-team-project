@@ -172,6 +172,7 @@
       <if test="coachingType != null">and cp.coaching_type like #{coachingType}</if>
     </where>
       order by program_no desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
   
   

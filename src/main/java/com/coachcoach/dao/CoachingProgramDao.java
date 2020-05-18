@@ -40,7 +40,7 @@ public interface CoachingProgramDao {
   CoachingProgram findByNo(int programNo) throws Exception;
 
   // 회원 번호&상태로 찾기
-  CoachingProgram findByMemberNo(Map<String, Object> params) throws Exception;
+  List<CoachingProgram> findByMemberNo(Map<String, Object> params) throws Exception;
 
   // 코칭 프로그램 리스트(신청내역)
   List<CoachingProgram> applyList(int memberNo) throws Exception;

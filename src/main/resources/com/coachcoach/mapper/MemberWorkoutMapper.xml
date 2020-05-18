@@ -6,19 +6,17 @@
 <mapper namespace="com.coachcoach.dao.MemberWorkoutDao">
 
   <resultMap type="MemberWorkout" id="MemberWorkoutMap">
-    <id column="workout_list_no"     property="no"/>
+    <id column="workout_list_no"     property="workoutListNo"/>
     <result column="member_no"       property="memberNo"/>
     <result column="workout_unit_no" property="workoutUnitNo"/>
     <result column="workout_date"    property="workoutDate"/>
     <result column="weight"          property="weight"    />
     <result column="walk_count"  property="walkCount"/>
     
-  <association property="workoutUnit" javaType="workoutUnit">
-      <id column="workout_unit_no"    property="no"/>
-      <result column="workout_no"     property="workoutNo"/>
-      <result column="unit"           property="unit"/>
-  </association>
-  
+   <association property="member" javaType="Member">
+      <id column="member_no"  property="memberNo"/>
+   </association>
+    
   </resultMap>
   
    <insert id="insert" parameterType="MemberWorkout"
@@ -38,6 +36,58 @@
      )
   </insert>
   
+  <select id="findAll" resultMap="MemberWorkoutMap" parameterType="int">
+    select
+      m.member_no,
+      m.workout_unit_no,
+      m.workout_date,
+      m.weight,
+      m.walk_count
+    from
+      member_workouts m
+      join workout_unit wu on m.workout_unit_no=wu.workout_unit_no
+      join member mb on m.member_no=mb.member_no
+    where
+      m.member_no=#{memberNo}
+    order by workout_list_no desc
+  </select>
+  
+  
+  <update id="update" parameterType="MemberWorkout">
+    update member_workouts
+    <set>
+      <if test="weight != null and weight != ''">weight=#{weight},</if> 
+      <if test="walkCount != null and walkCount != ''">walkCount=#{walkCount},</if> 
+    </set>
+      where 
+        member_no=#{memberNo}
+  </update>
+  
+   <delete id="delete" parameterType="int">
+    delete from member_workouts
+    where member_no=#{memberNo}
+  </delete>
+  
+  
+  <select id="findByNo" resultMap="MemberWorkoutMap" parameterType="int">
+     select  
+      m.member_no,
+      m.workout_unit_no,
+      w.workout_no
+      m.workout_date,
+      m.weight,
+      m.walk_count
+     from
+      member_workouts m
+      join workout_unit wu m.workout_unit_no=wu.workout_unit_no
+      join workout w.workout_no=wu.workout_no
+     where workout_unit_no in
+     <foreach item="item" index="index" collection="tags"
+      open="(" separator="," close=")">
+        #{item}
+     </foreach>
+      order by workout_list_no desc
+  </select>
   
 </mapper>
 

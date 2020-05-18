@@ -68,11 +68,6 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   }
 
   @Override
-  public CoachingProgram findByMemberNo(Map<String, Object> params) throws Exception {
-    return coachingProgramDao.findByMemberNo(params);
-  }
-
-  @Override
   public List<CoachingProgram> searchTag(Map<String, Object> params) throws Exception {
     return coachingProgramDao.findByTag(params);
   }
@@ -110,6 +105,11 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   @Override
   public int deleteUpdate(int programNo) {
     return coachingProgramDao.deleteUpdate(programNo);
+  }
+
+  @Override
+  public List<CoachingProgram> findByMemberNo(Map<String, Object> params) throws Exception {
+    return coachingProgramDao.findByMemberNo(params);
   }
 
 

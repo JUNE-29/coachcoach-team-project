@@ -8,12 +8,14 @@
 <p>날짜를 선택해주세요.</p>
 운동 시작일: <input name='workoutDate' type='date'><br>
 
+<p>체중을 기입해주세요.</p>
+체중: <input name='weight' type='text'><br>
+
 <p>오늘 걸음수를 입력해주세요.</p>
 <input name='walkCount' type='text'><br>
 
 <br>
-<!-- 운동 종목/시간 입력 -->
-<!--
+
 <script type="text/javascript">
 
   
@@ -63,19 +65,20 @@ document.getElementById('field').removeChild(obj.parentNode);
       <td>운동시간</td>
       <td><select name="items">
       <option value="선택해주세요">선택해주세요</option>
-      <option value="1">10</option>
-      <option value="2">20</option>
-      <option value="3">30</option>
-      <option value="4">40</option>
-      <option value="5">50</option>
-      <option value="6">60</option>
-      <option value="7">70</option>
-      <option value="8">80</option>
-      <option value="9">90</option>
-      <option value="10">100</option>
-      <option value="11">120</option>
-      <option value="12">180</option>
-      <option value="13">240</option>
+      <option value="1">10분</option>
+      <option value="2">20분</option>
+      <option value="3">30분</option>
+      <option value="4">40분</option>
+      <option value="5">50분</option>
+      <option value="6">60분</option>
+      <option value="7">70분</option>
+      <option value="8">80분</option>
+      <option value="9">90분</option>
+      <option value="10">100분</option>
+      <option value="11">120분</option>
+      <option value="12">150분</option>
+      <option value="13">180분</option>
+      <option value="14">240분</option>
     </select> 
     </td>
     </tr>
@@ -87,10 +90,7 @@ document.getElementById('field').removeChild(obj.parentNode);
 
 <div id="field"></div>
 
--->
 
-<p>오늘 한 운동의 종목들</p><br>
-<textarea name='etc' rows='5' cols='60'></textarea><br>
 
 <button>저장</button>
 </form>

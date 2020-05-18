@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Member;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
+import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.MemberCoachingProgramService;
 
@@ -26,6 +27,9 @@ public class MycoachController {
 
   @Autowired
   CoachingProgramService coachingProgramService;
+
+  @Autowired
+  CoachService coachService;
 
   @Autowired
   MemberCoachingProgramService memberCoachingProgramService;
@@ -42,8 +46,12 @@ public class MycoachController {
     model.addAttribute("program", coachingProgramService.findByMemberNo(params));
   }
 
-  @GetMapping("coachDetail") // 코치 상세보기
-  public void coachDetail() {}
+  @ResponseBody // 코치 상세보기
+  @RequestMapping(value = "coachDetail", method = RequestMethod.POST)
+  public String coachDetail(Model model, int no) throws Exception {
+    model.addAttribute("coach", coachService.get(no));
+    return "list.jsp";
+  }
 
   @GetMapping("programDetail") // 프로그램 상세보기
   public void programDetail() {}
@@ -54,7 +62,7 @@ public class MycoachController {
   }
 
 
-  @ResponseBody
+  @ResponseBody // 리뷰 등록
   @RequestMapping(value = "reviewUpdate", method = RequestMethod.POST)
   public String reviewUpdate(Model model, int no, String review, int starRate) throws Exception {
     Map<String, Object> params = new HashMap<>();

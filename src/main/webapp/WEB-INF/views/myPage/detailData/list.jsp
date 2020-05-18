@@ -35,12 +35,5 @@
   </form>
   <br>
   <br>
-  
-  <jsp:include page='weightList.jsp'/>
 
-  
-  <br>
-  <br>
-
-    <jsp:include page='workoutGraph.jsp'/>
 
