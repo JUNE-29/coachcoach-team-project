@@ -19,7 +19,7 @@
 
 <h1 class="tit">코치코치에 오신 것을 환영합니다.</h1>
 <div class="login_box">
-<form action='login' method='post'>
+<form name="form" action='login' method='post'>
 <table>
   <colgroup>
       <col style="width:20%" />
@@ -45,7 +45,7 @@
 <label for="si">아이디 저장해두기</label><br>
 </div>
 <div class="login_ok_area">
-<button type="button">로그인</button>
+<button type="button" id="btn">로그인</button>
 </div>
 <p></p>
 </form>
@@ -55,3 +55,13 @@
 <a href='findidform'>아이디 찾기</a> |
 <a href='findpasswordform'>비밀번호 찾기</a>
 </div>
+
+
+<script>
+"use strict"
+  var form = document.form
+
+document.querySelector("#btn").onclick = () => {
+ document.form.submit();
+}
+</script>
