@@ -9,8 +9,8 @@ div.innerCont {
   /*border: 1px solid gray;*/
   width: 1200px;
   margin:0 auto;
-  padding-top:35px;
-  max-width:1200px;
+  /*padding-top:20px;*/
+  /*max-width:1200px;*/
   overflow:hidden;
 }
 .sidebar { float:left; width:300px;}
@@ -24,18 +24,6 @@ div.innerCont {
 }
 
 
-
-/* header */
- .nav {
-        padding: 5px;
- }
- .nav-menu ul li {
-      list-style:none;
-        padding: 10px;
- }
-  .nav-menu ul li a { color:black; font-size:17px;  }
-  .img{margin:20px; padding:20px;}
-/* header end */  
   
 /* 별점 시작 */
 .star-input>.input,

@@ -15,7 +15,7 @@ import com.coachcoach.service.MemberCoachingProgramService;
 @Auth(role = Role.COACH)
 @Controller
 @RequestMapping("coachPage/memberManagement")
-public class ManagementController {
+public class MemberManagementController {
 
   @Autowired
   ServletContext servletContext;

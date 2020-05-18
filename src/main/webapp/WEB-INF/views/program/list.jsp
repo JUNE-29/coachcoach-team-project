@@ -58,9 +58,8 @@
 </select>
 </form>
 
-
 <c:forEach items="${programList}" var="list">
-<div class="cochingList" style='border:1px solid gray; padding:10px; margin:5px'>
+<div class="coachingList" style='border:1px solid gray; padding:10px; margin:5px'>
 <label>${list.no}</label>
 <div class="cont">
 <div class="img">
