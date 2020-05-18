@@ -365,7 +365,7 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">coach@naver.com</a>
+        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">coachcoach.service@gmail.com</a>
         <i class="icofont-phone phone-icon"></i> +1 5589 55488 55
       </div>
     </div>
