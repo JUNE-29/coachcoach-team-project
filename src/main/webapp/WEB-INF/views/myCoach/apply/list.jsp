@@ -9,7 +9,7 @@
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">신청번호</th>
+      <th scope="col">No</th>
       <th scope="col">코치님</th>
       <th scope="col">신청한 프로그램명</th>
       <th scope="col">결제금액</th>
