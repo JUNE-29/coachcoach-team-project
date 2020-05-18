@@ -24,8 +24,8 @@
 
 
 </div>
-<tiles:insertAttribute name="footer"/>
 
+<tiles:insertAttribute name="footer"/>
   <script src="${pageContext.servletContext.contextPath}/resources_e/js/pMain.js"></script>
  </body>
 </html>
