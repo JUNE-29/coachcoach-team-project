@@ -478,8 +478,8 @@
     }
   })
   
-  $('#addNoticeBoard .board-content').keyup(function() {
-    if($("#addNoticeBoard .board-content").val()){
+  $('#addNoticeBoard .summernote').keyup(function() {
+    if($("#addNoticeBoard .summernote").summernote('code')){
       $("#addNoticeBoard .content-box p").remove();
     }
   })
