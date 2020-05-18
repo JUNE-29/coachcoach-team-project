@@ -4,7 +4,7 @@
 
 
   <!-- ======= Mobile nav toggle button ======= -->
-  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bx bx-menu"></i></button>
 
   <!-- ======= Header ======= -->
   <header id="header">
@@ -24,13 +24,12 @@
 
       <nav class="nav-menu">
         <ul>
-          <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about"><i class="bx bx-list-check"></i> <span>dashboard</span></a></li>
-          <li><a href="#resume"><i class="bx bxs-calendar-plus"></i> <span>coaching</span></a></li>
-          <li><a href="#detaildata"><i class="bx bx-data"></i> detail data</a></li>
-          <li><a href="#dietdiary"><i class="bx bxs-diary"></i> diet diary</a></li>
+          <li><a href="../dashBoard/list" class="go"><i class="bx bx-list-check"></i> <span>DASHBOARD</span></a></li>
+          <li><a href="#" class="go"><i class="bx bxs-message"></i> <span>COACHING</span></a></li>
+          <li><a href="../detailData/list" class="go"><i class="bx bx-user"></i> DETAILDATA</a></li>
+          <li><a href="../dietDiary/list" class="go"><i class="bx bxs-calendar-plus"></i> DIETDIARY</a></li>
 
-          <li><a href="#contact"><i class="bx bxs-log-out-circle"></i> 로그아웃</a></li>
+          <li><a class="go" href="../../auth/logout"><i class="bx bxs-log-out-circle"></i> 로그아웃</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
