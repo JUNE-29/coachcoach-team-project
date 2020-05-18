@@ -28,7 +28,7 @@
   <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/css/bootstrap-grid.css.map" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-grid.min.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-grid.min.css.map" rel="stylesheet">
- <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.css.map" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.min.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.min.css.map" rel="stylesheet">
@@ -46,7 +46,7 @@
 </head>
 
 <body>
-<!--  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+ <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <tiles:insertAttribute name="header"/>
 <hr style="
     margin-top: 0px;"

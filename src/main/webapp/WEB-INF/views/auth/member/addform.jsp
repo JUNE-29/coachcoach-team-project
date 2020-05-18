@@ -37,7 +37,7 @@
               <th>아이디</th>
 		          <td>
 		            <input type='text' name='id' id='userid' onkeyup='insertId()'>
-			          <input type='button' id='idck' value="ID중복확인" onclick='checkid()' class="confim"><br>
+			          <input type='button' id='idck' value="ID중복확인" class="confim" onclick='checkid()' ><br>
 			          <span id='alertText'><span class="info_T"> ※ 아이디를 입력해주세요</span></span><br>
 			        </td>
           </tr>
