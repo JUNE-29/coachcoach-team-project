@@ -67,9 +67,9 @@
           <c:if test="${sessionScope.loginUser ne null}">
           <li class="drop-down"><a href="">마이페이지</a>
             <ul>
-              <li><a href="#">프로필</a></li>
-              <li><a href="#">마이코치</a></li>
-              <li><a href="#">관리페이지</a></li>
+              <li><a href="${pageContext.servletContext.contextPath}/app/myCoach/profile/form">프로필</a></li>
+              <li><a href="${pageContext.servletContext.contextPath}/app/myCoach/program/list">마이코치</a></li>
+              <li><a href="${pageContext.servletContext.contextPath}/app/myPage/dashBoard/list">관리페이지</a></li>
           </li>
            </c:if> 
          
