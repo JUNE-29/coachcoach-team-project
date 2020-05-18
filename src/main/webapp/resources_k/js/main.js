@@ -825,6 +825,41 @@
       this.reset();
     });
   });
+  
+//회원 디티일보기 모달 처리
+  $('.member-table a').on('click', function() {
+    var no = $('.member-table').find('input[name="memberCoachingProgramNo"]').val();
+    $.ajax({
+      type: "GET",
+      url: "detail",
+      data: {
+        no:no
+      },
+      dataType: "json",
+      cache: false,
+      timeout: 600000,
+      success: function (detail) {
+        $('#memberDetail td.name').text(detail.member.name)
+        $('#memberDetail td.id').text(detail.member.id)
+        $('#memberDetail td.tel').text(detail.member.tel)
+        $('#memberDetail td.email').text(detail.member.email)
+        $('#memberDetail td.birth').text(detail.member.birth)
+        $('#memberDetail td.programName').text(detail.programName)
+        $('#memberDetail td.requestDate').text(detail.requestDate)
+        $('#memberDetail td.startDate').text(detail.startDate)
+        $('#memberDetail td.remark').text(detail.remark)
+      },
+      error: function (e) {
+        Swal.fire({
+          title: '아이고...',
+          text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+          icon: 'error',
+          confirmButtonText: '확인'
+          })
+        }
+    })
+  })
+  
 
 })(jQuery);
 
