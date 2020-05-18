@@ -2,15 +2,7 @@
  * 
  */
 
-  $('#star_grade a').click(function(){
-            $(this).parent().children("a").removeClass("on");  
-            $(this).addClass("on").prevAll("a").addClass("on"); 
-            return false;
-   });
 
-  
-  
-  
 function chk_keyword() {
     var chk_kwd = document.getElementsByName('tags');
     var chk_cnt = 0; 
@@ -25,6 +17,10 @@ function chk_keyword() {
           return;
         }
 
+       if (chk_cnt == 0){
+           alert("키워드를 선택해주세요.");
+          return;
+        }
 
     document.keyword.submit();
 }

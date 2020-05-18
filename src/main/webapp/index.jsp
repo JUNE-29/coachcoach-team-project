@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">coach@naver.com</a>
+        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">coachcoach.service@gmail.com</a>
         <i class="icofont-phone phone-icon"></i> +1 5589 55488 55
       </div>
     </div>
@@ -47,8 +47,6 @@
 
       <div class="logo mr-auto">
         <h1 class="text-light"><a href="index.jsp">Coach<span>Coach</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -56,16 +54,32 @@
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">코치소개</a></li>
           <li><a href="app/program/list">코치찾기</a></li>
+          
+          <li class="drop-down" wh><a href="">고객센터</a>
+            <ul>
+              <li><a href="app/serviceCenter/FAQ/list">FAQ</a></li>
+              <li><a href="app/serviceCenter/noticeBoard/list">공지사항</a>
+          </li>
+        </ul>
+        
+          <c:if test="${sessionScope.loginUser ne null}">
+          <li class="drop-down"><a href="">마이페이지</a>
+            <ul>
+              <li><a href="${pageContext.servletContext.contextPath}/app/myCoach/profile/form">프로필</a></li>
+              <li><a href="${pageContext.servletContext.contextPath}/app/myCoach/program/list">마이코치</a></li>
+              <li><a href="${pageContext.servletContext.contextPath}/app/myPage/dashBoard/list">관리페이지</a></li>
+          </li>
+           </c:if> 
+         
              <c:if test="${sessionScope.loginUser eq null}">
           <li><a href="${pageContext.servletContext.contextPath}/app/auth/signup">회원가입</a></li>
           <li><a href="${pageContext.servletContext.contextPath}/app/auth/login" >로그인</a></li>
            </c:if> 
-          <li class="drop-down"><a href="">고객센터</a>
-            <ul>
-              <li><a href="app/serviceCenter/FAQ/list">FAQ</a></li>
-              <li class="drop-down"><a href="app/serviceCenter/noticeBoard/list">공지사항</a>
-          </li>
-        </ul>
+           
+            <c:if test="${sessionScope.loginUser ne null}">
+          <li> <a href="${pageContext.servletContext.contextPath}/app/auth/logout">로그아웃</a></li>
+           </c:if> 
+          </ul>
       </nav><!-- .nav-menu -->
 
     </div>
@@ -164,11 +178,11 @@
               <li><i class="ri-check-double-line"></i> 진정성과 전문성으로회원님들께 다가가는게 가장 중요</li>
               <li><i class="ri-check-double-line"></i> 방문PT 받고 바디프로필 촬영까지!</li>
               <li><i class="ri-check-double-line"></i> 1:1 레슨이고 제가 필요한 부분을
-중점적으로 알려준 점</li>
+                중점적으로 알려준 점</li>
             </ul>
             <p class="font-italic">
               저와 시간과 장소가 맞는 회원님을 추천해주는
-코치코치만의 방식이 굉장히 신선했어요
+              코치코치만의 방식이 굉장히 신선했어요
             </p>
           </div>
         </div>
@@ -333,8 +347,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -347,8 +361,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -361,8 +375,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -375,8 +389,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -389,8 +403,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -403,8 +417,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -417,8 +431,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -431,8 +445,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -445,8 +459,8 @@
             <div class="portfolio-wrap">
               <img src="./resources/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
+                <h4>식단</h4>
+                <p>한끼기준</p>
                 <div class="portfolio-links">
                   <a href="./resources/assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="ri-add-fill"></i></a>
                   <a href="portfolio-details.html" title="More Details"><i class="ri-links-fill"></i></a>
@@ -535,7 +549,7 @@
         <div class="owl-carousel testimonials-carousel">
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>날 위한 운동 습관 시작하기</h4>
             <p>
@@ -546,7 +560,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>즐겁고 효과적인 웨이트</h4>
             <p>
@@ -557,7 +571,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>군살은 빼고 바디라인 더하기</h4>
             <p>
@@ -568,7 +582,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>코어 강화와 몸의 균형 잡기</h4>
             <p>
@@ -579,7 +593,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>정기 운동 프로그램</h4>
             <p>
@@ -610,7 +624,7 @@
                 조원:손동영,신은정,<br>
                 정지윤,노기현<br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> coach@naver.com<br>
+                <strong>Email:</strong>coachcoach.service@gmail.com<br>
               </p>
             </div>
           </div>
@@ -621,8 +635,8 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#about">코치소개</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="app/program/list">코치찾기</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="app/serviceCenter/FAQ/list">고객센터</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="app/auth/signup">로그인</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="app/auth/login">회원가입</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="app/auth/login">로그인</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="app/auth/signup">회원가입</a></li>
             </ul>
           </div>
         </div>

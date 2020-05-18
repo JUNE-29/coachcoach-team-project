@@ -162,7 +162,7 @@
           <div class="footer-info">
             <h3>CoachCoach</h3>
             <p>
-              조장:김다혜 <br> 조원:김동영,김은정,<br> 정지윤,노기현<br> <strong>Phone:</strong>
+              조장:김다혜 <br> 조원:손동영,신은정,<br> 정지윤,노기현<br> <strong>Phone:</strong>
               +1 5589 55488 55<br> <strong>Email:</strong> coachcoach.service@gmail.com<br>
             </p>
           </div>

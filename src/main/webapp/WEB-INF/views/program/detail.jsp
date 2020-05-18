@@ -46,7 +46,7 @@
 </div>
 
 <div id="map" style="width:300px;height:300px;"></div>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c40bc1fe25ee526221b9d40da481ff78"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c96ebf50a416c2681271c445cee88efd"></script>
   <script>
     var container = document.getElementById('map');
     var options = {

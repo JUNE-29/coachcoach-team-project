@@ -58,11 +58,18 @@ public class ProgramController {
   }
 
   @GetMapping("searchDetail") // 조건으로 검색
-  public void searchDetail(Model model, String gender, String coachingType) throws Exception {
+  public void searchDetail(Model model, String gender, String coachingType,
+      @ModelAttribute("cri") Criteria cri) throws Exception {
+    PageMaker pageMaker = new PageMaker();
+    pageMaker.setCri(cri);
+    pageMaker.setTotalCount(coachingProgramService.pageCount());
+
     Map<String, Object> params = new HashMap<>();
+    params.put("cri", cri);
     params.put("gender", gender);
     params.put("coachingType", coachingType);
     model.addAttribute("searchProgram", coachingProgramService.search(params));
+    model.addAttribute("pageMaker", pageMaker);
   }
 
   @PostMapping("searchTag") // 태그로 검색

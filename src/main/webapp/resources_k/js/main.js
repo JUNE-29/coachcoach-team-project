@@ -339,10 +339,10 @@
   })
   
   // 모달 close했을때 태그 체크 리셋
-  $('.modal').on('hidden.bs.modal', function (e) {
-    if($(this).children('form').length > 0) {
-      $(this).find('form')[0].reset();
-    }
+  $('#addProgram, #updateProgram').on('hidden.bs.modal', function (e) {
+      $('form').each(function(){
+        this.reset();
+      });
     var tags = $('.program-tags').find('input[name="tags"]');
     for (var tag of tags) {
       $(tag).parent().removeClass(' active');
@@ -667,13 +667,13 @@
      })
      
   // 모달 close했을때 데이터 리셋
-  $('.modal').on('hidden.bs.modal', function (e) {
-    if($(this).children('form').length > 0) {
-      $(this).find('form')[0].reset();
-    }
+  $('#updateNoticeBoard, #addNoticeBoard').on('hidden.bs.modal', function (e) {
+    $('form').each(function(){
+      this.reset();
+    });
     $(this).find('.program-name span, .update-date span, .members-name span').remove();
-    $("#updateNoticeBoard .title-box p").remove();
-    $("#updateNoticeBoard .content-box p").remove();
+    $("#updateNoticeBoard .title-box p, #addNoticeBoard .title-box p").remove();
+    $("#updateNoticeBoard .content-box p, #addNoticeBoard .content-box p").remove();
   });
   
   // 페이징 처리
@@ -774,11 +774,12 @@
       })
   })
   
-  $('#requestReject').on('click', function() {
-    var memberCoachingProgramNo = $('#requestDetail input[name="memberCoachingProgramNo"]').val();
+  $('#requestRejectSubmit').on('click', function() {
+    $(this).closest('.modal').find('input[name="memberCoachingProgramNo"]').val(
+        $('#requestDetail input[name="memberCoachingProgramNo"]').val());
         Swal.fire({
           title: '거절 확인',
-          text: "거절하시겠어요?",
+          text: "정말 거절하시겠어요?",
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
@@ -792,7 +793,8 @@
                   enctype: 'multipart/form-data',
                   url: "reject",
                   data: {
-                    memberCoachingProgramNo:memberCoachingProgramNo
+                    memberCoachingProgramNo : $('#requestDetail input[name="memberCoachingProgramNo"]').val(),
+                    content: $('#requestReject textarea').val()
                   },
                   cache: false,
                   success: function (data) {
@@ -817,6 +819,47 @@
          }
       })
   })
+  
+  $('#requestReject, #requestDetail').on('hidden.bs.modal', function (e) {
+    $('form').each(function(){
+      this.reset();
+    });
+  });
+  
+//회원 디티일보기 모달 처리
+  $('.member-table a').on('click', function() {
+    var no = $('.member-table').find('input[name="memberCoachingProgramNo"]').val();
+    $.ajax({
+      type: "GET",
+      url: "detail",
+      data: {
+        no:no
+      },
+      dataType: "json",
+      cache: false,
+      timeout: 600000,
+      success: function (detail) {
+        $('#memberDetail td.name').text(detail.member.name)
+        $('#memberDetail td.id').text(detail.member.id)
+        $('#memberDetail td.tel').text(detail.member.tel)
+        $('#memberDetail td.email').text(detail.member.email)
+        $('#memberDetail td.birth').text(detail.member.birth)
+        $('#memberDetail td.programName').text(detail.programName)
+        $('#memberDetail td.requestDate').text(detail.requestDate)
+        $('#memberDetail td.startDate').text(detail.startDate)
+        $('#memberDetail td.remark').text(detail.remark)
+      },
+      error: function (e) {
+        Swal.fire({
+          title: '아이고...',
+          text: '뭔가 잘 안됐어요. 다시 시도해주세요.',
+          icon: 'error',
+          confirmButtonText: '확인'
+          })
+        }
+    })
+  })
+  
 
 })(jQuery);
 
