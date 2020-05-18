@@ -35,7 +35,7 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">coach@naver.com</a>
+        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">coachcoach.service@gmail.com</a>
         <i class="icofont-phone phone-icon"></i> +1 5589 55488 55
       </div>
     </div>
@@ -47,8 +47,6 @@
 
       <div class="logo mr-auto">
         <h1 class="text-light"><a href="index.jsp">Coach<span>Coach</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -180,11 +178,11 @@
               <li><i class="ri-check-double-line"></i> 진정성과 전문성으로회원님들께 다가가는게 가장 중요</li>
               <li><i class="ri-check-double-line"></i> 방문PT 받고 바디프로필 촬영까지!</li>
               <li><i class="ri-check-double-line"></i> 1:1 레슨이고 제가 필요한 부분을
-중점적으로 알려준 점</li>
+                중점적으로 알려준 점</li>
             </ul>
             <p class="font-italic">
               저와 시간과 장소가 맞는 회원님을 추천해주는
-코치코치만의 방식이 굉장히 신선했어요
+              코치코치만의 방식이 굉장히 신선했어요
             </p>
           </div>
         </div>
@@ -551,7 +549,7 @@
         <div class="owl-carousel testimonials-carousel">
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>날 위한 운동 습관 시작하기</h4>
             <p>
@@ -562,7 +560,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>즐겁고 효과적인 웨이트</h4>
             <p>
@@ -573,7 +571,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>군살은 빼고 바디라인 더하기</h4>
             <p>
@@ -584,7 +582,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>코어 강화와 몸의 균형 잡기</h4>
             <p>
@@ -595,7 +593,7 @@
           </div>
 
           <div class="testimonial-item">
-            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>회원 후기</h3>
             <h4>정기 운동 프로그램</h4>
             <p>
@@ -626,7 +624,7 @@
                 조원:손동영,신은정,<br>
                 정지윤,노기현<br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> coach@naver.com<br>
+                <strong>Email:</strong>coachcoach.service@gmail.com<br>
               </p>
             </div>
           </div>
