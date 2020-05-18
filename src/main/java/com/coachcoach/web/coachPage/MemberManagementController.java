@@ -15,9 +15,9 @@ import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.MemberCoachingProgramService;
 import com.google.gson.Gson;
 
-@Auth(role = Role.COACH)
-@Controller
-@RequestMapping("coachPage/memberManagement")
+//@Auth(role = Role.COACH)
+//@Controller
+//@RequestMapping("coachPage/memberManagement")
 public class MemberManagementController {
 
   @Autowired
