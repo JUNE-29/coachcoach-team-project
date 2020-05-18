@@ -63,7 +63,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="requestDetail" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">회원 요청 정보</h5>
@@ -71,30 +71,56 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class='row'>
-	      <div class='col-md-3'>
-					<img src='${pageContext.servletContext.contextPath}/upload/member/${detail.member.photo}' style='width:180px'>
-				</div>
-				<div class='col-md-8'>
-					<table>
-						<tr><th class='col-md-2'>이름</th><td class='name col-md-4'></td></tr>
-						<tr><th class='col-md-2'>아이디</th><td class='id col-md-4'></td></tr>
-						<tr><th class='col-md-2'>전화번호</th><td class='tel col-md-4'></td></tr>
-						<tr><th class='col-md-2'>이메일</th><td class='email col-md-4'></td></tr>
-						<tr><th class='col-md-2'>생년월일</th><td class='birth col-md-4'></td></tr>
-						<tr><th class='col-md-2'>프로그램명</th><td class='programName col-md-4'></td></tr>
-						<tr><th class='col-md-2'>요청날짜</th><td class='requestDate col-md-4'></td></tr>
-						<tr><th class='col-md-2'>시작가능날짜</th><td class='startDate col-md-4'></td></tr>
-						<tr><th class='col-md-2'>특이사항</th><td class='remark col-md-4'></td></tr>
-					</table>
-				</div>
-      </div>
-				
-        
+      <div class="modal-body">
+	      <div class='row'>
+			      <div class='col-md-4' style='text-align:center;'>
+							<img src='${pageContext.servletContext.contextPath}/upload/member/${detail.member.photo}' style='width:180px'>
+						</div>
+						<div class='col-md-8'>
+							<table style='width:500px'>
+								<tr><th>이름</th><td class='name'></td></tr>
+								<tr><th>아이디</th><td class='id'></td></tr>
+								<tr><th>전화번호</th><td class='tel'></td></tr>
+								<tr><th>이메일</th><td class='email'></td></tr>
+								<tr><th>생년월일</th><td class='birth'></td></tr>
+								<tr><th>프로그램명</th><td class='programName'></td></tr>
+								<tr><th>요청날짜</th><td class='requestDate'></td></tr>
+								<tr><th>시작가능날짜</th><td class='startDate'></td></tr>
+								<tr><th>특이사항</th><td class='remark'></td></tr>
+							</table>
+						</div>
+	      </div>
       <input name="memberCoachingProgramNo" type="hidden" value="">
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id='requestReject'>거절</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#requestReject">거절</button>
         <button type="button" class="btn orange-button-detail" id='requestAccept'>수락</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="requestReject" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">거절 사유</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+      <form action='reject' method='post'>
+			  <h5>${memberCoachingProgram.member.name} 회원님의 요청을 거절하신 이유를 구체적으로 작성해 주세요.</h5>
+        <input name="memberCoachingProgramNo" type="hidden" value="">
+			  <textarea name='content' rows='5' cols='55'></textarea><br>
+			</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id='requestRejectSubmit'>작성완료</button>
       </div>
     </div>
   </div>

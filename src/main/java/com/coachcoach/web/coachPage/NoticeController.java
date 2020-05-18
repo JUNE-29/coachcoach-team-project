@@ -32,11 +32,12 @@ public class NoticeController {
   CoachingProgramService coachingProgramService;
 
   @PostMapping("add")
-  public void add(CoachingProgramBoard coachingProgramBoard, int programNo) throws Exception {
+  public String add(CoachingProgramBoard coachingProgramBoard, int programNo) throws Exception {
     coachingProgramBoard.setCoachNo(((Coach) session.getAttribute("loginUser")).getNo());
     coachingProgramBoard.setProgramNo(programNo);
     System.out.println(coachingProgramBoard.getProgramNo());
     coachingProgramBoardService.add(coachingProgramBoard);
+    return "redirect:list";
   }
 
   @PostMapping("delete")
@@ -63,8 +64,9 @@ public class NoticeController {
   }
 
   @PostMapping("update")
-  public void update(CoachingProgramBoard coachingProgramBoard) throws Exception {
+  public String update(CoachingProgramBoard coachingProgramBoard) throws Exception {
     coachingProgramBoardService.update(coachingProgramBoard);
+    return "redirect:list";
   }
 
 }

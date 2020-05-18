@@ -60,7 +60,7 @@
 	
 	<!-- Modal -->
 <div class="modal fade" id="addNoticeBoard" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog  modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">공지사항 등록</h5>
@@ -78,12 +78,12 @@
 					</select>
 					<hr>
 					<div class='title-box'>
-					제목 <input class="board-title" name='title' type='text' style="width:423px;">
+					제목 <input class="board-title" name='title' type='text' style="width:95%;">
 					</div>
 					<hr>
-					<div class= 'content-box' style="float:left; margin-right: 4px;">
+					<div class= 'content-box'>
 					내용  
-					<textarea class="summernote board-content" name='content' rows='5' cols='55'></textarea><br>
+					<textarea class="summernote board-content" name='content'></textarea><br>
 					</div>
 				</form>
       </div>
@@ -95,7 +95,7 @@
 </div>
 
 <div class="modal fade" id="updateNoticeBoard" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog  modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">공지사항</h5>
@@ -117,12 +117,12 @@
           </div>
           <hr>
 					<div class='title-box'>
-          제목 <input class="board-title" name='title' type='text' style="width:423px;">
+          제목 <input class="board-title" name='title' type='text' style="width:95%;">
           </div>
           <hr>
-          <div class= 'content-box' style="float:left; margin-right: 4px;">
+          <div class= 'content-box' >
           내용  
-          <textarea class="summernote board-content" name='content' rows='5' cols='55'></textarea><br>
+          <textarea class="summernote board-content" name='content'></textarea><br>
           </div>
         </form>
       </div>

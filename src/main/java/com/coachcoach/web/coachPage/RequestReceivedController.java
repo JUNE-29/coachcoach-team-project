@@ -56,13 +56,6 @@ public class RequestReceivedController {
   }
 
   @Auth(role = Role.COACH)
-  @PostMapping("rejectForm")
-  public void rejectForm(int memberCoachingProgramNo, Model model) throws Exception {
-    model.addAttribute("memberCoachingProgram",
-        memberCoachingProgramService.get(memberCoachingProgramNo));
-  }
-
-  @Auth(role = Role.COACH)
   @PostMapping("accept")
   public void accept(int memberCoachingProgramNo) throws Exception {
     Map<String, Object> params = new HashMap<>();

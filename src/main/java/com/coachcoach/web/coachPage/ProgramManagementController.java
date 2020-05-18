@@ -63,11 +63,12 @@ public class ProgramManagementController {
 
   @Transactional
   @PostMapping("delete")
-  public void delete(int no) throws Exception {
+  public String delete(int no) throws Exception {
     if (coachingProgramService.deleteUpdate(no) > 0) {
     } else {
       throw new Exception("삭제할 게시물 번호가 유효하지 않습니다.");
     }
+    return "redirect:list";
   }
 
   @GetMapping("detail")
@@ -90,7 +91,7 @@ public class ProgramManagementController {
 
   @Transactional
   @PostMapping("update")
-  public void update(CoachingProgram coachingProgram, @RequestParam("tags") int[] tags)
+  public String update(CoachingProgram coachingProgram, @RequestParam("tags") int[] tags)
       throws Exception {
     List<CoachingProgramTag> selectedTags = new ArrayList<>();
     for (int i : tags) {
@@ -103,6 +104,7 @@ public class ProgramManagementController {
     } else {
       throw new Exception("프로그램을 추가할 수 없습니다.");
     }
+    return "redirect:list";
   }
 
 }
