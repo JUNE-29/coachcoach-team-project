@@ -19,7 +19,7 @@ public interface MemberWorkoutDao {
   int delete(int no) throws Exception;
 
   // 회원 본인 운동내역이 자세하게 보여줄 수 있음.
-  MemberWorkout findByNo(int no) throws Exception;
+  MemberWorkout findByNo(int workoutListNo) throws Exception;
 
 }
 
