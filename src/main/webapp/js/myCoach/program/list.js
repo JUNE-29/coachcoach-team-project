@@ -1,28 +1,21 @@
 // 상세보기 모달 
+
 var detailBtn = $("#detailBtn");
 detailBtn.click(() => {
 	var data = {
-		no: $('#detailBtn').val(),
+		no: $('#detailBtn').val()
 	};
 	console.log(data)
 	$.post('coachDetail', data, () => {
-		$('#detailwModal').modal('hide');
+		$('#detailModal').modal('hide');
 	});
-	
+	console.log(data)	
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
+$('#detailModal').on('show.bs.modal', function (e) {
+	$('#coachNo').val(e.relatedTarget.getAttribute('data-no'));
+})
 
 
 // 리뷰 모달 

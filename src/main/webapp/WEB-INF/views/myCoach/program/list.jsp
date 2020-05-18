@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 </style>
+
 <div class="box">
   <h5 class="tit">진행중인 프로그램</h5>
   <table class="table table-sm">
@@ -23,7 +24,7 @@
       <td>${pg.coach.name}</td>
       <td>${pg.name}</td>
       <td>${pg.mcp.startDate} ~ ${pg.mcp.endDate}</td>     
-      <td><button id="detailBtn" value="${pg.coach.no}" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#detailModal">
+      <td><button id="detailBtn" value="${pg.coach.no}" data-no="${pg.coach.no}" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#detailModal">
       상세보기
       </button>
      </td>  
@@ -33,12 +34,42 @@
 </table>
 </div>
 
-<div class="box">
-  <h5 class="tit">완료된 프로그램</h5>
+<!-- 상세보기 Modal -->
+<div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">코치소개</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      코치이름 ${coach.name}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+        <button id="regBtn" type="button" class="btn btn-primary">등록</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div>
+  <h5>완료된 프로그램</h5>
   <table class="table table-sm">
   <thead>
     <tr>
-      <th scope="col">No</th>
+      <th scope="col">번호</th>
       <th scope="col">담당코치</th>
       <th scope="col">프로그램명</th>
       <th scope="col">기간</th>
@@ -56,6 +87,9 @@
       <td>${list.mcp.startDate} ~ ${list.mcp.endDate}</td>     
     <c:if test="${empty list.mcp.review}">
     <td>
+    <form name="form">
+     <input type='hidden' id='mcpno' name='no'  value='${list.mcp.no}'>
+     </form>
      <button data-no="${list.mcp.no}" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#reviewModal">
       등록
      </button>
@@ -69,27 +103,6 @@
   </tbody>
   </c:forEach>
 </table>
-</div>
-
-<!-- 상세보기 Modal -->
-<div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">코치소개</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-        <button id="regBtn" type="button" class="btn btn-primary">등록</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- 리뷰 Modal -->
@@ -130,6 +143,3 @@
     </div>
   </div>
 </div>
-
-
-
