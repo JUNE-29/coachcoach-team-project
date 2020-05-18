@@ -13,6 +13,7 @@ div.container {
   /*padding-top:20px;*/
   /*max-width:1200px;*/
   overflow:hidden;
+  
 }
 .footer {
     left: 0;
@@ -20,6 +21,7 @@ div.container {
     width: 100%;
    text-align: center;
 }
+
 
 
 .innerCont { overflow:hidden;}
@@ -46,11 +48,11 @@ line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; 
 .leftArea .inner .box .detailBtn { margin-top:15px; width:100%; height:40px; line-height:40px; border-radius:20px; border:1px solid #A5A5A4; background:#fff;}
 .leftArea .inner .box .tit { margin:15px 0; font-size:17px; font-weight:500;}
 .rightArea  { float:right; width:760px;}
-.rightArea .cochingList {padding:40px; margin-bottom:10px; border:1px solid #A5A5A4;}
-.rightArea .cochingList .cont {  position:relative; padding:15px 30px; }
-.rightArea .cochingList .cont .img { overflow:hidden; position:absolute; left:20px; top:10px; width:140px; height:140px; border-radius:50%; background:#eee;}
-.rightArea .cochingList .cont .img img { width:100%; height:100%;}
-.rightArea .cochingList .cont .txt { padding-left:250px;}
+.rightArea .coachingList {padding:40px; margin-bottom:10px; border:1px solid #A5A5A4;}
+.rightArea .coachingList .cont {  position:relative; padding:15px 30px; }
+.rightArea .coachingList .cont .img { overflow:hidden; position:absolute; left:20px; top:10px; width:140px; height:140px; border-radius:50%; background:#eee;}
+.rightArea .coachingList .cont .img img { width:100%; height:100%;}
+.rightArea .coachingList .cont .txt { padding-left:250px;}
 .rightArea .paginationWrap { margin-top:20px; text-align:center;}
 .rightArea .paginationWrap > ul { overflow:hidden; display:inline-block;}
 .rightArea .paginationWrap > ul li { float:left; border:1px solid #ddd; border-radius:5px;}
