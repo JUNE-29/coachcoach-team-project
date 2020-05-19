@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 
 @Auth(role = Role.COACH)
 @Controller
-@RequestMapping("coachPage/memberManagement")
+@RequestMapping("/coachPage/memberManagement")
 public class MemberManagementController {
 
   @Autowired
