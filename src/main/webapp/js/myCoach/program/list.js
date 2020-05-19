@@ -1,6 +1,4 @@
 // 상세보기 모달 
-
-
 $(function(){
     $('.detailBtn').on('click', function(e){
          e.preventDefault();
@@ -22,6 +20,7 @@ $(function(){
                 					"추가 정보<br>"+
                 					data.career+"<br>"+
                 					data.certification+"<br>"
+                					
                 			);
              }
          });

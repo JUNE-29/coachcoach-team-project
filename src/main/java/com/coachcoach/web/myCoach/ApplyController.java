@@ -1,7 +1,9 @@
 package com.coachcoach.web.myCoach;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,11 +11,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Member;
+import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachingProgramService;
+import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberService;
+import com.google.gson.Gson;
 
 @Auth(role = Role.MEMBER)
 @Controller
@@ -29,14 +36,25 @@ public class ApplyController {
   @Autowired
   MemberService memberService;
 
+  @Autowired
+  MemberCoachingProgramService memberCoachingProgramService;
+
   @GetMapping("list") // 신청내역
   public void applyList(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("programList", coachingProgramService.applyList(member.getNo()));
   }
 
-  @GetMapping("rejectForm") // 거절사유
-  public void rejectForm() {}
+  @ResponseBody // 거절사유
+  @RequestMapping(value = "rejectForm", method = RequestMethod.POST)
+  public void rejectForm(Model model, int no, HttpServletResponse response) throws Exception {
+    MemberCoachingProgram memberCoachingProgram = memberCoachingProgramService.get(no);
+    Gson json = new Gson();
+    response.setCharacterEncoding("UTF-8");
+    PrintWriter out = response.getWriter();
+    out.print(json.toJson(memberCoachingProgram));
+    out.flush();
+  }
 
   @GetMapping("orderForm") // 결제
   public void orderForm(Model model, int no) throws Exception {
