@@ -74,7 +74,7 @@
       <div class="modal-body">
 	      <div class='row'>
 			      <div class='col-md-4' style='text-align:center;'>
-							<img src='${pageContext.servletContext.contextPath}/upload/member/${detail.member.photo}' style='width:180px'>
+							<img src='${pageContext.servletContext.contextPath}/upload/member/' style='width:180px'>
 						</div>
 						<div class='col-md-8'>
 							<table style='width:500px'>

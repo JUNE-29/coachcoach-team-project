@@ -7,18 +7,6 @@
 !(function($) {
   "use strict";
 
-  // Hero typed
-  if ($('.typed').length) {
-    var typed_strings = $(".typed").data('typed-items');
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
   // 모바일 토글 설정 
   $(document).on('click', '.mobile-nav-toggle', function(e) {
     $('body').toggleClass('mobile-nav-active');
@@ -99,39 +87,6 @@
       });
     });
 
-    // Initiate venobox (lightbox feature used in portofilo)
-    $(document).ready(function() {
-      $('.venobox').venobox();
-    });
-  });
-
-  // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 2
-      },
-      900: {
-        items: 3
-      }
-    }
-  });
-
-  // Portfolio details carousel
-  $(".portfolio-details-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    items: 1
-  });
-
-
 // coachPage nav바 클릭시 li에 불켜지는 기능
   // ajax 아니고 누르면 새로고침되기 때문에 기존에 active class를 가지고 있던 li는 자동으로 초기화 된다
   // => 나중에 ajax로 교체할 때 이전 li에 있는 active class를 없애주는 기능도 넣어야함 
@@ -147,21 +102,6 @@
       }
     }
   }());
-  
-  
-//  $(".go").click(function(){
-//    var link = $(this).attr("href");
-//    $.ajax(
-//        { type: 'get' , 
-//          url: link, 
-//          success: 
-//            function(data) {
-//            console.log(link);
-//            console.log(data);
-//              $("#content").html(data);
-//            }
-//        });
-//  });
   
   $('#updateCoachProfileSubmit').on('click', function(e) {
     e.preventDefault();
@@ -703,6 +643,11 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
+        if(detail.member.photo.length > 0) {
+          $('#requestDetail img').attr('src', $('#requestDetail img').attr('src')+detail.member.photo)
+        } else {
+          $('#requestDetail img').attr('src', $('#requestDetail img').attr('src')+'default.jpg')
+        }
         $('#requestDetail td.name').text(detail.member.name)
         $('#requestDetail td.id').text(detail.member.id)
         $('#requestDetail td.tel').text(detail.member.tel)
@@ -839,6 +784,11 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
+        if(detail.member.photo.length > 0) {
+          $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+detail.member.photo)
+        } else {
+          $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+'default.jpg')
+        }
         $('#memberDetail td.name').text(detail.member.name)
         $('#memberDetail td.id').text(detail.member.id)
         $('#memberDetail td.tel').text(detail.member.tel)
@@ -860,7 +810,7 @@
     })
   })
   
-
+  })
 })(jQuery);
 
 

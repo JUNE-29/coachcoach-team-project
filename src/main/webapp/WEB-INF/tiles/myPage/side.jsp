@@ -25,12 +25,15 @@
       <nav class="nav-menu">
         <ul>
           <li><a href="../dashBoard/list" class="go"><i class="bx bx-list-check"></i> <span>DASHBOARD</span></a></li>
-          <li><a href="#" class="go"><i class="bx bxs-message"></i> <span>COACHING</span></a></li>
+          <li><a href="../coaching/list" class="go"><i class="bx bxs-message"></i> <span>COACHING</span></a></li>
           <li><a href="../detailData/list" class="go"><i class="bx bx-user"></i> DETAILDATA</a></li>
           <li><a href="../dietDiary/list" class="go"><i class="bx bxs-calendar-plus"></i> DIETDIARY</a></li>
 
           <li><a class="go" href="../../auth/logout"><i class="bx bxs-log-out-circle"></i> 로그아웃</a></li>
+          
         </ul>
+          <br><br>
+          <a class="go" href="../../../index.jsp"><i class="bx bxs-log-out"></i> 메인화면으로 나가기</a>
       </nav><!-- .nav-menu -->
 
     </div>

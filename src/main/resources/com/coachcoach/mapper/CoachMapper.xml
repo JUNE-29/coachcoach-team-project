@@ -48,7 +48,15 @@
   
    <insert id="insert" parameterType="Coach">
     insert into coaches(
-      <include refid="select"/>
+      id,
+	    password,
+	    name,
+	    gender,
+	    birth,
+	    tel,
+	    email,
+	    work_type,
+	    photo,
       area,
       create_date
     ) values(

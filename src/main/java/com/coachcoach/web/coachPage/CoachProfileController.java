@@ -67,9 +67,11 @@ public class CoachProfileController {
   public void detail(HttpSession httpSession, Model model) throws Exception {
     int coachNo = ((Coach) httpSession.getAttribute("loginUser")).getNo();
     Coach coach = coachService.get(coachNo);
-    coach.setCareer(coach.getCareer().replace("\n", "<br>"));
-    coach.setCertification(coach.getCertification().replace("\n", "<br>"));
-    coach.setIntroduce(coach.getIntroduce().replace("\n", "<br>"));
+    if (coach.getCareer() != null) {
+      coach.setCareer(coach.getCareer().replace("\n", "<br>"));
+      coach.setCertification(coach.getCertification().replace("\n", "<br>"));
+      coach.setIntroduce(coach.getIntroduce().replace("\n", "<br>"));
+    }
     model.addAttribute("coach", coach);
     model.addAttribute("coach2", coachService.get(coachNo));
   }
