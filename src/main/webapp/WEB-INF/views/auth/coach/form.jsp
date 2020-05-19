@@ -45,7 +45,7 @@
 <label for="si">아이디 저장해두기</label><br>
 </div>
 <div class="login_ok_area">
-<button type="button" id="btn">로그인</button>
+<button type="button" id="c_login_btn">로그인</button>
 </div>
 <p></p>
 </form>
@@ -61,7 +61,7 @@
 "use strict"
   var form = document.form
 
-document.querySelector("#btn").onclick = () => {
+document.querySelector("#c_login_btn").onclick = () => {
  document.form.submit();
 }
 </script>

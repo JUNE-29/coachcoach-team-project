@@ -155,7 +155,8 @@
 
   <select id="findByIdAndPassword" resultMap="MemberMap" parameterType="map">
     select 
-      <include refid="select"/>
+      <include refid="select"/>,
+      auth_status
     from members
     where 
       id=#{id} 
@@ -182,7 +183,7 @@
   where
     id=#{id}
   </select>
- 
+  
 </mapper>
 
 

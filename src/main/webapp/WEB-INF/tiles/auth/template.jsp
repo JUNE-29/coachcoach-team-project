@@ -8,67 +8,55 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<link rel="stylesheet" href="" />
+
+<title>CoachCoach-team-project</title>
 <!--  
 <c:if test="${not empty refreshUrl}">
 <meta http-equiv="Refresh" content="${refreshUrl}">
 </c:if>
 -->
 
-<title>CoachCoach-team-project</title>
-    <!-- Google Fonts -->
+ <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  
-      <!-- Bootstrap CSS file -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
- 
+
   <!-- Vendor CSS Files -->
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/css/bootstrap-grid.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/css/bootstrap-grid.css.map" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-grid.min.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-grid.min.css.map" rel="stylesheet">
- <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.css.map" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.min.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap-reboot.min.css.map" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap.css.map" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap.min.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap.min.css.map" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="${pageContext.servletContext.contextPath}/resources/assets/css/style.css" rel="stylesheet">
-
+  <link href="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/venobox/venobox/venobox.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
   <style>
     .innerCont {margin:50px auto; width:1050px;}
   </style>
 </head>
 
 <body>
-<!--  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
 <tiles:insertAttribute name="header"/>
-<hr style="
-    margin-top: 0px;"
->
+<hr style="margin-top: 0px;">
 
 <div class="innerCont">
 <tiles:insertAttribute name="body"/>
 </div>
 <tiles:insertAttribute name="footer"/>
 
-   <!-- Vendor JS Files -->
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.js.map"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js.map"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.js.map"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.min.js.map"></script>
-  
+
+  <!-- Vendor JS Files -->
+  <script src="${pageContext.servletContext.contextPath}/node_modules/jquery/dist/jquery.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/jquery.easing/bower_components/jquery-easing-original/jquery.easing.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/venobox/venobox/venobox.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/typed.js/lib/typed.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
     <!-- Template Main JS File -->
-  <script src="${pageContext.servletContext.contextPath}/resources/assets/js/main.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/resources_j/js/main.js"></script>
 
 </body>
 </html>

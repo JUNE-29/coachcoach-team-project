@@ -35,16 +35,20 @@ public class MemberAuthController {
   public String memberLogin(String id, String password, String saveId, HttpServletResponse response,
       HttpSession session, Model model) throws Exception {
 
-    Cookie cookie = new Cookie("id", id);
-    if (saveId != null) {
-      cookie.setMaxAge(60 * 60 * 24 * 30);
-    } else {
-      cookie.setMaxAge(0);
-    }
-    response.addCookie(cookie);
 
     Member member = memberService.get(id, password);
-    if (member != null) {
+
+    System.out.println(member.getAuthStatus());
+
+    if (member.getAuthStatus() == 1) {
+      Cookie cookie = new Cookie("id", id);
+      if (saveId != null) {
+        cookie.setMaxAge(60 * 60 * 24 * 30);
+      } else {
+        cookie.setMaxAge(0);
+      }
+      response.addCookie(cookie);
+
       session.setAttribute("loginUser", member);
       // model.addAttribute("refreshUrl", "2;url=../../../index.jsp");
       return "redirect:../../../index.jsp";
@@ -52,6 +56,12 @@ public class MemberAuthController {
       session.invalidate();
       model.addAttribute("refreshUrl", "2;url=form");
     }
+
+    //
+    // else {
+    // session.invalidate();
+    // model.addAttribute("refreshUrl", "2;url=form");
+    // }
 
     return "auth/member/login";
   }
