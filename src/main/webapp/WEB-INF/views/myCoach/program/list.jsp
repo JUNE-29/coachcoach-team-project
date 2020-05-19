@@ -24,7 +24,7 @@
       <td>${pg.coach.name}</td>
       <td>${pg.name}</td>
       <td>${pg.mcp.startDate} ~ ${pg.mcp.endDate}</td>     
-      <td><button id="detailBtn" value="${pg.coach.no}" data-no="${pg.coach.no}" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#detailModal">
+      <td><button class="detailBtn btn btn-outline-primary btn-sm" value="${pg.coach.no}" data-no="${pg.coach.no}" type="button" data-toggle="modal" data-target="#detailModal">
       상세보기
       </button>
      </td>  

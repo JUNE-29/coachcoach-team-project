@@ -2,14 +2,13 @@
 
 
 $(function(){
-    $('#detailBtn').on('click', function(e){
-    	console.log("xx");
+    $('.detailBtn').on('click', function(e){
          e.preventDefault();
          $.ajax({
              url: "coachDetail",
              dataType: "json",
              type: "POST",
-             data: {no: $('#detailBtn').val()} ,
+             data: {no: $(this).val()} ,
              success: function(data){
                 			$('.detail-modal-body').html(
                 					"<img src='${pageContext.servletContext.contextPath}/upload/coach/"+data.photo+"' height='200'><br>"+
