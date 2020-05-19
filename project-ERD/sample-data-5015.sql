@@ -24,14 +24,14 @@ values('coach10', '코치10', 1, '1995-01-01', '010-1111-1111', 'coach10@naver.c
 
   -- 회원정보 샘플 데이터
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
-photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
+photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in, auth_status)
 value(1, 'member1', '회원1', 1, '19990102', '01011112222', 'user1@gmail.com', password('1111'), 
-'user1.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유1', '목표', 0);
+'user1.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유1', '목표', 0, 1);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
-photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
+photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in, auth_status)
 value(2, 'member2', '회원2', 1, '19990102', '01011112222', 'user2@gmail.com', password('1111'), 
-'user2.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유2', '목표2', 0);
+'user2.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유2', '목표2', 0, 1);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
