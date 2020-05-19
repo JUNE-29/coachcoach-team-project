@@ -1,7 +1,6 @@
 !(function($) {
   "use strict";
-
-	
+  
 		//(chk2 : 비번, chk3: 비번확인란, chk4: 이름, chk5: 이메일)
 		  let chk2 = false, chk3 = false, chk4 = false;
 			  
@@ -191,7 +190,8 @@
 		       
 })(jQuery);
 
-document.querySelector("#btn").onclick = () => {
+
+document.querySelector("#join_ok_btn").onclick = () => {
 	var form = document.form
 	
 	if(form.id.value == ""){
@@ -264,3 +264,6 @@ document.querySelector("#btn").onclick = () => {
 	
 	document.form.submit();
 }
+
+
+

@@ -56,7 +56,7 @@
   <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
     <!-- Template Main JS File -->
- <!--  <script src="${pageContext.servletContext.contextPath}/resources_j/js/user.js"></script>  -->
- <script src='${pageContext.servletContext.contextPath}/resources_j/auth/<tiles:getAsString name="jsFileMember"></tiles:getAsString>'></script>
+  <script src="${pageContext.servletContext.contextPath}/resources_j/js/user.js"></script>
+
 </body>
 </html>

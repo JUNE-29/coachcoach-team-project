@@ -94,10 +94,15 @@
         </tbody>
         </table>
         <div class="join_ok_area">
-          <button id="btn" type="button">가입하기</button>
+          <button id="join_ok_btn" type="button">가입하기</button>
         </div>
 </form>
 </div>
+
+
+
+
+ 
 
 
 

@@ -38,7 +38,7 @@ public class MemberAuthController {
 
     Member member = memberService.get(id, password);
 
-    System.out.println(member.getAuthStatus());
+    // System.out.println(member.getAuthStatus());
 
     if (member.getAuthStatus() == 1) {
       Cookie cookie = new Cookie("id", id);
@@ -52,6 +52,9 @@ public class MemberAuthController {
       session.setAttribute("loginUser", member);
       // model.addAttribute("refreshUrl", "2;url=../../../index.jsp");
       return "redirect:../../../index.jsp";
+    } else if (member.getAuthStatus() == 0) {
+      session.invalidate();
+      model.addAttribute("refreshUrl", "2;url=form");
     } else {
       session.invalidate();
       model.addAttribute("refreshUrl", "2;url=form");
