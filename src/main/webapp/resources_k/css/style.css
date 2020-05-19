@@ -244,6 +244,7 @@ section {
 .area .value {
   padding: 7px;
   width : 400px;
+  height: 40px;
   float: left;
   border-width: 1px;
   border-style: solid;
