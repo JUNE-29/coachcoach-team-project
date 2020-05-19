@@ -262,7 +262,7 @@
         mcp.remark,            
         mcp.status,            
         DATE_FORMAT(mcp.request_date, "%Y/%m/%d") as request_date,
-        mcp.pay_date,     
+        DATE_FORMAT(mcp.pay_date, "%Y/%m/%d") as pay_date,     
         DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
         DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date,
         mcp.etc,
