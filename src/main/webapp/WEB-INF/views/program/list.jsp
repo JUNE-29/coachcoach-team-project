@@ -6,9 +6,9 @@
 <div class="innerCont">
 <div class="leftArea">
 <div class="inner">
-<form action='searchKeyword' method='get' class="searchInp">
-<input name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
-<button>검색</button>
+<form id="searchfrm" action='searchKeyword' method='get' class="searchInp">
+<input id="search" name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
+<button id="searchBtn">검색</button>
 </form>
 <div class="box">
 <strong>키워드</strong>
@@ -43,7 +43,7 @@
 <input name='coachingType' type='radio' value='온라인' checked>온라인<br>
 <input name='coachingType' type='radio' value='오프라인'>오프라인<br>
 <input name='coachingType' type='radio' value='오프라인+온라인'>오프라인 + 온라인<br>
-<button class="detailBtn">검색</button>
+<button id="detailBtn" class="detailBtn">검색</button>
 </form>
 </div>
 </div>

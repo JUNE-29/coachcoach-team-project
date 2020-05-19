@@ -1,21 +1,33 @@
 // 상세보기 모달 
 
-var detailBtn = $("#detailBtn");
-detailBtn.click(() => {
-	var data = {
-		no: $('#detailBtn').val()
-	};
-	console.log(data)
-	$.post('coachDetail', data, () => {
-		$('#detailModal').modal('hide');
-	});
-	console.log(data)	
-});
 
-
-$('#detailModal').on('show.bs.modal', function (e) {
-	$('#coachNo').val(e.relatedTarget.getAttribute('data-no'));
-})
+$(function(){
+    $('#detailBtn').on('click', function(e){
+    	console.log("xx");
+         e.preventDefault();
+         $.ajax({
+             url: "coachDetail",
+             dataType: "json",
+             type: "POST",
+             data: {no: $('#detailBtn').val()} ,
+             success: function(data){
+                			$('.detail-modal-body').html(
+                					"<img src='${pageContext.servletContext.contextPath}/upload/coach/"+data.photo+"' height='200'><br>"+
+                					data.name+"코치님<br>"+
+                					"<p>한 줄 소개<br>"+
+                					data.introduce+
+                					"<p>기본 정보<br>"+
+                					data.tel+"<br>"+
+                					data.email+"<br>"+
+                					data.address+"<br>"+
+                					"추가 정보<br>"+
+                					data.career+"<br>"+
+                					data.certification+"<br>"
+                			);
+             }
+         });
+    }); 
+ });
 
 
 // 리뷰 모달 

@@ -17,8 +17,8 @@
       <th scope="col">상세보기</th>
     </tr>
   </thead>
-  <c:forEach items="${program}" var="pg">
   <tbody>
+  <c:forEach items="${program}" var="pg">
     <tr>
       <th scope="row">${pg.mcp.no}</th>
       <td>${pg.coach.name}</td>
@@ -29,8 +29,8 @@
       </button>
      </td>  
     </tr>
-  </tbody>
   </c:forEach>
+  </tbody>
 </table>
 </div>
 
@@ -44,12 +44,10 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-      코치이름 ${coach.name}
+      <div class="detail-modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-        <button id="regBtn" type="button" class="btn btn-primary">등록</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
       </div>
     </div>
   </div>
