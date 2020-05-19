@@ -45,12 +45,18 @@
 
 </div>
 
+   <c:if test="${program.coach.address ne null}">
 <div id="map" style="width:300px;height:300px;"></div>
+   </c:if>
+   
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c96ebf50a416c2681271c445cee88efd"></script>
   <script>
+  var latitude = "<c:out value='${program.coach.latitude}'/>"
+  var longitude = "<c:out value='${program.coach.longitude}'/>"
+  
     var container = document.getElementById('map');
     var options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
+      center: new kakao.maps.LatLng(latitude, longitude),
       level: 3
     };
 

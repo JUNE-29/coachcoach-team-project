@@ -59,6 +59,7 @@
         <put-attribute name="header" value="/WEB-INF/tiles/program/header.jsp" />
         <put-attribute name="body" value="/WEB-INF/views/program/apply/{1}.jsp" />
         <put-attribute name="footer" value="/WEB-INF/tiles/program/footer.jsp" />
+        <put-attribute name="jsFilename" value="{1}.js" />
     </definition>    
     
   <definition name="serviceCenter/*/*" template="/WEB-INF/tiles/serviceCenter/template.jsp">

@@ -1,7 +1,9 @@
 package com.coachcoach.web.myCoach;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.coachcoach.domain.Coach;
 import com.coachcoach.domain.Member;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.MemberCoachingProgramService;
+import com.google.gson.Gson;
 
 @Auth(role = Role.MEMBER)
 @Controller
@@ -48,9 +52,13 @@ public class MycoachController {
 
   @ResponseBody // 코치 상세보기
   @RequestMapping(value = "coachDetail", method = RequestMethod.POST)
-  public String coachDetail(Model model, int no) throws Exception {
-    model.addAttribute("coach", coachService.get(no));
-    return "list.jsp";
+  public void coachDetail(Model model, int no, HttpServletResponse response) throws Exception {
+    Coach coach = coachService.get(no);
+    Gson json = new Gson();
+    response.setCharacterEncoding("UTF-8");
+    PrintWriter out = response.getWriter();
+    out.print(json.toJson(coach));
+    out.flush();
   }
 
   @GetMapping("programDetail") // 프로그램 상세보기

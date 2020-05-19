@@ -1,37 +1,37 @@
 
 -- coaches 예제 데이터
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach1', '코치1', 0, '1995-01-01', '010-1111-1111', 'coach1@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치1 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach1', '코치1', 0, '1995-01-01', '010-1111-1111', 'coach1@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치1 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach2', '코치2', 0, '1995-01-01', '010-1111-1111', 'coach2@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치2 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach2', '코치2', 0, '1995-01-01', '010-1111-1111', 'coach2@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치2 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach3', '코치3', 0, '1995-01-01', '010-1111-1111', 'coach3@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치3 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach3', '코치3', 0, '1995-01-01', '010-1111-1111', 'coach3@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치3 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach4', '코치4', 0, '1995-01-01', '010-1111-1111', 'coach4@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치4 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach4', '코치4', 0, '1995-01-01', '010-1111-1111', 'coach4@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치4 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach5', '코치5', 0, '1995-01-01', '010-1111-1111', 'coach5@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치5 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach5', '코치5', 0, '1995-01-01', '010-1111-1111', 'coach5@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치5 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach6', '코치6', 1, '1995-01-01', '010-1111-1111', 'coach6@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치6 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach6', '코치6', 1, '1995-01-01', '010-1111-1111', 'coach6@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치6 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach7', '코치7', 1, '1995-01-01', '010-1111-1111', 'coach7@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치7 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach7', '코치7', 1, '1995-01-01', '010-1111-1111', 'coach7@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치7 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach8', '코치8', 1, '1995-01-01', '010-1111-1111', 'coach8@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치8 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach8', '코치8', 1, '1995-01-01', '010-1111-1111', 'coach8@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치8 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach9', '코치9', 1, '1995-01-01', '010-1111-1111', 'coach9@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치9 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach9', '코치9', 1, '1995-01-01', '010-1111-1111', 'coach9@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치9 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 insert into coaches(id, name, gender, birth, tel, email, password, photo, area, career,certification, introduce, members, bank, account, work_type, address, latitude, longitude)
-values('coach10', '코치10', 1, '1995-01-01', '010-1111-1111', 'coach10@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치10 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.6', '127.0');
+values('coach10', '코치10', 1, '1995-01-01', '010-1111-1111', 'coach10@naver.com', password('1111'), 'file.gif', '서울', '헬트2년','없음', '코치10 입니다', 0, '기업은행', '123-456-78910', '프리랜서', '서울 서초구 강남대로', '37.497792', '127.028552');
 
 
   -- 회원정보 샘플 데이터
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
-photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
+photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in, auth_status)
 value(1, 'member1', '회원1', 1, '19990102', '01011112222', 'user1@gmail.com', password('1111'), 
-'user1.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유1', '목표', 0);
+'user1.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유1', '목표', 0, 1);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
-photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
+photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in, auth_status)
 value(2, 'member2', '회원2', 1, '19990102', '01011112222', 'user2@gmail.com', password('1111'), 
-'user2.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유2', '목표2', 0);
+'user2.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유2', '목표2', 0, 1);
 
 insert into members(member_no, id, name, gender, birth, tel, email, password, 
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
@@ -72,45 +72,6 @@ insert into members(member_no, id, name, gender, birth, tel, email, password,
 photo, create_date, withdrawal, withdrawal_date, withdrawal_reason, goal, goal_in)
 value(10, 'member10', '회원10', 1, '19990102', '01011112222', 'user10@gmail.com', password('1111'), 
 'user10.jpg', '2020-01-01', 1, '2021-01-01', '탈퇴이유10', '목표10', 0);
-
-
--- 체중 샘플 데이터
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (1, 1, 65, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (2, 1, 64, '2020-04-03');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (3, 2, 70, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (4, 3, 80, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (5, 4, 100, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (6, 5, 95, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (7, 6, 67, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (8, 7, 54, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (9, 8, 99, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (10, 8, 97, '2020-04-03');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (11, 9, 77, '2020-04-02');
-
-insert into weight(weight_no, member_no, weight, measure_date)
-value (12, 10, 66, '2020-04-02');
 
 
 -- 코칭프로그램 샘플데이터
@@ -175,10 +136,7 @@ insert into member_coaching_programs(member_no, program_no, remark, status, requ
                         start_date, end_date, star_rate, review, review_date, etc)
   values(2, 2, '허리가 아파요', '진행 완료', '2020-01-01', '2020-01-01', '2020-01-10', '2020-02-01',
          5, '후기입니다', '2020-02-01', null);
-insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
-                        start_date, end_date, star_rate, review, review_date, etc)
-  values(3, 3, '허리가 아파요', '결제대기중', '2020-01-01', null, '2020-01-10', 'null',
-         null, null, null, null);
+
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
   values(4, 4, '허리가 아파요', '진행 완료', '2020-01-01', '2020-01-01', '2020-01-10', '2020-02-01',
@@ -198,15 +156,15 @@ insert into member_coaching_programs(member_no, program_no, remark, status, requ
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
   values(8, 3, '허리가 아파요', '요청대기중', '2020-01-01', null, '2020-04-10', '2020-05-01',
-         null, null, 'null', null);
+         null, null, null, null);
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
   values(9, 2, '허리가 아파요', '요청거절됨', '2020-01-01', null, '2020-04-10', '2020-05-01',
-         null, null, 'null', '허리가 아프신 분은 수강이 힘드세요.');
+         null, null, null, '허리가 아프신 분은 수강이 힘드세요.');
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
   values(10, 1, '허리가 아파요', '결제대기중', '2020-01-01', null, '2020-04-10', '2020-05-01',
-         null, null, 'null', null);
+         null, null, null, null);
 
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
@@ -225,21 +183,22 @@ insert into member_coaching_programs(member_no, program_no, remark, status, requ
 
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
-  values(2, 5, '허리가 아파요', '진행 완료', '2020-01-01', '2020-01-01', '2020-04-10', '2020-05-01',
+  values(2, 5, '허리가 아파요', '진행 완료', '2020-01-01', 'null', '2020-04-10', '2020-05-01',
          null, null, null, null);
 
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
-  values(2, 6, '허리가 아파요', '진행 완료', '2020-01-01', '2020-01-01', '2020-04-10', '2020-05-01',
+  values(2, 6, '허리가 아파요', '진행 완료', '2020-01-01', 'null', '2020-04-10', '2020-05-01',
          null, null, null, null);
 
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
-  values(2, 7, '허리가 아파요', '진행 완료', '2020-01-01', '2020-01-01', '2020-04-10', '2020-05-01',
+  values(2, 7, '허리가 아파요', '진행 완료', '2020-01-01', 'null', '2020-04-10', '2020-05-01',
          null, null, null, null);
+         
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
-  values(2, 8, '허리가 아파요', '결제대기중', '2020-01-01', null, '2020-02-01', '2020-02-01',
+  values(2, 8, '허리가 아파요', '요청거절됨', '2020-01-01', null, '2020-02-01', '2020-02-01',
          null, null, null, null);
                   
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
@@ -663,7 +622,6 @@ insert into workout_unit(workout_unit_no, workout_no, unit)
   values(139, 10, '180');
 insert into workout_unit(workout_unit_no, workout_no, unit)
   values(140, 10, '210');
-
 
   
   

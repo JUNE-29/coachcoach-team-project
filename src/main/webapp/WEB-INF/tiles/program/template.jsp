@@ -22,7 +22,11 @@
 
 <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<link rel='stylesheet' href='${pageContext.getServletContext().getContextPath()}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
+<link href="${pageContext.servletContext.contextPath}/resources_e/css/summernote/summernote-lite.css" rel="stylesheet">
 </head>
 <body>
 <tiles:insertAttribute name="header"/>
@@ -36,5 +40,8 @@
 
 <tiles:insertAttribute name="footer"/>
 
+  <script src="${pageContext.servletContext.contextPath}/resources_e/js/summernote/summernote-lite.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/resources_e/js/summernote/lang/summernote-ko-KR.js"></script>
+  <script src='${pageContext.getServletContext().getContextPath()}/js/program/apply/<tiles:getAsString name="jsFilename"></tiles:getAsString>'></script>
 </body>
 </html>

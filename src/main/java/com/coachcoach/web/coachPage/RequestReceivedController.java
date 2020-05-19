@@ -48,20 +48,22 @@ public class RequestReceivedController {
 
   @Auth(role = Role.COACH)
   @PostMapping("reject")
-  public void reject(int memberCoachingProgramNo, String content) throws Exception {
+  public String reject(int memberCoachingProgramNo, String content) throws Exception {
     Map<String, Object> params = new HashMap<>();
     params.put("memberCoachingProgramNo", memberCoachingProgramNo);
     params.put("etc", content);
     memberCoachingProgramService.updateEtc(params);
+    return "redirect:list";
   }
 
   @Auth(role = Role.COACH)
   @PostMapping("accept")
-  public void accept(int memberCoachingProgramNo) throws Exception {
+  public String accept(int memberCoachingProgramNo) throws Exception {
     Map<String, Object> params = new HashMap<>();
     params.put("memberCoachingProgramNo", memberCoachingProgramNo);
     params.put("status", "결제대기중");
     memberCoachingProgramService.updateStatus(params);
+    return "redirect:list";
   }
 
 
