@@ -22,6 +22,9 @@
   <link href="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/core/main.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/daygrid/main.css" rel="stylesheet">
+  
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="${pageContext.servletContext.contextPath}/resources_s/css/style.css" rel="stylesheet">
@@ -55,6 +58,7 @@
 
   <!-- Template Main JS File -->
   <script src="${pageContext.servletContext.contextPath}/resources_s/js/main.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/resources_k/js/main2.js"></script>
 
 
 </body>
