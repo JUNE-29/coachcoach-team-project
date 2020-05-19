@@ -63,26 +63,87 @@
 		     }
 		  })
 		  
-		  // 생년월일 확인
-		  $("#birth").on('keyup', function() {
-		    if($("#birth").val() === ""){
-		          $("#birth").css("background-color", "#F8E5E5");
-		          $("#birth").css("border-color", "#F98D8D");
-		          $("#alertBirth").html('<b style="font-size:13px; color:#F64141;"> 생년월일을 올바르게 입력해주세요. 예)19990102</b>');
-		    }
-		  })
-		  
-		  
-		  
+		  // 이름 확인
 		  $("#userName").on('keyup', function(){
 		    // 이름값 공백 확인
 		    if($("#userName").val() === ""){
 		       $("#userName").css("background-color", "#F8E5E5");
 		       $("#userName").css("border-color", "#F98D8D");
+		    }else {
+		     $("#userName").css("background-color", "#C1F7FB");
+		     $("#userName").css("border-color", "#01b1d7");
 		    }
 		  })
-
+		  
+		  
+		  // 생년월일 확인
+		  $("#userBirth").on('keyup', function() {
+		    if($("#userBirth").val() === ""){
+		          $("#userBirth").css("background-color", "#F8E5E5");
+		          $("#userBirth").css("border-color", "#F98D8D");
+		          $("#alertBirth").html('<b style="font-size:13px; color:#F64141;"> 생년월일을 올바르게 입력해주세요. 예)19990102</b>');
+		    }else {
+			      $("#userBirth").css("background-color", "#C1F7FB");
+			      $("#userBirth").css("border-color", "#01b1d7");
+			      $("#alertBirth").html('<b style="font-size:13px; color:#01b1d7;"> 정상적으로 입력되었습니다.</b>');
+			    }
+		  })
+		  
+		  // 연락처 확인
+		  $("#userTel1").on('keyup', function() {
+			  if($("#userTel1").val() === ""){
+		          $("#userTel1").css("background-color", "#F8E5E5");
+		          $("#userTel1").css("border-color", "#F98D8D");
+			  }else {
+			      $("#userTel1").css("background-color", "#C1F7FB");
+			      $("#userTel1").css("border-color", "#01b1d7");
+			  }
+		  })
+		  
+		  $("#userTel2").on('keyup', function() {
+			  if($("#userTel2").val() === ""){
+		          $("#userTel2").css("background-color", "#F8E5E5");
+		          $("#userTel2").css("border-color", "#F98D8D"); 
+			  }else {
+				  $("#userTel2").css("background-color", "#C1F7FB");
+				  $("#userTel2").css("border-color", "#01b1d7");
+			  }
+		  })
+		  
+		  $("#userTel3").on('keyup', function() {
+			  if($("#userTel3").val() === ""){
+		          $("#userTel3").css("background-color", "#F8E5E5");
+		          $("#userTel3").css("border-color", "#F98D8D"); 
+		          
+			  }else {
+			      $("#userTel3").css("background-color", "#C1F7FB");
+			      $("#userTel3").css("border-color", "#01b1d7");
+			      
+			  }
+		  })
+		  
+		  
+		  
+		  // 이메일 확인
+		  $("#userEmail").on('keyup', function() {
+			  if($("#userEmail").val() === ""){
+		          $("#userEmail").css("background-color", "#F8E5E5");
+		          $("#userEmail").css("border-color", "#F98D8D"); 
+		          $("#alertEmail").html('<b style="font-size:13px; color:#F64141;"> 이메일을 올바르게 입력해주세요. 예)coachcoach.service@gmail.com</b>');
+			  }else {
+			      $("#userEmail").css("background-color", "#C1F7FB");
+			      $("#userEmail").css("border-color", "#01b1d7");
+			      $("#alertEmail").html('<b style="font-size:13px; color:#01b1d7;"> 정상적으로 입력되었습니다.</b>');
+			  }
+		  })
+		  
+		  
+	
+		  
+		  
 		  $('#idck').on('click',function() {
+			  var idck = 0;
+			  
 		       $.ajax({
 		         type: 'POST',
 		         datatype: "json",
@@ -115,7 +176,11 @@
 		             } else {
 		               idck = 1;
 		               console.log("넘어온 값 : " + result);
-		                 alert('아이디가 존재합니다. 다른 아이디를 입력해주세요.');
+		               Swal.fire({
+			                 icon: 'warning',
+			                 title: '실패!',
+			                 text: '아이디가 존재합니다. 다른 아이디를 입력해주세요!',
+			               })
 		                 $("#userid").css("background-color", "#F8E5E5");
 		                 $("#userid").css("border-color", "#F98D8D");
 		                 $("#alertText").html('<b style="font-size:13px; color:#F64141;"> 아이디가 존재합니다. 다른 아이디를 입력해주세요.</b>');
@@ -173,22 +238,29 @@ document.querySelector("#btn").onclick = () => {
 	
 	var birthRegExp = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
 	if(form.birth.value == '' || !birthRegExp.test(form.birth.value)){
-		alert("생년월일을 입력해주세요");
+		alert("생년월일을 올바르게 입력해주세요");
 		form.birth.focus();
 		return;
 	}
 	
 	if(form.tel1.value == '' || form.tel2.value == '' || form.tel3.value == '' ){
-		alert("연락처를 입력해주세요");
+		alert("연락처를 올바르게 입력해주세요");
 		form.alert.focus();
 		return;
 	}
 	
-	if(form.email.value == ''){
+	var EmailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	if(form.email.value == '' || !EmailRegExp.test(form.email.value)){
 		alert("이메일을 입력해주세요");
 		form.alert.focus();
 		return;
 	}
+	
+//	Swal.fire({
+//        icon: 'success',
+//        title: '축하드립니다.',
+//        text: '코치코치 회원이 되신것을 축하드립니다.',
+//      })
 	
 	document.form.submit();
 }
