@@ -13,7 +13,7 @@ div.innerCont {
   /*max-width:1200px;*/
   overflow:hidden;
 }
-.sidebar { float:left; width:300px;}
+.sidebar { float:left; width:340px;}
 .innerCont .content {float:left; width:700px; padding:18px; box-sizing:border-box; }
 .footer {
     position: absolute;

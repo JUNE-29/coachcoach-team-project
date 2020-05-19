@@ -24,7 +24,10 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel='stylesheet' href='${pageContext.getServletContext().getContextPath()}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/pStyle.css" rel="stylesheet">
+<link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
+
 </head>
 <body>
 <tiles:insertAttribute name="header"/>

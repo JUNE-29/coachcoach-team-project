@@ -13,7 +13,7 @@
 생년월일: ${member.birth}<br>
 연락처: ${member.tel}<br>
 특이사항:<br> 
-<textarea name=remark rows='5' cols='60' placeholder='코치에게 알려줄 정보를 입력해주세요.'>
+<textarea id="summernote" name=remark rows='5' cols='60' placeholder='코치에게 알려줄 정보를 입력해주세요.'>
 </textarea><br>
 
 <h3>[프로그램 세부사항]</h3>
