@@ -23,11 +23,7 @@ import com.google.gson.Gson;
 
 @Auth(role = Role.COACH)
 @Controller
-<<<<<<< HEAD
-@RequestMapping("coachPage/memberManagement")
-=======
 @RequestMapping("/coachPage/memberManagement")
->>>>>>> master
 public class MemberManagementController {
 
   @Autowired
