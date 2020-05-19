@@ -22,7 +22,7 @@
   <link href="${pageContext.servletContext.contextPath}/resources/assets/vendor/bootstrap/css/bootstrap-grid.css.map" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="${pageContext.servletContext.contextPath}/resources/assets/css/style.css" rel="stylesheet">
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 <body>

@@ -350,14 +350,14 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header">Home</a></li>
+          <li class="active"><a href="${pageContext.servletContext.contextPath}">Home</a></li>
           <li><a href="#about">코치소개</a></li>
-          <li><a href="app/program/list">코치찾기</a></li>
+          <li><a href="${pageContext.servletContext.contextPath}/app/program/list">코치찾기</a></li>
           
           <li class="drop-down" wh><a href="">고객센터</a>
             <ul>
-              <li><a href="app/serviceCenter/FAQ/list">FAQ</a></li>
-              <li><a href="app/serviceCenter/noticeBoard/list">공지사항</a>
+              <li><a href="${pageContext.servletContext.contextPath}/app/serviceCenter/FAQ/list">FAQ</a></li>
+              <li><a href="${pageContext.servletContext.contextPath}/app/serviceCenter/noticeBoard/list">공지사항</a>
           </li>
         </ul>
         
