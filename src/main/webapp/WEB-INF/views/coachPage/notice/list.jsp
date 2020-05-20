@@ -22,7 +22,7 @@
 		  <tbody>
 		  <c:if test="${empty list}"> 
 		   <tr>
-		    <td colspan="5">아직 등록한 공지사항이 없어요!</td>
+		    <th colspan="5">아직 등록한 공지사항이 없어요!</th>
 		   </tr>
 		  </c:if>
 
