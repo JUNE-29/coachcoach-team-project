@@ -60,13 +60,6 @@
       <td>@mdo</td>
     </tr>
 </c:if>
-<c:if test="${memberProgram.review eq null}">
-    <tr>
-      <td>등록된 후기가 없습니다.</td>
-      <td></td>
-      <td></td>
-    </tr>
-</c:if>
   </c:forEach>
   </tbody>
 </table>

@@ -127,13 +127,11 @@ public class ProgramController {
 
   @Auth(role = Role.MEMBER)
   @PostMapping("apply/delete") // 신청취소
-  public void deleteApply(Model model, int applyNo, int programNo) {
-    try {
-      memberCoachingProgramService.delete(applyNo);
-      coachingProgramService.delete(programNo);
-    } catch (Exception e) {
-
-    }
+  public void deleteApply(Model model, int applyNo, int programNo) throws Exception {
+    memberCoachingProgramService.delete(applyNo);
+    coachingProgramService.delete(programNo);
+    System.out.println(applyNo);
+    System.out.println(programNo);
   }
 
 }

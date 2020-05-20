@@ -24,7 +24,6 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel='stylesheet' href='${pageContext.getServletContext().getContextPath()}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/summernote/summernote-lite.css" rel="stylesheet">
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/dStyle.css" rel="stylesheet">
