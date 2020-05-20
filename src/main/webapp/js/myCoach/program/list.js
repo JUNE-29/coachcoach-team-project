@@ -9,7 +9,7 @@ $(function(){
              data: {no: $(this).val()} ,
              success: function(data){
                 			$('.detail-modal-body').html(
-                					"<img src='${pageContext.servletContext.contextPath}/upload/coach/"+data.photo+"' height='200'><br>"+
+                					"<img src='${pageContext.servletContext.contextPath}/upload/coach/"+data.photo+" height='200';><br>"+
                 					data.name+"코치님<br>"+
                 					"<p>한 줄 소개<br>"+
                 					data.introduce+

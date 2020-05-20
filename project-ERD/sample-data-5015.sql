@@ -199,7 +199,7 @@ insert into member_coaching_programs(member_no, program_no, remark, status, requ
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)
   values(2, 8, '허리가 아파요', '요청거절됨', '2020-01-01', null, '2020-02-01', '2020-02-01',
-         null, null, null, null);
+         null, null, null, '허리가 아프신 분은 수강이 힘드세요.');
                   
 insert into member_coaching_programs(member_no, program_no, remark, status, request_date, pay_date,
                         start_date, end_date, star_rate, review, review_date, etc)

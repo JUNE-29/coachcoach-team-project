@@ -6,7 +6,7 @@
 
 
 <div class="innerCont">
-<form name="delfrm" action='delete' method='post'>
+<form name="delfrm" action='delete' method='post' onsubmit="return chk_del()" >
 <h3>신청서 확인</h3>
 <h5>회원정보</h5>
   <div class="form-group row">
@@ -53,9 +53,13 @@
       <input type="text" readonly class="form-control-plaintext"  value="${program.endDate} 일">
     </div>
   </div>
-  
-<button id="delBtn" class="btn btn-secondary" onclick="chk_del()">신청취소</button>
-
+      <div class="form-group row">
+    <label for="etc" class="col-sm-2 col-form-label">특이사항</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext"  value="${program.etc}">
+    </div>
+  </div>
+<button class="btn btn-secondary">신청취소</button>
 <input name='applyNo' type='hidden' value='${program.no}'>
 <input name='programNo' type='hidden' value='${program.programNo}'>
 </form>
