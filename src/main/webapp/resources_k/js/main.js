@@ -1,9 +1,3 @@
-/**
-* Template Name: iPortfolio - v1.2.1
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 !(function($) {
   "use strict";
 
@@ -22,70 +16,6 @@
       }
     }
   });
-
-  // Navigation active state on scroll
-//  var nav_sections = $('section');
-//  var main_nav = $('.nav-menu, #mobile-nav');
-
-//  $(window).on('scroll', function() {
-//    var cur_pos = $(this).scrollTop() + 10;
-//
-//    nav_sections.each(function() {
-//      var top = $(this).offset().top,
-//        bottom = top + $(this).outerHeight();
-//
-//      if (cur_pos >= top && cur_pos <= bottom) {
-//        if (cur_pos <= bottom) {
-//          main_nav.find('li').removeClass('active');
-//        }
-//        main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
-//      }
-//      if (cur_pos < 200) {
-//        $(".nav-menu ul:first li:first").addClass('active');
-//      }
-//    });
-//  });
-
-  // Back to top button
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
-    } else {
-      $('.back-to-top').fadeOut('slow');
-    }
-  });
-
-  $('.back-to-top').click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 1500, 'easeInOutExpo');
-    return false;
-  });
-
-  // Skills section
-  $('.skills-content').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
-      $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-  }, {
-    offset: '80%'
-  });
-
-  // Porfolio isotope and filter
-  $(window).on('load', function() {
-    var portfolioIsotope = $('.portfolio-container').isotope({
-      itemSelector: '.portfolio-item',
-      layoutMode: 'fitRows'
-    });
-
-    $('#portfolio-flters li').on('click', function() {
-      $("#portfolio-flters li").removeClass('filter-active');
-      $(this).addClass('filter-active');
-
-      portfolioIsotope.isotope({
-        filter: $(this).data('filter')
-      });
-    });
 
 // coachPage nav바 클릭시 li에 불켜지는 기능
   // ajax 아니고 누르면 새로고침되기 때문에 기존에 active class를 가지고 있던 li는 자동으로 초기화 된다
@@ -140,12 +70,6 @@
     return false;
   });
   
-  
-  
-  
- 
-  
-
   
   // 프로그램 등록 모달 관련
   $('.program-title').keyup(function() {
@@ -410,8 +334,7 @@
      })
   
      
-  // 
-     // 공지사항 등록 모달 관련
+  // 공지사항 등록 모달 관련
   $('#addNoticeBoard .board-title').keyup(function() {
     if($("#addNoticeBoard .board-title").val()){
       $("#addNoticeBoard .title-box p").remove();
@@ -521,7 +444,6 @@
       return;
     }
     
-    console.log($("#updateNoticeBoard .summernote").summernote('code'));
     if(!$("#updateNoticeBoard .summernote").summernote('code')){
       if ($("#updateNoticeBoard .content-box").children('p').length < 1) {
         $("#updateNoticeBoard .content-box").append('<p style="font-size:15px; color:red;">내용을 입력해주세요<p>');
@@ -617,7 +539,9 @@
   });
   
   // 페이징 처리
-  $('.coach-table').DataTable();
+  if ($('.coach-table').find('td')>1){
+    $('.coach-table').DataTable();
+  }
   
   // 서머노트 에디터
   $('.summernote').summernote({
@@ -810,7 +734,7 @@
     })
   })
   
-  })
+  
 })(jQuery);
 
 
