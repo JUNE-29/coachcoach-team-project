@@ -13,8 +13,8 @@ div.innerCont {
   /*max-width:1200px;*/
   overflow:hidden;
 }
-.sidebar { float:left; width:300px;}
-.innerCont .content {float:left; width:700px; padding:18px; box-sizing:border-box; }
+.sidebar { float:left; width:340px;}
+.innerCont .content {float:left; width:700px; height:400px;padding:18px; box-sizing:border-box; }
 .footer {
     position: absolute;
     left: 0;
@@ -22,6 +22,9 @@ div.innerCont {
     width: 100%;
    text-align: center;
 }
+
+.content .img { float:left; left:20px; padding:20px; margin:20px; width:200px; height:200px; border:3px solid #CFDDF3;; border-radius:50%; background:#eee;}
+.content .img img { width:100%; height:100%;}
 
 
   

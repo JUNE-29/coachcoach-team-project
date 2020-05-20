@@ -18,6 +18,9 @@
       <result column="coach_name"  property="name"/>
       <result column="photo"  property="photo"/>
       <result column="area"  property="area"/>
+      <result column="address"  property="address"/>
+      <result column="latitude"  property="latitude"/>
+      <result column="longitude"  property="longitude"/>
       <result column="career"  property="career"/>
       <result column="certification"  property="certification"/>
       <result column="coach_introduce"  property="introduce"/>
@@ -101,6 +104,9 @@
       c.career,
       c.certification,
       c.introduce coach_introduce,
+      c.address,
+      c.latitude,
+      c.longitude,
       c.work_type,
       cp.name,
       cp.introduce,
@@ -262,7 +268,7 @@
         mcp.remark,            
         mcp.status,            
         DATE_FORMAT(mcp.request_date, "%Y/%m/%d") as request_date,
-        mcp.pay_date,     
+        DATE_FORMAT(mcp.pay_date, "%Y/%m/%d") as pay_date,     
         DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
         DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date,
         mcp.etc,

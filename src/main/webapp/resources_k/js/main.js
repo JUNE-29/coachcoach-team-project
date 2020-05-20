@@ -1,24 +1,23 @@
-/**
-* Template Name: iPortfolio - v1.2.1
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 !(function($) {
   "use strict";
 
-  // Hero typed
-  if ($('.typed').length) {
-    var typed_strings = $(".typed").data('typed-items');
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
+  if ($('.coach-table').find('td').length>0){
+    $('.coach-table').DataTable();
   }
+  
+  // 서머노트 에디터
+  $('.summernote').summernote({
+    height: 300,                 // 에디터 높이
+    minHeight: null,             // 최소 높이
+    maxHeight: null,             // 최대 높이
+    focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+    lang: "ko-KR",          // 한글 설정
+    placeholder: '최대 21,844자까지 쓸 수 있습니다'  //placeholder 설정
+  });
+  
+  
+
+  
   // 모바일 토글 설정 
   $(document).on('click', '.mobile-nav-toggle', function(e) {
     $('body').toggleClass('mobile-nav-active');
@@ -35,103 +34,6 @@
     }
   });
 
-  // Navigation active state on scroll
-//  var nav_sections = $('section');
-//  var main_nav = $('.nav-menu, #mobile-nav');
-
-//  $(window).on('scroll', function() {
-//    var cur_pos = $(this).scrollTop() + 10;
-//
-//    nav_sections.each(function() {
-//      var top = $(this).offset().top,
-//        bottom = top + $(this).outerHeight();
-//
-//      if (cur_pos >= top && cur_pos <= bottom) {
-//        if (cur_pos <= bottom) {
-//          main_nav.find('li').removeClass('active');
-//        }
-//        main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
-//      }
-//      if (cur_pos < 200) {
-//        $(".nav-menu ul:first li:first").addClass('active');
-//      }
-//    });
-//  });
-
-  // Back to top button
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
-    } else {
-      $('.back-to-top').fadeOut('slow');
-    }
-  });
-
-  $('.back-to-top').click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 1500, 'easeInOutExpo');
-    return false;
-  });
-
-  // Skills section
-  $('.skills-content').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
-      $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-  }, {
-    offset: '80%'
-  });
-
-  // Porfolio isotope and filter
-  $(window).on('load', function() {
-    var portfolioIsotope = $('.portfolio-container').isotope({
-      itemSelector: '.portfolio-item',
-      layoutMode: 'fitRows'
-    });
-
-    $('#portfolio-flters li').on('click', function() {
-      $("#portfolio-flters li").removeClass('filter-active');
-      $(this).addClass('filter-active');
-
-      portfolioIsotope.isotope({
-        filter: $(this).data('filter')
-      });
-    });
-
-    // Initiate venobox (lightbox feature used in portofilo)
-    $(document).ready(function() {
-      $('.venobox').venobox();
-    });
-  });
-
-  // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 2
-      },
-      900: {
-        items: 3
-      }
-    }
-  });
-
-  // Portfolio details carousel
-  $(".portfolio-details-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    items: 1
-  });
-
-
 // coachPage nav바 클릭시 li에 불켜지는 기능
   // ajax 아니고 누르면 새로고침되기 때문에 기존에 active class를 가지고 있던 li는 자동으로 초기화 된다
   // => 나중에 ajax로 교체할 때 이전 li에 있는 active class를 없애주는 기능도 넣어야함 
@@ -147,21 +49,6 @@
       }
     }
   }());
-  
-  
-//  $(".go").click(function(){
-//    var link = $(this).attr("href");
-//    $.ajax(
-//        { type: 'get' , 
-//          url: link, 
-//          success: 
-//            function(data) {
-//            console.log(link);
-//            console.log(data);
-//              $("#content").html(data);
-//            }
-//        });
-//  });
   
   $('#updateCoachProfileSubmit').on('click', function(e) {
     e.preventDefault();
@@ -201,32 +88,26 @@
   });
   
   
-  
-  
- 
-  
-
-  
   // 프로그램 등록 모달 관련
-  $('.program-title').keyup(function() {
-    if($(".program-title").val()){
-      $(".title-box p").remove();
+  $('#addProgram .program-title, #updateProgram .program-title').keyup(function() {
+    if($("#addProgram .program-title, #updateProgram .program-title").val()){
+      $("#addProgram .title-box p, #updateProgram .title-box p").remove();
     }
   })
   
-  $('.program-introduce').keyup(function() {
-    if($(".program-introduce").val()){
-      $(".introduce-box p").remove();
+  $('#addProgram .program-introduce, #updateProgram .program-introduce').keyup(function() {
+    if($("#addProgram .program-introduce, #updateProgram .program-introduce").val()){
+      $("#addProgram .introduce-box p, #updateProgram .introduce-box p").remove();
     }
   })
   
-  $('.program-tags').on('click', function() {
-      $(".program-tags p").remove();
+  $('#addProgram .program-tags, #updateProgram .program-tags').on('click', function() {
+      $("#addProgram .program-tags p, #updateProgram .program-tags p").remove();
   })
   
-  $('.program-fee').keyup(function() {
-    if($(".program-fee").val()){
-      $(".fee-box p").remove();
+  $('#addProgram .program-fee, #updateProgram .program-fee').keyup(function() {
+    if($("#addProgram .program-fee, #updateProgram .program-fee").val()){
+      $("#addProgram .fee-box p, #updateProgram .fee-box p").remove();
     }
   })
 
@@ -470,8 +351,7 @@
      })
   
      
-  // 
-     // 공지사항 등록 모달 관련
+  // 공지사항 등록 모달 관련
   $('#addNoticeBoard .board-title').keyup(function() {
     if($("#addNoticeBoard .board-title").val()){
       $("#addNoticeBoard .title-box p").remove();
@@ -581,7 +461,6 @@
       return;
     }
     
-    console.log($("#updateNoticeBoard .summernote").summernote('code'));
     if(!$("#updateNoticeBoard .summernote").summernote('code')){
       if ($("#updateNoticeBoard .content-box").children('p').length < 1) {
         $("#updateNoticeBoard .content-box").append('<p style="font-size:15px; color:red;">내용을 입력해주세요<p>');
@@ -675,21 +554,9 @@
     $("#updateNoticeBoard .title-box p, #addNoticeBoard .title-box p").remove();
     $("#updateNoticeBoard .content-box p, #addNoticeBoard .content-box p").remove();
   });
+
   
-  // 페이징 처리
-  $('.coach-table').DataTable();
-  
-  // 서머노트 에디터
-  $('.summernote').summernote({
-    height: 300,                 // 에디터 높이
-    minHeight: null,             // 최소 높이
-    maxHeight: null,             // 최대 높이
-    focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-    lang: "ko-KR",          // 한글 설정
-    placeholder: '최대 21,844자까지 쓸 수 있습니다'  //placeholder 설정
-  });
-  
-  
+  var src = $('#requestDetail img').attr('src');
   // 받은 요청 모달 처리
   $('.request-table a').on('click', function() {
     var no = $(this).children('input[name="no"]').val();
@@ -703,6 +570,12 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
+        if($(detail.member.photo).length > 0) {
+          $('#requestDetail img').attr('src', $('#requestDetail img').attr('src')+detail.member.photo)
+        } else {
+          $('#requestDetail img').attr('src', $('#requestDetail img').attr('src')+'default.jpg')
+        }
+        console.log(detail)
         $('#requestDetail td.name').text(detail.member.name)
         $('#requestDetail td.id').text(detail.member.id)
         $('#requestDetail td.tel').text(detail.member.tel)
@@ -821,11 +694,13 @@
   })
   
   $('#requestReject, #requestDetail').on('hidden.bs.modal', function (e) {
+    $('#requestDetail img').attr('src', src);
     $('form').each(function(){
       this.reset();
     });
   });
   
+  var memberSrc = $('#memberDetail img').attr('src');
 //회원 디티일보기 모달 처리
   $('.member-table a').on('click', function() {
     var no = $('.member-table').find('input[name="memberCoachingProgramNo"]').val();
@@ -839,6 +714,11 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
+        if($(detail.member.photo).length > 0) {
+          $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+detail.member.photo)
+        } else {
+          $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+'default.jpg')
+        }
         $('#memberDetail td.name').text(detail.member.name)
         $('#memberDetail td.id').text(detail.member.id)
         $('#memberDetail td.tel').text(detail.member.tel)
@@ -860,7 +740,13 @@
     })
   })
   
-
+  $('#memberDetail').on('hidden.bs.modal', function (e) {
+    $('#memberDetail img').attr('src', memberSrc);
+    $('form').each(function(){
+      this.reset();
+    });
+  });
+  
 })(jQuery);
 
 

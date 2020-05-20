@@ -19,19 +19,26 @@
         <put-attribute name="footer" value="/WEB-INF/tiles/myPage/footer.jsp" />
     </definition>
         
-    <definition name="auth/*/*" template="/WEB-INF/tiles/auth/template.jsp">
+     <definition name="auth/member/*" template="/WEB-INF/tiles/auth/template.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/auth/header.jsp" />
-        <put-attribute name="body" value="/WEB-INF/views/auth/{1}/{2}.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/auth/member/{1}.jsp" />
         <put-attribute name="footer" value="/WEB-INF/tiles/auth/footer.jsp" />
+        <put-attribute name="jsFileMember" value="member/{1}.js" />
+    </definition>
+    
+    <definition name="auth/coach/*" template="/WEB-INF/tiles/auth/template-c.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/auth/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/auth/coach/{1}.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/auth/footer.jsp" />
+         <put-attribute name="jsFileCoach" value="coach/{1}.js" />
     </definition>
     
     <definition name="auth/*" template="/WEB-INF/tiles/auth/template.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/auth/header.jsp" />
         <put-attribute name="body" value="/WEB-INF/views/auth/{1}.jsp" />
         <put-attribute name="footer" value="/WEB-INF/tiles/auth/footer.jsp" />
+        <put-attribute name="jsFileMember" value="{1}.js" />
     </definition>
-    
-    
     
     <definition name="myCoach/*/*" template="/WEB-INF/tiles/myCoach/template.jsp">
         <put-attribute name="header" value="/WEB-INF/tiles/myCoach/header.jsp" />
@@ -52,6 +59,7 @@
         <put-attribute name="header" value="/WEB-INF/tiles/program/header.jsp" />
         <put-attribute name="body" value="/WEB-INF/views/program/apply/{1}.jsp" />
         <put-attribute name="footer" value="/WEB-INF/tiles/program/footer.jsp" />
+        <put-attribute name="jsFilename" value="{1}.js" />
     </definition>    
     
   <definition name="serviceCenter/*/*" template="/WEB-INF/tiles/serviceCenter/template.jsp">

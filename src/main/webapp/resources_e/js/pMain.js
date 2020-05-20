@@ -3,6 +3,17 @@
  */
 
 
+// 검색
+$("#searchBtn").click(function(){
+    if($.trim($("#search").val())==''){
+    	swal("검색어를 입력해주세요");
+      return false;
+    } 
+    $("#searchfrm").submit();
+  });
+
+
+// 키워드
 function chk_keyword() {
     var chk_kwd = document.getElementsByName('tags');
     var chk_cnt = 0; 
@@ -13,18 +24,19 @@ function chk_keyword() {
     }
     
        if (chk_cnt > 3){
-           alert("최대 3개까지 선택가능합니다.");
+    	   swal("최대 3개까지 선택가능합니다.");
           return;
         }
 
        if (chk_cnt == 0){
-           alert("키워드를 선택해주세요.");
+    	   swal("키워드를 선택해주세요.");
           return;
         }
 
     document.keyword.submit();
 }
 
+// 키워드 선택
 $(document).ready(function(){
     $("#ckh_1").change(function(){
         if($("#ckh_1").is(":checked")){

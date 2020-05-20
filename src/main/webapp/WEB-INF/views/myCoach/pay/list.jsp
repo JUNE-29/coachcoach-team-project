@@ -11,6 +11,7 @@
     <tr>
       <th scope="col">No</th>
       <th scope="col">코치님</th>
+      <th scope="col">결제완료일</th>
       <th scope="col">주문한 프로그램명</th>
       <th scope="col">결제금액</th>
       <th scope="col">상태</th>
@@ -22,6 +23,7 @@
     <tr>
       <th scope="row">${list.mcp.no}</th>
       <td>${list.coach.name}</td>
+      <td>${list.mcp.payDate}</td>
       <td>${list.name}</td>
       <td>${list.fee}</td>     
     <td>${list.mcp.status}</td>

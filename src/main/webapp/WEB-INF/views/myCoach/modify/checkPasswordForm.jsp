@@ -9,7 +9,7 @@
   <h4>${message}</h4><br>
 </c:if>
 
-<form action='checkPassword' method='post'>
+<form action='checkPassword' method='post' onsubmit='return frm_chk();'>
 비밀번호 <input name='password' type='password'><br>
 <button>확인</button>
 </form>

@@ -69,21 +69,23 @@
           </tr>
          <tr>
             <th>생년월일</th>
-	           <td><input type='text' name= 'birth' id='birth'><br>
+	           <td><input type='text' name= 'birth' id='userBirth'><br>
 	             <span id='alertBirth'><span class="info_T">※ 생년월일을 입력해주세요 예)19990101</span></span>
 	           </td>
          </tr>
          <tr>
               <th>연락처</th>
            <td>
-          <input type='tel' name='tel1' size = "3" maxlength= "3"> -
-          <input type='tel' name='tel2' size = "4" maxlength= "4"> -
-          <input type='tel' name='tel3' size = "4" maxlength= "4">
+          <input type='tel' name='tel1' id='userTel1' size = "3" maxlength= "3"> -
+          <input type='tel' name='tel2' id='userTel2' size = "4" maxlength= "4"> -
+          <input type='tel' name='tel3' id='userTel3' size = "4" maxlength= "4">
           </td>
           </tr>
           <tr>
               <th>이메일</th>
-            <td><input type='email' name='email'></td>
+            <td><input type='text' name='email' id='userEmail'><br>
+              <span id='alertEmail'><span class="info_T">※ 처음 로그인 시 이메일 인증이 있어야 하므로, 반드시 자주 사용하는 메일 주소를 입력해주세요.</span></span>
+            </td>
           </tr>
           <tr>
           <th>사진</th>
@@ -92,10 +94,15 @@
         </tbody>
         </table>
         <div class="join_ok_area">
-          <button id="btn" type="button">가입하기</button>
+          <button id="join_ok_btn" type="button">가입하기</button>
         </div>
 </form>
 </div>
+
+
+
+
+ 
 
 
 

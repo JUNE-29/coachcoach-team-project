@@ -21,7 +21,7 @@
 	<c:set var="i" value="0"/>
 		<c:if test="${empty list}"> 
 	    <tr>
-	     <td colspan="6">아직 등록된 프로그램이 없어요!</td>
+	     <th colspan="6">아직 등록된 프로그램이 없어요!</th>
 	    </tr>
 	  </c:if>
 	<c:forEach items="${list}" var="item">

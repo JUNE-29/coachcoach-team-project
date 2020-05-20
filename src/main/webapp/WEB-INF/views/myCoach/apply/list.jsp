@@ -27,12 +27,14 @@
   <c:choose>
     <c:when test="${status eq '결제대기중'}">
     <td>
-    <button type="button" onclick="location.href='orderForm?no=${list.mcp.no}'">결제하기</button>
+    <button type="button" onclick="location.href='orderForm?no=${list.mcp.no}'" class="btn btn-outline-primary btn-sm" >결제하기</button>
     </td>
   </c:when>
   <c:when test="${status eq '요청거절됨'}">
     <td>
-    <input type="button" value="거절사유" onclick="showPopup();" />
+    <button class="rejectBtn btn btn-outline-primary btn-sm" value="${list.mcp.no}" type="button" data-toggle="modal" data-target="#rejectModal">
+         거절사유
+      </button>
     </td>
     </c:when>
   <c:otherwise>
@@ -45,7 +47,26 @@
 </table>
 </div>
 
+<!-- 거절사유 Modal -->
+<div class="modal fade" id="rejectModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">거절사유</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="reject-modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
 
- <script language="javascript">
-  function showPopup() { window.open("popup.jsp", "거절사유", "width=400, height=300, left=100, top=50"); }
- </script>
+
+
+
+
