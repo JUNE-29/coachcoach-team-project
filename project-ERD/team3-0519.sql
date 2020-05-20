@@ -10,9 +10,6 @@ DROP TABLE IF EXISTS coaching_programs RESTRICT;
 -- 운동태그
 DROP TABLE IF EXISTS workout_tags RESTRICT;
 
--- 코칭방식
-DROP TABLE IF EXISTS coaching_systems RESTRICT;
-
 -- 코칭프로그램게시판
 DROP TABLE IF EXISTS coaching_program_boards RESTRICT;
 
@@ -31,9 +28,6 @@ DROP TABLE IF EXISTS food_boards RESTRICT;
 -- 음식게시판댓글
 DROP TABLE IF EXISTS food_board_comments RESTRICT;
 
--- 체중
-DROP TABLE IF EXISTS weight RESTRICT;
-
 -- 회원코칭프로그램일정
 DROP TABLE IF EXISTS member_program_calendar RESTRICT;
 
@@ -46,20 +40,8 @@ DROP TABLE IF EXISTS coaching_program_tags RESTRICT;
 -- 운동단위
 DROP TABLE IF EXISTS workout_unit RESTRICT;
 
--- 코칭프로그램방식
-DROP TABLE IF EXISTS program_coaching_systems RESTRICT;
-
--- 운동리스트태그
-DROP TABLE IF EXISTS workout_list_tag RESTRICT;
-
 -- 운동
 DROP TABLE IF EXISTS workout RESTRICT;
-
--- 운동시간2
-DROP TABLE IF EXISTS workout_unit2 RESTRICT;
-
--- 운동시간
-DROP TABLE IF EXISTS workout_unit3 RESTRICT;
 
 -- 회원정보
 CREATE TABLE members (
@@ -260,7 +242,6 @@ ALTER TABLE to_do_list
 CREATE TABLE member_workouts (
   workout_list_no INTEGER NOT NULL COMMENT '운동내역번호', -- 운동내역번호
   member_no       INTEGER NOT NULL COMMENT '일반회원번호', -- 일반회원번호
-  workout_unit_no INTEGER NOT NULL COMMENT '운동단위번호', -- 운동단위번호
   workout_date    DATE    NOT NULL DEFAULT now() COMMENT '시행날짜', -- 시행날짜
   weight          INTEGER NOT NULL COMMENT '몸무게', -- 몸무게
   walk_count      INTEGER NULL     COMMENT '측정값' -- 측정값
@@ -373,7 +354,7 @@ ALTER TABLE coaching_program_tags
 
 -- 운동단위
 CREATE TABLE workout_unit (
-  workout_unit_no INTEGER NOT NULL COMMENT '운동단위번호', -- 운동단위번호
+  workout_list_no INTEGER NOT NULL COMMENT '운동내역번호', -- 운동내역번호
   workout_no      INTEGER NOT NULL COMMENT '운동번호', -- 운동번호
   unit            INTEGER NOT NULL COMMENT '운동시간' -- 운동시간
 )
@@ -383,7 +364,8 @@ COMMENT '운동단위';
 ALTER TABLE workout_unit
   ADD CONSTRAINT PK_workout_unit -- 운동단위 기본키
     PRIMARY KEY (
-      workout_unit_no -- 운동단위번호
+      workout_list_no, -- 운동내역번호
+      workout_no       -- 운동번호
     );
 
 -- 운동
@@ -470,16 +452,6 @@ ALTER TABLE member_workouts
       member_no -- 일반회원번호
     );
 
--- 운동내역
-ALTER TABLE member_workouts
-  ADD CONSTRAINT FK_workout_unit_TO_member_workouts -- 운동단위 -> 운동내역
-    FOREIGN KEY (
-      workout_unit_no -- 운동단위번호
-    )
-    REFERENCES workout_unit ( -- 운동단위
-      workout_unit_no -- 운동단위번호
-    );
-
 -- 음식게시판
 ALTER TABLE food_boards
   ADD CONSTRAINT FK_members_TO_food_boards -- 회원정보 -> 음식게시판
@@ -558,4 +530,14 @@ ALTER TABLE workout_unit
     )
     REFERENCES workout ( -- 운동
       workout_no -- 운동번호
+    );
+
+-- 운동단위
+ALTER TABLE workout_unit
+  ADD CONSTRAINT FK_member_workouts_TO_workout_unit -- 운동내역 -> 운동단위
+    FOREIGN KEY (
+      workout_list_no -- 운동내역번호
+    )
+    REFERENCES member_workouts ( -- 운동내역
+      workout_list_no -- 운동내역번호
     );
