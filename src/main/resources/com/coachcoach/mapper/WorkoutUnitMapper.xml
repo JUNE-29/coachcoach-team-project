@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.coachcoach.dao.WorkoutUnitDao">
+
+  <resultMap type="WorkoutUnit" id="WorkoutUnitMap">
+    <id column="workout_list_no"     property="workoutListNo"/>
+    <result column="workout_no"    property="workoutNo"/>
+    <result column="unit"          property="unit"    />
+    <result column="name"          property="name"/>
+    
+  </resultMap>
+  
+   <insert id="insert" parameterType="MemberWorkout"
+   useGeneratedKeys="true" keyColumn="workout_list_no" keyProperty="workoutListNo">
+    insert into workout_unit(
+      workout_list_no,
+      workout_no,
+      unit
+      ) values
+      <foreach collection="workoutUnit" item="item" separator=",">
+      (
+      #{workoutListNo},
+      #{item.workoutNo},
+      #{item.unit}
+     )
+     </foreach>
+     <!-- separator를 넣어주는 이유는 포문으로 돌렸을 때 구분하기 위해 -->
+  </insert>
+  
+
+   <delete id="deleteAll" parameterType="int">
+    delete from workout_unit
+    where workout_unit_no,=#{workoutUnitNo}
+  </delete>
+  
+    <select id="findAll" resultMap="WorkoutUnitMap" >
+    select
+      workout_no,
+      name
+    from
+      workout
+    </select>
+  
+  
+  
+</mapper>
+
+
+
+
+
+
+

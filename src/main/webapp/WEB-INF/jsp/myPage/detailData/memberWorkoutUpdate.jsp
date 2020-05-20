@@ -4,6 +4,6 @@
 
 <h1>저장했습니다.</h1>
 
-<button type="button" onclick="location.href='list'">확인</button>
+<button type="button" onclick="location.href='memberWorkoutList'">확인</button>
 
 <jsp:include page='../../footer.jsp'/>

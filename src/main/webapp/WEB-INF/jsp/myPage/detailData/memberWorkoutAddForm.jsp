@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page='../../header.jsp'/>
 
 <h3>운동을 입력해주세요</h3>
 <form action='add' method='post'>
@@ -9,7 +8,10 @@
 <p>날짜를 선택해주세요.</p>
 운동 시작일: <input name='workoutDate' type='date'><br>
 
-<p>오늘 걸음수를 입력해주세요.</p>
+<p>오늘의 체중을 입력해주세요.</p>
+<input name='weight' type='text'><br>
+
+<p>오늘의 걸음수를 입력해주세요.</p>
 <input name='walkCount' type='text'><br>
 
 <br>
@@ -90,10 +92,6 @@ document.getElementById('field').removeChild(obj.parentNode);
 
 -->
 
-<p>오늘 한 운동의 종목들</p><br>
-<textarea name='etc' rows='5' cols='60'></textarea><br>
-
 <button>저장</button>
 </form>
 
-<jsp:include page='../../footer.jsp'/>

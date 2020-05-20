@@ -6,7 +6,7 @@ import com.coachcoach.domain.MemberWorkout;
 public interface MemberWorkoutService {
 
   // 날짜, 몸무게, 걸음수, 운동종목 입력
-  int add(MemberWorkout memberWorkout) throws Exception;
+  void add(MemberWorkout memberWorkout) throws Exception;
 
   // 회원번호로 운동종목 내역 보기(회원본인꺼만 봐야 하기 때문에 memberNo)
   List<MemberWorkout> list(int memberNo) throws Exception;
