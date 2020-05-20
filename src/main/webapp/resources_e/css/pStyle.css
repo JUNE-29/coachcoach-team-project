@@ -22,6 +22,7 @@ div.innerCont {
    text-align: center;
 }
 
+
 .innerCont { overflow:hidden;}
 .leftArea { float:left; width:340px;}
 .leftArea .inner { padding:18px; border-radius:20px; box-sizing:border-box; background:#CFDDF3;}
@@ -56,3 +57,12 @@ line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; 
 .rightArea .paginationWrap > ul li { float:left; border:1px solid #ddd; border-radius:5px;}
 .rightArea .paginationWrap > ul li + li { margin-left:8px;}
 .rightArea .paginationWrap > ul li a { padding:8px; font-size:18px; color:#000;}
+
+
+.innerCont .bar { float:left; width:700px; border:1px solid #A5A5A4; padding:20px; margin:20px;}
+.rightBar { float:right; width:300px; margin-top:20px; }
+.rightBar .inner {border:1px solid #A5A5A4; padding:20px; }
+.rightBar .kakaoMap  {padding:20px; }
+.section { float:left; width:700px; border:1px solid #A5A5A4; padding:20px; margin:20px;}
+.article { height:200px;}
+.article2 { height:200px;}

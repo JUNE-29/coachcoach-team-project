@@ -27,6 +27,7 @@
 
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/summernote/summernote-lite.css" rel="stylesheet">
+<link href="${pageContext.servletContext.contextPath}/resources_e/css/dStyle.css" rel="stylesheet">
 </head>
 <body>
 <tiles:insertAttribute name="header"/>

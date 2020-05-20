@@ -11,3 +11,12 @@ $(document).ready(function() {
           
 	});
 });
+
+
+$("#applyBtn").click(function(){
+    if($.trim($("#startDate").val())==''){
+    	swal("운동시작일을 입력해주세요.");
+      return false;
+    } 
+    $("#applyfrm").submit();
+  });
