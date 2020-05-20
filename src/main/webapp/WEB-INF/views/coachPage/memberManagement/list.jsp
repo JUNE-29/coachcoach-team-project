@@ -26,7 +26,7 @@
 	<tbody>
 	  <c:if test="${empty list}"> 
 	   <tr>
-	    <td colspan="6">아직 등록된 회원이 없어요!</td>
+	    <th colspan="6">아직 등록된 회원이 없어요!</th>
 	   </tr>
 	  </c:if>
   <c:forEach items="${list}" var="item">
@@ -80,7 +80,7 @@
               <img src='${pageContext.servletContext.contextPath}/upload/member/${detail.member.photo}' style='width:180px'>
             </div>
             <div class='col-md-8'>
-              <table style='width:500px'>
+              <table style='width:500px' class='table table-borderless'>
                 <tr><th>이름</th><td class='name'></td></tr>
                 <tr><th>아이디</th><td class='id'></td></tr>
                 <tr><th>전화번호</th><td class='tel'></td></tr>
