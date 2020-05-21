@@ -66,7 +66,25 @@
 <div class="article">
 </div>
 <div class="article2">
-  <h5>수강후기</h5>
+<c:set var="starRate" value="${star.mcp.starRate}" />
+<c:if test="${starRate eq null}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_0.png' style="height:80px;">
+</c:if>
+<c:if test="${starRate eq '1'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_1.png' style="height:80px;">
+</c:if>
+<c:if test="${starRate eq '2'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_2.png' style="height:80px;">
+</c:if>
+<c:if test="${starRate eq '3'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_3.png' style="height:80px;">
+</c:if>
+<c:if test="${starRate eq '4'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_4.png' style="height:80px;">
+</c:if>
+<c:if test="${starRate eq '5'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_5.png' style="height:80px;">
+</c:if>
   <table class="table table-sm">
   <thead>
     <tr>
