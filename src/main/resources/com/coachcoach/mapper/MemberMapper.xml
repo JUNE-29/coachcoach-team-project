@@ -184,6 +184,15 @@
     id=#{id}
   </select>
   
+  <select id="searchId" resultType="String" parameterType="String" >
+    select
+      ifnull(id, 0) 
+    from
+      members
+    where
+      name=#{userName} and email=#{userEmail}
+  </select>
+  
 </mapper>
 
 

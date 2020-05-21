@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.coachcoach.domain.Member;
@@ -130,6 +131,16 @@ public class MemberAuthController {
     System.out.println(member.getEmail() + ": auth confirmed");
     memberService.updateAuthStatus(member); // 권한 업데이트
     model.addAttribute("auth_check", 1);
+  }
+
+  @ResponseBody
+  @RequestMapping(value = "searchid", method = RequestMethod.POST)
+  public String searchid(@RequestParam String userName, @RequestParam String userEmail)
+      throws Exception {
+    System.out.println(userName);
+    System.out.println(userEmail);
+    String result = memberService.getSerchId(userName, userEmail);
+    return result;
   }
 }
 

@@ -124,4 +124,9 @@ public class MemberServiceImpl implements MemberService {
   public void updateAuthStatus(Member member) {
     memberDao.updateAuthStatus(member);
   }
+
+  @Override
+  public String getSerchId(String userName, String userEmail) throws Exception {
+    return memberDao.searchId(userName, userEmail);
+  }
 }

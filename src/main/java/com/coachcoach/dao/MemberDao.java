@@ -2,6 +2,7 @@ package com.coachcoach.dao;
 
 import java.util.List;
 import java.util.Map;
+import org.apache.ibatis.annotations.Param;
 import com.coachcoach.domain.Member;
 
 public interface MemberDao {
@@ -44,6 +45,9 @@ public interface MemberDao {
 
   // 이메일 인증 관련 - 유저 인증키 Y로 바꿔주는 메서드
   void updateAuthStatus(Member member);
+
+  // 아이디찾기
+  String searchId(@Param("userName") String userName, @Param("userEmail") String userEmail);
 }
 
 
