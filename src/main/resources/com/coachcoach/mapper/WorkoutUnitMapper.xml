@@ -43,6 +43,24 @@
   
   </select>
   
+   <update id="update" parameterType="MemberWorkout"
+   useGeneratedKeys="true" keyColumn="workout_list_no" keyProperty="workoutListNo">
+    update workout_unit
+      workout_list_no,
+      workout_no,
+      unit
+      ) values
+      <foreach collection="workoutUnit" item="item" separator=",">
+      (
+      #{workoutListNo},
+      #{item.workoutNo},
+      #{item.unit}
+     )
+     </foreach>
+     where
+        workout_list_no=#{workoutListNo}
+  </update>
+  
 
    <delete id="deleteAll" parameterType="int">
     delete from workout_unit

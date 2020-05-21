@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <h3>Diet Diary</h3>
-<form action='update' method='post'>
-<input name ='no' value='${memberWorkout.workoutListNo}' type='hidden'>
+<form action='memberWorkoutUpdate' method='post'>
+<input name ='workoutListNo' value='${memberWorkout.workoutListNo}' type='hidden'>
 
 <p>날짜를 선택해주세요.</p>
 운동 시작일: <input name='workoutDate' type='date' value='${memberWorkout.workoutDate}'><br>

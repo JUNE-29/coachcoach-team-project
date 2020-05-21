@@ -22,8 +22,8 @@
         <td align=center>${item.workoutDate}</td>
         <td align=center>${item.weight}</td>
         <td align=center>${item.walkCount}</td>
-        <th ><a href= 'updateForm?memberWorkoutNo=${item.workoutListNo}'>수정</a></th>
-        <th ><a href= 'delete?memberWorkoutNo=${item.workoutListNo}'>삭제</a></th>
+        <th ><a href= 'memberWorkoutUpdateForm?workoutListNo=${item.workoutListNo}'>수정</a></th>
+        <th ><a href= 'memberWorkoutDelete?workoutListNo=${item.workoutListNo}'>삭제</a></th>
       </tr>
   </c:forEach>
       

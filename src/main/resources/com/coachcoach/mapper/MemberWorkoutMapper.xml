@@ -64,7 +64,7 @@
       <if test="walkCount != null and walkCount != ''">walkCount=#{walkCount},</if> 
     </set>
       where 
-        member_no=#{memberNo}
+        workout_list_no=#{workoutListNo}
   </update>
   
    <delete id="delete" parameterType="int">

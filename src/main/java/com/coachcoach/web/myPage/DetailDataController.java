@@ -78,15 +78,29 @@ public class DetailDataController {
   }
 
 
-  // @GetMapping("memberWorkoutUpdateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
-  // public void updateForm(int memberWorkoutNo, Model model) throws Exception {
-  // model.addAttribute("workoutList", memberWorkoutService.getMemberWorkout(memberWorkoutNo));
-  // }
-  //
-  // @PostMapping("memberWorkoutUpdate")
-  // public void update(MemberWorkout memberWorkout) throws Exception {
-  // memberWorkoutService.update(memberWorkout);
-  // }
+  @GetMapping("memberWorkoutUpdateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
+  public void updateForm(int workoutListNo, Model model) throws Exception {
+    model.addAttribute("memberWorkout", memberWorkoutService.getMemberWorkout(workoutListNo));
+  }
+
+  @PostMapping("memberWorkoutUpdate")
+  public void update(MemberWorkout memberWorkout, @RequestParam("workoutNo") int[] workoutNoList,
+      @RequestParam("unit") int[] unitList) throws Exception {
+    System.out.println(memberWorkout + "확인");
+    List<WorkoutUnit> list = new ArrayList<>();
+    for (int i = 0; i < workoutNoList.length; i++) {
+      WorkoutUnit workoutUnit = new WorkoutUnit();
+      workoutUnit.setWorkoutNo(workoutNoList[i]); // workoutUni의 값들을 배열로 받기위한 작업
+      workoutUnit.setUnit(String.valueOf(unitList[i])); // String을 int로
+      list.add(workoutUnit);
+    }
+    System.out.println(memberWorkout + "확인1");
+    memberWorkout.setWorkoutUnit(list);
+    if (memberWorkoutService.update(memberWorkout) > 0) {
+      workoutUnitService.delete(memberWorkout.getWorkoutListNo());
+      workoutUnitService.add(memberWorkout);
+    }
+  }
   //
   // @GetMapping("memberWorkoutDelete")
   // public void delete(int memberWorkoutNo) throws Exception {

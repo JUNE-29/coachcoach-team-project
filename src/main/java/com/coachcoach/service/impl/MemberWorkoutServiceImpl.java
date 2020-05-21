@@ -29,19 +29,12 @@ public class MemberWorkoutServiceImpl implements MemberWorkoutService {
     // 여러 값들이 있기 때문에
   }
 
+  @Override
+  public MemberWorkout getMemberWorkout(int workoutListNo) throws Exception {
+    return memberWorkoutDao.findByNo(workoutListNo);
+  }
+
   @Transactional
-  @Override
-  public List<MemberWorkout> list(int memberNo, int workoutListNo) throws Exception {
-    memberWorkoutDao.findAll(memberNo);
-    workoutUnitDao.findAllByWorkoutUnit(workoutListNo);
-    return null;
-  }
-
-  @Override
-  public MemberWorkout getMemberWorkout(int no) throws Exception {
-    return memberWorkoutDao.findByNo(no);
-  }
-
   @Override
   public int update(MemberWorkout memberWorkout) throws Exception {
     return memberWorkoutDao.update(memberWorkout);
@@ -55,11 +48,6 @@ public class MemberWorkoutServiceImpl implements MemberWorkoutService {
   @Override
   public List<MemberWorkout> list(int memberNo) throws Exception {
     return memberWorkoutDao.findAll(memberNo);
-  }
-
-  @Override
-  public List<MemberWorkout> findByNo(int workoutListNo) throws Exception {
-    return memberWorkoutDao.findAllByNo(workoutListNo);
   }
 
 

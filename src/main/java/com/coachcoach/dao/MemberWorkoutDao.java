@@ -12,8 +12,6 @@ public interface MemberWorkoutDao {
   // 회원 본인 운동내역만 보여야해서 memberNo를 넣었음
   List<MemberWorkout> findAll(int memberNo) throws Exception;
 
-  List<MemberWorkout> findAllByNo(int workoutListNo) throws Exception;
-
   // 회원 본인의 운동내역 수정
   int update(MemberWorkout memberWorkout) throws Exception;
 
