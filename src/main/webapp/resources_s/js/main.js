@@ -8,18 +8,18 @@ $( document ).ready( function() {
 } );
 
 
-function seclctDelete(){
+function selectDelete(){
      var selectDeleteUrl = "<c:out value='toDoListTestDelete'/>";
 
-     var check_count = document.getElementsByName("list").length;
+     var check_count = document.getElementsByName("toDoList1").length;
      var list = new Array();
      var sentCnt = 0;
      var str = "";
      var check = 0;
      //12 13
        for (var i=0; i<check_count; i++) {
-           if (document.getElementsByName("list")[i].checked == true) {
-             str += document.getElementsByName("list")[i].value;
+           if (document.getElementsByName("toDoList1")[i].checked == true) {
+             str += document.getElementsByName("toDoList1")[i].value;
              str += ";";
              check = 1;
              /*

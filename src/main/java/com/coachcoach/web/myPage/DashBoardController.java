@@ -38,7 +38,7 @@ public class DashBoardController {
     model.addAttribute("memberNo", member.getNo());
   }
 
-  @PostMapping("toDoListAddForm")
+  @GetMapping("toDoListAddForm")
   public void toDoListAddForm(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     model.addAttribute("member", member);
@@ -53,7 +53,7 @@ public class DashBoardController {
     }
   }
 
-  // 선택삭제
+  // 개별삭제
   @GetMapping("toDoListDelete")
   public String toDoListDelete(int toDoListNo) throws Exception {
     toDoListService.delete(toDoListNo);
@@ -70,6 +70,7 @@ public class DashBoardController {
     toDoListService.update(toDoList);
   }
 
+  // 선택삭제
   @GetMapping("toDoListTestDelete")
   public void toDoListTestDelete(String str) throws Exception {
     System.out.println(str);

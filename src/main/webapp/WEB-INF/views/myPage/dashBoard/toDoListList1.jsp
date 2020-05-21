@@ -86,7 +86,7 @@ function seclctDelete(){
 
  <input type="checkbox" name="toDoList" class="check-all"> <label>모두선택</label><br>
 
- <input type="button" name="toDoListDelete" class="deleteToDoList" value='선택삭제' onclick="seclctDelete();" /> <br>
+ <input type="button" name="toDoListDelete" class="deleteToDoList" value='선택삭제' onclick="selectDelete();" /> <br>
  <c:forEach items="${findAll}" var="item">
   <tr>
     <span> 

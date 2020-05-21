@@ -87,44 +87,50 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------------------*/
 .tit {
 	font-size: 20px;
-	letter-spacing: -1px;
 	font-weight: bold;
-	float:right;
+	width:87px;
 	}
 	
 .selected{
 	text-decoration:line-through;
 	font-weight:700;
-	color:red;
-	float:right;
+	color:gray;
 	}
 	
 .toDoList_add{
-	border-box;
-	border:1px solid #ffc200;
+	background-color: white;
+	border:1px solid white;
+	border-radius:10%;
+	border-top-width:1px;
 	margin:30px;
-	padding:20px;
-	width:500px;
+	padding:10px;
+	width:272px;
 	float:right;
 	}
 	
 .toDoList_add_btn{
-	font-weight:bold;
-	font-size:15px;
+  width:24px;
+  padding-left:140px;
 	color:#fff;
-	border:none;
-	float:right;
+
 }
 .toDoList_btn{
+	padding-right:10px;
+	padding-top:10px;
+	font-weight:bold;
+  font-size:15px;
+  color:#fff;
   float:right;
 }
 
 .toDoList_list{
-	float:right;
 }
 
 .toDoList_checkbox{
-	float:right;
+	height:35px;
+	padding-top:10px;
+  width:85px;
+  
 }
 
 
