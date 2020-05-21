@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-  
    <h1>나의운동내역 </h1>
    <form action='memberWorkoutAddForm' method='post'>
       <input name='memberNo' type='hidden' value='${memberNo}'>
@@ -21,14 +20,18 @@
       
    <c:forEach items="${list}" var="item">
       <tr>
-        <td align=center>${item.no}</td>
+        <td align=center>${item.workoutListNo}</td>
         <td align=center>${item.workoutDate}</td>
         <td align=center>${item.weight}</td>
         <td align=center>${item.walkCount}</td>
-        <td align=center>${item.workoutUnit}</td>
-        <td align=center>${item.workout}</td>
-        <th ><a href= 'updateForm?memberWorkoutNo=${item.no}'>수정</a></th>
-        <th ><a href= 'delete?memberWorkoutNo=${item.no}'>삭제</a></th>
+        <td align=center>
+          <select name="workoutNo">
+          ${workout.name}
+        </select>
+        </td>
+        <td align=center>${workoutUnit.unit}</td>
+        <th ><a href= 'updateForm?memberWorkoutNo=${item.workoutListNo}'>수정</a></th>
+        <th ><a href= 'delete?memberWorkoutNo=${item.workoutListNo}'>삭제</a></th>
       </tr>
   </c:forEach>
       

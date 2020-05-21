@@ -11,6 +11,14 @@
     <result column="workout_date"    property="workoutDate"/>
     <result column="weight"          property="weight"    />
     <result column="walk_count"  property="walkCount"/>
+    
+    <association property="member" javaType="Member">
+      <id column="member_no"              property="no"/>
+    </association>
+    
+     <collection property="workoutUnit" ofType="Integer">
+      <!-- <result column="id"/> -->
+     </collection> 
    
 </resultMap>
 
@@ -30,16 +38,19 @@
      )
   </insert>
   
+  <!-- 운동내역리스트 -->
   <select id="findAll" resultMap="MemberWorkoutMap" parameterType="int">
     select
       m.workout_list_no,
       m.member_no,
       m.workout_date,
       m.weight,
-      m.walk_count
+      m.walk_count,
+      wu.workout_no
     from
       member_workouts m
       join members mb on m.member_no=mb.member_no
+      join workout_unit wu on m.workout_list_no=wu.workout_list_no
     where
       m.member_no=#{memberNo}
     order by workout_list_no desc

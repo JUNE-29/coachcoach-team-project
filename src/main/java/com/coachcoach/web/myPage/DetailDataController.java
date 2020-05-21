@@ -65,28 +65,23 @@ public class DetailDataController {
     System.out.println(memberWorkout + "확인");
 
     memberWorkoutService.add(memberWorkout);
-    return "redirect:memberWorkoutlist";
+    return "redirect:memberWorkoutList";
   }
 
 
-  // // 전체 리스트
-  // @GetMapping("list")
-  // public void list(Model model) throws Exception {
-  // Member member = (Member) httpSession.getAttribute("loginUser");
-  // model.addAttribute("list", memberWorkoutService.list(member.getNo()));
-  // model.addAttribute("memberNo", member.getNo());
-  // }
-  //
-  //
-  // // 운동내역 리스트
-  // @GetMapping("memberWorkoutList")
-  // public void memberWorkoutlist(Model model) throws Exception {
-  // Member member = (Member) httpSession.getAttribute("loginUser");
-  // model.addAttribute("list", memberWorkoutService.list(member.getNo()));
-  // model.addAttribute("memberNo", member.getNo());
-  // }
-  //
-  //
+  // 운동내역 리스트
+  @GetMapping("memberWorkoutList")
+  public void list(Model model, @RequestParam(defaultValue = "0") int workoutListNo)
+      throws Exception {
+    System.out.println("확인");
+    int memberNo = ((Member) httpSession.getAttribute("loginUser")).getNo();
+    model.addAttribute("memberNo", memberWorkoutService.list(memberNo));
+    List<WorkoutUnit> findWorkoutUnit = workoutUnitService.list(workoutListNo);
+    model.addAttribute("findWorkoutUnit", workoutUnitService.list(workoutListNo));
+    model.addAttribute("list", findWorkoutUnit);
+  }
+
+
   // @GetMapping("memberWorkoutUpdateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
   // public void updateForm(int memberWorkoutNo, Model model) throws Exception {
   // model.addAttribute("workoutList", memberWorkoutService.getMemberWorkout(memberWorkoutNo));

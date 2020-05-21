@@ -15,7 +15,7 @@
   
    <insert id="insert" parameterType="MemberWorkout"
    useGeneratedKeys="true" keyColumn="workout_list_no" keyProperty="workoutListNo">
-    insert into workout_unit(
+    insert ignore into workout_unit(
       workout_list_no,
       workout_no,
       unit
@@ -29,6 +29,19 @@
      </foreach>
      <!-- separator를 넣어주는 이유는 포문으로 돌렸을 때 구분하기 위해 -->
   </insert>
+  
+  <select id="findAllByWorkoutUnit" resultMap="WorkoutUnitMap" parameterType="MemberWorkout">
+    select
+      wu.workout_list_no,
+      wu.workout_no,
+      wu.unit,
+      w.name
+    from
+      workout_unit wu
+      inner join workout w on wu.workout_no=w.workout_no
+    where wu.workout_list_no=#{workoutListNo}
+  
+  </select>
   
 
    <delete id="deleteAll" parameterType="int">
