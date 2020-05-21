@@ -12,8 +12,6 @@
         <th style="text-align:ceter">시행날짜</th>
         <th style="text-align:ceter">체중</th>
         <th style="text-align:ceter">걸음수</th>
-        <th style="text-align:ceter">운동종목</th>
-        <th style="text-align:ceter">운동시간</th>
         <th style="text-align:ceter">수정</th>
         <th style="text-align:ceter">삭제</th>
       </tr>
@@ -24,12 +22,6 @@
         <td align=center>${item.workoutDate}</td>
         <td align=center>${item.weight}</td>
         <td align=center>${item.walkCount}</td>
-        <td align=center>
-          <select name="workoutNo">
-          ${workout.name}
-        </select>
-        </td>
-        <td align=center>${workoutUnit.unit}</td>
         <th ><a href= 'updateForm?memberWorkoutNo=${item.workoutListNo}'>수정</a></th>
         <th ><a href= 'delete?memberWorkoutNo=${item.workoutListNo}'>삭제</a></th>
       </tr>

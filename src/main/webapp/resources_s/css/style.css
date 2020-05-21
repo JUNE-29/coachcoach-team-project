@@ -86,7 +86,6 @@ h1, h2, h3, h4, h5, h6 {
 # ToDoList
 --------------------------------------------------------------------------*/
 .tit {
-	margin-bottom: 20px;
 	font-size: 20px;
 	letter-spacing: -1px;
 	font-weight: bold;
@@ -101,7 +100,12 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	
 .toDoList_add{
+	border-box;
 	border:1px solid #ffc200;
+	margin:30px;
+	padding:20px;
+	width:500px;
+	float:right;
 	}
 	
 .toDoList_add_btn{

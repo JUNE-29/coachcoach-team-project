@@ -39,7 +39,7 @@ public class DetailDataController {
 
   // memberWorkout 페이지
 
-  @GetMapping("memberWorkoutAddForm") // 날짜, 운동, 걸음수 등 기입
+  @PostMapping("memberWorkoutAddForm") // 날짜, 운동, 걸음수 등 기입
   public void addForm(Model model) throws Exception {
     int memberNo = ((Member) httpSession.getAttribute("loginUser")).getNo();
     List<WorkoutUnit> list = workoutUnitService.list(); // 공통으로 넘길거라 값을 주지 않아도 된다.
@@ -71,14 +71,10 @@ public class DetailDataController {
 
   // 운동내역 리스트
   @GetMapping("memberWorkoutList")
-  public void list(Model model, @RequestParam(defaultValue = "0") int workoutListNo)
-      throws Exception {
-    System.out.println("확인");
+  public void list(Model model) throws Exception {
     int memberNo = ((Member) httpSession.getAttribute("loginUser")).getNo();
-    model.addAttribute("memberNo", memberWorkoutService.list(memberNo));
-    List<WorkoutUnit> findWorkoutUnit = workoutUnitService.list(workoutListNo);
-    model.addAttribute("findWorkoutUnit", workoutUnitService.list(workoutListNo));
-    model.addAttribute("list", findWorkoutUnit);
+    model.addAttribute("memberNo", memberNo);
+    model.addAttribute("list", memberWorkoutService.list(memberNo));
   }
 
 
