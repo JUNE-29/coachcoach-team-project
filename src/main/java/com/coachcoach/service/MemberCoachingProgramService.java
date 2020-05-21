@@ -36,4 +36,7 @@ public interface MemberCoachingProgramService {
 
   int updatePaydate(Map<String, Object> params) throws Exception;
 
+  int updateApply(Map<String, Object> params) throws Exception;
+
+
 }

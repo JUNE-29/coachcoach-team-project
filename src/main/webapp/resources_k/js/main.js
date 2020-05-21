@@ -55,7 +55,6 @@
       $('.area textarea').val($('.modal .area .value').html().trim());
       $('.career textarea').val($('.modal .career .value').html().trim());
       $('.certification textarea').val($('.modal .certification .value').html().trim());
-      console.log($('.modal .introduce .value').html().trim());
       $('.introduce textarea').val($('.modal .introduce .value').html().trim());
       var form = $('.updateForm')[0];
       var data = new FormData(form);

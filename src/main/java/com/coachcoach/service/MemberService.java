@@ -30,4 +30,6 @@ public interface MemberService {
 
   void updateAuthStatus(Member member);
 
+  String getSerchId(String userName, String userEmail) throws Exception;
+
 }

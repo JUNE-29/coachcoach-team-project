@@ -6,7 +6,7 @@
 </style>
 
 <div class="box">
-  <h5 class="tit">진행중인 프로그램</h5>
+  <h3 class="tit">진행중인 프로그램</h3>
   <table class="table table-sm">
   <thead>
     <tr>
@@ -45,6 +45,12 @@
         </button>
       </div>
       <div class="detail-modal-body">
+            <div id="detail-inner-modal">
+                   <div id='detail-inner-photo'>
+                   </div>
+                   <div id='detail-inner'>
+                   </div>
+             </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
@@ -63,7 +69,7 @@
 
 
 <div>
-  <h5>완료된 프로그램</h5>
+  <h3>완료된 프로그램</h3>
   <table class="table table-sm">
   <thead>
     <tr>
@@ -114,6 +120,8 @@
         </button>
       </div>
       <div class="modal-body">
+      <div id="review-inner-modal">
+      <p id="review_title" style="font-size:large;"> 코치에게 후기를 남겨주세요</p>
         <form id="reviewForm" name='frmData'>
           <span class="star-input">
            <span class="input">
@@ -129,10 +137,13 @@
                 <label for="p5">5</label>
               </span>
           </span>
-
+          <div class="form-group purple-border">
+          <label for="exampleFormControlTextarea4"></label>
           <input id="programNo" type='hidden' value='${no}'>
-          <textarea id="review" rows='5' cols='50' placeholder='후기를 등록해주세요!'></textarea><br>
+          <textarea class="form-control" id="review" rows='5' cols='50' placeholder='프로그램을 진행하면서 어떤것이 좋았나요?'></textarea><br>
+            </div>
         </form>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>

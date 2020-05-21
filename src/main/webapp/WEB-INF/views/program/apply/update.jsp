@@ -7,9 +7,8 @@
 
 <div class="innerCont">
 <form action='updateForm' method='post'>
-신청서 확인<br>
-회원정보
-<hr>
+<h3>신청서 확인</h3>
+<h5>회원정보</h5>
   <div class="form-group row">
     <label for="no" class="col-sm-2 col-form-label">신청번호</label>
     <div class="col-sm-10">
@@ -34,9 +33,8 @@
       <input type="text" readonly class="form-control-plaintext"  value="${program.member.tel}">
     </div>
   </div>
-<hr>
-프로그램
-<hr>
+
+<h5>프로그램</h5>
   <div class="form-group row">
     <label for="programName" class="col-sm-2 col-form-label">프로그램명</label>
     <div class="col-sm-10">

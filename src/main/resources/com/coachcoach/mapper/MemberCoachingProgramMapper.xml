@@ -163,6 +163,14 @@
     where member_program_no=#{memberCoachingProgramNo}
   </update>
   
+  <update id="updateApply" parameterType="map">
+    update member_coaching_programs
+      set
+        remark=#{remark},
+        start_date=#{startDate}
+    where member_program_no=#{no}
+  </update>
+  
   <select id="findByProgramNo" resultMap="MemberCoachingProgramMap" parameterType="int">
      select  
        member_program_no,

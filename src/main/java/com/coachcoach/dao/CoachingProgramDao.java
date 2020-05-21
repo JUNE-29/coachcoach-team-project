@@ -58,6 +58,9 @@ public interface CoachingProgramDao {
   int pageCount() throws Exception;
 
   int deleteUpdate(int programNo);
+
+  // 프로그램별 별점
+  CoachingProgram selectStar(int no) throws Exception;
 }
 
 

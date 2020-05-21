@@ -10,7 +10,7 @@ Member member = (Member) request.getAttribute("member");
 %>  
 
 
-<h1>회원 정보수정</h1>
+<h3>>회원 정보수정</h3>
 <form action='modify' method='post' enctype='multipart/form-data' onsubmit='return frmsubmit();'>
 <input name='no' type='hidden' readonly value='${member.no}'><br>
 아이디<input class="form-control form-control-sm" name='id' type='text' readonly value='${member.id}'><br>

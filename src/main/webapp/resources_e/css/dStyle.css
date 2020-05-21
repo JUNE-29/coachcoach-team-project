@@ -12,8 +12,10 @@ div.innerCont {
   /*padding-top:20px;*/
   /*max-width:1200px;*/
   overflow:hidden;
-  width: 600px;
+  width: 1000px;
   margin:0 auto; 
   
 }
 
+.innerCont .leftArea{float:left; width:400px; margin:10px; padding:10px; border:1px black;}
+.innerCont .rightArea{float:left; width:500px; margin:10px; padding:20px;  border-radius:20px;  box-sizing:border-box; background:#CFDDF3;}

@@ -1,8 +1,3 @@
-/**
- * 
- */
-
-
 // 검색
 $("#searchBtn").click(function(){
     if($.trim($("#search").val())==''){
@@ -109,4 +104,3 @@ $(document).ready(function(){
         }
     });
 });
-

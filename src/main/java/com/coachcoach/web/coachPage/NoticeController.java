@@ -35,7 +35,6 @@ public class NoticeController {
   public String add(CoachingProgramBoard coachingProgramBoard, int programNo) throws Exception {
     coachingProgramBoard.setCoachNo(((Coach) session.getAttribute("loginUser")).getNo());
     coachingProgramBoard.setProgramNo(programNo);
-    System.out.println(coachingProgramBoard.getProgramNo());
     coachingProgramBoardService.add(coachingProgramBoard);
     return "redirect:list";
   }

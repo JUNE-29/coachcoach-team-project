@@ -8,8 +8,10 @@ $(function(){
              type: "POST",
              data: {no: $(this).val()} ,
              success: function(data){
-                			$('.detail-modal-body').html(
-                					"<img src='${pageContext.servletContext.contextPath}/upload/coach/"+data.photo+" height='200';><br>"+
+                			$('#detail-inner-photo').html(
+                					"<img src='${pageContext.servletContext.contextPath}/upload/coach/"+data.photo+" height='200';>"
+                			);  
+                			$('#detail-inner').html(
                 					data.name+"코치님<br>"+
                 					"<p>한 줄 소개<br>"+
                 					data.introduce+
@@ -19,9 +21,18 @@ $(function(){
                 					data.address+"<br>"+
                 					"추가 정보<br>"+
                 					data.career+"<br>"+
-                					data.certification+"<br>"
-                					
-                			);
+                					data.certification	
+                			);  
+                			$('#detail-inner-photo').css('float','left');
+                			$('#detail-inner-photo').css('width','230px');
+                			$('#detail-inner-photo').css('height','200px');
+                			$('#detail-inner-photo').css('margin','5px');
+                			$('#detail-inner-photo').css('padding','5px');
+                			$('#detail-inner').css('margin','5px');
+                			$('#detail-inner').css('padding','5px');
+                			$('#detail-inner').css('float','left');
+                			$('.modal-title').css('color','#5fdde5');
+                			$('.modal-title').css('font-weight','bold');
              }
          });
     }); 
@@ -50,6 +61,18 @@ $('#reviewModal').on('show.bs.modal', function (e) {
 $('#reviewModal').on('hidden.bs.modal', function (e) {
 	location.reload();
 })
+
+// 리뷰 모달 css
+$('#review-inner-modal').css('text-align','center');
+$('#review').css('margin-top','50px');
+
+
+// 모달 타이틀
+$('.modal-title').css('color','#5fdde5');
+$('.modal-title').css('font-weight','bold');
+
+
+
 
 function showpop(frmData){
 	    var url    ="reviewForm";
