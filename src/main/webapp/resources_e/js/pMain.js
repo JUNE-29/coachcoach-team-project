@@ -38,7 +38,7 @@ function chk_keyword() {
 
 
 var starRate = document.getElementById('star_rating').value;
-
+starRate
 
 
 

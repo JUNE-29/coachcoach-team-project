@@ -73,14 +73,3 @@ line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; 
 
 
 
-
-.star_rating {font-size:0; letter-spacing:-4px;}
-.star_rating a {
-    font-size:25px;
-    letter-spacing:0;
-    display:inline-block;
-    margin-left:5px;
-    color:#ccc;
-    text-decoration:none;
-}
-

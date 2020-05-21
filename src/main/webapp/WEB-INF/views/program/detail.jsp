@@ -3,21 +3,35 @@
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <div class="innerCont">
 <div class="bar">
 <h3>프로그램</h3>
 프로그램명: ${program.name}<br>
 프로그램: ${program.introduce}<br>
 수강금액: ${program.fee}<br>
-<div class="star_rating" id="star_rating" value="${star.mcp.starRate}">
-    <a href="#" class="on">★</a>
-    <a href="#" class="on">★</a>
-    <a href="#" class="on">★</a>
-    <a href="#">★</a>
-    <a href="#">★</a>
+<div class="star_rating">
+<c:set var="starRate" value="${star.mcp.starRate}" />
+<c:if test="${starRate eq null}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_0.png' style="height:30px;">
+</c:if>
+<c:if test="${starRate eq '1'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_1.png' style="height:30px;">
+</c:if>
+<c:if test="${starRate eq '2'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_2.png' style="height:30px;">
+</c:if>
+<c:if test="${starRate eq '3'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_3.png' style="height:30px;">
+</c:if>
+<c:if test="${starRate eq '4'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_4.png' style="height:30px;">
+</c:if>
+<c:if test="${starRate eq '5'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_5.png' style="height:30px;">
+</c:if>
 </div><br>
 </div>
-
 
 
 <div class="rightBar">
