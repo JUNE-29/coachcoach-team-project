@@ -134,4 +134,25 @@ public class ProgramController {
     System.out.println(programNo);
   }
 
+  @Auth(role = Role.MEMBER)
+  @PostMapping("apply/updateForm") // 신청서 수정
+  public void updateFormApply(Model model, int applyNo) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    model.addAttribute("member", memberService.get(member.getNo()));
+    model.addAttribute("program", memberCoachingProgramService.get(applyNo));
+  }
+
+
+  @Auth(role = Role.MEMBER)
+  @PostMapping("apply/update") // 신청서 수정
+  public void updateApply(Model model, int applyNo, String startDate, String remark)
+      throws Exception {
+    HashMap<String, Object> params = new HashMap<>();
+    params.put("no", applyNo);
+    params.put("startDate", startDate);
+    params.put("remark", remark);
+    memberCoachingProgramService.updateApply(params);
+
+    model.addAttribute("program", memberCoachingProgramService.get(applyNo));
+  }
 }

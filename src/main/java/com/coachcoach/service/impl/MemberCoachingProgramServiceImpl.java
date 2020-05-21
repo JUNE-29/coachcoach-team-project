@@ -92,4 +92,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.updatePaydate(params);
   }
 
+  @Override
+  public int updateApply(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.updateApply(params);
+  }
+
 }

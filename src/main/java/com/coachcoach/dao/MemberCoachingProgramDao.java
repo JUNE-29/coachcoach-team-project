@@ -32,6 +32,9 @@ public interface MemberCoachingProgramDao {
   // 후기 등록
   int updateReview(Map<String, Object> params) throws Exception;
 
+  // 신청서 수정
+  int updateApply(Map<String, Object> params) throws Exception;
+
   List<MemberCoachingProgram> findAllRequest(int coachNo) throws Exception;
   // 코치페이지 요청된 프로그램 리스트를 보기 위함.
 
