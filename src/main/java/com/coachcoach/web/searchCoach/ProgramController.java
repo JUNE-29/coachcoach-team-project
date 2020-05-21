@@ -96,7 +96,7 @@ public class ProgramController {
   public void detail(Model model, int programNo, int no) throws Exception {
     model.addAttribute("program", coachingProgramService.getProgram(programNo));
     model.addAttribute("memberProgram", memberCoachingProgramService.programList(programNo));
-
+    model.addAttribute("star", coachingProgramService.selectStar(programNo));
   }
 
   @Auth(role = Role.MEMBER)
@@ -130,8 +130,6 @@ public class ProgramController {
   public void deleteApply(Model model, int applyNo, int programNo) throws Exception {
     memberCoachingProgramService.delete(applyNo);
     coachingProgramService.delete(programNo);
-    System.out.println(applyNo);
-    System.out.println(programNo);
   }
 
   @Auth(role = Role.MEMBER)

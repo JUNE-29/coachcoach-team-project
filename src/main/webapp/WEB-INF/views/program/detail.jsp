@@ -6,10 +6,16 @@
 <div class="innerCont">
 <div class="bar">
 <h3>프로그램</h3>
-번호: ${program.no}<br>
 프로그램명: ${program.name}<br>
 프로그램: ${program.introduce}<br>
 수강금액: ${program.fee}<br>
+<div class="star_rating" id="star_rating" value="${star.mcp.starRate}">
+    <a href="#" class="on">★</a>
+    <a href="#" class="on">★</a>
+    <a href="#" class="on">★</a>
+    <a href="#">★</a>
+    <a href="#">★</a>
+</div><br>
 </div>
 
 
@@ -47,8 +53,8 @@
   <thead>
     <tr>
       <th scope="col">후기</th>
+      <th scope="col"></th>
       <th scope="col">날짜</th>
-      <th scope="col">별점</th>
     </tr>
   </thead>
   <tbody>
@@ -56,8 +62,8 @@
 <c:if test="${memberProgram.review ne null}">
     <tr>
       <td>${memberProgram.review}</td>
+      <td></td>
       <td>${memberProgram.reviewDate}</td>
-      <td>@mdo</td>
     </tr>
 </c:if>
   </c:forEach>

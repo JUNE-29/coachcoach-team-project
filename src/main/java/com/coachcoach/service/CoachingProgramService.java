@@ -42,5 +42,7 @@ public interface CoachingProgramService {
 
   int pageCount() throws Exception;
 
-  int deleteUpdate(int programNo);
+  int deleteUpdate(int programNo) throws Exception;
+
+  CoachingProgram selectStar(int no) throws Exception;
 }

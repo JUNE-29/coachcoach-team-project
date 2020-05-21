@@ -36,6 +36,18 @@ function chk_keyword() {
     document.keyword.submit();
 }
 
+
+var starRate = document.getElementById('star_rating').value;
+
+
+
+
+
+
+
+
+
+
 // 키워드 선택
 $(document).ready(function(){
     $("#ckh_1").change(function(){

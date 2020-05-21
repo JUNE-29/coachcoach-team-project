@@ -39,6 +39,7 @@
       <result column="end_date" property="endDate"/>
       <result column="etc" property="etc"/>
       <result column="review" property="review"/>
+      <result column="star_rate" property="starRate"/>
     </association>
     
      <collection property="coachingProgramTags" ofType="Integer">
@@ -371,6 +372,16 @@
          coaching_programs
   </select>
 
+     <select id="selectStar" resultMap="CoachingProgramMap" parameterType="int">
+      select 
+       round(avg(star_rate)) as star_rate
+       from 
+       member_coaching_programs mcp 
+       join 
+       coaching_programs cp on mcp.program_no=cp.program_no 
+       where mcp.program_no=#{no}
+  </select>
+  
 </mapper>
 
 
