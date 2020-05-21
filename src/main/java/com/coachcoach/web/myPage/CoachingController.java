@@ -4,10 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,6 +30,7 @@ import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachingProgramBoardService;
 import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberProgramCalendarService;
+import com.google.gson.Gson;
 
 @Auth(role = Role.COACH)
 @Controller
@@ -71,14 +74,35 @@ public class CoachingController {
     model.addAttribute("notice",
         coachingProgramBoardService.getByMemberNo(memberCoachingProgramService
             .get((int) session.getAttribute("memberCoachingProgramNo")).getMemberNo()));
-    System.out.println(model.getAttribute("notice"));
+    model.addAttribute("memberCoachingProgram",
+        memberCoachingProgramService.get((int) session.getAttribute("memberCoachingProgramNo")));
+  }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @GetMapping("planList") // 캘린더 페이지
+  public void planList(HttpServletResponse response) throws Exception {
+    Gson json = new Gson();
+    response.setCharacterEncoding("UTF-8");
+    PrintWriter out = response.getWriter();
+    if (session.getAttribute("loginUser") instanceof Member) {
+      out.print(json.toJson(memberProgramCalendarService
+          .listByMemberNo(((Member) session.getAttribute("loginUser")).getNo())));
+      out.flush();
+      return;
+    } else {
+      out.print(json.toJson(memberProgramCalendarService
+          .listByMemberCoachingProgramNo((int) session.getAttribute("memberCoachingProgramNo"))));
+      out.flush();
+    }
   }
 
   @Auth(role = {Role.COACH, Role.MEMBER})
   @PostMapping("detail")
-  public void detail(Model model, int no) throws Exception {
-    String plan = memberProgramCalendarService.get(no).getPlan().replace("\n", "<br>");
-    model.addAttribute("detail", memberProgramCalendarService.get(no).setPlan(plan));
+  public void detail(HttpServletResponse response, int no) throws Exception {
+    Gson json = new Gson();
+    response.setCharacterEncoding("UTF-8");
+    PrintWriter out = response.getWriter();
+    out.print(json.toJson(memberProgramCalendarService.get(no)));
   }
 
   @Auth(role = {Role.COACH, Role.MEMBER})
@@ -92,12 +116,6 @@ public class CoachingController {
 
 
   // 코치만 접근 가능 VVVVVV
-  @GetMapping("addForm") // 운동 코칭 적음
-  public void addForm(Model model) throws Exception {
-    model.addAttribute("memberCoachingProgram",
-        memberCoachingProgramService.get((int) session.getAttribute("memberCoachingProgramNo")));
-  }
-
   @PostMapping("add")
   public void add(MemberProgramCalendar memberProgramCalendar, MultipartFile[] inputFiles)
       throws Exception {
@@ -160,8 +178,9 @@ public class CoachingController {
   }
 
   @PostMapping("delete")
-  public void delete(int no) throws Exception {
+  public String delete(int no) throws Exception {
     memberProgramCalendarService.delete(no);
+    return "redirect:list";
   }
 
   /**

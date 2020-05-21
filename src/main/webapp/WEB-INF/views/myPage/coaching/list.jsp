@@ -3,34 +3,79 @@
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<div>
-    <c:if test="${notice ne null}">
-			<c:forEach items="${notice}" var="item">
-				<div onclick="location.href='noticeDetail?no=${item.no}'">
-								<h5>${item.createdDate} 코치 공지사항</h5>
-								<h5>${item.title}</h5>
-				</div>
-			</c:forEach>
-    </c:if>
-</div>
-<hr>	
-
-<button type="button" onclick="location.href='addForm'">등록</button><br>
-
-
 <div id='calendar'></div>
-
-
-<div>
-	<c:forEach items="${list}" var="item">
- 	<div>
-     <form action="detail" Method="post">
-       <input type="hidden" name="no" value="${item.no}">
-	     <button>☆</button>
-     </form>
-	</div>
-	</c:forEach>
+<c:if test="${sessionScope.loginUser.getClass().simpleName == 'Member'}">
+  <input name="checkIfMember" type="hidden">
+</c:if>
+<!-- Modal -->
+<div class="modal fade" id="calendarAddForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">코칭 스케쥴</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				<form id="calendarAddFormForm">
+					<input name="memberProgramNo" value="${memberCoachingProgram.no}" type='hidden'>
+					회원명<br>
+					<div style="font-size:25px">
+					${memberCoachingProgram.member.name}
+					</div>
+					프로그램명
+					<div style="font-size:25px">
+					${memberCoachingProgram.programName} 
+					</div>
+					Workout 일정
+          <div style="font-size:20px">
+					<input type='Date' name='startDate'> ~ <input type='Date' name='endDate'><br>
+					</div>
+					<hr>
+				  <textarea name='plan' class='summernote'></textarea><br>
+					첨부 파일: <input type='file' name='inputFiles'> <br>
+				</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" id="calendarAddSubmit">등록</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="calendarDetail" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">코칭 스케쥴</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <input name="memberProgramNo" value="${memberCoachingProgram.no}" type='hidden'>
+          <input name="calendarNo" type='hidden'>
+          코치이름<div id="coachName"> ${detail.coach.name}</div>
+					프로그램명<div id="programName"> ${detail.programName}</div>
+					Workout 일정<div id="period"> ${detail.startDate} ~ ${detail.endDate}</div>
+					<hr>
+				  <div id="plan">${detail.plan}</div>
+					<c:forEach items="${detail.files}" var="file">
+					  <c:if test="${file.fileType eq 'image'}">
+					    <img src='${pageContext.servletContext.contextPath}/upload/calendarFile/${file.path}' height='340'>
+					  </c:if>
+					</c:forEach>
+      </div>
+      <div class="modal-footer">
+      <c:if test="${sessionScope.loginUser.getClass().simpleName == 'Coach'}">
+        <button type="button" class="btn btn-danger" id="calendarDelete">삭제</button>
+      </c:if>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
