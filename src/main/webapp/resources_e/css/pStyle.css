@@ -25,7 +25,7 @@ div.innerCont {
    text-align: center;
 }
 
-
+/*list*/
 .leftArea { float:left; width:296px;}
 .leftArea .inner { padding:10px;  box-sizing:border-box; background:#CFDDF3;}
 .leftArea .inner .searchInp { overflow:hidden; position:relative;  height:65px; background:#fff; }
@@ -42,9 +42,7 @@ cursor:pointer; float:left; margin:7px 0 0 7px; padding:0 5px; min-width:65px; h
  border:1px solid #CFDDF3; background:#fff; }
 .leftArea .inner .box .tag .check input {overflow:hidden;display:none;width:0px;height:0px;border:0 none;font-size:0;line-height:0;clip:rect(0 0 0 0);opacity:0;}
 .leftArea .inner .box .tag .check input .txt {display:inline-block;padding-left:36px;font-size:16px;color:#CFDDF3; }
-/*.leftArea .inner .box .tag button { 
-float:right; margin:8px 0 0 7px; padding:0 5px; min-width:65px; height:30px; 
-line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; background:#fff;}*/
+
 .leftArea .inner .box .tag #keywordBtn { float:right; margin:8px 0 0 7px; padding:0 5px; min-width:65px; height:30px; line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; background:#fff;}
 .leftArea .inner .box .detailBtn { margin-top:15px; width:100%; height:40px; line-height:40px; border-radius:20px; border:1px solid #A5A5A4; background:#fff;}
 .leftArea .inner .box .tit { margin:15px 0; font-size:17px; font-weight:500;}
@@ -60,15 +58,15 @@ line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; 
 .rightArea .paginationWrap > ul li + li { margin-left:8px;}
 .rightArea .paginationWrap > ul li a { padding:8px; font-size:18px; color:#000;}
 
-
+/*detail*/
 .innerCont .bar { float:left; width:630px; border:1px solid #A5A5A4; padding:20px; }
 .rightBar { float:right; width:300px; }
 .rightBar .inner {border:1px solid #A5A5A4; padding:20px; }
 .rightBar .kakaoMap  {padding:20px; margin-top:10px;}
-.section { float:left; width:630px;  padding:20px; margin-top:10px; }
-.article { height:200px;}
-.article2 { height:200px;}
-
+.section { float:left; width:630px;  padding:10px; margin-top:10px; border:1px solid #A5A5A4;}
+.section .main_content_tab .content_tab {list-style:none; display:inline-block; padding-left:110px; padding-top:10px; padding-right:50px; }
+.article { height:800px;}
+.article2 { height:800px;}
 
 
 

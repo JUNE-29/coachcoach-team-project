@@ -5,7 +5,7 @@
 
 
 <div>
-  <h1>결제내역</h1>
+    <h3>결제내역</h3>
   <table class="table">
   <thead>
     <tr>

@@ -5,7 +5,7 @@
 
 
 <div>
-  <h1>신청내역</h1>
+  <h3>신청내역</h3>
   <table class="table">
   <thead>
     <tr>

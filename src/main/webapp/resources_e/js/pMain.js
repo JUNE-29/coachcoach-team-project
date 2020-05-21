@@ -1,8 +1,3 @@
-/**
- * 
- */
-
-
 // 검색
 $("#searchBtn").click(function(){
     if($.trim($("#search").val())==''){
@@ -35,18 +30,6 @@ function chk_keyword() {
 
     document.keyword.submit();
 }
-
-
-var starRate = document.getElementById('star_rating').value;
-starRate
-
-
-
-
-
-
-
-
 
 // 키워드 선택
 $(document).ready(function(){
@@ -121,4 +104,3 @@ $(document).ready(function(){
         }
     });
 });
-

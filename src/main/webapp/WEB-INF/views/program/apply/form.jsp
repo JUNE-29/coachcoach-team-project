@@ -7,8 +7,9 @@
 <div class="innerCont">
 <div class="leftArea">
 <form id="applyfrm" action='list' method='post'>
-<h3>프로그램 신청서</h3>
-<h5>회원정보</h5>
+프로그램 신청서
+<hr>
+회원정보
   <div class="form-group row">
     <label for="name" class="col-sm-2 col-form-label">이름</label>
     <div class="col-sm-10">
@@ -29,7 +30,7 @@
   </div>
 </div>
 <div class="rightArea">
-<h5>프로그램</h5>
+프로그램
   <div class="form-group row">
     <label for="tel" class="col-sm col-form-label">프로그램명</label>
     <div class="col-sm-10">
