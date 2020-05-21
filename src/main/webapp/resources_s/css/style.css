@@ -81,6 +81,51 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+/*------------------------------------------------------------------------
+# ToDoList
+--------------------------------------------------------------------------*/
+.tit {
+	margin-bottom: 20px;
+	font-size: 20px;
+	letter-spacing: -1px;
+	font-weight: bold;
+	float:right;
+	}
+	
+.selected{
+	text-decoration:line-through;
+	font-weight:700;
+	color:red;
+	float:right;
+	}
+	
+.toDoList_add{
+	border:1px solid #ffc200;
+	}
+	
+.toDoList_add_btn{
+	font-weight:bold;
+	font-size:15px;
+	color:#fff;
+	border:none;
+	float:right;
+}
+.toDoList_btn{
+  float:right;
+}
+
+.toDoList_list{
+	float:right;
+}
+
+.toDoList_checkbox{
+	float:right;
+}
+
+
+
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
