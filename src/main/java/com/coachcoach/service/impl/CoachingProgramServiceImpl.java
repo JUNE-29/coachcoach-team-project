@@ -112,5 +112,10 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
     return coachingProgramDao.findByMemberNo(params);
   }
 
+  @Override
+  public CoachingProgram selectStar(int no) throws Exception {
+    return coachingProgramDao.selectStar(no);
+  }
+
 
 }

@@ -5,31 +5,25 @@
   
 <mapper namespace="com.coachcoach.dao.MemberWorkoutDao">
 
-  <resultMap type="MemberWorkout" id="MemberWorkoutMap">
+ <resultMap type="MemberWorkout" id="MemberWorkoutMap">
     <id column="workout_list_no"     property="workoutListNo"/>
     <result column="member_no"       property="memberNo"/>
-    <result column="workout_unit_no" property="workoutUnitNo"/>
     <result column="workout_date"    property="workoutDate"/>
     <result column="weight"          property="weight"    />
     <result column="walk_count"  property="walkCount"/>
-    
-   <association property="member" javaType="Member">
-      <id column="member_no"  property="memberNo"/>
-   </association>
-    
-  </resultMap>
+   
+</resultMap>
+
   
    <insert id="insert" parameterType="MemberWorkout"
-   useGeneratedKeys="true" keyColumn="workout_list_no" keyProperty="no">
+   useGeneratedKeys="true" keyColumn="workout_list_no" keyProperty="workoutListNo">
     insert into member_workouts(
       member_no,
-      workout_unit_no,
       workout_date,
       weight,
       walk_count
       ) values(
       #{memberNo},
-      #{workoutUnitNo},
       #{workoutDate},
       #{weight},      
       #{walkCount}
@@ -38,15 +32,14 @@
   
   <select id="findAll" resultMap="MemberWorkoutMap" parameterType="int">
     select
+      m.workout_list_no,
       m.member_no,
-      m.workout_unit_no,
       m.workout_date,
       m.weight,
       m.walk_count
     from
       member_workouts m
-      join workout_unit wu on m.workout_unit_no=wu.workout_unit_no
-      join member mb on m.member_no=mb.member_no
+      join members mb on m.member_no=mb.member_no
     where
       m.member_no=#{memberNo}
     order by workout_list_no desc
@@ -65,29 +58,10 @@
   
    <delete id="delete" parameterType="int">
     delete from member_workouts
-    where member_no=#{memberNo}
+    where workout_list_no=#{workoutListNo}
   </delete>
   
   
-  <select id="findByNo" resultMap="MemberWorkoutMap" parameterType="int">
-     select  
-      m.member_no,
-      m.workout_unit_no,
-      w.workout_no
-      m.workout_date,
-      m.weight,
-      m.walk_count
-     from
-      member_workouts m
-      join workout_unit wu m.workout_unit_no=wu.workout_unit_no
-      join workout w.workout_no=wu.workout_no
-     where workout_unit_no in
-     <foreach item="item" index="index" collection="tags"
-      open="(" separator="," close=")">
-        #{item}
-     </foreach>
-      order by workout_list_no desc
-  </select>
   
 </mapper>
 

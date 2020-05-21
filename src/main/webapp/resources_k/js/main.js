@@ -1,6 +1,23 @@
 !(function($) {
   "use strict";
 
+  if ($('.coach-table').find('td').length>0){
+    $('.coach-table').DataTable();
+  }
+  
+  // 서머노트 에디터
+  $('.summernote').summernote({
+    height: 300,                 // 에디터 높이
+    minHeight: null,             // 최소 높이
+    maxHeight: null,             // 최대 높이
+    focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+    lang: "ko-KR",          // 한글 설정
+    placeholder: '최대 21,844자까지 쓸 수 있습니다'  //placeholder 설정
+  });
+  
+  
+
+  
   // 모바일 토글 설정 
   $(document).on('click', '.mobile-nav-toggle', function(e) {
     $('body').toggleClass('mobile-nav-active');
@@ -72,25 +89,25 @@
   
   
   // 프로그램 등록 모달 관련
-  $('.program-title').keyup(function() {
-    if($(".program-title").val()){
-      $(".title-box p").remove();
+  $('#addProgram .program-title, #updateProgram .program-title').keyup(function() {
+    if($("#addProgram .program-title, #updateProgram .program-title").val()){
+      $("#addProgram .title-box p, #updateProgram .title-box p").remove();
     }
   })
   
-  $('.program-introduce').keyup(function() {
-    if($(".program-introduce").val()){
-      $(".introduce-box p").remove();
+  $('#addProgram .program-introduce, #updateProgram .program-introduce').keyup(function() {
+    if($("#addProgram .program-introduce, #updateProgram .program-introduce").val()){
+      $("#addProgram .introduce-box p, #updateProgram .introduce-box p").remove();
     }
   })
   
-  $('.program-tags').on('click', function() {
-      $(".program-tags p").remove();
+  $('#addProgram .program-tags, #updateProgram .program-tags').on('click', function() {
+      $("#addProgram .program-tags p, #updateProgram .program-tags p").remove();
   })
   
-  $('.program-fee').keyup(function() {
-    if($(".program-fee").val()){
-      $(".fee-box p").remove();
+  $('#addProgram .program-fee, #updateProgram .program-fee').keyup(function() {
+    if($("#addProgram .program-fee, #updateProgram .program-fee").val()){
+      $("#addProgram .fee-box p, #updateProgram .fee-box p").remove();
     }
   })
 
@@ -537,23 +554,9 @@
     $("#updateNoticeBoard .title-box p, #addNoticeBoard .title-box p").remove();
     $("#updateNoticeBoard .content-box p, #addNoticeBoard .content-box p").remove();
   });
+
   
-  // 페이징 처리
-  if ($('.coach-table').find('td')>1){
-    $('.coach-table').DataTable();
-  }
-  
-  // 서머노트 에디터
-  $('.summernote').summernote({
-    height: 300,                 // 에디터 높이
-    minHeight: null,             // 최소 높이
-    maxHeight: null,             // 최대 높이
-    focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-    lang: "ko-KR",          // 한글 설정
-    placeholder: '최대 21,844자까지 쓸 수 있습니다'  //placeholder 설정
-  });
-  
-  
+  var src = $('#requestDetail img').attr('src');
   // 받은 요청 모달 처리
   $('.request-table a').on('click', function() {
     var no = $(this).children('input[name="no"]').val();
@@ -567,11 +570,12 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
-        if(detail.member.photo.length > 0) {
+        if($(detail.member.photo).length > 0) {
           $('#requestDetail img').attr('src', $('#requestDetail img').attr('src')+detail.member.photo)
         } else {
           $('#requestDetail img').attr('src', $('#requestDetail img').attr('src')+'default.jpg')
         }
+        console.log(detail)
         $('#requestDetail td.name').text(detail.member.name)
         $('#requestDetail td.id').text(detail.member.id)
         $('#requestDetail td.tel').text(detail.member.tel)
@@ -690,11 +694,13 @@
   })
   
   $('#requestReject, #requestDetail').on('hidden.bs.modal', function (e) {
+    $('#requestDetail img').attr('src', src);
     $('form').each(function(){
       this.reset();
     });
   });
   
+  var memberSrc = $('#memberDetail img').attr('src');
 //회원 디티일보기 모달 처리
   $('.member-table a').on('click', function() {
     var no = $('.member-table').find('input[name="memberCoachingProgramNo"]').val();
@@ -708,7 +714,7 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
-        if(detail.member.photo.length > 0) {
+        if($(detail.member.photo).length > 0) {
           $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+detail.member.photo)
         } else {
           $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+'default.jpg')
@@ -734,6 +740,12 @@
     })
   })
   
+  $('#memberDetail').on('hidden.bs.modal', function (e) {
+    $('#memberDetail img').attr('src', memberSrc);
+    $('form').each(function(){
+      this.reset();
+    });
+  });
   
 })(jQuery);
 

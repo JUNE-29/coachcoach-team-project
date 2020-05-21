@@ -6,9 +6,10 @@
 
 
 <div class="innerCont">
-<form name="delfrm" action='delete' method='post'>
-<h3>신청서 확인</h3>
-<h5>회원정보</h5>
+<form action='updateForm' method='post'>
+신청서 확인<br>
+회원정보
+<hr>
   <div class="form-group row">
     <label for="no" class="col-sm-2 col-form-label">신청번호</label>
     <div class="col-sm-10">
@@ -33,8 +34,9 @@
       <input type="text" readonly class="form-control-plaintext"  value="${program.member.tel}">
     </div>
   </div>
-
-<h5>프로그램</h5>
+<hr>
+프로그램
+<hr>
   <div class="form-group row">
     <label for="programName" class="col-sm-2 col-form-label">프로그램명</label>
     <div class="col-sm-10">
@@ -53,11 +55,14 @@
       <input type="text" readonly class="form-control-plaintext"  value="${program.endDate} 일">
     </div>
   </div>
-  
-<button id="delBtn" class="btn btn-secondary" onclick="chk_del()">신청취소</button>
-
+      <div class="form-group row">
+    <label for="etc" class="col-sm-2 col-form-label">특이사항</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext"  value="${program.etc}">
+    </div>
+  </div>
+<button class="btn btn-secondary">수정</button>
 <input name='applyNo' type='hidden' value='${program.no}'>
-<input name='programNo' type='hidden' value='${program.programNo}'>
 </form>
-<button type="button" class="btn btn-primary" onclick="location.href='accept.jsp'">확인</button>
+<button type="button" class="btn btn-primary" onclick="location.href='../../myCoach/apply/list.jsp'">신청하기</button>
 </div>

@@ -6,7 +6,7 @@
 </style>
 
 <div class="box">
-  <h5 class="tit">진행중인 프로그램</h5>
+  <h3 class="tit">진행중인 프로그램</h3>
   <table class="table table-sm">
   <thead>
     <tr>
@@ -63,7 +63,7 @@
 
 
 <div>
-  <h5>완료된 프로그램</h5>
+  <h3>완료된 프로그램</h3>
   <table class="table table-sm">
   <thead>
     <tr>

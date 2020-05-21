@@ -24,7 +24,6 @@ public class MemberCoachingProgram implements Serializable {
   String programName;
   int fee;
 
-
   @Override
   public String toString() {
     return "MemberCoachingProgram [no=" + no + ", memberNo=" + memberNo + ", programNo=" + programNo
