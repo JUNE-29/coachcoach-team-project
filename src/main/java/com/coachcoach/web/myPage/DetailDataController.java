@@ -20,8 +20,8 @@ import com.coachcoach.service.MemberService;
 import com.coachcoach.service.MemberWorkoutService;
 import com.coachcoach.service.WorkoutUnitService;
 
-@Auth(role = {Role.MEMBER})
-@Controller
+//@Auth(role = {Role.MEMBER})
+//@Controller
 @RequestMapping("/myPage/detailData")
 public class DetailDataController {
 
