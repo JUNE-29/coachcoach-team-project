@@ -17,6 +17,11 @@
   padding: 60px 0 30px 0;
 }
 
+#footer .footer-top .row {
+  width:1140px;
+  margin:0 auto;
+}
+
 #footer .footer-top .footer-info {
   margin-bottom: 30px;
 }

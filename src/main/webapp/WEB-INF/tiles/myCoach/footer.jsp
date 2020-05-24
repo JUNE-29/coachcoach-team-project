@@ -5,7 +5,9 @@
 
 <style>
 #footer {
+  margin:0 auto;
   background: #1f2627;
+  width:100%;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
@@ -15,6 +17,11 @@
   background: #2a3336;
   border-bottom: 1px solid #354144;
   padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .row {
+  width:1140px;
+  margin:0 auto;
 }
 
 #footer .footer-top .footer-info {
