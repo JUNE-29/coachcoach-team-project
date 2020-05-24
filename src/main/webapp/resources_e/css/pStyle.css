@@ -81,7 +81,7 @@ cursor:pointer; float:left; margin:7px 0 0 7px; padding:0 5px; min-width:65px; h
 .section .main_content_tab li.active { border-color:#01b1d7;}
 .section .tabCont { display:none; min-height:400px;}
 .section .tabCont.article { display:block;}
-.section .tabCont.article2 .starPoint{ font-size:35px; padding-left:20px;padding-top:10px; margin-left:10px; margin-top:5px; font-weight:bold;} 
+.section .tabCont.article2 .starPoint{ font-size:35px; padding-left:20px;padding-top:10px; margin-left:10px; margin-top:5px; font-weight:bold; font-weight:bold;} 
 /*.article { height:800px;}
 .article2 { height:800px;}*/
 

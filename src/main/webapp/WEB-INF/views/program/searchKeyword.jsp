@@ -2,13 +2,12 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <div class="innerCont">
 <div class="leftArea">
 <div class="inner">
-<form action='searchKeyword' method='get' class="searchInp">
-<input name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
-<button>검색</button>
+<form id="searchfrm" action='searchKeyword' method='get' class="searchInp">
+<input id="search" name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
+<button id="searchBtn">검색</button>
 </form>
 <div class="box">
 <strong>키워드</strong>
@@ -43,14 +42,14 @@
 <input name='coachingType' type='radio' value='온라인' checked>온라인<br>
 <input name='coachingType' type='radio' value='오프라인'>오프라인<br>
 <input name='coachingType' type='radio' value='오프라인+온라인'>오프라인 + 온라인<br>
-<button class="detailBtn">상세조건 검색</button>
+<button id="detailBtn" class="detailBtn">검색</button>
 </form>
 </div>
 </div>
 </div>
 
 <div class="rightArea">
-<form action="selectOption" >
+<form action="selectOption" class="optionSelect">
 <select name="option" onchange="this.form.submit()">
   <option value="none">=== 선택 ===</option>
   <option value="review">후기 많은 순</option>
@@ -58,10 +57,8 @@
 </select>
 </form>
 
-
 <c:forEach items="${searchProgram}" var="list">
-<div class="cochingList" style='border:1px solid gray; padding:10px; margin:5px'>
-<label>${list.no}</label>
+<div class="coachingList" style='padding:10px; margin:5px'>
 <div class="cont">
 <div class="img">
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${list.coach.photo}'>

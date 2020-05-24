@@ -107,8 +107,8 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#ckh_7").change(function(){
         if($("#ckh_7").is(":checked")){
-          $("#chk7").css("background", "#01b1d7")
-          $("#ckh_7").css("color", "#FFFFFF")
+            $("#chk7").css("background", "#01b1d7")
+            $("#chk7").css("color", "#FFFFFF")
         }else{
             $(".check").css("background", "#FFFFFF") 
             $(".check").css("border", "1px solid #ededed")
@@ -119,8 +119,8 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#ckh_8").change(function(){
         if($("#ckh_8").is(":checked")){
-          $("#chk8").css("background", "#01b1d7")
-          $("#ckh_8").css("color", "#FFFFFF")
+            $("#chk8").css("background", "#01b1d7")
+            $("#chk8").css("color", "#FFFFFF")
         }else{
             $(".check").css("background", "#FFFFFF") 
             $(".check").css("border", "1px solid #ededed")

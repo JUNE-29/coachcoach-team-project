@@ -6,7 +6,7 @@
 
 <div class="innerCont">
 <div class="bar">
-<p style="font-weight:bold">${program.name}</p><hr>
+<p style="font-weight:bold">&nbsp&nbsp${program.name}</p><hr>
 프로그램 소개<br>
 ${program.introduce}<br>
 수강금액 ${program.fee} 원<br>
@@ -60,7 +60,7 @@ ${program.introduce}<br>
 </form>
 </div>
  <c:if test="${program.coach.address ne null}">
- <p class="centerName">트레이닝 센터</p>
+ <p class="centerName" style="margin-top: 20px; margin-bottom:5px;">&nbsp&nbsp&nbsp오프라인 센터</p>
  <hr style="margin-top: 5px; margin-bottom: 5px;">
 <div class="kakaoMap" id="map" style="width:300px;height:300px;"></div>
    </c:if>
