@@ -111,7 +111,8 @@
       c.work_type,
       cp.name,
       cp.introduce,
-      cp.fee
+      cp.fee,
+      cp.coaching_type
     from 
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no

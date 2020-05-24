@@ -27,6 +27,7 @@
 
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/pStyle.css" rel="stylesheet">
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 
 </head>
 <body>

@@ -6,11 +6,11 @@
 
 <div class="innerCont">
 <div class="bar">
-<h3>프로그램</h3>
-<hr>
-프로그램명: ${program.name}<br>
-프로그램: ${program.introduce}<br>
-수강금액: ${program.fee}<br>
+<p style="font-weight:bold">${program.name}</p><hr>
+프로그램 소개<br>
+${program.introduce}<br>
+수강금액 ${program.fee} 원<br>
+코칭장소 ${program.coachingType}
 <div class="star_rating">
 <c:set var="starRate" value="${star.mcp.starRate}" />
 <c:if test="${starRate eq null}">
@@ -60,6 +60,8 @@
 </form>
 </div>
  <c:if test="${program.coach.address ne null}">
+ <p class="centerName">트레이닝 센터</p>
+ <hr style="margin-top: 5px; margin-bottom: 5px;">
 <div class="kakaoMap" id="map" style="width:300px;height:300px;"></div>
    </c:if>
 </div>
@@ -76,22 +78,22 @@
 <div class="tabCont article2">
 <c:set var="starRate" value="${star.mcp.starRate}" />
 <c:if test="${starRate eq null}">
-<img src='${pageContext.servletContext.contextPath}/upload/img/star_0.png' style="height:80px;">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_0.png' style="height:80px;"><span class="starPoint">0.0</span>
 </c:if>
 <c:if test="${starRate eq '1'}">
-<img src='${pageContext.servletContext.contextPath}/upload/img/star_1.png' style="height:80px;">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_1.png' style="height:80px;"><span class="starPoint">1.0</span>
 </c:if>
 <c:if test="${starRate eq '2'}">
-<img src='${pageContext.servletContext.contextPath}/upload/img/star_2.png' style="height:80px;">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_2.png' style="height:80px;"><span class="starPoint">2.0</span>
 </c:if>
 <c:if test="${starRate eq '3'}">
-<img src='${pageContext.servletContext.contextPath}/upload/img/star_3.png' style="height:80px;">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_3.png' style="height:80px;"><span class="starPoint">3.0</span>
 </c:if>
 <c:if test="${starRate eq '4'}">
-<img src='${pageContext.servletContext.contextPath}/upload/img/star_4.png' style="height:80px;">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_4.png' style="height:80px;"><span class="starPoint">4.0</span>
 </c:if>
 <c:if test="${starRate eq '5'}">
-<img src='${pageContext.servletContext.contextPath}/upload/img/star_5.png' style="height:80px;">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_5.png' style="height:80px;"><span class="starPoint">5.0</span>
 </c:if>
   <table class="table table-sm">
   <thead>

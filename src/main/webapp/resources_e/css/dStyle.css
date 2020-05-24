@@ -1,6 +1,7 @@
 @charset "UTF-8";
 body {
   background-color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 div.container{ 
   width: 1200px;

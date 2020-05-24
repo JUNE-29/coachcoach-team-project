@@ -27,6 +27,7 @@
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/summernote/summernote-lite.css" rel="stylesheet">
 <link href="${pageContext.servletContext.contextPath}/resources_e/css/dStyle.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
 <tiles:insertAttribute name="header"/>
