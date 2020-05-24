@@ -50,7 +50,7 @@
 </div>
 
 <div class="rightArea">
-<form action="selectOption" >
+<form action="selectOption" class="optionSelect">
 <select name="option" onchange="this.form.submit()">
   <option value="none">=== 선택 ===</option>
   <option value="review">후기 많은 순</option>
@@ -59,7 +59,7 @@
 </form>
 
 <c:forEach items="${programList}" var="list">
-<div class="coachingList" style='border:1px solid gray; padding:10px; margin:5px'>
+<div class="coachingList" style='padding:10px; margin:5px'>
 <div class="cont">
 <div class="img">
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${list.coach.photo}'>

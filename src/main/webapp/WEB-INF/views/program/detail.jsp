@@ -38,15 +38,23 @@
 <div class="rightBar">
 <div class="inner">
 <form action='apply/form' method='post'>
-<h5>${program.coach.name} 코치님</h5>
+<div class="coachInfo" >
+<div class="profile"><img src='${pageContext.servletContext.contextPath}/upload/coach/${program.coach.photo}'></div>
+<strong>${program.coach.name} 코치님</strong>
+</div>
 <hr>
-<img src='${pageContext.servletContext.contextPath}/upload/coach/${program.coach.photo}' height='200'>
-<hr>
-수업가능지역: ${program.coach.area}<br>
-경력: ${program.coach.career}<br>
-자격증: ${program.coach.certification}<br>
-소개: ${program.coach.introduce}<br>
-유형: ${program.coach.workType}<br>
+<dl>
+  <dt>수업가능지역</dt>
+  <dd>${program.coach.area}</dd>
+  <dt>경력</dt>
+  <dd>${program.coach.career}</dd>
+  <dt>자격증</dt>
+  <dd>${program.coach.certification}</dd>
+  <dt>소개</dt>
+  <dd>${program.coach.introduce}</dd>
+  <dt>유형</dt>
+  <dd>${program.coach.workType}</dd>
+</dl>
 <button>신청하기</button>
 <input name='programNo' type='hidden' value='${program.no}'><br>
 </form>
@@ -60,12 +68,12 @@
 
 <div class="section">
 <ul class="main_content_tab">
-<li class="content_tab">프로그램 정보</li>
-<li class="content_tab">수강 후기</li>
+<li class="content_tab tab1 active"><a herf="javascipt:;">프로그램 정보</a></a></li>
+<li class="content_tab tab2"><a herf="javascipt:;">수강 후기</a></li>
 </ul>
-<div class="article">
+<div class="tabCont article">
 </div>
-<div class="article2">
+<div class="tabCont article2">
 <c:set var="starRate" value="${star.mcp.starRate}" />
 <c:if test="${starRate eq null}">
 <img src='${pageContext.servletContext.contextPath}/upload/img/star_0.png' style="height:80px;">
@@ -124,4 +132,22 @@
     };
 
     var map = new kakao.maps.Map(container, options);
+    
+    $(function() {
+    	var tabList = $('.main_content_tab li'),
+    	    tabCont = $('.section .tabCont');
+    	
+    	tabList.on("click", function() {
+    		tabList.removeClass('active');
+        tabCont.hide();
+        
+    		if ( $(this).hasClass('tab1')) {
+    			$(this).addClass('active');
+    			$('.article').show();
+    		} else {
+          $(this).addClass('active');
+          $('.article2').show();
+    		}
+    	});
+    });
   </script>

@@ -16,7 +16,8 @@ div.innerCont {
   overflow:hidden;
    width: 960px;
      margin:0 auto;
-   min-height:1175px;
+     padding-bottom:100px;
+   min-height:900px;
 }
 .footer {
     left: 0;
@@ -46,8 +47,9 @@ cursor:pointer; float:left; margin:7px 0 0 7px; padding:0 5px; min-width:65px; h
 .leftArea .inner .box .tag #keywordBtn { float:right; margin:8px 0 0 7px; padding:0 5px; min-width:65px; height:30px; line-height:30px; font-size:14px; border-radius:30px; border:1px solid #A5A5A4; background:#fff;}
 .leftArea .inner .box .detailBtn { margin-top:15px; width:100%; height:40px; line-height:40px; border-radius:20px; border:1px solid #A5A5A4; background:#fff;}
 .leftArea .inner .box .tit { margin:15px 0; font-size:17px; font-weight:500;}
-.rightArea  { float:right; width:650px;}
-.rightArea .coachingList {padding:40px; margin-bottom:10px; border:1px #e0e0e0;}
+.rightArea  { float:right; width:650px; }
+.rightArea .optionSelect { text-align:right;}
+.rightArea .coachingList {padding:40px; margin-bottom:10px; border:1px solid #ccc;}
 .rightArea .coachingList .cont {  position:relative; padding:15px 30px; }
 .rightArea .coachingList .cont .img { overflow:hidden; position:absolute; left:20px; top:10px; width:140px; height:140px; border-radius:50%; background:#eee;}
 .rightArea .coachingList .cont .img img { width:100%; height:100%;}
@@ -62,11 +64,24 @@ cursor:pointer; float:left; margin:7px 0 0 7px; padding:0 5px; min-width:65px; h
 .innerCont .bar { float:left; width:630px; border:1px solid #A5A5A4; padding:20px; }
 .rightBar { float:right; width:300px; }
 .rightBar .inner {border:1px solid #A5A5A4; padding:20px; }
+.rightBar .inner .coachInfo { diaplay:table; overflow:hidden; }
+.rightBar .inner .coachInfo .profile { overflow:hidden; display:table-cell; width:100px; height:100px; border-radius:50%; background:#eee;}
+.rightBar .inner .coachInfo .profile img { width:100%;}
+.rightBar .inner .coachInfo > strong { display:table-cell; vertical-align:middle; padding-left:15px;}
+.rightBar .inner dl { overflow:hidden;}
+.rightBar .inner dl dt { float:left; clear:right; width:40%; font-size:14px; }
+.rightBar .inner dl dd { float:left; width:60%;  font-size:14px;}
+.rightBar .inner button { width:100%; height:40px; border:1px solid #a6a6a6; border-radius:20px; background:#fff;}
 .rightBar .kakaoMap  {padding:20px; margin-top:10px;}
 .section { float:left; width:630px;  padding:10px; margin-top:10px; border:1px solid #A5A5A4;}
-.section .main_content_tab .content_tab {list-style:none; display:inline-block; padding-left:110px; padding-top:10px; padding-right:50px; }
-.article { height:800px;}
-.article2 { height:800px;}
+/*.section .main_content_tab .content_tab {list-style:none; display:inline-block; padding-left:110px; padding-top:10px; padding-right:50px; }*/
+.section .main_content_tab { overflow:hidden;}
+.section .main_content_tab li { list-style:none; width:50%; float:left; padding:10px 0; text-align:center; border-bottom:4px solid #ebebeb; }
+.section .main_content_tab li.active { border-color:#01b1d7;}
+.section .tabCont { display:none; min-height:400px;}
+.section .tabCont.article { display:block;}
+/*.article { height:800px;}
+.article2 { height:800px;}*/
 
 
 
