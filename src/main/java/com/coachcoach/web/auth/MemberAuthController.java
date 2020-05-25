@@ -157,5 +157,16 @@ public class MemberAuthController {
 
     return "findpassword";
   }
+
+  // 비밀번호 찾기 위해 Id,Email 유효한지 검사
+  @ResponseBody
+  @RequestMapping(value = "searchPwConfirm", method = RequestMethod.POST)
+  public int searchPwConfirm(@RequestParam String userId, @RequestParam String userEmail)
+      throws Exception {
+    System.out.println(userId);
+    System.out.println(userEmail);
+    int result = memberService.getSearchPw(userId, userEmail);
+    return result;
+  }
 }
 

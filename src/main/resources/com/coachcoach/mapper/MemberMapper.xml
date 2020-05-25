@@ -211,6 +211,15 @@
       id= #{userId}
   </select>
   
+    <select id="searchPw" resultType="int" parameterType="String" >
+    select
+      count(*)
+    from
+      members
+    where
+      id=#{userId} and email=#{userEmail}
+  </select>
+  
 </mapper>
 
 

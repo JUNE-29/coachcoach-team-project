@@ -35,4 +35,6 @@ public interface MemberService {
 
   void mailSendWithPassword(String userId, String userEmail, HttpServletRequest request)
       throws Exception;
+
+  int getSearchPw(String userId, String userEmail) throws Exception;
 }

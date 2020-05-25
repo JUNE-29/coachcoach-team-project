@@ -165,4 +165,9 @@ public class MemberServiceImpl implements MemberService {
     memberDao.searchPassword(userId, userEmail, key);
 
   }
+
+  @Override
+  public int getSearchPw(String userId, String userEmail) throws Exception {
+    return memberDao.searchPw(userId, userEmail);
+  }
 }

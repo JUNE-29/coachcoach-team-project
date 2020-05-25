@@ -19,7 +19,7 @@
 
 </style>
 
-<form name="form" action="searchPassword" method="post">
+<form name="form" action="searchPwConfirm" method="post">
 <h1 class="find_userpw_tit">비밀번호 찾기</h1>
 <h4 class='find_userpw_text'> 인증된 이메일로 비밀번호 확인이 가능합니다.</h4>
 <div class="find_userpw_area">
