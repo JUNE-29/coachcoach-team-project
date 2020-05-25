@@ -84,7 +84,7 @@ cursor:pointer; float:left; margin:7px 0 0 7px; padding:0 5px; min-width:65px; h
 .section .tabCont.article2 .starPoint{ font-size:35px; padding-left:20px;padding-top:10px; margin-left:10px; margin-top:5px; font-weight:bold; font-weight:bold;} 
 /*.article { height:800px;}
 .article2 { height:800px;}*/
-
-
+.section .tabCont.article2 .reviewBox {margin:15px;}
+.section .tabCont.article2 #addReview {border-radius:5px; border:1px solid #A5A5A4; margin:10px; padding:10px; text-align:center;}
 
 

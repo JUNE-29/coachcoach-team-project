@@ -95,27 +95,38 @@ ${program.introduce}<br>
 <c:if test="${starRate eq '5'}">
 <img src='${pageContext.servletContext.contextPath}/upload/img/star_5.png' style="height:80px;"><span class="starPoint">5.0</span>
 </c:if>
-  <table class="table table-sm">
-  <thead>
-    <tr>
-      <th scope="col">후기</th>
-      <th scope="col"></th>
-      <th scope="col">날짜</th>
-    </tr>
-  </thead>
-  <tbody>
+
+
+
+<hr style="margin-top: 0px;">
+<div class="reviewBox">
 <c:forEach items="${memberProgram}" var="memberProgram">
 <c:if test="${memberProgram.review ne null}">
-    <tr>
-      <td>${memberProgram.review}</td>
-      <td></td>
-      <td>${memberProgram.reviewDate}</td>
-    </tr>
+<c:set var="starRate" value="${star.mcp.starRate}" />
+<c:if test="${starRate eq null}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_0.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '1'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_1.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '2'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_2.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '3'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_3.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '4'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_4.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '5'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_5.png' style="height:20px;">
+</c:if><br>
+${memberProgram.review} ${memberProgram.reviewDate} ${memberProgram.member.id}***
 </c:if>
   </c:forEach>
-  </tbody>
-</table>
-
+</div>
+<hr style="margin-top: 0px;">
+<div id="addReview">더보기</div>
 </div>
 </div>
 </div>
@@ -135,21 +146,5 @@ ${program.introduce}<br>
 
     var map = new kakao.maps.Map(container, options);
     
-    $(function() {
-    	var tabList = $('.main_content_tab li'),
-    	    tabCont = $('.section .tabCont');
-    	
-    	tabList.on("click", function() {
-    		tabList.removeClass('active');
-        tabCont.hide();
-        
-    		if ( $(this).hasClass('tab1')) {
-    			$(this).addClass('active');
-    			$('.article').show();
-    		} else {
-          $(this).addClass('active');
-          $('.article2').show();
-    		}
-    	});
-    });
+  
   </script>

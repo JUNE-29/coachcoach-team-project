@@ -174,7 +174,7 @@
   <select id="findByProgramNo" resultMap="MemberCoachingProgramMap" parameterType="int">
      select  
        member_program_no,
-       member_no,       
+       mcp.member_no,       
        mcp.program_no,        
        remark,            
        status,            
@@ -186,10 +186,12 @@
        review,            
        DATE_FORMAT(review_date, "%Y/%m/%d") as review_date,       
        etc,
-       c.name program_name                
+       c.name program_name,
+       substring(m.id,1,4) id
     from 
       member_coaching_programs mcp 
       join coaching_programs c on mcp.program_no=c.program_no
+       join members m on mcp.member_no=m.member_no
         where 
       mcp.program_no=#{no}
   </select>
