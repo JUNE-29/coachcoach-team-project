@@ -167,7 +167,8 @@
     update member_coaching_programs
       set
         remark=#{remark},
-        start_date=#{startDate}
+        start_date=#{startDate},
+      end_date=DATE_ADD(#{startDate}, INTERVAL 1 MONTH)
     where member_program_no=#{no}
   </update>
   

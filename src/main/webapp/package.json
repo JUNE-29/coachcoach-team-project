@@ -28,7 +28,7 @@
     "remixicon": "^2.4.0",
     "socket.io": "^2.3.0",
     "sweetalert": "^2.1.2",
-    "sweetalert2": "^9.10.13",
+    "sweetalert2": "^9.13.1",
     "typed.js": "^2.0.11",
     "venobox": "^1.8.9",
     "waypoints": "^4.0.1"
