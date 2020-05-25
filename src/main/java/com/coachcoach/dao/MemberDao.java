@@ -48,6 +48,15 @@ public interface MemberDao {
 
   // 아이디찾기
   String searchId(@Param("userName") String userName, @Param("userEmail") String userEmail);
+
+  // 비밀번호찾기
+  int searchPassword(String userId, String userEmail, String key);
+
+  // 회원이름조회 - 임시비밀번호 발송시 이름 조회
+  Member findById(String userId);
+
+  // 회원 아이디 이메일 유효 검사 - 임시비밀번호 발송때
+  int searchPw(@Param("userId") String userId, @Param("userEmail") String userEmail);
 }
 
 

@@ -48,7 +48,7 @@
     where NoticeBoard_id=#{no}
   </delete>
   
-  <select id="findAll" resultMap="NoticeBoardMap" parameterType="int">
+  <select id="findAll" resultMap="NoticeBoardMap" parameterType="Pagination">
     select 
       NoticeBoard_id, 
       conts, 
@@ -57,6 +57,12 @@
       file_path
     from 
       NoticeBoard
+      LIMIT #{startList}, #{listSize}
+   </select>
+   
+   <select id="getnoticeBoardListCnt" resultType="int">
+   select count(*) as listCnt
+   from NoticeBoard
    </select>
   
 </mapper>

@@ -58,7 +58,7 @@
 </form>
 
 <c:forEach items="${searchProgram}" var="list">
-<div class="coachingList" style='border:1px solid gray; padding:10px; margin:5px'>
+<div class="coachingList" style='padding:10px; margin:5px'>
 <div class="cont">
 <div class="img">
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${list.coach.photo}'>

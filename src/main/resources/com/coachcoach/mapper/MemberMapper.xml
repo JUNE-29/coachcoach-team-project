@@ -193,6 +193,33 @@
       name=#{userName} and email=#{userEmail}
   </select>
   
+  <update id="searchPassword" parameterType="map">
+      update members
+    <set>
+        password=password(#{param3})
+    </set>
+    where
+      id=#{param1} and email=#{param2}
+  </update>
+  
+  <select id="findById" resultType="Member" parameterType="String">
+    select
+      <include refid="select"/>
+    from
+      members
+    where
+      id= #{userId}
+  </select>
+  
+    <select id="searchPw" resultType="int" parameterType="String" >
+    select
+      count(*)
+    from
+      members
+    where
+      id=#{userId} and email=#{userEmail}
+  </select>
+  
 </mapper>
 
 

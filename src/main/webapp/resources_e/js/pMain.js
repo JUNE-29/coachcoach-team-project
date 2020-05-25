@@ -128,3 +128,22 @@ $(document).ready(function(){
         }
     });
 });
+
+
+$(function() {
+	var tabList = $('.main_content_tab li'),
+	    tabCont = $('.section .tabCont');
+	
+	tabList.on("click", function() {
+		tabList.removeClass('active');
+    tabCont.hide();
+    
+		if ( $(this).hasClass('tab1')) {
+			$(this).addClass('active');
+			$('.article').show();
+		} else {
+      $(this).addClass('active');
+      $('.article2').show();
+		}
+	});
+});

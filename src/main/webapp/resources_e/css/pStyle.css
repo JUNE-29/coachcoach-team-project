@@ -62,9 +62,9 @@ cursor:pointer; float:left; margin:7px 0 0 7px; padding:0 5px; min-width:65px; h
 .rightArea .paginationWrap > ul li a { padding:8px; font-size:18px; color:#000;}
 
 /*detail*/
-.innerCont .bar { float:left; width:630px; border:1px solid #A5A5A4; padding:20px; }
+.innerCont .bar { float:left; width:630px; border:1px solid #e3e1e1; padding:20px; }
 .rightBar { float:right; width:300px; }
-.rightBar .inner {border:1px solid #A5A5A4; padding:20px; }
+.rightBar .inner {border:1px solid #e3e1e1; padding:20px; }
 .rightBar .inner .coachInfo { diaplay:table; overflow:hidden; }
 .rightBar .inner .coachInfo .profile { overflow:hidden; display:table-cell; width:100px; height:100px; border-radius:50%; background:#eee;}
 .rightBar .inner .coachInfo .profile img { width:100%;}
@@ -81,10 +81,11 @@ cursor:pointer; float:left; margin:7px 0 0 7px; padding:0 5px; min-width:65px; h
 .section .main_content_tab li.active { border-color:#01b1d7;}
 .section .tabCont { display:none; min-height:400px;}
 .section .tabCont.article { display:block;}
-.section .tabCont.article2 .starPoint{ font-size:35px; padding-left:20px;padding-top:10px; margin-left:10px; margin-top:5px; font-weight:bold; font-weight:bold;} 
+.section .tabCont.article2 .starPoint{ font-size:25px;
+margin-left:10px; margin-top:5px; font-weight:bold; font-weight:bold;} 
 /*.article { height:800px;}
 .article2 { height:800px;}*/
-
-
+.section .tabCont.article2 .reviewBox {margin:15px;}
+.section .tabCont.article2 #addReview {border-radius:5px; border:1px solid #e3e1e1; margin:10px; padding:10px; text-align:center;}
 
 

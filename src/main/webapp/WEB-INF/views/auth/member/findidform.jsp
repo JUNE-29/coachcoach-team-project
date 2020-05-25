@@ -4,7 +4,6 @@
 
 <style>
 .find_userid_tit {font-size: 35px;letter-spacing: -1px; font-weight: bold;  margin-bottom: 8px;}
-.find_userid_text {margin-bottom: 16px;}
 .find_userid_area {width:100%;}
 .find_userid_area table{width:100%; border-top:1px solid #000; border-bottom:1px solid #000;}
 .first_th {border-bottom:1px solid #ddd;} 
@@ -19,13 +18,11 @@
 .find_id_button_area button[type=button] {display:inline-block; width:50%; height:50px; background:#01b1d7; font-weight:bold; font-size:15px; color:#fff; border:none;}
 
 .id_result {text-align:center;}
+.id_result_text {text-align:center;}
 .btn_btn-secondary{display:inline-block; border: 0; outline: 0; width:30%; height:50px; background:#01b1d7;  margin: 0 auto; color:#fff; font-weight:bold;}
 </style>
 
-<!-- .find_id_button_area button[type=button] {display:inline-block; width:50%; height:50px; background:#01b1d7; font-weight:bold; font-size:15px; color:#fff; border:none;}
- -->
 <h1 class="find_userid_tit">아이디찾기</h1>
-<h4 class='find_userid_text'> 인증된 이메일로 아이디 확인이 가능합니다.</h4>
 <div class="find_userid_area">
 <form action='searchid' method='post'>
   <table>
@@ -65,6 +62,7 @@
         </button>
       </div>
       <div class="modal-body">
+      <h2 class= "id_result_text" id="id_result_text">회원님의 아이디는</h2>
         <h2 class="id_result" id="id_value"></h2>
       </div>
       <div class="modal-footer">

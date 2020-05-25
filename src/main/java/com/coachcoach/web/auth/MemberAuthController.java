@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,13 +73,13 @@ public class MemberAuthController {
 
 
   @GetMapping("findidform")
-  public void memberFindIdForm() {}
+  public void memberFindIdForm() {} // 아이디찾기폼
 
   @PostMapping("findid")
   public void memberFindId() {}
 
   @GetMapping("findpasswordform")
-  public void memberFindPasswordForm() {}
+  public void memberFindPasswordForm() {} // 패스워드찾기폼
 
   @PostMapping("findpassword")
   public void memberFindPassword() {}
@@ -116,6 +117,7 @@ public class MemberAuthController {
 
   }
 
+  // 아이디 중복체크 (회원가입)
   @ResponseBody
   @RequestMapping(value = "idcheck", method = RequestMethod.POST)
   public int idcheck(String userid) throws Exception {
@@ -125,7 +127,7 @@ public class MemberAuthController {
     return count;
   }
 
-
+  // 회원가입 후 권한 업데이트
   @RequestMapping(value = "joinConfirm", method = RequestMethod.GET)
   public void emailConfirm(Member member, Model model) throws Exception {
     System.out.println(member.getEmail() + ": auth confirmed");
@@ -133,6 +135,7 @@ public class MemberAuthController {
     model.addAttribute("auth_check", 1);
   }
 
+  // 아이디 찾기
   @ResponseBody
   @RequestMapping(value = "searchid", method = RequestMethod.POST)
   public String searchid(@RequestParam String userName, @RequestParam String userEmail)
@@ -140,6 +143,29 @@ public class MemberAuthController {
     System.out.println(userName);
     System.out.println(userEmail);
     String result = memberService.getSerchId(userName, userEmail);
+    return result;
+  }
+
+  // 비밀번호 찾기
+  @RequestMapping(value = "searchPassword", method = RequestMethod.POST)
+  @ResponseBody
+  public String searchPassword(String userId, String userEmail, HttpServletRequest request)
+      throws Exception {
+
+    System.out.println(userId);
+    memberService.mailSendWithPassword(userId, userEmail, request);
+
+    return "findpassword";
+  }
+
+  // 비밀번호 찾기 위해 Id,Email 유효한지 검사
+  @ResponseBody
+  @RequestMapping(value = "searchPwConfirm", method = RequestMethod.POST)
+  public int searchPwConfirm(@RequestParam String userId, @RequestParam String userEmail)
+      throws Exception {
+    System.out.println(userId);
+    System.out.println(userEmail);
+    int result = memberService.getSearchPw(userId, userEmail);
     return result;
   }
 }
