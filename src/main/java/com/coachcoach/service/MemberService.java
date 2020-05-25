@@ -2,6 +2,7 @@ package com.coachcoach.service;
 
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import com.coachcoach.domain.Member;
 
 public interface MemberService {
@@ -32,4 +33,6 @@ public interface MemberService {
 
   String getSerchId(String userName, String userEmail) throws Exception;
 
+  void mailSendWithPassword(String userId, String userEmail, HttpServletRequest request)
+      throws Exception;
 }

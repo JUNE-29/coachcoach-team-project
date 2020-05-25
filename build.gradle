@@ -14,7 +14,7 @@ dependencies {
     implementation 'org.springframework:spring-context-support:5.2.6.RELEASE'
     // 이메일수신 관련 라이브러리
     // implementation 'javax.mail:mailapi:1.4.3'
-     implementation 'com.sun.mail:javax.mail:1.6.2'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
 
     // Tiles-jsp 라이브러리
     implementation 'org.apache.tiles:tiles-jsp:3.0.8'
