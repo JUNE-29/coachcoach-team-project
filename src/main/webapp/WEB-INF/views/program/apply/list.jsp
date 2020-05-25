@@ -6,9 +6,9 @@
 
 
 <div class="innerCont">
+<div class="leftArea">
 <form action='updateForm' method='post'>
-신청서 확인<br>
-회원정보
+<strong>신청서 확인</strong><br>
 <hr>
   <div class="form-group row">
     <label for="no" class="col-sm-2 col-form-label">신청번호</label>
@@ -34,9 +34,6 @@
       <input type="text" readonly class="form-control-plaintext"  value="${program.member.tel}">
     </div>
   </div>
-<hr>
-프로그램
-<hr>
   <div class="form-group row">
     <label for="programName" class="col-sm-2 col-form-label">프로그램명</label>
     <div class="col-sm-10">
@@ -44,13 +41,13 @@
     </div>
   </div>
     <div class="form-group row">
-    <label for="startDate" class="col-sm-2 col-form-label">운동 시작일</label>
+    <label for="startDate" class="col-sm-2 col-form-label">시작일</label>
     <div class="col-sm-10">
       <input type="text" readonly class="form-control-plaintext"  value="${program.startDate} 일">
     </div>
   </div>
       <div class="form-group row">
-    <label for="endDate" class="col-sm-2 col-form-label">운동 종료일</label>
+    <label for="endDate" class="col-sm-2 col-form-label">종료일</label>
     <div class="col-sm-10">
       <input type="text" readonly class="form-control-plaintext"  value="${program.endDate} 일">
     </div>
@@ -58,11 +55,20 @@
       <div class="form-group row">
     <label for="etc" class="col-sm-2 col-form-label">특이사항</label>
     <div class="col-sm-10">
+    <c:set var="etc" value="${program.etc}" />
+    <c:if test="${not empty etc}">
       <input type="text" readonly class="form-control-plaintext"  value="${program.etc}">
+    </c:if>
+    <c:if test="${starRate eq null}">
+          <input type="text" readonly class="form-control-plaintext"  value="없음">
+     </c:if>
     </div>
   </div>
-<button class="btn btn-secondary">수정</button>
+  <hr>
+<button class="graybtn">수정</button>
 <input name='applyNo' type='hidden' value='${program.no}'>
 </form>
-<button type="button" class="btn btn-primary" onclick="location.href='../../myCoach/apply/list.jsp'">신청하기</button>
+<button id="apply_btn" type="button" class="bluebtn">신청하기</button>
 </div>
+</div>
+

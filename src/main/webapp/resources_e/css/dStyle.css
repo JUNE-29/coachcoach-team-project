@@ -13,10 +13,16 @@ div.innerCont {
   /*padding-top:20px;*/
   /*max-width:1200px;*/
   overflow:hidden;
-  width: 1000px;
+  width: 700px;
   margin:0 auto; 
   
 }
 
-.innerCont .leftArea{float:left; width:400px; margin:10px; padding:10px; border:1px black;}
-.innerCont .rightArea{float:left; width:500px; margin:10px; padding:20px;  border-radius:20px;  box-sizing:border-box; background:#CFDDF3;}
+
+
+div.innerCont .leftArea {width:600px; }
+div.innerCont .leftArea .leftbtn {float: left; margin: 0px 5px 40px 280px; width:70px; height:40px; border:none; border-radius:5px;  background:#01b1d7; color:#fff;}
+div.innerCont .leftArea .rightbtn {width:70px; height:40px; border:none; border-radius:5px;  background:gray; color:#fff;}
+
+div.innerCont .leftArea .bluebtn {width:70px; height:40px; border:none; border-radius:5px;  background:#01b1d7; color:#fff;}
+div.innerCont .leftArea .graybtn {float: left; margin: 0px 5px 40px 280px; width:70px; height:40px; border:none; border-radius:5px;  background:gray; color:#fff;}

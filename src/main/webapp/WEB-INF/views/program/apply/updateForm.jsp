@@ -5,9 +5,10 @@
 
 
 <div class="innerCont">
-<form id="applyfrm" action='update' method='post'>
-<h3>신청서 수정</h3>
-<h5>회원정보</h5>
+<div class="leftArea">
+<form id="applyUpdate" action='update' method='post'>
+<strong>신청서 수정</strong><br>
+<hr>
   <div class="form-group row">
     <label for="no" class="col-sm-2 col-form-label">신청번호</label>
     <div class="col-sm-10">
@@ -32,8 +33,6 @@
       <input type="text" readonly class="form-control-plaintext"  value="${program.member.tel}">
     </div>
   </div>
-
-<h5>프로그램</h5>
   <div class="form-group row">
     <label for="programName" class="col-sm-2 col-form-label">프로그램명</label>
     <div class="col-sm-10">
@@ -41,7 +40,7 @@
     </div>
   </div>
    <div class="form-group row">
-    <label for="startDate" class="col-sm-2 col-form-label">운동 시작일*</label>
+    <label for="startDate" class="col-sm-2 col-form-label">시작일*</label>
     <div class="col-sm-10">
       <input id="startDate" name='startDate' type="text" class="form-control" placeholder='예) 2021-05-01' onchange='chk_date()' >
     </div>
@@ -52,7 +51,10 @@
       <input id="remark" name='remark' type="text" class="form-control" placeholder='코치에게 알려줄 정보를 입력해주세요.'>
     </div>
   </div>
-<button id="applyBtn"  class="btn btn-secondary">수정</button>
-<input name='applyNo' type='hidden' value='${program.no}'>
+  * 모든 프로그램은 한달 단위로 진행됩니다.<br>
+<hr>
+<button id="updatebtn"  class="leftbtn">수정</button>
+<input name='applyNo' id='applyNo' type='hidden' value='${program.no}'>
 </form>
+</div>
 </div>

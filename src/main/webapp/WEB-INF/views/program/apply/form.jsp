@@ -7,11 +7,10 @@
 <div class="innerCont">
 <div class="leftArea">
 <form id="applyfrm" action='list' method='post'>
-프로그램 신청서
+<strong>프로그램 신청서</strong><br>
 <hr>
-회원정보
   <div class="form-group row">
-    <label for="name" class="col-sm-2 col-form-label">이름</label>
+    <label for="name" class="col-sm-2 col-form-label" >이름</label>
     <div class="col-sm-10">
       <input type="text" readonly class="form-control-plaintext"  value="${member.name}">
     </div>
@@ -28,9 +27,6 @@
       <input type="text" readonly class="form-control-plaintext"  value="${member.tel}">
     </div>
   </div>
-</div>
-<div class="rightArea">
-프로그램
   <div class="form-group row">
     <label for="tel" class="col-sm col-form-label">프로그램명</label>
     <div class="col-sm-10">
@@ -50,7 +46,7 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="startDate" class="col-sm-2 col-form-label">운동 시작일*</label>
+    <label for="startDate" class="col-sm-2 col-form-label">시작일*</label>
     <div class="col-sm-10">
       <input id="startDate" name='startDate' type="text" class="form-control" placeholder='예) 2021-05-01' onchange='chk_date()' >
     </div>
@@ -61,12 +57,12 @@
       <input id="remark" name='remark' type="text" class="form-control" placeholder='코치에게 알려줄 정보를 입력해주세요.'>
     </div>
   </div>
-  
 * 모든 프로그램은 한달 단위로 진행됩니다.<br>
-<button id="applyBtn" class="btn btn-primary" >다음</button>
+<hr>
+<button id="applyBtn" class="leftbtn" >다음</button>
 <input name='programNo' type='hidden' value='${program.no}'>
 <input name='memberNo' type='hidden' value='${member.no}'>
 </form>
-<button type="button" class="btn btn-primary" onclick="location.href='../list.jsp'">취소</button>
+<button id="frm_cancel"type="button" class="rightbtn" >취소</button>
 </div>
 </div>
