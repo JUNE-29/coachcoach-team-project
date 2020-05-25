@@ -34,15 +34,16 @@ public class MemberWorkoutServiceImpl implements MemberWorkoutService {
     return memberWorkoutDao.findByNo(workoutListNo);
   }
 
-  @Transactional
   @Override
   public int update(MemberWorkout memberWorkout) throws Exception {
     return memberWorkoutDao.update(memberWorkout);
   }
 
+  @Transactional
   @Override
-  public int delete(int no) throws Exception {
-    return memberWorkoutDao.delete(no);
+  public void delete(int no) throws Exception {
+    workoutUnitDao.deleteAll(no);
+    memberWorkoutDao.delete(no);
   }
 
   @Override

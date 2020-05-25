@@ -11,7 +11,7 @@ public interface WorkoutUnitDao {
   int insert(MemberWorkout memberWorkout) throws Exception;
 
   // 회원 본인 운동내역만 보여야해서 memberNo를 넣었음
-  List<WorkoutUnit> findAllByWorkoutUnit(int workoutListNo) throws Exception;
+  List<WorkoutUnit> findAllByWorkoutListNo(int workoutListNo) throws Exception;
 
   // 운동내역번호로 삭제
   int deleteAll(int no) throws Exception;

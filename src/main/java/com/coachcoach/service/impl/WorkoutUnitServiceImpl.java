@@ -18,7 +18,7 @@ public class WorkoutUnitServiceImpl implements WorkoutUnitService {
 
   @Override
   public List<WorkoutUnit> list(int workoutListNo) throws Exception {
-    return workoutUnitDao.findAllByWorkoutUnit(workoutListNo);
+    return workoutUnitDao.findAllByWorkoutListNo(workoutListNo);
   }
 
   @Override

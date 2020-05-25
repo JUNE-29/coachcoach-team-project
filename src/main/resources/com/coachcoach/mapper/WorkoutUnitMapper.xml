@@ -6,7 +6,6 @@
 <mapper namespace="com.coachcoach.dao.WorkoutUnitDao">
 
   <resultMap type="WorkoutUnit" id="WorkoutUnitMap">
-    <id column="workout_list_no"     property="workoutListNo"/>
     <result column="workout_no"    property="workoutNo"/>
     <result column="unit"          property="unit"    />
     <result column="name"          property="name"/>
@@ -30,9 +29,8 @@
      <!-- separator를 넣어주는 이유는 포문으로 돌렸을 때 구분하기 위해 -->
   </insert>
   
-  <select id="findAllByWorkoutUnit" resultMap="WorkoutUnitMap" parameterType="MemberWorkout">
+  <select id="findAllByWorkoutListNo" resultMap="WorkoutUnitMap" parameterType="MemberWorkout">
     select
-      wu.workout_list_no,
       wu.workout_no,
       wu.unit,
       w.name
@@ -40,7 +38,6 @@
       workout_unit wu
       inner join workout w on wu.workout_no=w.workout_no
     where wu.workout_list_no=#{workoutListNo}
-  
   </select>
   
    <update id="update" parameterType="MemberWorkout"
@@ -64,7 +61,7 @@
 
    <delete id="deleteAll" parameterType="int">
     delete from workout_unit
-    where workout_unit_no,=#{workoutUnitNo}
+    where workout_list_no=#{no}
   </delete>
   
     <select id="findAll" resultMap="WorkoutUnitMap" >

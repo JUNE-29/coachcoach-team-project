@@ -61,10 +61,8 @@
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="${pageContext.servletContext.contextPath}/resources_s/js/main.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/resources_k/js/main2.js"></script>
-  
-
+   <script src='${pageContext.getServletContext().getContextPath()}/<tiles:getAsString name="jsFile"></tiles:getAsString>'></script>
+<script src='${pageContext.getServletContext().getContextPath()}/js/myPage/main.js'></script>
 
 </body>
 </html>

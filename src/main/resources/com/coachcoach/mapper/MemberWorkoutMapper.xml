@@ -56,6 +56,21 @@
     order by workout_list_no desc
   </select>
   
+    <!-- 운동내역리스트 -->
+  <select id="findByNo" resultMap="MemberWorkoutMap" parameterType="int">
+    select
+      m.workout_list_no,
+      m.member_no,
+      m.workout_date,
+      m.weight,
+      m.walk_count
+    from
+      member_workouts m
+      left outer join members mb on m.member_no=mb.member_no
+    where
+      m.workout_list_no=#{no}
+  </select>
+  
   
   <update id="update" parameterType="MemberWorkout">
     update member_workouts

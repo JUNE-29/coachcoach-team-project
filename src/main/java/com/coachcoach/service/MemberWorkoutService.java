@@ -18,7 +18,7 @@ public interface MemberWorkoutService {
   int update(MemberWorkout memberWorkout) throws Exception;
 
   // 삭제
-  int delete(int no) throws Exception;
+  void delete(int no) throws Exception;
 
 
 

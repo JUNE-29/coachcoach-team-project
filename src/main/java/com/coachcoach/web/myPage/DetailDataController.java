@@ -1,8 +1,11 @@
 package com.coachcoach.web.myPage;
 
+import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +22,10 @@ import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.MemberService;
 import com.coachcoach.service.MemberWorkoutService;
 import com.coachcoach.service.WorkoutUnitService;
+import com.google.gson.Gson;
 
-//@Auth(role = {Role.MEMBER})
-//@Controller
+@Auth(role = {Role.MEMBER})
+@Controller
 @RequestMapping("/myPage/detailData")
 public class DetailDataController {
 
@@ -37,33 +41,19 @@ public class DetailDataController {
   MemberService memberService;
 
 
-  // memberWorkout 페이지
-
-  @PostMapping("memberWorkoutAddForm") // 날짜, 운동, 걸음수 등 기입
-  public void addForm(Model model) throws Exception {
-    int memberNo = ((Member) httpSession.getAttribute("loginUser")).getNo();
-    List<WorkoutUnit> list = workoutUnitService.list(); // 공통으로 넘길거라 값을 주지 않아도 된다.
-    model.addAttribute("memberNo", memberNo);
-    model.addAttribute("list", list);
-  }
-
-
   @PostMapping("memberWorkoutAdd")
   public String memberWorkoutAdd(MemberWorkout memberWorkout,
-      @RequestParam("workoutNo") int[] workoutNoList, @RequestParam("unit") int[] unitList)
-      throws Exception {
-    System.out.println(memberWorkout + "확인!");
-
+      @RequestParam(value = "workoutNoList") String[] workoutNoList,
+      @RequestParam(value = "unitList") String[] unitList) throws Exception {
     ArrayList<WorkoutUnit> list = new ArrayList<>();
     for (int i = 0; i < workoutNoList.length; i++) {
       WorkoutUnit workoutUnit = new WorkoutUnit();
-      workoutUnit.setWorkoutNo(workoutNoList[i]); // workoutUni의 값들을 배열로 받기위한 작업
-      workoutUnit.setUnit(String.valueOf(unitList[i])); // String을 int로
+      workoutUnit.setWorkoutNo(Integer.parseInt(workoutNoList[i]));
+      workoutUnit.setUnit(unitList[i]);
       list.add(workoutUnit);
     }
     memberWorkout.setWorkoutUnit(list);
-    System.out.println(memberWorkout + "확인");
-
+    memberWorkout.setWorkoutDate(new Date(System.currentTimeMillis()));
     memberWorkoutService.add(memberWorkout);
     return "redirect:memberWorkoutList";
   }
@@ -75,38 +65,27 @@ public class DetailDataController {
     int memberNo = ((Member) httpSession.getAttribute("loginUser")).getNo();
     model.addAttribute("memberNo", memberNo);
     model.addAttribute("list", memberWorkoutService.list(memberNo));
+    List<WorkoutUnit> list = workoutUnitService.list(); // 공통으로 넘길거라 값을 주지 않아도 된다.
+    model.addAttribute("workoutUnitList", list);
+  }
+
+  @GetMapping("memberWorkoutDetail")
+  public void detail(int workoutListNo, HttpServletResponse response) throws Exception {
+    Gson json = new Gson();
+    response.setCharacterEncoding("utf-8");
+    PrintWriter out = response.getWriter();
+    MemberWorkout mw = memberWorkoutService.getMemberWorkout(workoutListNo);
+    mw.setWorkoutUnit(workoutUnitService.list(workoutListNo));
+    out.print(json.toJson(mw));
+    out.flush();
   }
 
 
-  @GetMapping("memberWorkoutUpdateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
-  public void updateForm(int workoutListNo, Model model) throws Exception {
-    model.addAttribute("memberWorkout", memberWorkoutService.getMemberWorkout(workoutListNo));
+  @GetMapping("memberWorkoutDelete")
+  public void delete(int no) throws Exception {
+    memberWorkoutService.delete(no);
   }
 
-  @PostMapping("memberWorkoutUpdate")
-  public void update(MemberWorkout memberWorkout, @RequestParam("workoutNo") int[] workoutNoList,
-      @RequestParam("unit") int[] unitList) throws Exception {
-    System.out.println(memberWorkout + "확인");
-    List<WorkoutUnit> list = new ArrayList<>();
-    for (int i = 0; i < workoutNoList.length; i++) {
-      WorkoutUnit workoutUnit = new WorkoutUnit();
-      workoutUnit.setWorkoutNo(workoutNoList[i]); // workoutUni의 값들을 배열로 받기위한 작업
-      workoutUnit.setUnit(String.valueOf(unitList[i])); // String을 int로
-      list.add(workoutUnit);
-    }
-    System.out.println(memberWorkout + "확인1");
-    memberWorkout.setWorkoutUnit(list);
-    if (memberWorkoutService.update(memberWorkout) > 0) {
-      workoutUnitService.delete(memberWorkout.getWorkoutListNo());
-      workoutUnitService.add(memberWorkout);
-    }
-  }
-  //
-  // @GetMapping("memberWorkoutDelete")
-  // public void delete(int memberWorkoutNo) throws Exception {
-  // memberWorkoutService.delete(memberWorkoutNo);
-  // }
-  //
-  //
+
 
 }
