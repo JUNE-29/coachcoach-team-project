@@ -72,7 +72,7 @@ public class CoachAuthController {
   @PostMapping("add")
   public void coachadd(Coach coach, MultipartFile photoFile) throws Exception {
     if (photoFile.getSize() > 0) {
-      String dirPath = servletContext.getRealPath("/upload/member");
+      String dirPath = servletContext.getRealPath("/upload/coach");
       String filename = UUID.randomUUID().toString();
       photoFile.transferTo(new File(dirPath + "/" + filename));
       coach.setPhoto(filename);
