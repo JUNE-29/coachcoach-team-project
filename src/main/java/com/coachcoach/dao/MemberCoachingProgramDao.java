@@ -46,6 +46,8 @@ public interface MemberCoachingProgramDao {
 
   List<MemberCoachingProgram> findAllMember(int coachNo);
 
+  List<MemberCoachingProgram> reivewstar(int no);
+
 }
 
 

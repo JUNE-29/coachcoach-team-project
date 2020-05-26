@@ -2,6 +2,7 @@ package com.coachcoach.web.searchCoach;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.interceptor.Auth;
@@ -98,6 +100,14 @@ public class ProgramController {
     model.addAttribute("memberProgram", memberCoachingProgramService.programList(programNo));
     model.addAttribute("star", coachingProgramService.selectStar(programNo));
   }
+
+  @ResponseBody
+  @PostMapping("reivewDetail") // 후기 조회
+  public Object reivewDetail(Model model, int no) throws Exception {
+    List<MemberCoachingProgram> mcp = memberCoachingProgramService.reivewstar(no);
+    return mcp;
+  }
+
 
   @Auth(role = Role.MEMBER)
   @PostMapping("apply/form") // 신청서

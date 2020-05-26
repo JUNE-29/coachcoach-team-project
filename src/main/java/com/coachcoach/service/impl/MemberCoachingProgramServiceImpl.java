@@ -97,4 +97,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.updateApply(params);
   }
 
+  @Override
+  public List<MemberCoachingProgram> reivewstar(int no) {
+    return memberCoachingProgramDao.reivewstar(no);
+  }
+
 }

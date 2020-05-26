@@ -22,7 +22,7 @@
       <th scope="row">${list.mcp.no}</th>
       <td>${list.coach.name}</td>
       <td>${list.name}</td>
-      <td>${list.fee}</td>     
+      <td>${list.fee}원</td>     
  <c:set var="status" value="${list.mcp.status}" />
   <c:choose>
     <c:when test="${status eq '결제대기중'}">

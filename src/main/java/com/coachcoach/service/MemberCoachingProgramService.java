@@ -38,5 +38,7 @@ public interface MemberCoachingProgramService {
 
   int updateApply(Map<String, Object> params) throws Exception;
 
+  List<MemberCoachingProgram> reivewstar(int no);
+
 
 }

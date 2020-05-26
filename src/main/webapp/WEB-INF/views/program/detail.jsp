@@ -55,8 +55,8 @@ ${program.introduce}<br>
   <dt>유형</dt>
   <dd>${program.coach.workType}</dd>
 </dl>
-<button>신청하기</button>
-<input name='programNo' type='hidden' value='${program.no}'><br>
+<button id="apply_Btn">신청하기</button>
+<input id="programNo" name='programNo' type='hidden' value='${program.no}'><br>
 </form>
 </div>
  <c:if test="${program.coach.address ne null}">
@@ -114,7 +114,8 @@ ${program.introduce}<br>
 
 
 <hr style="margin-top: 0px;">
-<div class="reviewBox">
+<div id="reviewBox" class="reviewBox">
+
 <c:forEach items="${memberProgram}" var="memberProgram">
 <c:if test="${memberProgram.review ne null}">
 <c:set var="starRate" value="${star.mcp.starRate}" />
@@ -139,8 +140,13 @@ ${program.introduce}<br>
 <p>${memberProgram.review}</p><p>${memberProgram.reviewDate}</p><p>${memberProgram.member.id}***</p>
 </c:if>
   </c:forEach>
+  
+<img id="star_img">
+<p id="review1"></p>
+<p id="review2"></p>
+<p id="review3"></p>
 </div>
-<hr style="margin-top: 0px;">
+
 <div id="addReview">더보기</div>
 </div>
 </div>
