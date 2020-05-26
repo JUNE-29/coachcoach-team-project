@@ -44,7 +44,7 @@
 <tiles:insertAttribute name="footer"/>
 </main>
   <!-- Vendor JS Files -->
-  <script src="${pageContext.servletContext.contextPath}/node_modules/jquery/dist/jquery.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/jquery.easing/bower_components/jquery-easing-original/jquery.easing.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
@@ -52,12 +52,12 @@
   <script src="${pageContext.servletContext.contextPath}/node_modules/venobox/venobox/venobox.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="${pageContext.servletContext.contextPath}/node_modules/typed.js/lib/typed.min.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net/js/jquery.dataTables.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/core/main.js"></script>
-  <script src="${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/daygrid/main.js"></script>
-  <script src='${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/interaction/main.js'></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/core/main.min.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/daygrid/main.min.js"></script>
+  <script src='${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/interaction/main.min.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
 
   <!-- Template Main JS File -->
