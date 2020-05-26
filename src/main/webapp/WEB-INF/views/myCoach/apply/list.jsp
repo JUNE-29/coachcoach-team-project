@@ -5,7 +5,8 @@
 
 
 <div>
-  <h3>신청내역</h3>
+  신청내역
+  <hr style="margin-top: 0px;">
   <table class="table">
   <thead>
     <tr>

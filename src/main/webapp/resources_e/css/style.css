@@ -30,6 +30,23 @@ div.innerCont {
 .content .img { float:left; left:20px; padding:20px; margin:20px; width:200px; height:200px;}
 .content .img img { width:100%; height:100%;}
 
+.content .profile_img { overflow:hidden;  width:150px; height:150px; border-radius: 50%; border: 1px solid #ededed; background:#eee; margin: 10px 0px 0px 260px;}
+.content .profile_img img { width:100%;}
+.content .update_frm { text-align:center; padding: 30px 0px 20px 0px}
+
+
+.content .leftbtn {float: left; margin: 20px 5px 40px 260px; width:70px; height:40px; border:none; border-radius:5px;  background:#01b1d7; color:#fff;}
+.content .rightbtn {width:70px; height:40px; border:none; border-radius:5px;  background:gray; color:#fff;}
+
+
+
+
+
+
+
+
+
+
 
   
 /* 별점 시작 */
