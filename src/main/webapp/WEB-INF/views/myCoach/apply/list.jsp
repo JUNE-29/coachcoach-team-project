@@ -38,6 +38,11 @@
       </button>
     </td>
     </c:when>
+      <c:when test="${status eq '요청대기중'}">
+    <td>요청대기중 | 
+    <button id="calcel_btn" class=" btn btn-outline-danger btn-sm" value="${list.mcp.no}" type="button">삭제</button>
+    </td>
+    </c:when>
   <c:otherwise>
     <td>${list.mcp.status}</td>
   </c:otherwise>

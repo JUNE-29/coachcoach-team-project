@@ -77,6 +77,13 @@ public class ApplyController {
     }
   }
 
+  @ResponseBody
+  @Auth(role = Role.MEMBER)
+  @PostMapping("delete") // 신청취소
+  public int delete(Model model, int applyNo) throws Exception {
+    return memberCoachingProgramService.delete(applyNo);
+  }
+
 
   @PostMapping("payments/complete") // 신청내역
   public void complete(Model model) throws Exception {}

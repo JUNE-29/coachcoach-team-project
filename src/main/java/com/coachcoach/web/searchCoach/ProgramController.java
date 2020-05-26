@@ -135,12 +135,6 @@ public class ProgramController {
   @GetMapping("apply/accept") // 확인
   public void applyAccept() throws Exception {}
 
-  @Auth(role = Role.MEMBER)
-  @PostMapping("apply/delete") // 신청취소
-  public void deleteApply(Model model, int applyNo, int programNo) throws Exception {
-    memberCoachingProgramService.delete(applyNo);
-    coachingProgramService.delete(programNo);
-  }
 
   @Auth(role = Role.MEMBER)
   @PostMapping("apply/updateForm") // 신청서 수정
