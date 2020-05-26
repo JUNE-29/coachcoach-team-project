@@ -66,7 +66,6 @@ public class NoticeBoardController {
 
     //Pagination 객체생성
     Pagination pagination = new Pagination();
-
     pagination.pageInfo(page, range, listCnt);
     System.out.println(pagination.getEndPage());
     System.out.println(pagination.getRangeSize());
