@@ -5,46 +5,51 @@
 <div class="row">
 <div class="container2">
 	<div class="notice">
-	  공지사항 
-	  <a href='../coaching/list'>더보기</a>
-	  <br><br>
+    <div class="owl-carousel" style="position:relative">
+	    <c:forEach items="${notices}" var="notice">
+	    <div class="notice-content" style="width:760px;">
+	      <h3><span class="highlight">${notice.createdDate} 공지사항 업데이트!</span></h3>
+		      <div style="padding:20px;">
+		      <input type="hidden" name="noticeNo" value="${notice.no}">
+		      <h5 style="font-weight:bold; color:#3498DB">${notice.title}</h5>
+		      </div>
+	    </div>
+	    </c:forEach>
+    </div>
 	</div>
 	<div class="workouts">
 	</div>
 </div>
 
 <div class="container1 ">
-	<div class ="toDoList_add">
-	<span class="tit">ToDoList</span>
-  <span class="toDoList_add_btn">
-  <a href= 'toDoListAddForm?memberNo=${member.no}' type='hidden'><i class='bx bxs-plus-square'></i></a>
-  </span>
-	
-	 <br>
-   <span class="toDoList_checkbox">
-	 <input type="checkbox" name="toDoList" id="check-all"/> 
-	 <label for="check-all">전체선택</label><br>
-	 </span>
-	 
-		<div class="toDoList_list">
-			<c:forEach items="${findAll}" var="item">
-				<tr>
-		         <td align=center><input type="checkbox" name="toDoList1" class="ab" value="${item.no}"> </td>
-		         <td align=center>${item.memo}</td>
-				     <th><a href= 'toDoListUpdateForm?toDoListNo=${item.no}'><i class='bx bx-pencil'></i></a></th> <!-- 수정 -->
-				     <th><a href= 'toDoListDelete?toDoListNo=${item.no}'><i class='bx bx-x' ></i></a></th> <!-- 삭제 -->
-				</tr>
-			<br>
-		  </c:forEach>
-		</div>
-	
-	  <span class="toDoList_btn">
-	   <input type="button" name="toDoListDelete" class="deleteToDoList" value='선택삭제' onclick="selectDelete();" /> <br>
-	  </span>
-	 
+  <div id="toDoListZone">
+  <jsp:include page="toDoList.jsp"/>
 	</div>
 	<div class="chatting">
 		코치와 채팅하기
 	</div>
 </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="noticeDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">공지사항</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="notice-title"></div>
+        <div id="notice-programName"></div>
+        <div id="notice-date"></div>
+        <div id="notice-content" ></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -63,7 +63,6 @@ $('#workoutSubmit').on('click', function() {
 
 $('.memberWorkoutDetail-button').on('click', function(){
   var workoutListNo = $(this).find('.workoutListNo').val();
-  console.log(workoutListNo)
   $.ajax({
     method:'GET',
     url: 'memberWorkoutDetail',
