@@ -16,8 +16,10 @@
       <id column="member_no"              property="no"/>
     </association>
     
-     <collection property="workoutUnit" ofType="Integer">
-      <!-- <result column="id"/> -->
+     <collection property="workoutUnit" ofType="WorkoutUnit">
+        <result column="workout_no"    property="workoutNo"/>
+		    <result column="unit"          property="unit"/>
+		    <result column="name"          property="name"/>
      </collection> 
    
 </resultMap>
@@ -46,11 +48,13 @@
       m.workout_date,
       m.weight,
       m.walk_count,
-      wu.workout_no
+      wu.workout_no,
+      wo.name
     from
       member_workouts m
       join members mb on m.member_no=mb.member_no
       join workout_unit wu on m.workout_list_no=wu.workout_list_no
+      left outer join workout wo on wo.workout_no=wu.workout_no
     where
       m.member_no=#{memberNo}
     order by workout_list_no desc

@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.coachcoach.domain.Coach;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberWorkout;
 import com.coachcoach.domain.WorkoutUnit;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
+import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberService;
 import com.coachcoach.service.MemberWorkoutService;
 import com.coachcoach.service.WorkoutUnitService;
@@ -39,6 +41,9 @@ public class DetailDataController {
   WorkoutUnitService workoutUnitService;
   @Autowired
   MemberService memberService;
+  @Autowired
+  MemberCoachingProgramService memberCoachingProgramService;
+
 
 
   @PostMapping("memberWorkoutAdd")
@@ -60,15 +65,24 @@ public class DetailDataController {
 
 
   // 운동내역 리스트
+  @Auth(role = {Role.COACH, Role.MEMBER})
   @GetMapping("memberWorkoutList")
   public void list(Model model) throws Exception {
-    int memberNo = ((Member) httpSession.getAttribute("loginUser")).getNo();
+    int memberNo = 0;
+    if(httpSession.getAttribute("loginUser").getClass() == Member.class) {
+      memberNo = ((Member) httpSession.getAttribute("loginUser")).getNo();
+    }
+
+    if(httpSession.getAttribute("loginUser").getClass() == Coach.class) {
+      memberNo = memberCoachingProgramService.get((int)httpSession.getAttribute("memberCoachingProgramNo")).getMemberNo();
+    }
     model.addAttribute("memberNo", memberNo);
     model.addAttribute("list", memberWorkoutService.list(memberNo));
     List<WorkoutUnit> list = workoutUnitService.list(); // 공통으로 넘길거라 값을 주지 않아도 된다.
     model.addAttribute("workoutUnitList", list);
   }
 
+  @Auth(role = {Role.COACH, Role.MEMBER})
   @GetMapping("memberWorkoutDetail")
   public void detail(int workoutListNo, HttpServletResponse response) throws Exception {
     Gson json = new Gson();

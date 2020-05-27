@@ -100,12 +100,21 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: white;
 	border-radius:8px;
 	padding:10px;
-	width:272px;
-	height:500px;
-	float:right;
+	height:620px;
+	width:80%;
   margin-bottom:10px;
   overflow-y: scroll;
-  
+  border: solid 2px #6dc6f2;
+}
+	
+	/* Hide scrollbar for Chrome, Safari and Opera */
+.toDoList_add::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.toDoList_add {
+    -ms-overflow-style: none;
 }
 	
 .toDoList_add_btn{
@@ -132,10 +141,9 @@ h1, h2, h3, h4, h5, h6 {
 .chatting {
 	border-radius:8px;
 	padding: 10px;
-	float: right;
-	width: 272px;
 	height: 150px;
-	background-color: #fff;
+	width:80%;
+	border: solid 2px #6dc6f2;
 }
 
 .container1 {
@@ -157,6 +165,8 @@ h1, h2, h3, h4, h5, h6 {
 	height: 120px;
 	border-radius: 8px;
 	padding: 10px;
+	border: solid 2px #6dc6f2;
+	cursor: pointer;
 }
 
 .owl-stage, .owl-stage-outer {
@@ -181,10 +191,28 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
 }
 .fc-head-container {
-  background-color: #fff;
+  background-color: #3498DB;
+  color: #fff;
 }
 
-  
+.owl-theme .owl-dots{
+  margin-top:7px;	
+  cursor: default;
+}
+.owl-theme .owl-dots span {
+   background: none repeat scroll 0 0 #869791;
+   border-radius: 20px;
+   display: block;
+   height: 12px;
+   margin: 5px 7px;
+   opacity: 0.5;
+   width: 12px;
+}
+
+.owl-theme .owl-dots .active span {
+   background: none repeat scroll 0 0 #4481eb;
+}
+
 /*--------------------------------------------------------------
 # Header 및 프로필 관련
 --------------------------------------------------------------*/
@@ -272,14 +300,10 @@ background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
 
 #content {
 	  padding: 60px;
-    min-height: 600px;
-    width: 90%;
-    background-color: #EBF5FB ;
-}
-
-#end-line {
-	 width: 1300px;
-	 background-color: white;
+    min-height: 900px;
+    min-width: 1300px;
+    max-width: 1400px;
+    background-color: #fff ;
 }
 
 /*--------------------------------------------------------------

@@ -34,7 +34,6 @@ public class DashBoardController {
   @Autowired
   CoachingProgramBoardService coachingProgramBoardService;
 
-
   @GetMapping("list")
   public void list(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");

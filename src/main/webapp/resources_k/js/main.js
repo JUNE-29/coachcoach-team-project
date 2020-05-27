@@ -3,6 +3,7 @@
 
   if ($('.coach-table').find('td').length>0){
     $('.coach-table').DataTable();
+    $('.coach-table .dataTables_info, .coach-table .dataTables_length').hide();
   }
   
   // 서머노트 에디터
@@ -702,7 +703,7 @@
   var memberSrc = $('#memberDetail img').attr('src');
 //회원 디티일보기 모달 처리
   $('.member-table a').on('click', function() {
-    var no = $('.member-table').find('input[name="memberCoachingProgramNo"]').val();
+    var no = $(this).find('input[name="memberCoachingProgramNo"]').val();
     $.ajax({
       type: "GET",
       url: "detail",

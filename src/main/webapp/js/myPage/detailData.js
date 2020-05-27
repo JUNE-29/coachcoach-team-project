@@ -7,6 +7,15 @@ $(document).ready( function () {
     $('#myTable_length, #myTable_info').hide();
 } );
 
+$('.addWorkoutButton').on('click', function(e){
+  if($('input[name="coachAccess"]').length>0) {
+    Swal.fire(
+         '회원 전용이예요.'
+     )
+     return;  
+   }
+})
+
 $('#workoutSubmit').on('click', function() {
   var workoutNoList = new Array();
   var unitList = new Array();
@@ -22,6 +31,24 @@ $('#workoutSubmit').on('click', function() {
     )
     return;
   }
+  if(!workoutNoList.length>0) {
+    Swal.fire(
+        '최소 한개 운동을 기록해주세요.'
+    )
+    return;
+  }
+  if(!$('#memberWorkoutAdd input[name="weight"]').val()) {
+	    Swal.fire(
+	        '오늘 몸무게를 기록해주세요.'
+	    )
+	    return;
+	  }
+  if(!$('#memberWorkoutAdd input[name="walkCount"]').val()) {
+	    Swal.fire(
+	        '오늘 걸음수를 기록해주세요.'
+	    )
+	    return;
+	  }
   $('#memberWorkoutAdd select[name="unit"] option:selected').each(function(index) {
     unitList.push($(this).attr('value'));
   });
@@ -139,3 +166,14 @@ $('#workoutDelete').on('click', function() {
   $('#memberWorkoutDetail').on('hidden.bs.modal', function (e) {
     $('#memberWorkoutDetail .modal-body .row').remove();
   });
+
+var table = $('#workout-select').clone();
+// add모달에서 운동종목 +-할 때
+$('#workoutUnitAdd').on('click', function() {
+	var targetDiv = $('.workout-select-div');
+	targetDiv.append(table.clone());
+})
+
+$('.workout-select-div').on('click', '.workoutUnitDelete', function() {
+	$(this).closest('table').detach();
+})

@@ -34,21 +34,6 @@ function selectDelete(){
        location.href= 'toDoListTestDelete?str='+str;
    }
    
-  /*
-   function deleteStart(list){
-     alert(list.length);
-     var a = "";
-     var s = ",";
-      for (var i=0; i<list.length; i++) {
-        a = list[i];
-        alert(a);
-        a = a + s ;
-          alert(a);
-      }
-   }
-   */
-   
-   
 // 체크시 이벤트 발생
  $(document).ready(function() { 
    $('.ab').on('click', function() { 
@@ -65,8 +50,11 @@ function selectDelete(){
  $(document).ready(function(){
    $('.owl-carousel').owlCarousel({
      autoWidth: true,
-     nav: true,
-     autoplay: true
+     loop:true,
+     autoplay: true,
+     dots: true,
+     dotsEach: true,
+     nav: false
    });
  });
  

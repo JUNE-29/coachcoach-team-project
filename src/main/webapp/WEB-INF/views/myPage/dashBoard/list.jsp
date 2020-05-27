@@ -3,11 +3,11 @@
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row">
-<div class="container2">
+<div class="container2 col-md-8">
 	<div class="notice">
-    <div class="owl-carousel" style="position:relative">
+    <div class="owl-carousel owl-theme" style="position:relative">
 	    <c:forEach items="${notices}" var="notice">
-	    <div class="notice-content" style="width:760px;">
+	    <div class="notice-content" style="width:1000px;">
 	      <h3><span class="highlight">${notice.createdDate} 공지사항 업데이트!</span></h3>
 		      <div style="padding:20px;">
 		      <input type="hidden" name="noticeNo" value="${notice.no}">
@@ -21,7 +21,7 @@
 	</div>
 </div>
 
-<div class="container1 ">
+<div class="container1 col-md-4" style="height:820px;">
   <div id="toDoListZone">
   <jsp:include page="toDoList.jsp"/>
 	</div>
