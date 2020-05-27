@@ -24,6 +24,18 @@
     <association property="programName" javaType="String">   
     <result column="program_name" property="programName"/>
     </association>
+            
+    <association property="coach"  javaType="Coach">   
+    <result column="coach_name" property="name"/>
+    </association>
+    
+    <association property="cp"  javaType="CoachingProgram">
+     <id column="program_no"  property="no"/>
+    <result column="coach_no"       property="coachNo"/>
+    <result column="introduce"  property="introduce"/>
+    <result column="fee"    property="fee"/>
+    <result column="coaching_type" property="coachingType"/>
+    </association>
         
     <association property="member" javaType="Member">
       <id column="member_no"              property="no"/>
@@ -366,6 +378,32 @@
          where member_no=#{no} and status=#{status}
   </select>
  
+  <select id="applyList" resultMap="MemberCoachingProgramMap"  parameterType="int">
+       select  
+        mcp.member_program_no,
+        mcp.member_no,       
+        mcp.program_no,        
+        mcp.remark,            
+        mcp.status,            
+        DATE_FORMAT(mcp.request_date, "%Y/%m/%d") as request_date,
+        DATE_FORMAT(mcp.pay_date, "%Y/%m/%d") as pay_date,     
+        DATE_FORMAT(mcp.start_date, "%Y/%m/%d") as start_date,
+        DATE_FORMAT(mcp.end_date, "%Y/%m/%d") as end_date,
+        mcp.etc,
+        mcp.review,
+        cp.name program_name,
+        cp.fee,
+        cp.coaching_type,
+        c.name
+      from 
+        member_coaching_programs mcp
+         join  coaching_programs cp on cp.program_no=mcp.program_no
+         join coaches c on cp.coach_no=c.coach_no
+       where
+        mcp.member_no=#{no}
+       order by mcp.member_program_no desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
+   </select>
  
 </mapper>
 

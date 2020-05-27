@@ -52,6 +52,8 @@ public interface MemberCoachingProgramDao {
 
   int statusCount(Map<String, Object> apply)  throws Exception;
 
+  List<MemberCoachingProgram> applyList(Map<String, Object> params);
+
 }
 
 

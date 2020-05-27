@@ -20,31 +20,31 @@
   <c:forEach items="${programList}" var="list">
   <tbody>
     <tr>
-      <th scope="row">${list.mcp.no}</th>
-      <td>${list.coach.name}</td>
-      <td>${list.name}</td>
-      <td>${list.fee}원</td>     
- <c:set var="status" value="${list.mcp.status}" />
+      <td scope="row">${list.no}</td>
+      <td><td>
+      <td>${list.programName}<td>
+      <td>${list.fee}원</td>
+  <c:set var="status" value="${list.status}" />
   <c:choose>
     <c:when test="${status eq '결제대기중'}">
     <td>
-    <button type="button" onclick="location.href='orderForm?no=${list.mcp.no}'" class="btn btn-outline-primary btn-sm" >결제하기</button>
+    <button type="button" onclick="location.href='orderForm?no=${list.no}'" class="btn btn-outline-primary btn-sm" >결제하기</button>
     </td>
   </c:when>
   <c:when test="${status eq '요청거절됨'}">
     <td>
-    <button class="rejectBtn btn btn-outline-primary btn-sm" value="${list.mcp.no}" type="button" data-toggle="modal" data-target="#rejectModal">
+    <button class="rejectBtn btn btn-outline-primary btn-sm" value="${list.no}" type="button" data-toggle="modal" data-target="#rejectModal">
          거절사유
       </button>
     </td>
     </c:when>
       <c:when test="${status eq '요청대기중'}">
     <td>요청대기중 | 
-    <button class=" calcel_btn btn btn-outline-danger btn-sm" value="${list.mcp.no}" type="button">삭제</button>
+    <button class=" calcel_btn btn btn-outline-danger btn-sm" value="${list.no}" type="button">삭제</button>
     </td>
     </c:when>
   <c:otherwise>
-    <td>${list.mcp.status}</td>
+    <td>${list.status}</td>
   </c:otherwise>
   </c:choose>
     </tr>
@@ -52,6 +52,7 @@
   </c:forEach>
 </table>
 </div>
+
 
 <!-- 거절사유 Modal -->
 <div class="modal fade" id="rejectModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -262,8 +262,8 @@
       order by program_no desc
    </select>
    
-   <select id="applyList" resultMap="CoachingProgramMap">
-      select  
+   <select id="applyList" resultMap="CoachingProgramMap"  parameterType="int">
+       select  
         mcp.member_program_no,
         mcp.member_no,       
         mcp.program_no,        
@@ -280,9 +280,9 @@
         cp.coaching_type,
         c.name coach_name
       from 
-        coaching_programs cp
-         join coaches c on cp.coach_no=c.coach_no
-         join member_coaching_programs mcp on cp.program_no=mcp.program_no
+        member_coaching_programs mcp
+         left outer join  coaching_programs cp on cp.program_no=mcp.program_no
+          left outer join coaches c on cp.coach_no=c.coach_no
        where
         mcp.member_no=#{no}
        order by mcp.member_program_no desc

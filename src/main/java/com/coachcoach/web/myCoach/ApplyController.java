@@ -2,6 +2,7 @@ package com.coachcoach.web.myCoach;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -53,8 +54,13 @@ public class ApplyController {
     Map<String, Object> params = new HashMap<>();
     params.put("cri", cri);
     params.put("no", member.getNo());
-    model.addAttribute("programList", coachingProgramService.applyList(params));
+    model.addAttribute("programList", memberCoachingProgramService.applyList(params));
     model.addAttribute("pageMaker", pageMaker);
+
+    List<MemberCoachingProgram> list = memberCoachingProgramService.applyList(params);
+    for (int i = 0; i < list.size(); i++) {
+      System.out.println(list);
+    }
 
   }
 

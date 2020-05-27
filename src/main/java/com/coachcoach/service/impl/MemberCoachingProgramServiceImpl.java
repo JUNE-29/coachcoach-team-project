@@ -112,4 +112,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return  memberCoachingProgramDao.statusCount(apply);
   }
 
+  @Override
+  public List<MemberCoachingProgram> applyList(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.applyList(params);
+  }
+
 }

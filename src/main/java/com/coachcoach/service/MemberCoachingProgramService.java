@@ -44,5 +44,7 @@ public interface MemberCoachingProgramService {
 
   int statusCount(Map<String, Object> apply) throws Exception;
 
+  List<MemberCoachingProgram> applyList(Map<String, Object> params) throws Exception;
+
 
 }

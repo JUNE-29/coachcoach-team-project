@@ -22,6 +22,8 @@ public class MemberCoachingProgram implements Serializable {
 
   Member member;
   String programName;
+  Coach coach;
+  CoachingProgram cp;
   int fee;
 
   @Override
@@ -58,78 +60,108 @@ public class MemberCoachingProgram implements Serializable {
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
+    if (this == obj) {
       return true;
-    if (obj == null)
+    }
+    if (obj == null) {
       return false;
-    if (getClass() != obj.getClass())
+    }
+    if (getClass() != obj.getClass()) {
       return false;
+    }
     MemberCoachingProgram other = (MemberCoachingProgram) obj;
     if (endDate == null) {
-      if (other.endDate != null)
+      if (other.endDate != null) {
         return false;
-    } else if (!endDate.equals(other.endDate))
+      }
+    } else if (!endDate.equals(other.endDate)) {
       return false;
+    }
     if (etc == null) {
-      if (other.etc != null)
+      if (other.etc != null) {
         return false;
-    } else if (!etc.equals(other.etc))
+      }
+    } else if (!etc.equals(other.etc)) {
       return false;
-    if (fee != other.fee)
+    }
+    if (fee != other.fee) {
       return false;
+    }
     if (member == null) {
-      if (other.member != null)
+      if (other.member != null) {
         return false;
-    } else if (!member.equals(other.member))
+      }
+    } else if (!member.equals(other.member)) {
       return false;
-    if (memberNo != other.memberNo)
+    }
+    if (memberNo != other.memberNo) {
       return false;
-    if (no != other.no)
+    }
+    if (no != other.no) {
       return false;
+    }
     if (payDate == null) {
-      if (other.payDate != null)
+      if (other.payDate != null) {
         return false;
-    } else if (!payDate.equals(other.payDate))
+      }
+    } else if (!payDate.equals(other.payDate)) {
       return false;
+    }
     if (programName == null) {
-      if (other.programName != null)
+      if (other.programName != null) {
         return false;
-    } else if (!programName.equals(other.programName))
+      }
+    } else if (!programName.equals(other.programName)) {
       return false;
-    if (programNo != other.programNo)
+    }
+    if (programNo != other.programNo) {
       return false;
+    }
     if (remark == null) {
-      if (other.remark != null)
+      if (other.remark != null) {
         return false;
-    } else if (!remark.equals(other.remark))
+      }
+    } else if (!remark.equals(other.remark)) {
       return false;
+    }
     if (requestDate == null) {
-      if (other.requestDate != null)
+      if (other.requestDate != null) {
         return false;
-    } else if (!requestDate.equals(other.requestDate))
+      }
+    } else if (!requestDate.equals(other.requestDate)) {
       return false;
+    }
     if (review == null) {
-      if (other.review != null)
+      if (other.review != null) {
         return false;
-    } else if (!review.equals(other.review))
+      }
+    } else if (!review.equals(other.review)) {
       return false;
+    }
     if (reviewDate == null) {
-      if (other.reviewDate != null)
+      if (other.reviewDate != null) {
         return false;
-    } else if (!reviewDate.equals(other.reviewDate))
+      }
+    } else if (!reviewDate.equals(other.reviewDate)) {
       return false;
-    if (starRate != other.starRate)
+    }
+    if (starRate != other.starRate) {
       return false;
+    }
     if (startDate == null) {
-      if (other.startDate != null)
+      if (other.startDate != null) {
         return false;
-    } else if (!startDate.equals(other.startDate))
+      }
+    } else if (!startDate.equals(other.startDate)) {
       return false;
+    }
     if (status == null) {
-      if (other.status != null)
+      if (other.status != null) {
         return false;
-    } else if (!status.equals(other.status))
+      }
+    } else if (!status.equals(other.status)) {
       return false;
+    }
     return true;
   }
 
