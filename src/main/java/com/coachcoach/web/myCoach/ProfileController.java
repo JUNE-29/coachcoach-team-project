@@ -59,6 +59,7 @@ public class ProfileController {
     }
 
     if (memberService.update(member) > 0) {
+      httpSession.setAttribute("loginUser", memberService.get(member.getNo()));
       return "redirect:form";
     } else {
       throw new Exception("사진을 수정할 수 없습니다.");
