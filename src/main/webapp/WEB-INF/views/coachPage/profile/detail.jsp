@@ -55,8 +55,8 @@
 				  <input class='coach-no' type='hidden' name='no' value='${coach.no}'>
 				  <div class="photo" style="padding-left:7px;">
 				  <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' class="img-thumbnail" style='width:300px'>
-		        <input type='file' name='photoFile' value='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}'>
 				  </div>
+		      <input type='file' style="padding:10px" name='photoFile' value='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}'>
 				  
 					<section class="name">
 				    <div class="col1">이름</div>

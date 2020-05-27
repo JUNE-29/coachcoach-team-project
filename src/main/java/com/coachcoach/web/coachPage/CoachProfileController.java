@@ -1,5 +1,6 @@
 package com.coachcoach.web.coachPage;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -43,6 +44,7 @@ public class CoachProfileController {
       String filename = UUID.randomUUID().toString();
 
       ImageIO.write(croppedImage, "jpg", new File(dirPath + "/" + filename));
+
       coach.setPhoto(filename);
     } else {
       coach.setPhoto("");
@@ -87,7 +89,10 @@ public class CoachProfileController {
     } else {
       croppedImg = origin.getSubimage(0, 0, width, width);
     }
-    return croppedImg;
+    // png -> jpg로 변환
+    BufferedImage newBufferedImage = new BufferedImage(croppedImg.getWidth(), croppedImg.getHeight(), BufferedImage.TYPE_INT_RGB);
+    newBufferedImage.createGraphics().drawImage(croppedImg , 0, 0, Color.WHITE, null);
+    return newBufferedImage;
   }
 
 }

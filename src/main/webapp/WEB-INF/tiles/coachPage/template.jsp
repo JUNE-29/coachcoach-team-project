@@ -32,10 +32,8 @@
 <tiles:insertAttribute name="side"/>
 
 <main id="main">
-<div id="end-line">
 <div id="content">
 <tiles:insertAttribute name="body"/>
-</div>
 </div>
 <tiles:insertAttribute name="footer"/>
 </main>
