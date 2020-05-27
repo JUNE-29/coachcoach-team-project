@@ -38,7 +38,11 @@ public interface MemberCoachingProgramService {
 
   int updateApply(Map<String, Object> params) throws Exception;
 
-  List<MemberCoachingProgram> reivewstar(int no);
+  List<MemberCoachingProgram> reivewstar(int no) throws Exception;
+
+  int applyCount(int no) throws Exception;
+
+  int statusCount(Map<String, Object> apply) throws Exception;
 
 
 }

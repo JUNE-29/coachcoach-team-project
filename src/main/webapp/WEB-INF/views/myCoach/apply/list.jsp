@@ -40,7 +40,7 @@
     </c:when>
       <c:when test="${status eq '요청대기중'}">
     <td>요청대기중 | 
-    <button id="calcel_btn" class=" btn btn-outline-danger btn-sm" value="${list.mcp.no}" type="button">삭제</button>
+    <button class=" calcel_btn btn btn-outline-danger btn-sm" value="${list.mcp.no}" type="button">삭제</button>
     </td>
     </c:when>
   <c:otherwise>
@@ -73,6 +73,24 @@
 </div>
 
 
-
+<div class="paginationWrap">
+<ul class="btn-group pagination">
+    <c:if test="${pageMaker.prev}">
+    <li>
+        <a href='list?page=${pageMaker.startPage-1}'><i class="fa fa-chevron-left"></i></a>
+    </li>
+    </c:if>
+    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
+    <li>
+        <a href='list?page=${pageNum}'><i class="fa">${pageNum}</i></a>
+    </li>
+    </c:forEach>
+    <c:if test="${pageMaker.next && pageMaker.endPage>0}">
+    <li>
+        <a href='list?page=${pageMaker.endPage+1}'><i class="fa fa-chevron-right"></i></a>
+    </li>
+    </c:if>
+</ul>
+</div>
 
 

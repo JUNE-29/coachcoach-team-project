@@ -51,11 +51,7 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
     return coachingProgramDao.findAll();
   }
 
-  @Override
-  public List<CoachingProgram> applyList(int memberNo) throws Exception {
-    return coachingProgramDao.applyList(memberNo);
 
-  }
 
   @Override
   public List<CoachingProgram> search(Map<String, Object> params) throws Exception {
@@ -115,6 +111,11 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   @Override
   public CoachingProgram selectStar(int no) throws Exception {
     return coachingProgramDao.selectStar(no);
+  }
+
+  @Override
+  public List<CoachingProgram> applyList(Map<String, Object> params) throws Exception {
+    return  coachingProgramDao.applyList(params);
   }
 
 

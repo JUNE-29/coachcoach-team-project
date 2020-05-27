@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +20,8 @@ import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.MemberCoachingProgramService;
+import com.coachcoach.web.searchCoach.Criteria;
+import com.coachcoach.web.searchCoach.PageMaker;
 import com.google.gson.Gson;
 
 @Auth(role = Role.MEMBER)
@@ -40,14 +43,35 @@ public class MycoachController {
 
 
   @GetMapping("list") // 마이코치
-  public void mycoachList(Model model) throws Exception {
+  public void mycoachList(Model model, @ModelAttribute("cri") Criteria cri) throws Exception {
+    //  완료
     Member member = (Member) httpSession.getAttribute("loginUser");
-    model.addAttribute("programList", coachingProgramService.applyList(member.getNo()));
+    PageMaker pageMaker = new PageMaker();
+    pageMaker.setCri(cri);
+    Map<String, Object> apply = new HashMap<>();
+    apply.put("status", "진행 완료");
+    apply.put("no", member.getNo());
+    pageMaker.setTotalCount(memberCoachingProgramService.statusCount(apply));
 
     Map<String, Object> params = new HashMap<>();
-    params.put("status", "진행중");
+    params.put("cri", cri);
     params.put("no", member.getNo());
-    model.addAttribute("program", coachingProgramService.findByMemberNo(params));
+    model.addAttribute("programList", coachingProgramService.applyList(params));
+    model.addAttribute("pageMaker", pageMaker);
+
+    // 진행중
+    PageMaker pageMaker2 = new PageMaker();
+    pageMaker2.setCri(cri);
+    Map<String, Object> apply2 = new HashMap<>();
+    apply2.put("status", "진행중");
+    apply2.put("no", member.getNo());
+    pageMaker2.setTotalCount(memberCoachingProgramService.statusCount(apply2));
+
+    Map<String, Object> param = new HashMap<>();
+    param.put("cri", cri);
+    param.put("no", member.getNo());
+    model.addAttribute("program", coachingProgramService.findByMemberNo(param));
+    model.addAttribute("pageMaker2", pageMaker);
   }
 
   @ResponseBody // 코치 상세보기

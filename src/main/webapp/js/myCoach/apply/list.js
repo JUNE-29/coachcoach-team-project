@@ -21,8 +21,7 @@ $(function(){
  });
 
 
-$('#calcel_btn').click(function(){
-	console.log('xx')
+$('.calcel_btn').click(function(){
 	Swal.fire({
 		  title: '정말로 삭제하시겠습니까?',
 		  text: "삭제 후 재신청 가능합니다.",
@@ -30,37 +29,42 @@ $('#calcel_btn').click(function(){
 		  showCancelButton: true,
 		  confirmButtonColor: '#3085d6',
 		  cancelButtonColor: '#d33',
-		  cancelButtonText: '아니오',
-		  confirmButtonText: '네'
+		  buttons:{
+			  cancle: {text:'아니오',value:false },
+			  confirm:{text:'네',value:true}
+			  }
 		}).then((result) => {
-			$.ajax({
-				  url: "delete",
-		             dataType: "json",
-		             type: "POST",
-		             data: {applyNo: $('#calcel_btn').val()} ,
-		             success: function(data){
-		            	 console.log(data)
-		                			if (data == 1) {
-		                			    Swal.fire(
-		                			      '삭제 완료!',
-		                			      '',
-		                			      'success'
-		                			    )
-		                			    
-
-		                			  }	else {
-		                				  Swal.fire(
-				                			      '삭제 실패!',
-				                			      '',
-				                			      'error'
-				                			    )  
-		                			  }
-		             }
-			});
-			
-			
-		  
+			console.log(result);
+			if (result.value) {
+				$.ajax({
+					  url: "delete",
+			             dataType: "json",
+			             type: "POST",
+			             data: {applyNo: $(this).val()} ,
+			             success: function(data){
+			                			if (data == 1){
+			                				Swal.fire({
+			                					  title: '삭제완료',
+			                					  text: "",
+			                					  icon: 'success',
+			                					  buttons:{
+			                						  confirm:{text:'확인',value:true}
+			                						  }
+			                					}).then((result) => {
+			                						if (result.value){
+			                							location.reload();
+			                						}
+			                					})
+			                					   
+			                			}
+			             }
+				});
+			  } else if (result.dismiss === Swal.DismissReason.cancel) {
+			    Swal.fire(
+			      '삭제취소',
+			      ':)',
+			      'error'
+			    )
+			  }
 		})
-	
-	
 });

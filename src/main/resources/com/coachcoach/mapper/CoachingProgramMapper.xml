@@ -286,6 +286,7 @@
        where
         mcp.member_no=#{no}
        order by mcp.member_program_no desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
    </select>
    
    <select id="findByMemberNo" resultMap="CoachingProgramMap" parameterType="map">
@@ -314,6 +315,7 @@
        where
         mcp.status=#{status} and mcp.member_no=#{no}
        order by mcp.member_program_no desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
    </select>
    
    <select id="findByOrderNo" resultMap="CoachingProgramMap" parameterType="map">
@@ -372,6 +374,8 @@
         from
          coaching_programs
   </select>
+  
+
 
      <select id="selectStar" resultMap="CoachingProgramMap" parameterType="int">
       select 

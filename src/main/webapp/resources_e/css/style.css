@@ -34,11 +34,14 @@ div.innerCont {
 .content .profile_img img { width:100%;}
 .content .update_frm { text-align:center; padding: 30px 0px 20px 0px}
 
-
 .content .leftbtn {float: left; margin: 20px 5px 40px 260px; width:70px; height:40px; border:none; border-radius:5px;  background:#01b1d7; color:#fff;}
 .content .rightbtn {width:70px; height:40px; border:none; border-radius:5px;  background:gray; color:#fff;}
 
-
+.paginationWrap { margin-top:20px; text-align:center;}
+.paginationWrap > ul { overflow:hidden; display:inline-block;}
+.paginationWrap > ul li { float:left; border:1px solid #ddd; border-radius:5px;}
+.paginationWrap > ul li + li { margin-left:8px;}
+.paginationWrap > ul li a { padding:8px; font-size:18px; color:#000;}
 
 
 

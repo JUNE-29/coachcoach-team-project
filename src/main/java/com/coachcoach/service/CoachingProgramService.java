@@ -14,7 +14,7 @@ public interface CoachingProgramService {
 
   List<CoachingProgram> pageList(Map<String, Object> params) throws Exception;
 
-  List<CoachingProgram> applyList(int memberNo) throws Exception;
+  List<CoachingProgram> applyList(Map<String, Object> params) throws Exception;
 
   int update(CoachingProgram coachingProgram) throws Exception;
 

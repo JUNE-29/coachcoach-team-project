@@ -345,12 +345,27 @@
     )
   </insert>
   
-  <delete id="delete" parameterType="int">
+  <delete id="delete"  parameterType="int">
     delete from member_coaching_programs
     where member_program_no=#{no}
   </delete>
+  
+    <select id="applyCount"  resultType="Integer"  parameterType="int">
+       select
+         count(*)
+        from
+         member_coaching_programs
+         where member_no=#{no}
+  </select>
  
-
+    <select id="statusCount"  resultType="Integer"  parameterType="map">
+      select
+         count(*)
+        from
+         member_coaching_programs
+         where member_no=#{no} and status=#{status}
+  </select>
+ 
  
 </mapper>
 

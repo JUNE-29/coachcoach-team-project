@@ -33,6 +33,27 @@
   </tbody>
 </table>
 </div>
+<div class="paginationWrap">
+<ul class="btn-group pagination">
+    <c:if test="${pageMaker2.prev}">
+    <li>
+        <a href='list?page=${pageMaker2.startPage-1}'><i class="fa fa-chevron-left"></i></a>
+    </li>
+    </c:if>
+    <c:forEach begin="${pageMaker2.startPage}" end="${pageMaker2.endPage}" var="pageNum">
+    <li>
+        <a href='list?page=${pageNum}'><i class="fa">${pageNum}</i></a>
+    </li>
+    </c:forEach>
+    <c:if test="${pageMaker2.next && pageMaker.endPage>0}">
+    <li>
+        <a href='list?page=${pageMaker2.endPage+1}'><i class="fa fa-chevron-right"></i></a>
+    </li>
+    </c:if>
+</ul>
+</div>
+
+
 
 <!-- 상세보기 Modal -->
 <div class="modal fade" id="detailModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -108,6 +129,29 @@
   </c:forEach>
 </table>
 </div>
+
+
+<div class="paginationWrap">
+<ul class="btn-group pagination">
+    <c:if test="${pageMaker.prev}">
+    <li>
+        <a href='list?page=${pageMaker.startPage-1}'><i class="fa fa-chevron-left"></i></a>
+    </li>
+    </c:if>
+    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
+    <li>
+        <a href='list?page=${pageNum}'><i class="fa">${pageNum}</i></a>
+    </li>
+    </c:forEach>
+    <c:if test="${pageMaker.next && pageMaker.endPage>0}">
+    <li>
+        <a href='list?page=${pageMaker.endPage+1}'><i class="fa fa-chevron-right"></i></a>
+    </li>
+    </c:if>
+</ul>
+</div>
+
+
 
 <!-- 리뷰 Modal -->
 <div class="modal fade" id="reviewModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

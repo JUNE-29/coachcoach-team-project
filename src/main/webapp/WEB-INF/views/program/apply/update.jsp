@@ -55,11 +55,11 @@
       <div class="form-group row">
     <label for="etc" class="col-sm-2 col-form-label">특이사항</label>
     <div class="col-sm-10">
-    <c:set var="etc" value="${program.etc}" />
-    <c:if test="${not empty etc}">
-      <input type="text" readonly class="form-control-plaintext"  value="${program.etc}">
+    <c:set var="remark" value="${program.remark}" />
+    <c:if test="${not empty remark}">
+      <input type="text" readonly class="form-control-plaintext"  value="${program.remark}">
     </c:if>
-    <c:if test="${starRate eq null}">
+    <c:if test="${empty remark}">
           <input type="text" readonly class="form-control-plaintext"  value="없음">
      </c:if>
     </div>

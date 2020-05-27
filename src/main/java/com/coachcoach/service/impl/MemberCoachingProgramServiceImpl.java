@@ -98,8 +98,18 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
   }
 
   @Override
-  public List<MemberCoachingProgram> reivewstar(int no) {
+  public List<MemberCoachingProgram> reivewstar(int no) throws Exception {
     return memberCoachingProgramDao.reivewstar(no);
+  }
+
+  @Override
+  public int applyCount(int no) throws Exception {
+    return memberCoachingProgramDao.applyCount(no);
+  }
+
+  @Override
+  public int statusCount(Map<String, Object> apply) throws Exception {
+    return  memberCoachingProgramDao.statusCount(apply);
   }
 
 }
