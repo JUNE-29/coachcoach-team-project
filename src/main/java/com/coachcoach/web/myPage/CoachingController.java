@@ -74,7 +74,7 @@ public class CoachingController {
     model.addAttribute("notice",
         coachingProgramBoardService.getByMemberNo(memberCoachingProgramService
             .get((int) session.getAttribute("memberCoachingProgramNo")).getMemberNo()));
-    model.addAttribute("memberCoachingProgram",
+    session.setAttribute("memberCoachingProgram",
         memberCoachingProgramService.get((int) session.getAttribute("memberCoachingProgramNo")));
   }
 

@@ -374,7 +374,8 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 60px;
     min-height: 950px;
     background-color: white;
-	  width: 1300px;
+    min-width: 1300px;
+    max-width: 1400px;
 }
 
 /* 결제페이지 관련--------------------------------------------------------------

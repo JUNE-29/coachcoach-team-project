@@ -46,6 +46,7 @@
 		   </td>
 		   <td>
 			   <a href='#' data-toggle="modal" data-target="#memberDetail">
+		      <input type='hidden' name='memberCoachingProgramNo' value='${item.no}'>
 			     <c:choose>
 			       <c:when test="${item.remark ne null}">있음</c:when>
 			       <c:when test="${item.remark eq null}">없음</c:when>
@@ -54,8 +55,8 @@
 		   </td>
 		   <td>
 		    <form action='../../myPage/coaching/list'>
-		      <input type='hidden' name='memberCoachingProgramNo' value='${item.no}'>
-		      <button>회원페이지가기</button>
+		    <input type='hidden' name='memberCoachingProgramNo' value='${item.no}'>
+		      <button class="btn orange-button-detail">회원페이지가기</button>
 		    </form>
 		   </td>
 		 </tr>

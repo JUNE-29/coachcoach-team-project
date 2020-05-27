@@ -3,6 +3,7 @@
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!-- 운동내역 (체중, 걸음수) -->
 <jsp:include page='../detailData/memberWorkoutList.jsp'/>
 <br>
