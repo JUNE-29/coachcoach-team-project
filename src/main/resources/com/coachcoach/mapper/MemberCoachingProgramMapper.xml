@@ -394,7 +394,7 @@
         cp.name program_name,
         cp.fee,
         cp.coaching_type,
-        c.name
+        c.name as coach_name
       from 
         member_coaching_programs mcp
          join  coaching_programs cp on cp.program_no=mcp.program_no

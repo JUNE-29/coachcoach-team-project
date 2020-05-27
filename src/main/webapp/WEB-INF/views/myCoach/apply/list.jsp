@@ -10,19 +10,19 @@
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">No</th>
-      <th scope="col">코치님</th>
-      <th scope="col">신청한 프로그램명</th>
-      <th scope="col">결제금액</th>
-      <th scope="col">상태</th>
+      <th>No</th>
+      <th>코치님</th>
+      <th>프로그램명</th>
+      <th>결제금액</th>
+      <th>상태</th>
     </tr>
   </thead>
   <c:forEach items="${programList}" var="list">
   <tbody>
     <tr>
       <td scope="row">${list.no}</td>
-      <td><td>
-      <td>${list.programName}<td>
+      <td>${list.coach.name}</td>
+      <td>${list.programName}</td>
       <td>${list.fee}원</td>
   <c:set var="status" value="${list.status}" />
   <c:choose>
@@ -40,7 +40,7 @@
     </c:when>
       <c:when test="${status eq '요청대기중'}">
     <td>요청대기중 | 
-    <button class=" calcel_btn btn btn-outline-danger btn-sm" value="${list.no}" type="button">삭제</button>
+    <button class="calcel_btn btn btn-outline-danger btn-sm" value="${list.no}" type="button">삭제</button>
     </td>
     </c:when>
   <c:otherwise>
