@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   calendar.startDate=null;
   calendar.endDate=null;
-  calendar.setOption('height', 600);
+  calendar.setOption('height', 800);
   $.ajax({
     type: "GET",
     url: "planList",
