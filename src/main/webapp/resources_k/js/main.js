@@ -1,10 +1,8 @@
 !(function($) {
   "use strict";
 
-  if ($('.coach-table').find('td').length>0){
     $('.coach-table').DataTable();
-    $('.coach-table .dataTables_info, .coach-table .dataTables_length').hide();
-  }
+  $('.dataTables_length, .dataTables_info').remove();
   
   // 서머노트 에디터
   $('.summernote').summernote({
@@ -284,7 +282,7 @@
           success: function (data) {
               $('.modal').modal("hide");
               Swal.fire({
-                title: '영차',
+                title: '수정완료',
                 text: '수정했습니다!',
                 icon: 'success',
                 confirmButtonText: '확인'
@@ -714,7 +712,7 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
-        if($(detail.member.photo).length > 0) {
+        if(detail.member.photo.length > 0) {
           $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+detail.member.photo)
         } else {
           $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+'default.jpg')

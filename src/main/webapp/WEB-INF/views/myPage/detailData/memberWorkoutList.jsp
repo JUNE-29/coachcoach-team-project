@@ -8,8 +8,31 @@
   <input type="hidden" name="coachAccess">
 </c:if>
 
+
+<div style="width:300px;">
+  <canvas id="walk" width="200" height="200"></canvas>
+</div>
+
+<div style="width:300px;">
+  <canvas id="weight" width="200" height="200"></canvas>
+</div>
+
+<div style="width:300px;">
+  <canvas id="workoutTimes" width="200" height="200"></canvas>
+</div>
+<canvas id="walkWeek" width="400" height="400"></canvas>
+<canvas id="walkMonth" width="400" height="400"></canvas>
+<canvas id="walkYear" width="400" height="400"></canvas>
+
+
+
+
+
+
+
 <h3>나의운동내역 </h3>
 <br>
+
 <div>
 <button class="btn btn-primary addWorkoutButton" data-toggle="modal" data-target="#memberWorkoutAdd">등록하기</button>
    
@@ -148,7 +171,9 @@
           <h5>이날의 운동 종목</h5>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id="workoutDelete">삭제</button>
+	      <c:if test="${sessionScope.loginUser.getClass().simpleName == 'Member'}">
+	        <button type="button" class="btn btn-danger" id="workoutDelete">삭제</button>
+	      </c:if>
         <button type="button" class="btn btn-primary"  data-dismiss="modal">확인</button>
       </div>
     </div>

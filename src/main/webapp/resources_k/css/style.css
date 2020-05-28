@@ -147,6 +147,26 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #e6e6e6;
 }
 
+/*프로그램 수정 데이터 토글 버튼*/
+
+#programUpdateForm input, #programUpdateForm textarea, #programUpdateForm select{
+	border: 1px #d1d1d1 solid;
+}
+
+.program-tags {
+	text-align: center;
+	margin-top:20px;
+}
+
+.program-tags .btn{
+  margin-right: 6px;
+  width:100px;
+	}
+	
+label.btn.btn-primary.active {
+  box-shadow: 3px 3px orange !important;
+}
+	
 
 @media (max-width: 1199px) {
   #header {
