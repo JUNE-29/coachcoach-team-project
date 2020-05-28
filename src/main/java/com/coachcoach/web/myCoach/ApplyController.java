@@ -66,13 +66,8 @@ public class ApplyController {
 
   @ResponseBody // 거절사유
   @RequestMapping(value = "rejectForm", method = RequestMethod.POST)
-  public void rejectForm(Model model, int no, HttpServletResponse response) throws Exception {
-    MemberCoachingProgram memberCoachingProgram = memberCoachingProgramService.get(no);
-    Gson json = new Gson();
-    response.setCharacterEncoding("UTF-8");
-    PrintWriter out = response.getWriter();
-    out.print(json.toJson(memberCoachingProgram));
-    out.flush();
+  public Object rejectForm(Model model, int no, HttpServletResponse response) throws Exception {
+   return memberCoachingProgramService.get(no);
   }
 
   @GetMapping("orderForm") // 결제

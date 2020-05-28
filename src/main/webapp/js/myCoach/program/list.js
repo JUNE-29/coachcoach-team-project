@@ -31,8 +31,6 @@ $(function(){
                 			$('#detail-inner').css('margin','5px');
                 			$('#detail-inner').css('padding','5px');
                 			$('#detail-inner').css('float','left');
-                			$('.modal-title').css('color','#5fdde5');
-                			$('.modal-title').css('font-weight','bold');
              }
          });
     }); 
@@ -66,10 +64,6 @@ $('#reviewModal').on('hidden.bs.modal', function (e) {
 $('#review-inner-modal').css('text-align','center');
 $('#review').css('margin-top','50px');
 
-
-// 모달 타이틀
-$('.modal-title').css('color','#5fdde5');
-$('.modal-title').css('font-weight','bold');
 
 
 

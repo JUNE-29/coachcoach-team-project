@@ -59,12 +59,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">거절사유</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">코치님이 보낸 메세지</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="reject-modal-body">
+      <div class="reject-modal-body" style="text-align:center;">
+      <div id="reject_modal" style='text-align:center; margin:20px; padding:20px 10px 10px 10px; width:450px; height:200px; border:2px solid #01b1d7; border-radius:20px;'></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
