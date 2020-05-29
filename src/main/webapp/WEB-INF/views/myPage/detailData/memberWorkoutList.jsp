@@ -8,9 +8,22 @@
   <input type="hidden" name="coachAccess">
 </c:if>
 
+<div class="row">
+	<div class="walk-period">
+		<div id="walkWeek" class="walk week active">
+		Day
+		</div>
+		<div id="walkMonth" class="walk month">
+    Week
+    </div>
+    <div id="walkYear" class="walk year">
+    Month
+    </div>
+	</div>
+<div style="width:80%;">
+  <canvas id="walk" width="400" height="200"></canvas>
+</div>
 
-<div style="width:300px;">
-  <canvas id="walk" width="200" height="200"></canvas>
 </div>
 
 <div style="width:300px;">

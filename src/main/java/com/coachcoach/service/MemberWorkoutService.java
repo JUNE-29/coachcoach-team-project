@@ -20,6 +20,12 @@ public interface MemberWorkoutService {
   // 삭제
   void delete(int no) throws Exception;
 
+  List<Integer> getWalkWeek(int memberNo) throws Exception;
+
+  List<Integer> getWalkMonth(int attribute) throws Exception;
+
+  List<Integer> getWalkYear(int attribute) throws Exception;
+
 
 
 }

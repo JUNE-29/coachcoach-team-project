@@ -22,6 +22,7 @@ import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
 import com.coachcoach.service.CoachingProgramService;
 import com.coachcoach.service.CoachingProgramTagService;
+import com.coachcoach.service.MemberCoachingProgramService;
 import com.google.gson.Gson;
 
 @Auth(role = Role.COACH)
@@ -44,6 +45,8 @@ public class ProgramManagementController {
   @Autowired
   CoachingProgramTagService coachingProgramTagService;
 
+  @Autowired
+  MemberCoachingProgramService memberCoachingProgramService;
   @Transactional
   @PostMapping("add")
   public String add(CoachingProgram coachingProgram, @RequestParam("tags") int[] tags)
@@ -64,10 +67,16 @@ public class ProgramManagementController {
   @Transactional
   @PostMapping("delete")
   public String delete(int no) throws Exception {
+
+    if(memberCoachingProgramService.programList(no).size() > 0) {
+      throw new Exception("삭제 불가.");
+    }
+
     if (coachingProgramService.deleteUpdate(no) > 0) {
     } else {
       throw new Exception("삭제할 게시물 번호가 유효하지 않습니다.");
     }
+
     return "redirect:list";
   }
 

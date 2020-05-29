@@ -1,7 +1,9 @@
 !(function($) {
   "use strict";
 
+  if ($('.coach-table').find('td').length>0){
     $('.coach-table').DataTable();
+  }
   $('.dataTables_length, .dataTables_info').remove();
   
   // 서머노트 에디터

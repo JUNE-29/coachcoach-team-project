@@ -52,7 +52,7 @@
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="${pageContext.servletContext.contextPath}/resources_k/js/main.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/resources_k/js/main.js?ver=1"></script>
 
 
 </body>

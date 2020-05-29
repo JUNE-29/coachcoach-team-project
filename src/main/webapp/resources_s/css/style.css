@@ -5,6 +5,28 @@
 * License: https://bootstrapmade.com/license/
 */
 
+/*그래프 스타일*/
+.walk-period {
+	margin-top:87px;
+	margin-right:30px;
+}
+
+.walk {
+	margin-top:0px;
+  padding: 20px;
+  box-shadow: 
+    2px 0 0 0 #c0c0c0, 
+    0 2px 0 0 #c0c0c0, 
+    2px 2px 0 0 #c0c0c0,
+    2px 0 0 0 #c0c0c0 inset, 
+    0 2px 0 0 #c0c0c0 inset;
+	}
+
+.walk:hover, .walk.active {
+	background-color: #6dc6f2;
+	color: #fff;
+}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/

@@ -21,6 +21,12 @@ public interface MemberWorkoutDao {
   // 회원 본인 운동내역이 자세하게 보여줄 수 있음.
   MemberWorkout findByNo(int workoutListNo) throws Exception;
 
+  List<Integer> findWalkWeek(int memberNo) throws Exception;
+
+  List<Integer> findWalkMonth(int memberNo);
+
+  List<Integer> findWalkYear(int memberNo);
+
 
 }
 

@@ -59,7 +59,96 @@
       m.member_no=#{memberNo}
     order by workout_list_no desc
   </select>
+
+  <select id="findWalkWeek" resultMap="MemberWorkoutMap" parameterType="int">
+    select
+      coalesce(SUM(t1.walk_count+t2.walk_count), 0) AS walk_count
+    from
+    (
+     select DATE_FORMAT(a.Date,'%Y/%m/%d') as workout_date,
+     '0' AS walk_count
+      from (
+	      select DATE_ADD(CURDATE(), INTERVAL(7 - DAYOFWEEK(CURDATE())) DAY) - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY as Date
+	      from (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as a
+	      cross join (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as b
+	      cross join (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as c
+	    ) a
+	    where a.Date BETWEEN DATE_ADD(CURDATE(), INTERVAL(7 - DAYOFWEEK(CURDATE())) DAY) - INTERVAL 6 DAY AND DATE_ADD(CURDATE(), INTERVAL(7 - DAYOFWEEK(CURDATE())) DAY)
+    )t1
+    left join
+    (
+    SELECT DATE_FORMAT(workout_date,'%Y/%m/%d') AS workout_date, 
+	    walk_count AS walk_count
+	    FROM member_workouts
+    WHERE DATE_SUB(workout_date, INTERVAL 1 DAY) > DATE_SUB(DATE( DATE_ADD(CURDATE(), INTERVAL(7 - DAYOFWEEK(CURDATE())) DAY)), INTERVAL 1 WEEK)
+    AND member_no=1
+    GROUP BY DAY(workout_date) desc
+    )t2
+	  on t2.workout_date = t1.workout_date
+	  group by DAY(t1.workout_date)
+  </select>
+    
+  <select id="findWalkMonth" resultMap="MemberWorkoutMap" parameterType="int">
+		select
+      coalesce(sum(t2.walk_count+t1.walk_count)/7, 0) AS walk_count
+    from
+    (
+     select DATE_FORMAT(a.Date,'%Y/%m/%d') as workout_date,
+     '0' AS walk_count
+      from (
+        select DATE_ADD(CURDATE(), INTERVAL(7 - DAYOFWEEK(CURDATE())) DAY) - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY as Date
+        from (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as a
+        cross join (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as b
+        cross join (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as c
+      ) a
+      where a.Date BETWEEN DATE_ADD(CURDATE(), INTERVAL(7 - DAYOFWEEK(CURDATE())) DAY) - INTERVAL 27 DAY AND DATE_ADD(CURDATE(), INTERVAL(7 - DAYOFWEEK(CURDATE())) DAY)
+    )t1
+    left join
+    (
+    SELECT DATE_FORMAT(workout_date,'%Y/%m/%d') AS workout_date, 
+      walk_count AS walk_count
+      FROM member_workouts
+    WHERE DATE_SUB(workout_date, INTERVAL 1 DAY) > DATE_SUB(DATE( DATE_ADD(CURDATE(), INTERVAL(7 - DAYOFWEEK(CURDATE())) DAY)), INTERVAL 4 WEEK)
+    AND member_no=1
+    GROUP BY DAY(workout_date) desc
+    )t2
+    on t2.workout_date = t1.workout_date
+    group by WEEK(t1.workout_date)
+  </select>
   
+   <select id="findWalkYear" resultMap="MemberWorkoutMap" parameterType="int">
+    select
+      coalesce(sum(t2.walk_count+t1.walk_count)/30, 0) AS walk_count
+    from
+    (
+      select DATE_FORMAT(a.Date, "%m") as month,
+		  DATE_FORMAT(a.Date, "%Y/%m/%d") as md,
+		  '0' as  walk_count
+		  from (
+		    select STR_TO_DATE(CONCAT(YEAR(CURDATE()), "/12/31"), "%Y/%m/%d") - INTERVAL (a.a + (10 * b.a) + (100 * c.a)) DAY as Date
+		    from (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as a
+		    cross join (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as b
+		    cross join (select 0 as a union all select 1 union all select 2 union all select 3 union all select 4 union all select 5 union all select 6 union all select 7 union all select 8 union all select 9) as c
+		  ) a
+		  where a.Date BETWEEN STR_TO_DATE(CONCAT(YEAR(CURDATE()), "/01/01"), "%Y/%m/%d") AND STR_TO_DATE(CONCAT(YEAR(CURDATE()), "/12/31"), "%Y/%m/%d") 
+		  group by md
+    )t1
+    left join
+    (
+    SELECT 
+      SUM(walk_count) as walk_count,
+      DATE_FORMAT(workout_date, "%Y/%m/%d") as md
+		FROM member_workouts
+		where workout_date >= Date_add(Now(),interval - 12 month)
+		AND member_no=1
+		GROUP BY md
+    )t2
+    on t2.md = t1.md 
+		group by t1.month
+		order by t1.month
+  </select>
+  
+    
     <!-- 운동내역리스트 -->
   <select id="findByNo" resultMap="MemberWorkoutMap" parameterType="int">
     select
@@ -74,7 +163,6 @@
     where
       m.workout_list_no=#{no}
   </select>
-  
   
   <update id="update" parameterType="MemberWorkout">
     update member_workouts

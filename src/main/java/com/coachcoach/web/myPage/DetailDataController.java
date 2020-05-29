@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Coach;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberWorkout;
@@ -76,6 +77,7 @@ public class DetailDataController {
     if(httpSession.getAttribute("loginUser").getClass() == Coach.class) {
       memberNo = memberCoachingProgramService.get((int)httpSession.getAttribute("memberCoachingProgramNo")).getMemberNo();
     }
+    httpSession.setAttribute("memberNo", memberNo);
     model.addAttribute("memberNo", memberNo);
     model.addAttribute("list", memberWorkoutService.list(memberNo));
     List<WorkoutUnit> list = workoutUnitService.list(); // 공통으로 넘길거라 값을 주지 않아도 된다.
@@ -92,6 +94,31 @@ public class DetailDataController {
     mw.setWorkoutUnit(workoutUnitService.list(workoutListNo));
     out.print(json.toJson(mw));
     out.flush();
+  }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @ResponseBody
+  @GetMapping("weekWalk")
+  public Object weekWalk() throws Exception {
+    List<Integer> walkWeek = memberWorkoutService.getWalkWeek((int)httpSession.getAttribute("memberNo"));
+    return walkWeek;
+  }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @ResponseBody
+  @GetMapping("monthWalk")
+  public Object monthWalk() throws Exception {
+    List<Integer> walkMonth = memberWorkoutService.getWalkMonth((int)httpSession.getAttribute("memberNo"));
+    System.out.println(walkMonth);
+    return walkMonth;
+  }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @ResponseBody
+  @GetMapping("yearWalk")
+  public Object yearWalk() throws Exception {
+    List<Integer> walkyear = memberWorkoutService.getWalkYear((int)httpSession.getAttribute("memberNo"));
+    return walkyear;
   }
 
 
