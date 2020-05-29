@@ -43,7 +43,7 @@ public interface CoachingProgramDao {
   List<CoachingProgram> findByMemberNo(Map<String, Object> params) throws Exception;
 
   // 코칭 프로그램 리스트(신청내역)
-  List<CoachingProgram> applyList(int memberNo) throws Exception;
+  List<CoachingProgram> applyList(Map<String, Object> params) throws Exception;
 
   // 코치페이지- 코칭 프로그램관리(자세히보기)
   CoachingProgram findByProgramNo(int no) throws Exception;

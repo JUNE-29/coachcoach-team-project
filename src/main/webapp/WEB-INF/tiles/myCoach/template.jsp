@@ -25,7 +25,7 @@
   <link href="${pageContext.servletContext.contextPath}/resources/assets/css/style.css" rel="stylesheet">
   
     <link href="${pageContext.servletContext.contextPath}/resources_e/css/header.css" rel="stylesheet">
-  <link href="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 </head>
 <body>

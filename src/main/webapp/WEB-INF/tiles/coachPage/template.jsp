@@ -24,7 +24,7 @@
   <link href="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="${pageContext.servletContext.contextPath}/resources_k/css/style.css" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/resources_k/css/style.css?ver=1" rel="stylesheet">
 
 </head>
 <body>
@@ -32,10 +32,8 @@
 <tiles:insertAttribute name="side"/>
 
 <main id="main">
-<div id="end-line">
 <div id="content">
 <tiles:insertAttribute name="body"/>
-</div>
 </div>
 <tiles:insertAttribute name="footer"/>
 </main>

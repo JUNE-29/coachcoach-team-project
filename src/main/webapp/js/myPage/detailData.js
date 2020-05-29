@@ -7,6 +7,134 @@ $(document).ready( function () {
     $('#myTable_length, #myTable_info').hide();
 } );
 
+$('.addWorkoutButton').on('click', function(e){
+  if($('input[name="coachAccess"]').length>0) {
+    Swal.fire(
+         '회원 전용이예요.'
+     )
+     return;  
+   }
+
+})
+  
+var myChart = new Chart($('#walk'), {
+    type: 'horizontalBar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+    responsive: true,
+    maintainAspectRatio: true
+    }
+});
+
+var myWeightChart = new Chart($('#weight'), {
+    type: 'line',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+    responsive: true,
+    maintainAspectRatio: true
+    }
+});
+
+var myWorkoutChart = new Chart($('#workoutTimes'), {
+	
+    type: 'pie',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+    responsive: true,
+    maintainAspectRatio: true
+    }
+});
+
+
 $('#workoutSubmit').on('click', function() {
   var workoutNoList = new Array();
   var unitList = new Array();
@@ -22,6 +150,24 @@ $('#workoutSubmit').on('click', function() {
     )
     return;
   }
+  if(!workoutNoList.length>0) {
+    Swal.fire(
+        '최소 한개 운동을 기록해주세요.'
+    )
+    return;
+  }
+  if(!$('#memberWorkoutAdd input[name="weight"]').val()) {
+	    Swal.fire(
+	        '오늘 몸무게를 기록해주세요.'
+	    )
+	    return;
+	  }
+  if(!$('#memberWorkoutAdd input[name="walkCount"]').val()) {
+	    Swal.fire(
+	        '오늘 걸음수를 기록해주세요.'
+	    )
+	    return;
+	  }
   $('#memberWorkoutAdd select[name="unit"] option:selected').each(function(index) {
     unitList.push($(this).attr('value'));
   });
@@ -63,7 +209,6 @@ $('#workoutSubmit').on('click', function() {
 
 $('.memberWorkoutDetail-button').on('click', function(){
   var workoutListNo = $(this).find('.workoutListNo').val();
-  console.log(workoutListNo)
   $.ajax({
     method:'GET',
     url: 'memberWorkoutDetail',
@@ -140,3 +285,15 @@ $('#workoutDelete').on('click', function() {
   $('#memberWorkoutDetail').on('hidden.bs.modal', function (e) {
     $('#memberWorkoutDetail .modal-body .row').remove();
   });
+
+var table = $('#workout-select').clone();
+// add모달에서 운동종목 +-할 때
+$('#workoutUnitAdd').on('click', function() {
+	var targetDiv = $('.workout-select-div');
+	targetDiv.append(table.clone());
+})
+
+$('.workout-select-div').on('click', '.workoutUnitDelete', function() {
+	$(this).closest('table').detach();
+})
+

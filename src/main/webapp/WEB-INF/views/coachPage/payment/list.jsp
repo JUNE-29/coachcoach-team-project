@@ -56,7 +56,7 @@
       </c:forEach>
     </table>
     <div class="addForm">
-      <button type="button" class="orange-button" onclick="location.href='addForm'">계좌관리</button>
+      <button type="button" class="btn orange-button" onclick="location.href='addForm'">계좌관리</button>
     </div>
   </div>
 

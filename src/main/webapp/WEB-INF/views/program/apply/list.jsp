@@ -11,7 +11,7 @@
 <strong>신청서 확인</strong><br>
 <hr>
   <div class="form-group row">
-    <label for="no" class="col-sm-2 col-form-label">신청번호</label>
+    <label for="no" class="col-sm-2 col-form-label">번호</label>
     <div class="col-sm-10">
       <input type="text" readonly class="form-control-plaintext"  value="${program.no}">
     </div>
@@ -55,11 +55,11 @@
       <div class="form-group row">
     <label for="etc" class="col-sm-2 col-form-label">특이사항</label>
     <div class="col-sm-10">
-    <c:set var="etc" value="${program.etc}" />
-    <c:if test="${not empty etc}">
-      <input type="text" readonly class="form-control-plaintext"  value="${program.etc}">
+    <c:set var="remark" value="${program.remark}" />
+    <c:if test="${not empty remark}">
+      <input type="text" readonly class="form-control-plaintext"  value="${program.remark}">
     </c:if>
-    <c:if test="${starRate eq null}">
+    <c:if test="${empty remark}">
           <input type="text" readonly class="form-control-plaintext"  value="없음">
      </c:if>
     </div>
@@ -68,7 +68,7 @@
 <button class="graybtn">수정</button>
 <input name='applyNo' type='hidden' value='${program.no}'>
 </form>
-<button id="apply_btn" type="button" class="bluebtn">신청하기</button>
+<button id="apply_btn"  type="button" class="bluebtn">신청하기</button>
 </div>
 </div>
 

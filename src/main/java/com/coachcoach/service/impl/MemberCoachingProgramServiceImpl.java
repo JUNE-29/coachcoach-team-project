@@ -97,4 +97,24 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.updateApply(params);
   }
 
+  @Override
+  public List<MemberCoachingProgram> reivewstar(int no) throws Exception {
+    return memberCoachingProgramDao.reivewstar(no);
+  }
+
+  @Override
+  public int applyCount(int no) throws Exception {
+    return memberCoachingProgramDao.applyCount(no);
+  }
+
+  @Override
+  public int statusCount(Map<String, Object> apply) throws Exception {
+    return  memberCoachingProgramDao.statusCount(apply);
+  }
+
+  @Override
+  public List<MemberCoachingProgram> applyList(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.applyList(params);
+  }
+
 }

@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   calendar.startDate=null;
   calendar.endDate=null;
-  calendar.setOption('height', 600);
+  calendar.setOption('height', 800);
   $.ajax({
     type: "GET",
     url: "planList",
@@ -148,6 +148,7 @@ $('#calendarDelete').on('click', function(e) {
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
+    cancelButtonText: '삭제취소',
     confirmButtonText: '삭제할래요.'
   }).then((result) => {
     if (result.value) {

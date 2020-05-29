@@ -27,6 +27,7 @@ public class MemberProgramCalendarServicelmpl implements MemberProgramCalendarSe
 
   @Override
   public int delete(int no) throws Exception {
+    calendarFileDao.deleteAll(no);
     return memberProgramCalendarDao.delete(no);
   }
 

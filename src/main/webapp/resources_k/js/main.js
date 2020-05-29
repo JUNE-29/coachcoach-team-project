@@ -1,9 +1,8 @@
 !(function($) {
   "use strict";
 
-  if ($('.coach-table').find('td').length>0){
     $('.coach-table').DataTable();
-  }
+  $('.dataTables_length, .dataTables_info').remove();
   
   // 서머노트 에디터
   $('.summernote').summernote({
@@ -283,7 +282,7 @@
           success: function (data) {
               $('.modal').modal("hide");
               Swal.fire({
-                title: '영차',
+                title: '수정완료',
                 text: '수정했습니다!',
                 icon: 'success',
                 confirmButtonText: '확인'
@@ -702,7 +701,7 @@
   var memberSrc = $('#memberDetail img').attr('src');
 //회원 디티일보기 모달 처리
   $('.member-table a').on('click', function() {
-    var no = $('.member-table').find('input[name="memberCoachingProgramNo"]').val();
+    var no = $(this).find('input[name="memberCoachingProgramNo"]').val();
     $.ajax({
       type: "GET",
       url: "detail",
@@ -713,7 +712,7 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
-        if($(detail.member.photo).length > 0) {
+        if(detail.member.photo.length > 0) {
           $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+detail.member.photo)
         } else {
           $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+'default.jpg')

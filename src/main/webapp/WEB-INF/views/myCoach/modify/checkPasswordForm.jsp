@@ -4,15 +4,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<h3>비밀번호 재확인</h3>
+비밀번호 확인
+<hr style="margin-top: 0px;">
 <c:if test= '${message ne null}'>
   <h4>${message}</h4><br>
 </c:if>
 
-<form action='checkPassword' method='post' onsubmit='return frm_chk();'>
-비밀번호 <input name='password' type='password'><br>
-<button>확인</button>
+<form class="form-inline " action='checkPassword' method='post'  >
+  <div class="form-group">
+    <label for="inputPassword6">비밀번호</label>
+    <input  name='password'  type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+    <small id="passwordHelpInline" class="text-muted">
+    </small>
+  </div>
+    <button id="checkpwdbtn">확인</button>
 </form>
-<br>
-
-

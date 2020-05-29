@@ -41,10 +41,18 @@ public interface MemberCoachingProgramDao {
   MemberCoachingProgram findByNo(int no) throws Exception;
   // 신청프로그램 클릭시 디테일 보여주기 위함
 
-  List<MemberCoachingProgram> findByCoachNo(int coachNo);
+  List<MemberCoachingProgram> findByCoachNo(int coachNo) throws Exception;
   // 코치 결제페이지
 
-  List<MemberCoachingProgram> findAllMember(int coachNo);
+  List<MemberCoachingProgram> findAllMember(int coachNo) throws Exception;
+
+  List<MemberCoachingProgram> reivewstar(int no) throws Exception;
+
+  int applyCount(int no) throws Exception;
+
+  int statusCount(Map<String, Object> apply)  throws Exception;
+
+  List<MemberCoachingProgram> applyList(Map<String, Object> params);
 
 }
 
