@@ -5,15 +5,16 @@
 
 
 <div>
-  신청내역
-  <table class="table">
+  &nbsp신청내역
+<hr style="margin-top: 5px;">
+  <table class="table table-hover">
   <thead>
     <tr>
-      <th>No</th>
-      <th>코치님</th>
-      <th>프로그램명</th>
-      <th>결제금액</th>
-      <th>상태</th>
+      <th scope="col">번호</th>
+      <th scope="col">코치님</th>
+      <th scope="col">프로그램명</th>
+      <th scope="col">결제금액</th>
+      <th scope="col">상태</th>
     </tr>
   </thead>
   <c:forEach items="${programList}" var="list">

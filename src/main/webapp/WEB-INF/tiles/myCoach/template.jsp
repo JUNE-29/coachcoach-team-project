@@ -31,9 +31,7 @@
 <body>
 
 <tiles:insertAttribute name="header"/>
-<hr style="
-    margin-top: 0px;"
->
+<hr style="margin-top: 0px;">
 
 <div class="innerCont">
 <div class="sidebar">

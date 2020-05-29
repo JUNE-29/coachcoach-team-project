@@ -5,7 +5,7 @@
 
 
 &nbsp내 프로필
-<hr>
+<hr style="margin-top: 5px;">
 <div class='profile_img'>
 <img src='${pageContext.servletContext.contextPath}/upload/member/${member.photo}' height='150px'>
 </div>

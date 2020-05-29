@@ -5,11 +5,12 @@
 
 
 <div>
-    <h3>결제내역</h3>
-  <table class="table">
+  &nbsp결제내역
+<hr style="margin-top: 5px;">
+  <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">No</th>
+      <th scope="col">번호</th>
       <th scope="col">코치님</th>
       <th scope="col">결제완료일</th>
       <th scope="col">주문한 프로그램명</th>

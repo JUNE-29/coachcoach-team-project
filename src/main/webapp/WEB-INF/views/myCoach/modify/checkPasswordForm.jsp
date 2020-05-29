@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-비밀번호 확인
-<hr style="margin-top: 0px;">
+&nbsp회원정보수정
+<hr style="margin-top: 5px;">
 <c:if test= '${message ne null}'>
   <h4>${message}</h4><br>
 </c:if>

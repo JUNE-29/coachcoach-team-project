@@ -6,11 +6,13 @@
 </style>
 
 <div class="box pro_div" >
+&nbsp마이코치
+<hr style="margin-top: 5px;">
   진행중인 프로그램
-  <table class="table table-sm">
+  <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">No</th>
+      <th scope="col">번호</th>
       <th scope="col">담당코치</th>
       <th scope="col">프로그램명</th>
       <th scope="col">기간</th>
@@ -92,7 +94,7 @@
 
 <div class="pro_div">
 완료된 프로그램
-  <table class="table table-sm">
+  <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">번호</th>
