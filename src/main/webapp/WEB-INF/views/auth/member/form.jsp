@@ -18,7 +18,8 @@
 .find_area {text-align:center;}
 .find_area a {display:inline-block; width:10%; height:50px; line-height:50px; background:#fff; font-size:15px; color:#596061;}
 .find_area hr{width:40% }
-.login_naver_area {text-align:center; font-weight:600;}
+.login_naver_area_text {text-align:center; font-weight:600; margin: 15px;}
+.login_naver_area {text-align:center;}
 </style>
 
 
@@ -73,11 +74,12 @@
     session.setAttribute("state", state);
  %>
 
-<div class="login_naver_area">
+<div class="login_naver_area_text">
   소셜로그인 <br>
-  <a href="<%=apiURL%>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
  </div>
-
+<div class="login_naver_area"> 
+  <a href="<%=apiURL%>"><img height="50" src="../../../image/naver_login_logo_Green.PNG"/></a>
+</div>
 <!--  
 <button type="button" onclick="window.open('https://www.naver.com')"> 네이버 로그인</button>
 <button type="button" onclick="window.open('https://www.daum.net')"> 카카오 로그인</button>
