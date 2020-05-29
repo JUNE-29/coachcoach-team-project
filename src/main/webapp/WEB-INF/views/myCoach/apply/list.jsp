@@ -7,6 +7,12 @@
 <div>
   &nbsp신청내역
 <hr style="margin-top: 5px;">
+  <form action="search" method="POST">
+<div id="searchPayBox2">
+      <input name='sDate' type='date'>  ~  <input name='eDate' type='date'>
+      <button>조회</button>
+    </div>
+</form>
   <table class="table table-hover">
   <thead>
     <tr>

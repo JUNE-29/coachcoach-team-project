@@ -1,7 +1,6 @@
 package com.coachcoach.web.myCoach;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Member;
-import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachingProgramService;
@@ -55,12 +53,24 @@ public class ApplyController {
     model.addAttribute("programList", memberCoachingProgramService.applyList(params));
     model.addAttribute("pageMaker", pageMaker);
 
-    List<MemberCoachingProgram> list = memberCoachingProgramService.applyList(params);
-    for (int i = 0; i < list.size(); i++) {
-      System.out.println(list);
-    }
-
   }
+  @PostMapping("search")
+  public void search(String sDate, String eDate, Model model ,@ModelAttribute("cri") Criteria cri) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    PageMaker pageMaker = new PageMaker();
+    pageMaker.setCri(cri);
+    pageMaker.setTotalCount(memberCoachingProgramService.applyCount(member.getNo()));
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("cri", cri);
+    params.put("no", member.getNo());
+    params.put("sDate", sDate);
+    params.put("eDate", eDate);
+    params.put("no", member.getNo());
+    //model.addAttribute("programList", );
+    model.addAttribute("pageMaker", pageMaker);
+  }
+
 
   @ResponseBody // 거절사유
   @RequestMapping(value = "rejectForm", method = RequestMethod.POST)
