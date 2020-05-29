@@ -8,7 +8,7 @@
 <div class="box pro_div" >
 &nbsp마이코치
 <hr style="margin-top: 5px;">
-  진행중인 프로그램
+  진행중
   <table class="table table-hover">
   <thead>
     <tr>
@@ -16,7 +16,7 @@
       <th scope="col">담당코치</th>
       <th scope="col">프로그램명</th>
       <th scope="col">기간</th>
-      <th scope="col">상세보기</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -35,7 +35,7 @@
   </tbody>
 </table>
 </div>
-<div class="paginationWrap">
+<div class="paginationWrap" style="margin-top:50px">
 <ul class="btn-group pagination">
     <c:if test="${pageMaker2.prev}">
     <li>
@@ -93,7 +93,7 @@
 
 
 <div class="pro_div">
-완료된 프로그램
+완료
   <table class="table table-hover">
   <thead>
     <tr>
