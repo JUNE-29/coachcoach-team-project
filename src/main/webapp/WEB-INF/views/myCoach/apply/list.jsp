@@ -7,21 +7,21 @@
 <div>
   &nbsp신청내역
 <hr style="margin-top: 5px;">
-  <form action="search" method="GET">
-<div id="searchPayBox2">
+<div class="search_div"  style="float:right; margin:5px;">
+  <form class="search_frm" action="search" method="GET">
       <input name='sDate' type='date'>  ~  <input name='eDate' type='date'>
-      <button>조회</button>
+      <button  style="background:#01b1d7; color:#fff; border:none ;width:50px; height:30px; border-radius:5px; ">조회</button>
+    </form>
     </div>
-</form>
   <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">번호</th>
-      <th scope="col">코치님</th>
-      <th scope="col">프로그램명</th>
-      <th scope="col">신청일</th>
-      <th scope="col">결제금액</th>
-      <th scope="col">상태</th>
+      <th >코치님</th>
+      <th>프로그램명</th>
+      <th >신청일</th>
+      <th>결제금액</th>
+      <th >상태</th>
     </tr>
   </thead>
   <c:forEach items="${programList}" var="list">
