@@ -220,6 +220,17 @@
       id=#{userId} and email=#{userEmail}
   </select>
   
+  
+  <select id="findByEmail" resultMap="MemberMap" parameterType="string">
+    select
+     <include refid="select"/>,
+      auth_status
+    from
+     members
+    where
+     email=#{email}
+  </select>
+  
 </mapper>
 
 

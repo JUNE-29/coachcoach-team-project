@@ -27,6 +27,8 @@
   <link href="${pageContext.servletContext.contextPath}/node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
   <link href="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  
   <style>
     .innerCont {margin:50px auto; width:1050px;}
   </style>
@@ -58,5 +60,6 @@
     <!-- Template Main JS File -->
  <!--  <script src="${pageContext.servletContext.contextPath}/resources_j/js/user.js"></script>  -->
  <script src='${pageContext.servletContext.contextPath}/resources_j/auth/<tiles:getAsString name="jsFileMember"></tiles:getAsString>'></script>
+ 
 </body>
 </html>

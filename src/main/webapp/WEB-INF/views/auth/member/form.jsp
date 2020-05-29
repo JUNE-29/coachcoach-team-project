@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
-
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
 
 <style>
 .tit {margin-bottom: 20px;font-size: 35px;letter-spacing: -1px;font-weight: bold; text-align: center;}
@@ -13,8 +15,10 @@
 .save_id_checkbox_area label {font-size:13px;}
 .login_ok_area {margin-top:20px; text-align:center;}
 .login_ok_area button[type=button] {display:inline-block; width:50%; height:50px; background:#01b1d7; font-weight:bold; font-size:15px; color:#fff; border:none;}
-.find_area { text-align:center;}
+.find_area {text-align:center;}
 .find_area a {display:inline-block; width:10%; height:50px; line-height:50px; background:#fff; font-size:15px; color:#596061;}
+.find_area hr{width:40% }
+.login_naver_area {text-align:center; font-weight:600;}
 </style>
 
 
@@ -54,17 +58,26 @@
 <div class="find_area">
 <a href='findidform'>아이디 찾기</a> |
 <a href='findpasswordform'>비밀번호 찾기</a>
+<hr>
 </div>
 
+ <%
+    String clientId = "BQMke4d067XmFs7Er4Ra";//애플리케이션 클라이언트 아이디값";
+    String redirectURI = URLEncoder.encode("http://localhost:9999/coachcoach-team-project/app/auth/member/naverLogin", "UTF-8");
+    SecureRandom random = new SecureRandom();
+    String state = new BigInteger(130, random).toString();
+    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+    apiURL += "&client_id=" + clientId;
+    apiURL += "&redirect_uri=" + redirectURI;
+    apiURL += "&state=" + state;
+    session.setAttribute("state", state);
+ %>
 
-<script>
-"use strict"
-  var form = document.form
+<div class="login_naver_area">
+  소셜로그인 <br>
+  <a href="<%=apiURL%>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+ </div>
 
-document.querySelector("#m_login_btn").onclick = () => {
- document.form.submit();
-}
-</script>
 <!--  
 <button type="button" onclick="window.open('https://www.naver.com')"> 네이버 로그인</button>
 <button type="button" onclick="window.open('https://www.daum.net')"> 카카오 로그인</button>
