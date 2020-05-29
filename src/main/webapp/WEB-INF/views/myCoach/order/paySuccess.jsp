@@ -5,7 +5,7 @@
 
 <% response.addHeader("Refresh", "2; url=../apply/list"); %>
 <div>
-  <h1>결제 완료</h1>
+  결제 성공
 </div>
 
 

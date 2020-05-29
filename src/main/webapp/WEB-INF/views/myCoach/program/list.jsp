@@ -5,8 +5,8 @@
 <style>
 </style>
 
-<div class="box">
-  <h3 class="tit">진행중인 프로그램</h3>
+<div class="box pro_div" >
+  진행중인 프로그램
   <table class="table table-sm">
   <thead>
     <tr>
@@ -68,6 +68,7 @@
       <div class="detail-modal-body">
             <div id="detail-inner-modal">
                    <div id='detail-inner-photo'>
+                   <img id="detail-inner-photo-img">
                    </div>
                    <div id='detail-inner'>
                    </div>
@@ -89,8 +90,8 @@
 
 
 
-<div>
-  <h3>완료된 프로그램</h3>
+<div class="pro_div">
+완료된 프로그램
   <table class="table table-sm">
   <thead>
     <tr>
