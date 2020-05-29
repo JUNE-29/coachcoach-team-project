@@ -349,21 +349,21 @@ insert into workout(workout_no, name)
   
 -- 운동내역 예제 데이터
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
-  values(1, 1, '2020-01-01', '45', '20000');
+  values(1, 1, '2020-05-14', '45', '4545');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
-  values(1, 2, '2020-01-02', '50', '18000');
+  values(1, 2, '2020-05-17', '50', '18000');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
   values(1, 3, '2020-01-03', '48', '17000');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
-  values(2, 4, '2020-02-01', '55', '16000');
+  values(1, 4, '2020-02-01', '55', '16000');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
-  values(2, 5, '2020-02-01', '60', '15000');
+  values(1, 51, '2020-02-01', '60', '15000');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
-  values(3, 6, '2020-03-03', '65', '8000');
+  values(1, 52, '2020-03-03', '65', '8000');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
-  values(4, 7, '2020-03-05', '57', '5000');
+  values(1, 55, '2020-03-05', '57', '5000');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
-  values(5, 8, '2020-04-03', '52', '3000');
+  values(1, 53, '2020-04-03', '52', '3000');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
   values(6, 9, '2020-04-03', '67', '20000');
 insert into member_workouts(member_no, workout_list_no, workout_date, weight, walk_count)
