@@ -57,6 +57,9 @@ public interface MemberDao {
 
   // 회원 아이디 이메일 유효 검사 - 임시비밀번호 발송때
   int searchPw(@Param("userId") String userId, @Param("userEmail") String userEmail);
+
+  // 네이버로그인 됐을때
+  Member findByEmail(String email) throws Exception;
 }
 
 
