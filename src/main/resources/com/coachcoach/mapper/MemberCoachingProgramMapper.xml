@@ -379,6 +379,16 @@
         AND request_date between #{sDate} AND #{eDate}
   </select>
  
+       <select id="statusDateCnt"  resultType="Integer"  parameterType="map">
+       select
+         count(*)
+        from
+         member_coaching_programs
+         where member_no=#{no}
+        AND request_date between #{sDate} AND #{eDate} AND  status=#{status}
+  </select>
+ 
+ 
     <select id="statusCount"  resultType="Integer"  parameterType="map">
       select
          count(*)

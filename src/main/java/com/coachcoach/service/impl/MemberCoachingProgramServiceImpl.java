@@ -127,4 +127,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.applyDateCnt(param);
   }
 
+  @Override
+  public int statusDateCnt(Map<String, Object> param) throws Exception {
+    return memberCoachingProgramDao.statusDateCnt(param);
+  }
+
 }

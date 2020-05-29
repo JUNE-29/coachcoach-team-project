@@ -58,6 +58,8 @@ public interface MemberCoachingProgramDao {
 
   int applyDateCnt(Map<String, Object> param) throws Exception;
 
+  int statusDateCnt(Map<String, Object> param) throws Exception;
+
 }
 
 

@@ -42,7 +42,6 @@ public class ApplyController {
   @GetMapping("list") // 신청내역
   public void applyList(Model model, @ModelAttribute("cri") Criteria cri) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
-
     PageMaker pageMaker = new PageMaker();
     pageMaker.setCri(cri);
     pageMaker.setTotalCount(memberCoachingProgramService.applyCount(member.getNo()));

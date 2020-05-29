@@ -36,13 +36,43 @@ public class PayController {
     Member member = (Member) httpSession.getAttribute("loginUser");
     PageMaker pageMaker = new PageMaker();
     pageMaker.setCri(cri);
-    pageMaker.setTotalCount(memberCoachingProgramService.applyCount(member.getNo()));
+    Map<String, Object> param = new HashMap<>();
+    param.put("no", member.getNo());
+    param.put("status", "결제 완료");
+    pageMaker.setTotalCount(memberCoachingProgramService.statusCount(param));
 
     Map<String, Object> params = new HashMap<>();
     params.put("cri", cri);
     params.put("no", member.getNo());
-    model.addAttribute("programList", coachingProgramService.applyList(params));
+    model.addAttribute("programList", memberCoachingProgramService.applyList(params));
     model.addAttribute("pageMaker", pageMaker);
   }
 
+
+  @GetMapping("search")
+  public void search(String sDate, String eDate, Model model ,@ModelAttribute("cri") Criteria cri) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    PageMaker pageMaker = new PageMaker();
+    pageMaker.setCri(cri);
+    Map<String, Object> param = new HashMap<>();
+    param.put("no", member.getNo());
+    param.put("status", "결제 완료");
+    param.put("sDate", sDate);
+    param.put("eDate", eDate);
+    pageMaker.setTotalCount(memberCoachingProgramService.statusDateCnt(param));
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("cri", cri);
+    params.put("no", member.getNo());
+    params.put("sDate", sDate);
+    params.put("eDate", eDate);
+    model.addAttribute("programList", memberCoachingProgramService.searchApplyList(params));
+    model.addAttribute("pageMaker", pageMaker);
+    model.addAttribute("sDate", sDate);
+    model.addAttribute("eDate", eDate);
+
+  }
+
+
 }
+

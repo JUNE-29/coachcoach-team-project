@@ -47,7 +47,7 @@
     </td>
     </c:when>
       <c:when test="${status eq '요청대기중'}">
-    <td>요청대기중 | 
+    <td>요청중 | 
     <button class="calcel_btn btn btn-outline-danger btn-sm" value="${list.no}" type="button">삭제</button>
     </td>
     </c:when>
