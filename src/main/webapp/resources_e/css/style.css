@@ -45,7 +45,17 @@ div.innerCont {
 
 
 #checkpwdbtn { width:70px; height:40px; border:none; border-radius:5px;  background:#01b1d7; color:#fff;}
+#pay_btn {float: left; margin: 0px 5px 40px 280px; width:70px; height:40px; border:none; border-radius:5px;  background:#01b1d7; color:#fff;}
+#cancel_btn{width:70px; height:40px; border:none; border-radius:5px;  background:gray; color:#fff;}
 
+.order_frm {border:none; padding:10px 10px 0px 10px; margin:10px 10px 0px 10px}
+.content .coach_img { overflow:hidden;  float:left; width:150px; height:150px; border-radius: 50%; border: 1px solid #ededed; background:#eee; margin: 30px 60px 30px 20px ;}
+.order_frm dl {overflow: hidden;}
+.order_frm dl dt {float: left;clear: right;width: 40%;font-size: 14px;}
+.order_frm dl dd{ float: left;width: 60%;font-size: 14px;}
+.content .div{ overflow:hidden;  float:left; width:150px;   margin: 30px 60px 30px 20px ;}
+.pay_method { width:30px; margin:0px 10px 20px 0px;}
+#pay_frm {text-align:center; margin:0px;}
 
 
 

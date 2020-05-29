@@ -7,7 +7,7 @@
 &nbsp내 프로필
 <hr>
 <div class='profile_img'>
-<img src='${pageContext.servletContext.contextPath}/upload/member/${member.photo}' height='200'>
+<img src='${pageContext.servletContext.contextPath}/upload/member/${member.photo}' height='150px'>
 </div>
 <div class='update_frm'>
 <form action='updateForm' method='post' enctype='multipart/form-data'>

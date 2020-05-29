@@ -6,7 +6,6 @@
 
 <div>
   신청내역
-  <hr style="margin-top: 0px;">
   <table class="table">
   <thead>
     <tr>

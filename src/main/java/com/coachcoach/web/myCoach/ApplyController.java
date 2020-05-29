@@ -1,6 +1,5 @@
 package com.coachcoach.web.myCoach;
 
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +23,6 @@ import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberService;
 import com.coachcoach.web.searchCoach.Criteria;
 import com.coachcoach.web.searchCoach.PageMaker;
-import com.google.gson.Gson;
 
 @Auth(role = Role.MEMBER)
 @Controller
@@ -67,7 +65,7 @@ public class ApplyController {
   @ResponseBody // 거절사유
   @RequestMapping(value = "rejectForm", method = RequestMethod.POST)
   public Object rejectForm(Model model, int no, HttpServletResponse response) throws Exception {
-   return memberCoachingProgramService.get(no);
+    return memberCoachingProgramService.get(no);
   }
 
   @GetMapping("orderForm") // 결제
@@ -86,9 +84,11 @@ public class ApplyController {
   public String payments(Model model, String payment) throws Exception {
     if (payment.equals("creditCard")) {
       return "myCoach/order/creditCard";
-    } else {
+    } else if (payment.equals("kakaoPay")) {
       return "myCoach/order/kakaoPay";
     }
+    return  "myCoach/order/payPhone";
+
   }
 
   @ResponseBody
