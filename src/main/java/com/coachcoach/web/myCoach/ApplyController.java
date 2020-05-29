@@ -54,21 +54,27 @@ public class ApplyController {
     model.addAttribute("pageMaker", pageMaker);
 
   }
-  @PostMapping("search")
+  @GetMapping("search")
   public void search(String sDate, String eDate, Model model ,@ModelAttribute("cri") Criteria cri) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
     PageMaker pageMaker = new PageMaker();
     pageMaker.setCri(cri);
-    pageMaker.setTotalCount(memberCoachingProgramService.applyCount(member.getNo()));
+    Map<String, Object> param = new HashMap<>();
+    param.put("no", member.getNo());
+    param.put("sDate", sDate);
+    param.put("eDate", eDate);
+    pageMaker.setTotalCount(memberCoachingProgramService.applyDateCnt(param));
 
     Map<String, Object> params = new HashMap<>();
     params.put("cri", cri);
     params.put("no", member.getNo());
     params.put("sDate", sDate);
     params.put("eDate", eDate);
-    params.put("no", member.getNo());
-    //model.addAttribute("programList", );
+    model.addAttribute("programList", memberCoachingProgramService.searchApplyList(params));
     model.addAttribute("pageMaker", pageMaker);
+    model.addAttribute("sDate", sDate);
+    model.addAttribute("eDate", eDate);
+
   }
 
 

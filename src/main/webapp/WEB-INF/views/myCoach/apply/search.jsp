@@ -87,17 +87,17 @@
 <ul class="btn-group pagination">
     <c:if test="${pageMaker.prev}">
     <li>
-        <a href='list?page=${pageMaker.startPage-1}'><i class="fa fa-chevron-left"></i></a>
+        <a href='search?page=${pageMaker.startPage-1}&sDate=${sDate }&eDate=${eDate}'><i class="fa fa-chevron-left"></i></a>
     </li>
     </c:if>
     <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
     <li>
-        <a href='list?page=${pageNum}'><i class="fa">${pageNum}</i></a>
+        <a href='search?page=${pageNum}&sDate=${sDate }&eDate=${eDate}'><i class="fa">${pageNum}</i></a>
     </li>
     </c:forEach>
     <c:if test="${pageMaker.next && pageMaker.endPage>0}">
     <li>
-        <a href='list?page=${pageMaker.endPage+1}'><i class="fa fa-chevron-right"></i></a>
+        <a href='search?page=${pageMaker.endPage+1}&sDate=${sDate }&eDate=${eDate}'><i class="fa fa-chevron-right"></i></a>
     </li>
     </c:if>
 </ul>
