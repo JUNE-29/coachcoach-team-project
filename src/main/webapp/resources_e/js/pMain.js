@@ -91,98 +91,14 @@ function chk_keyword() {
 
 // 키워드 선택
 $(document).ready(function(){
-    $("#ckh_1").change(function(){
-        if($("#ckh_1").is(":checked")){
-          $("#chk1").css("background", "#01b1d7")
-          $("#chk1").css("color", "#FFFFFF")
+    $(".chk_input").change(function(){
+        if($(this).is(":checked")){
+          $(this).css("background", "#01b1d7")
+          $(this).css("color", "#FFFFFF")
         }else{
-            $(".check").css("background", "#FFFFFF") 
-            $(".check").css("border", "1px solid #ededed")
-            $(".check").css("color", "#000000")
-        }
-    });
-});
-$(document).ready(function(){
-    $("#ckh_2").change(function(){
-        if($("#ckh_2").is(":checked")){
-          $("#chk2").css("background", "#01b1d7")
-          $("#chk2").css("color", "#FFFFFF")
-        }else{
-            $(".check").css("background", "#FFFFFF") 
-            $(".check").css("border", "1px solid #ededed")
-            $(".check").css("color", "#000000")
-        }
-    });
-});
-$(document).ready(function(){
-    $("#ckh_3").change(function(){
-        if($("#ckh_3").is(":checked")){
-          $("#chk3").css("background", "#01b1d7")
-          $("#chk3").css("color", "#FFFFFF")
-        }else{
-            $(".check").css("background", "#FFFFFF") 
-            $(".check").css("border", "1px solid #ededed")
-            $(".check").css("color", "#000000")
-        }
-    });
-});
-$(document).ready(function(){
-    $("#ckh_4").change(function(){
-        if($("#ckh_4").is(":checked")){
-          $("#chk4").css("background", "#01b1d7")
-          $("#chk4").css("color", "#FFFFFF")
-        }else{
-            $(".check").css("background", "#FFFFFF") 
-            $(".check").css("border", "1px solid #ededed")
-            $(".check").css("color", "#000000")
-        }
-    });
-});
-$(document).ready(function(){
-    $("#ckh_5").change(function(){
-        if($("#ckh_5").is(":checked")){
-          $("#chk5").css("background", "#01b1d7")
-          $("#chk5").css("color", "#FFFFFF")
-        }else{
-            $(".check").css("background", "#FFFFFF") 
-            $(".check").css("border", "1px solid #ededed")
-            $(".check").css("color", "#000000")
-        }
-    });
-});
-$(document).ready(function(){
-    $("#ckh_6").change(function(){
-        if($("#ckh_6").is(":checked")){
-          $("#chk6").css("background", "#01b1d7")
-          $("#chk6").css("color", "#FFFFFF")
-        }else{
-            $(".check").css("background", "#FFFFFF") 
-            $(".check").css("border", "1px solid #ededed")
-            $(".check").css("color", "#000000")
-        }
-    });
-});
-$(document).ready(function(){
-    $("#ckh_7").change(function(){
-        if($("#ckh_7").is(":checked")){
-            $("#chk7").css("background", "#01b1d7")
-            $("#chk7").css("color", "#FFFFFF")
-        }else{
-            $(".check").css("background", "#FFFFFF") 
-            $(".check").css("border", "1px solid #ededed")
-            $(".check").css("color", "#000000")
-        }
-    });
-});
-$(document).ready(function(){
-    $("#ckh_8").change(function(){
-        if($("#ckh_8").is(":checked")){
-            $("#chk8").css("background", "#01b1d7")
-            $("#chk8").css("color", "#FFFFFF")
-        }else{
-            $(".check").css("background", "#FFFFFF") 
-            $(".check").css("border", "1px solid #ededed")
-            $(".check").css("color", "#000000")
+            $('.check').css("background", "#FFFFFF") 
+            $('.check').css("border", "1px solid #ededed")
+            $('.check').css("color", "#000000")
         }
     });
 });

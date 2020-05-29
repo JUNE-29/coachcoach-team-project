@@ -14,21 +14,21 @@
 <strong>키워드</strong>
 <form name='keyword' action='searchTag' method='post' class="tag" >
 <label class="check" id='chk1'>
-<input id='ckh_1' type="checkbox" name="tags" value="1" ><span class="txt">하체튼튼</span></label>
+<input class="chk_input"  id='ckh_1' type="checkbox" name="tags" value="1" ><span class="txt">하체튼튼</span></label>
 <label class="check" id='chk2'>
-<input id='ckh_2' type="checkbox" name="tags" value="2" ><span class="txt">상체튼튼</span></label>
+<input class="chk_input"   id='ckh_2' type="checkbox" name="tags" value="2" ><span class="txt">상체튼튼</span></label>
 <label class="check" id='chk3'>
-<input id='ckh_3' type="checkbox" name="tags" value="3" ><span class="txt">근육위주</span></label>
+<input class="chk_input"   id='ckh_3' type="checkbox" name="tags" value="3" ><span class="txt">근육위주</span></label>
 <label class="check" id='chk4'>
-<input id='ckh_4' type="checkbox" name="tags" value="4" ><span class="txt">대회위주</span></label>
+<input class="chk_input"   id='ckh_4' type="checkbox" name="tags" value="4" ><span class="txt">대회위주</span></label>
 <label class="check" id='chk5'>
-<input id='ckh_5' type="checkbox" name="tags" value="5" ><span class="txt">체력위주</span></label>
+<input class="chk_input"   id='ckh_5' type="checkbox" name="tags" value="5" ><span class="txt">체력위주</span></label>
 <label class="check" id='chk6'>
-<input id='ckh_6' type="checkbox" name="tags" value="6" ><span class="txt">체중감량</span></label>
+<input class="chk_input"   id='ckh_6' type="checkbox" name="tags" value="6" ><span class="txt">체중감량</span></label>
 <label class="check" id='chk7'>
-<input id='ckh_7' type="checkbox" name="tags" value="7"><span class="txt">재활위주</span></label>
+<input class="chk_input"   id='ckh_7' type="checkbox" name="tags" value="7"><span class="txt">재활위주</span></label>
 <label class="check" id='chk8'>
-<input id='ckh_8' type="checkbox" name="tags" value="8" ><span class="txt">생활개선</span></label>
+<input class="chk_input"   id='ckh_8' type="checkbox" name="tags" value="8" ><span class="txt">생활개선</span></label>
 <input id="keywordBtn" type='button' value='검색' onclick='chk_keyword()'>
 </form>
 </div>

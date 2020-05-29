@@ -46,5 +46,11 @@ public interface MemberCoachingProgramService {
 
   List<MemberCoachingProgram> applyList(Map<String, Object> params) throws Exception;
 
+  List<MemberCoachingProgram> searchApplyList(Map<String, Object> params) throws Exception;
+
+  int applyDateCnt(Map<String, Object> param) throws Exception;
+
+  int statusDateCnt(Map<String, Object> param) throws Exception;
+
 
 }

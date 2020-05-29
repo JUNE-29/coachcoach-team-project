@@ -5,16 +5,18 @@
 <style>
 </style>
 
-<div class="box">
-  <h3 class="tit">진행중인 프로그램</h3>
-  <table class="table table-sm">
+<div class="box pro_div" >
+&nbsp마이코치
+<hr style="margin-top: 5px;">
+  진행중
+  <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">No</th>
+      <th scope="col">번호</th>
       <th scope="col">담당코치</th>
       <th scope="col">프로그램명</th>
       <th scope="col">기간</th>
-      <th scope="col">상세보기</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -33,7 +35,7 @@
   </tbody>
 </table>
 </div>
-<div class="paginationWrap">
+<div class="paginationWrap" style="margin-top:50px">
 <ul class="btn-group pagination">
     <c:if test="${pageMaker2.prev}">
     <li>
@@ -68,6 +70,7 @@
       <div class="detail-modal-body">
             <div id="detail-inner-modal">
                    <div id='detail-inner-photo'>
+                   <img id="detail-inner-photo-img">
                    </div>
                    <div id='detail-inner'>
                    </div>
@@ -89,9 +92,9 @@
 
 
 
-<div>
-  <h3>완료된 프로그램</h3>
-  <table class="table table-sm">
+<div class="pro_div">
+완료
+  <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">번호</th>

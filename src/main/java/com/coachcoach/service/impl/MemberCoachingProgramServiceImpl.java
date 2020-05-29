@@ -117,4 +117,19 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.applyList(params);
   }
 
+  @Override
+  public List<MemberCoachingProgram> searchApplyList(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.searchApplyList(params);
+  }
+
+  @Override
+  public int applyDateCnt(Map<String, Object> param) throws Exception {
+    return memberCoachingProgramDao.applyDateCnt(param);
+  }
+
+  @Override
+  public int statusDateCnt(Map<String, Object> param) throws Exception {
+    return memberCoachingProgramDao.statusDateCnt(param);
+  }
+
 }

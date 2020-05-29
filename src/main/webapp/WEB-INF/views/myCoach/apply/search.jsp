@@ -8,11 +8,11 @@
   &nbsp신청내역
 <hr style="margin-top: 5px;">
 <div class="search_div"  style="float:right; margin:5px;">
-  <form class="search_frm" action="search" method="GET">
+  <form  action="search" method="GET">
       <input name='sDate' type='date'>  ~  <input name='eDate' type='date'>
-      <button  style="background:#01b1d7; color:#fff; border:none ;width:50px; height:30px; border-radius:5px; ">조회</button>
-    </form>
-    </div>
+      <button style="background:#01b1d7; color:#fff; border:none ;width:50px; height:30px; border-radius:5px;  ">조회</button>
+</form>
+</div>
   <table class="table table-hover">
   <thead>
     <tr>
@@ -47,7 +47,7 @@
     </td>
     </c:when>
       <c:when test="${status eq '요청대기중'}">
-    <td>요청중 | 
+    <td>요청대기중 | 
     <button class="calcel_btn btn btn-outline-danger btn-sm" value="${list.no}" type="button">삭제</button>
     </td>
     </c:when>
@@ -87,17 +87,17 @@
 <ul class="btn-group pagination">
     <c:if test="${pageMaker.prev}">
     <li>
-        <a href='list?page=${pageMaker.startPage-1}'><i class="fa fa-chevron-left"></i></a>
+        <a href='search?page=${pageMaker.startPage-1}&sDate=${sDate }&eDate=${eDate}'><i class="fa fa-chevron-left"></i></a>
     </li>
     </c:if>
     <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
     <li>
-        <a href='list?page=${pageNum}'><i class="fa">${pageNum}</i></a>
+        <a href='search?page=${pageNum}&sDate=${sDate }&eDate=${eDate}'><i class="fa">${pageNum}</i></a>
     </li>
     </c:forEach>
     <c:if test="${pageMaker.next && pageMaker.endPage>0}">
     <li>
-        <a href='list?page=${pageMaker.endPage+1}'><i class="fa fa-chevron-right"></i></a>
+        <a href='search?page=${pageMaker.endPage+1}&sDate=${sDate }&eDate=${eDate}'><i class="fa fa-chevron-right"></i></a>
     </li>
     </c:if>
 </ul>

@@ -1,8 +1,6 @@
 package com.coachcoach.web.myCoach;
 
-import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Member;
-import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachingProgramService;
@@ -24,7 +21,6 @@ import com.coachcoach.service.MemberCoachingProgramService;
 import com.coachcoach.service.MemberService;
 import com.coachcoach.web.searchCoach.Criteria;
 import com.coachcoach.web.searchCoach.PageMaker;
-import com.google.gson.Gson;
 
 @Auth(role = Role.MEMBER)
 @Controller
@@ -46,7 +42,6 @@ public class ApplyController {
   @GetMapping("list") // 신청내역
   public void applyList(Model model, @ModelAttribute("cri") Criteria cri) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
-
     PageMaker pageMaker = new PageMaker();
     pageMaker.setCri(cri);
     pageMaker.setTotalCount(memberCoachingProgramService.applyCount(member.getNo()));
@@ -57,17 +52,35 @@ public class ApplyController {
     model.addAttribute("programList", memberCoachingProgramService.applyList(params));
     model.addAttribute("pageMaker", pageMaker);
 
-    List<MemberCoachingProgram> list = memberCoachingProgramService.applyList(params);
-    for (int i = 0; i < list.size(); i++) {
-      System.out.println(list);
-    }
+  }
+  @GetMapping("search")
+  public void search(String sDate, String eDate, Model model ,@ModelAttribute("cri") Criteria cri) throws Exception {
+    Member member = (Member) httpSession.getAttribute("loginUser");
+    PageMaker pageMaker = new PageMaker();
+    pageMaker.setCri(cri);
+    Map<String, Object> param = new HashMap<>();
+    param.put("no", member.getNo());
+    param.put("sDate", sDate);
+    param.put("eDate", eDate);
+    pageMaker.setTotalCount(memberCoachingProgramService.applyDateCnt(param));
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("cri", cri);
+    params.put("no", member.getNo());
+    params.put("sDate", sDate);
+    params.put("eDate", eDate);
+    model.addAttribute("programList", memberCoachingProgramService.searchApplyList(params));
+    model.addAttribute("pageMaker", pageMaker);
+    model.addAttribute("sDate", sDate);
+    model.addAttribute("eDate", eDate);
 
   }
+
 
   @ResponseBody // 거절사유
   @RequestMapping(value = "rejectForm", method = RequestMethod.POST)
   public Object rejectForm(Model model, int no, HttpServletResponse response) throws Exception {
-   return memberCoachingProgramService.get(no);
+    return memberCoachingProgramService.get(no);
   }
 
   @GetMapping("orderForm") // 결제
@@ -86,9 +99,11 @@ public class ApplyController {
   public String payments(Model model, String payment) throws Exception {
     if (payment.equals("creditCard")) {
       return "myCoach/order/creditCard";
-    } else {
+    } else if (payment.equals("kakaoPay")) {
       return "myCoach/order/kakaoPay";
     }
+    return  "myCoach/order/payPhone";
+
   }
 
   @ResponseBody

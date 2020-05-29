@@ -4,47 +4,55 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-  <h1>결제정보</h1>
-<div style='border:1px solid gray; padding:10px; margin:5px'>
-  <h3>결제할 프로그램</h3>
-      신청번호  ${item.mcp.no}<br>
-      코치이름 ${item.coach.name}<br>
-      결제할 프로그램명 ${item.name}<br>
-      결제금액 ${item.fee}원<br>
+결제정보
+  <hr style="margin-top: 5px;">
+<div class="order_frm" >
+      <div class="coach_img">
+      <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' height='150px'>
+     </div>
+     <dl>
+      <dt>신청번호</dt>
+      <dd>${item.mcp.no}</dd>
+       <dt>프로그램</dt> 
+       <dd> ${item.name}</dd>
+       <dt>코치이름</dt>  
+       <dd>${item.coach.name}</dd>
+       <dt>결제금액</dt> 
+       <dd> ${item.fee}원</dd>
+       <dt>신청일</dt>  
+       <dd>${item.mcp.requestDate}</dd>
+       <dt>운동기간</dt> 
+       <dd>${item.mcp.startDate} ~ ${item.mcp.endDate}</dd>
+       <dt>운동장소</dt> 
+       <dd> ${item.coachingType }</dd>
+       <dt>특이사항</dt>
+    <c:if test="${not empty item.mcp.remark}">
+       <dd>${item.mcp.remark}</dd>
+    </c:if>
+    <c:if test="${empty item.mcp.remark}">
+         <dd>없음</dd>
+     </c:if>
+      </dl>
+  <hr style="margin-top: 5px;">
+  <div class="div"></div>
+     <dl>
+            <dt>회원이름</dt> 
+            <dd>${member.name}</dd>
+            <dt>생년월일</dt>
+            <dd>${member.birth}</dd>
+            <dt>전화번호</dt>
+            <dd> ${member.tel}</dd>
+            <dt>이메일</dt> 
+            <dd>${member.email}</dd>
+          </dl>
 </div>
-<div style='border:1px solid gray; padding:10px; margin:5px'>
-  <h3>회원정보</h3>
-      회원이름 ${member.name}<br>
-      생년월일${member.birth}<br>
-      전화번호 ${member.tel}<br>
-      이메일 ${member.email}<br>
-</div>
-<form action='payments' name='frm' method='get'>
-<input name='payment' type='radio' value='kakaoPay'>카카오페이
-<input name='payment' type='radio' value='creditCard'>신용카드<br>
-<input type='button' value='결제하기' onclick='payChk()'>
+
+  <hr style="margin-top: 5px;">
+<form id="pay_frm" action='payments' name='frm' method='get'>
+<input class="pay_method"  name='payment' type='radio' value='creditCard'>신용카드
+<input class="pay_method"  name='payment' type='radio' value='kakaoPay'><img id="pay_img" src='${pageContext.servletContext.contextPath}/upload/img/kakaopay.png' >
+<input class="pay_method"  name='payment' type='radio' value='payPhone'>휴대폰<br>
+  <hr style="margin-top: 5px;">
+<input id="pay_btn" type='button' value='결제하기'  onclick='payChk()'>
 </form>
-
-<script>
-"use strict"
-
-
-function payChk() {
-	//console.log('ddd');
-	var chk_pay = document.getElementsByName('payment');
-	var chk_cnt = 0; 
-	for(var i=0; i<chk_pay.length; i++) {
-	    if(chk_pay[i].checked == true) {
-	    	chk_cnt++
-	    } 
-	}
-
-	if (chk_cnt == 0){
-		alert("결제수단을 선택해주세요");
-		return;
-	} 
-
-	document.frm.submit();
-}
-
-</script>
+<button id="cancel_btn"  type="button">취소</button>

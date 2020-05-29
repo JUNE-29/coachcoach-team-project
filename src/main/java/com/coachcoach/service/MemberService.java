@@ -37,4 +37,6 @@ public interface MemberService {
       throws Exception;
 
   int getSearchPw(String userId, String userEmail) throws Exception;
+
+  public Member get(String email) throws Exception;
 }

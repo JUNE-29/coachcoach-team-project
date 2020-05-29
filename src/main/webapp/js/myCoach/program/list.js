@@ -8,25 +8,25 @@ $(function(){
              type: "POST",
              data: {no: $(this).val()} ,
              success: function(data){
-                			$('#detail-inner-photo').html(
-                					"<img src='${pageContext.servletContext.contextPath}/upload/coach/"+data.photo+" height='200';>"
-                			);  
-                			$('#detail-inner').html(
-                					data.name+"코치님<br>"+
-                					"<p>한 줄 소개<br>"+
+                			$('#detail-inner-photo-img').attr('src','/coachcoach-team-project/upload/coach/' + data.photo);
+                			$('#detail-inner').html("<b>"+
+                					data.name+"코치님</b><br>"+
+                					"<b>한 줄 소개</b><br>"+
                 					data.introduce+
-                					"<p>기본 정보<br>"+
+                					"<br><b>기본 정보</b><br>"+
                 					data.tel+"<br>"+
                 					data.email+"<br>"+
                 					data.address+"<br>"+
-                					"추가 정보<br>"+
+                					"<b>추가 정보</b><br>"+
                 					data.career+"<br>"+
                 					data.certification	
                 			);  
+                			$('#detail-inner-photo-img').css('width','150px');
                 			$('#detail-inner-photo').css('float','left');
                 			$('#detail-inner-photo').css('width','230px');
                 			$('#detail-inner-photo').css('height','200px');
                 			$('#detail-inner-photo').css('margin','5px');
+                			$('#detail-inner-photo').css('margin-top','20px');
                 			$('#detail-inner-photo').css('padding','5px');
                 			$('#detail-inner').css('margin','5px');
                 			$('#detail-inner').css('padding','5px');
