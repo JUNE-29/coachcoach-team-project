@@ -4,6 +4,22 @@ $("#updatebtn").click(function(){
     	swal.fire("운동시작일을 입력해주세요.");
       return false;
     } 
+    
+    var  Now = new Date(),
+    StrNow = String(Now),
+    nowYear = String(Now.getFullYear()),
+        nowMon = String(Now.getMonth()+1),
+    nowDay = String(Now.getDate());
+ if(nowMon.length == 1) {
+ nowMon = "0"+nowMon
+ }
+ var NowToday = nowYear+"/"+nowMon+"/"+nowDay;
+ console.log('NowToday', NowToday);
+    
+    if($.trim($("#startDate").val())<NowToday){
+    	swal.fire("미래날짜를 입력해주세요.");
+      return false;
+    } 
 		    });
 
 

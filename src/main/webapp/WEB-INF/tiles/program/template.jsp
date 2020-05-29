@@ -43,6 +43,6 @@
 
   <script src="${pageContext.servletContext.contextPath}/resources_e/js/summernote/summernote-lite.js"></script>
   <script src="${pageContext.servletContext.contextPath}/resources_e/js/summernote/lang/summernote-ko-KR.js"></script>
-  <script src='${pageContext.getServletContext().getContextPath()}/js/program/apply/<tiles:getAsString name="jsFilename"></tiles:getAsString>'></script>
+  <script src='${pageContext.getServletContext().getContextPath()}/js/program/apply/<tiles:getAsString name="jsFilename"></tiles:getAsString>?ver=1'></script>
 </body>
 </html>
