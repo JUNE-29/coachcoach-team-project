@@ -1,41 +1,58 @@
 // 후기 더보기
 $('#addReview').click(function(){
+	var startNo = Number($('#startNo').val());
+	var endNo = 3;
 	$.ajax({
         url: "reivewDetail",
         dataType: "json",
         type: "POST",
-        data: {no: $('#programNo').val()} ,
+        data: {no: $('#programNo').val(),
+        	startNo: startNo,
+        	endNo, endNo} ,
         success: function(data){
         	console.log(data);
+        	var content = "";
+        	var img = "";
+        	var review ="";
+        	var reviewDate ="";
+        	var memderId ="";
+        	$('#addReview').html('더보기');
+        	
+        	if (data.length == 0){
+            	$('#addReview').css('border','white');
+            	$('#addReview').css('color','white');
+        	} else {
+        		
         	
         	 for (var i=0; i< data.length; i++){
-        		 console.log(data[i].starRate);
-        		 
-        			 var img = $('#star_img');
+        		 		 
         			 if (data[i].starRate != null){
         			 if (data[i].starRate == 0){
-        				 img.attr("src", "../../upload/img/star_0.png");
-            			 $('#review1').html("등록된 후기가 없습니다.");
+        				 img = "<img class='star_img' src='../../upload/img/star_0.png' style='height:20px;'>"
         			 } else if (data[i].starRate == 1){
-        				 img.attr("src", "../../upload/img/star_1.png");
+        				 img = "<img class='star_img' src='../../upload/img/star_1.png' style='height:20px;'>"
         			 } else if (data[i].starRate == 2){
-        				 img.attr("src", "../../upload/img/star_2.png");
+        				 img = "<img class='star_img' src='../../upload/img/star_2.png' style='height:20px;'>"
         			 } else if (data[i].starRate == 3){
-        				 img.attr("src", "../../upload/img/star_3.png");
+        				 img = "<img class='star_img' src='../../upload/img/star_3.png' style='height:20px;'>"
         			 } else if (data[i].starRate == 4){
-        				 img.attr("src", "../../upload/img/star_4.png");
+        				 img = "<img class='star_img' src='../../upload/img/star_4.png' style='height:20px;'>"
         			 } else if (data[i].starRate == 5){
-        				 img.attr("src", "../../upload/img/star_5.png");
+        				 img = "<img class='star_img' src='../../upload/img/star_5.png' style='height:20px;'>"
         			 }
-        			 img.css('height','20px');
         			 
-        			 $('#review1').html(data[i].review)
-        			 $('#review2').html(data[i].reviewDate)
-        			 $('#review3').html(data[i].member.id)
-
+        			 review = "<p id='review1'>" + data[i].review + "</p>"
+        			 reviewDate = "<p id='review2'>" + data[i].reviewDate + "</p>"
+        			 memderId = "<p id='review3'>" + data[i].member.id + "</p>"
+        			 
+        			 
+        			 content = img + review + reviewDate + memderId;
+        			 $(content).appendTo("#reviewBox");
+        			 $('#startNo').val(startNo + 3);
+        			 console.log(startNo);
         			 }
         		 } 
-        	 
+        	}
         }
     });
 });

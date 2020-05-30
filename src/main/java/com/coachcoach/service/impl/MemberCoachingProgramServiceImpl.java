@@ -98,8 +98,8 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
   }
 
   @Override
-  public List<MemberCoachingProgram> reivewstar(int no) throws Exception {
-    return memberCoachingProgramDao.reivewstar(no);
+  public List<MemberCoachingProgram> reivewstar(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.reivewstar(params);
   }
 
   @Override

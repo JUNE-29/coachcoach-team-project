@@ -46,7 +46,7 @@ public interface MemberCoachingProgramDao {
 
   List<MemberCoachingProgram> findAllMember(int coachNo) throws Exception;
 
-  List<MemberCoachingProgram> reivewstar(int no) throws Exception;
+  List<MemberCoachingProgram> reivewstar(Map<String, Object> params) throws Exception;
 
   int applyCount(int no) throws Exception;
 

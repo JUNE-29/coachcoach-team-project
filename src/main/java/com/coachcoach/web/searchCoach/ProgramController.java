@@ -103,8 +103,12 @@ public class ProgramController {
 
   @ResponseBody
   @PostMapping("reivewDetail") // 후기 조회
-  public Object reivewDetail(Model model, int no) throws Exception {
-    List<MemberCoachingProgram> mcp = memberCoachingProgramService.reivewstar(no);
+  public Object reivewDetail(Model model, int no, int startNo, int endNo) throws Exception {
+	Map<String,Object> params = new HashMap<>();
+	params.put("no", no);
+	params.put("startNo", startNo);
+	params.put("endNo", endNo);
+    List<MemberCoachingProgram> mcp = memberCoachingProgramService.reivewstar(params);
     return mcp;
   }
 

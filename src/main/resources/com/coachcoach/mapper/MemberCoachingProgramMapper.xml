@@ -209,7 +209,7 @@
       mcp.program_no=#{no}
   </select>
   
-  <select id="reivewstar" resultMap="MemberCoachingProgramMap" parameterType="int">
+  <select id="reivewstar" resultMap="MemberCoachingProgramMap" parameterType="map">
      select  
        member_program_no,
        mcp.member_no,       
@@ -226,6 +226,7 @@
         where 
       mcp.program_no=#{no} and review is not NULL
       ORDER BY review_date DESC
+       limit #{startNo}, #{endNo}
   </select>
   
   <select id="findAllMember" resultMap="MemberCoachingProgramMap" parameterType="int">
