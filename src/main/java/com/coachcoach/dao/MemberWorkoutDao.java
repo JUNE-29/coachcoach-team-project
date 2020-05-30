@@ -27,6 +27,8 @@ public interface MemberWorkoutDao {
 
   List<Integer> findWalkYear(int memberNo);
 
+  List<Integer> findWeightYear(int memberNo);
+
 
 }
 

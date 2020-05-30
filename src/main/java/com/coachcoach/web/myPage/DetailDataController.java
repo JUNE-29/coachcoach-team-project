@@ -59,7 +59,7 @@ public class DetailDataController {
       list.add(workoutUnit);
     }
     memberWorkout.setWorkoutUnit(list);
-    memberWorkout.setWorkoutDate(new Date(System.currentTimeMillis()));
+    memberWorkout.setWorkoutDate(String.valueOf(new Date(System.currentTimeMillis())));
     memberWorkoutService.add(memberWorkout);
     return "redirect:memberWorkoutList";
   }
@@ -70,12 +70,13 @@ public class DetailDataController {
   @GetMapping("memberWorkoutList")
   public void list(Model model) throws Exception {
     int memberNo = 0;
-    if(httpSession.getAttribute("loginUser").getClass() == Member.class) {
+    if (httpSession.getAttribute("loginUser").getClass() == Member.class) {
       memberNo = ((Member) httpSession.getAttribute("loginUser")).getNo();
     }
 
-    if(httpSession.getAttribute("loginUser").getClass() == Coach.class) {
-      memberNo = memberCoachingProgramService.get((int)httpSession.getAttribute("memberCoachingProgramNo")).getMemberNo();
+    if (httpSession.getAttribute("loginUser").getClass() == Coach.class) {
+      memberNo = memberCoachingProgramService
+          .get((int) httpSession.getAttribute("memberCoachingProgramNo")).getMemberNo();
     }
     httpSession.setAttribute("memberNo", memberNo);
     model.addAttribute("memberNo", memberNo);
@@ -100,25 +101,28 @@ public class DetailDataController {
   @ResponseBody
   @GetMapping("weekWalk")
   public Object weekWalk() throws Exception {
-    List<Integer> walkWeek = memberWorkoutService.getWalkWeek((int)httpSession.getAttribute("memberNo"));
-    return walkWeek;
+    return memberWorkoutService.getWalkWeek((int) httpSession.getAttribute("memberNo"));
   }
 
   @Auth(role = {Role.COACH, Role.MEMBER})
   @ResponseBody
   @GetMapping("monthWalk")
   public Object monthWalk() throws Exception {
-    List<Integer> walkMonth = memberWorkoutService.getWalkMonth((int)httpSession.getAttribute("memberNo"));
-    System.out.println(walkMonth);
-    return walkMonth;
+    return memberWorkoutService.getWalkMonth((int) httpSession.getAttribute("memberNo"));
   }
 
   @Auth(role = {Role.COACH, Role.MEMBER})
   @ResponseBody
   @GetMapping("yearWalk")
   public Object yearWalk() throws Exception {
-    List<Integer> walkyear = memberWorkoutService.getWalkYear((int)httpSession.getAttribute("memberNo"));
-    return walkyear;
+    return memberWorkoutService.getWalkYear((int) httpSession.getAttribute("memberNo"));
+  }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @ResponseBody
+  @GetMapping("yearWeight")
+  public Object yearWeight() throws Exception {
+    return memberWorkoutService.getYearWeight((int) httpSession.getAttribute("memberNo"));
   }
 
 

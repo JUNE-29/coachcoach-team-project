@@ -148,6 +148,17 @@
 		order by t1.month
   </select>
   
+  <select id="findWeightYear" resultMap="MemberWorkoutMap" parameterType="int">
+    select
+      m.workout_date,
+      m.weight
+    from
+      member_workouts m
+    where
+      m.member_no=#{no}
+    GROUP BY m.workout_date
+    ORDER BY m.workout_date asc
+  </select>
     
     <!-- 운동내역리스트 -->
   <select id="findByNo" resultMap="MemberWorkoutMap" parameterType="int">

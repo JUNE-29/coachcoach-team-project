@@ -57,6 +57,7 @@
   <script src="${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/daygrid/main.min.js"></script>
   <script src='${pageContext.servletContext.contextPath}/node_modules/@fullcalendar/interaction/main.min.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
+  <script src='${pageContext.servletContext.contextPath}/node_modules/moment/moment.js'></script>
   <script src='${pageContext.servletContext.contextPath}/node_modules/chart.js/dist/Chart.min.js'></script>
 
   <!-- Template Main JS File -->

@@ -1,7 +1,6 @@
 package com.coachcoach.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.List;
 
 public class MemberWorkout implements Serializable {
@@ -10,7 +9,7 @@ public class MemberWorkout implements Serializable {
 
   int workoutListNo; // 운동내역번호
   int memberNo; // 회원번호
-  Date workoutDate; // 시행날짜
+  String workoutDate; // 시행날짜
   int weight; // 체중
   int walkCount; // 걸음수
   List<WorkoutUnit> workoutUnit;
@@ -39,11 +38,11 @@ public class MemberWorkout implements Serializable {
     this.memberNo = memberNo;
   }
 
-  public Date getWorkoutDate() {
+  public String getWorkoutDate() {
     return workoutDate;
   }
 
-  public void setWorkoutDate(Date workoutDate) {
+  public void setWorkoutDate(String workoutDate) {
     this.workoutDate = workoutDate;
   }
 
