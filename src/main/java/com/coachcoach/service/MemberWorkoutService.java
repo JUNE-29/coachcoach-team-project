@@ -28,6 +28,10 @@ public interface MemberWorkoutService {
 
   List<Integer> getYearWeight(int memberNo) throws Exception;
 
+  List<MemberWorkout> getDayWorkout(int memberNo) throws Exception;
 
+  List<MemberWorkout> getWeekWorkout(int memberNo) throws Exception;
+
+  List<MemberWorkout> getMonthWorkout(int memberNo) throws Exception;
 
 }

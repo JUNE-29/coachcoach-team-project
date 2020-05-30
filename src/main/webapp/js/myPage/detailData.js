@@ -19,55 +19,68 @@ Chart.defaults.global.defaultFontSize = 18;
 var myChart;
 var myWorkoutChart;
 
-$.ajax({
-  url:'dayWorkout',
-  type:'GET',
-  dataType:'json',
-  success: function(data) {
-    var lable = [];
-    var workoutData = [];
-    for (d of data) {
-      lable.push()
-    }
-    myWorkoutChart = new Chart($('#workoutAmount'), {
-        type: 'pie',
-        data: {
-            labels: ['Redsdfdf', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                data: workoutData,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 2
-            }]
-        },
-        options: {
-          title: {
-            display: true,
-            text: '운동 내역',
-            fontSize: 25
-          },
-          responsive: true,
-          maintainAspectRatio: true
-        }
-    })
-  }
-})
 
-if ($('#walkWeek').hasClass('active')) {
+
+if ($('#week').hasClass('active')) {
+  $.ajax({
+    url:'dayWorkout',
+    type:'GET',
+    dataType:'json',
+    success: function(data) {
+      var label = [];
+      var workoutData = [];
+      for (d of data) {
+        for(unit of d.workoutUnit) {
+          label.push(unit.name);
+          workoutData.push(unit.unit);
+        }
+      }
+      myWorkoutChart = new Chart($('#workoutAmount'), {
+          type: 'pie',
+          data: {
+              labels: label,
+              datasets: [{
+                  data: workoutData,
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 230, 150, 0.2)',
+                      'rgba(75, 162, 86, 0.2)',
+                      'rgba(255, 192, 192, 0.2)',
+                      'rgba(75, 102, 255, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)',
+                      'rgba(255, 230, 150, 1)',
+                      'rgba(75, 162, 86, 1)',
+                      'rgba(255, 192, 192, 1)',
+                      'rgba(75, 102, 255, 1)'
+                  ],
+                  borderWidth: 2
+              }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: '오늘의 운동 내역',
+              fontSize: 25
+            },
+            responsive: true,
+            maintainAspectRatio: true
+          }
+      })
+    }
+  })
+  
 var walk_data = [];
 $.ajax({
 	url:"weekWalk",
@@ -131,71 +144,190 @@ $('div.walk').on('click', function(){
 		return;
 	} else {
 		$(this).parent('div').find('.active').removeClass('active');
+		myWorkoutChart.destroy();
 		myChart.destroy();
 		$(this).addClass('active');
 	}
 	
-if ($('#walkWeek').hasClass('active')) {
-var walk_data = [];
-$.ajax({
-	url:"weekWalk",
-	type:"GET",
-	dataType:"json",
-	success: function(data) {
-		for (d of data) {
-			walk_data.push(d.walkCount)
-		}
-		myChart = new Chart($('#walk'), {
-		    type: 'horizontalBar',
-		    data: {
-		        labels: ['일', '월', '화', '수', '목', '금', '토'],
-		        datasets: [{
-		            label: '걸음 수',
-		            data: walk_data,
-		            backgroundColor: [
-		                'rgba(255, 99, 132, 0.2)',
-		                'rgba(54, 162, 235, 0.2)',
-		                'rgba(255, 206, 86, 0.2)',
-		                'rgba(75, 192, 192, 0.2)',
-		                'rgba(153, 102, 255, 0.2)',
-		                'rgba(255, 159, 64, 0.2)'
-		            ],
-		            borderColor: [
-		                'rgba(255, 99, 132, 1)',
-		                'rgba(54, 162, 235, 1)',
-		                'rgba(255, 206, 86, 1)',
-		                'rgba(75, 192, 192, 1)',
-		                'rgba(153, 102, 255, 1)',
-		                'rgba(255, 159, 64, 1)',
-		                'rgba(119,119,119,0.2)'
-		            ], 
-		            borderWidth: 2
-		        }]
-		    },
-		    options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero: true
-		                }
-		            }]
-		        },
-		    responsive: true,
-		    maintainAspectRatio: true,
-		    title: {
-	            display: true,
-	            text: '요일 별 걸음수',
-	            fontSize: 25
-	        }
-		    }
-		});
-	}
-})
-
+if ($('#week').hasClass('active')) {
+  
+  $.ajax({
+    url:'dayWorkout',
+    type:'GET',
+    dataType:'json',
+    success: function(data) {
+      var label = [];
+      var workoutData = [];
+      for (d of data) {
+        for(unit of d.workoutUnit) {
+          label.push(unit.name);
+          workoutData.push(unit.unit);
+        }
+      }
+      myWorkoutChart = new Chart($('#workoutAmount'), {
+          type: 'pie',
+          data: {
+              labels: label,
+              datasets: [{
+                  data: workoutData,
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 230, 150, 0.2)',
+                      'rgba(75, 162, 86, 0.2)',
+                      'rgba(255, 192, 192, 0.2)',
+                      'rgba(75, 102, 255, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)',
+                      'rgba(255, 230, 150, 1)',
+                      'rgba(75, 162, 86, 1)',
+                      'rgba(255, 192, 192, 1)',
+                      'rgba(75, 102, 255, 1)'
+                  ],
+                  borderWidth: 2
+              }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: '오늘의 운동 내역',
+              fontSize: 25
+            },
+            responsive: true,
+            maintainAspectRatio: true
+          }
+      })
+    }
+  })
+  
+  var walk_data = [];
+  $.ajax({
+  	url:"weekWalk",
+  	type:"GET",
+  	dataType:"json",
+  	success: function(data) {
+  		for (d of data) {
+  			walk_data.push(d.walkCount)
+  		}
+  		myChart = new Chart($('#walk'), {
+  		    type: 'horizontalBar',
+  		    data: {
+  		        labels: ['일', '월', '화', '수', '목', '금', '토'],
+  		        datasets: [{
+  		            label: '걸음 수',
+  		            data: walk_data,
+  		            backgroundColor: [
+  		                'rgba(255, 99, 132, 0.2)',
+  		                'rgba(54, 162, 235, 0.2)',
+  		                'rgba(255, 206, 86, 0.2)',
+  		                'rgba(75, 192, 192, 0.2)',
+  		                'rgba(153, 102, 255, 0.2)',
+  		                'rgba(255, 159, 64, 0.2)'
+  		            ],
+  		            borderColor: [
+  		                'rgba(255, 99, 132, 1)',
+  		                'rgba(54, 162, 235, 1)',
+  		                'rgba(255, 206, 86, 1)',
+  		                'rgba(75, 192, 192, 1)',
+  		                'rgba(153, 102, 255, 1)',
+  		                'rgba(255, 159, 64, 1)',
+  		                'rgba(119,119,119,0.2)'
+  		            ], 
+  		            borderWidth: 2
+  		        }]
+  		    },
+  		    options: {
+  		        scales: {
+  		            yAxes: [{
+  		                ticks: {
+  		                    beginAtZero: true
+  		                }
+  		            }]
+  		        },
+  		    responsive: true,
+  		    maintainAspectRatio: true,
+  		    title: {
+  	            display: true,
+  	            text: '요일 별 걸음수',
+  	            fontSize: 25
+  	        }
+  		    }
+  		});
+  	}
+  })
 }
 
 
-if ($('#walkMonth').hasClass('active')) {
+if ($('#month').hasClass('active')) {
+  $.ajax({
+    url:'weekWorkout',
+    type:'GET',
+    dataType:'json',
+    success: function(data) {
+      var label = [];
+      var workoutData = [];
+      for (d of data) {
+        for(unit of d.workoutUnit) {
+          label.push(unit.name);
+          workoutData.push(unit.unit);
+        }
+      }
+      myWorkoutChart = new Chart($('#workoutAmount'), {
+          type: 'pie',
+          data: {
+              labels: label,
+              datasets: [{
+                  data: workoutData,
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 230, 150, 0.2)',
+                      'rgba(75, 162, 86, 0.2)',
+                      'rgba(255, 192, 192, 0.2)',
+                      'rgba(75, 102, 255, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)',
+                      'rgba(255, 230, 150, 1)',
+                      'rgba(75, 162, 86, 1)',
+                      'rgba(255, 192, 192, 1)',
+                      'rgba(75, 102, 255, 1)'
+                  ],
+                  borderWidth: 2
+              }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: '이 주의 운동 내역',
+              fontSize: 25
+            },
+            responsive: true,
+            maintainAspectRatio: true
+          }
+      })
+    }
+  })
+  
 var walk_data2 = [];
 $.ajax({
 	url:"monthWalk",
@@ -248,7 +380,66 @@ $.ajax({
 })
 }
 
-if ($('#walkYear').hasClass('active')) {
+if ($('#year').hasClass('active')) {
+  $.ajax({
+    url:'monthWorkout',
+    type:'GET',
+    dataType:'json',
+    success: function(data) {
+      var label = [];
+      var workoutData = [];
+      for (d of data) {
+        for(unit of d.workoutUnit) {
+          label.push(unit.name);
+          workoutData.push(unit.unit);
+        }
+      }
+      myWorkoutChart = new Chart($('#workoutAmount'), {
+          type: 'pie',
+          data: {
+              labels: label,
+              datasets: [{
+                  data: workoutData,
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 230, 150, 0.2)',
+                      'rgba(75, 162, 86, 0.2)',
+                      'rgba(255, 192, 192, 0.2)',
+                      'rgba(75, 102, 255, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)',
+                      'rgba(255, 230, 150, 1)',
+                      'rgba(75, 162, 86, 1)',
+                      'rgba(255, 192, 192, 1)',
+                      'rgba(75, 102, 255, 1)'
+                  ],
+                  borderWidth: 2
+              }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: '이 달의 운동 내역',
+              fontSize: 25
+            },
+            responsive: true,
+            maintainAspectRatio: true
+          }
+      })
+    }
+  })
+  
 var walk_data3 = [];
 $.ajax({
 	url:"yearWalk",

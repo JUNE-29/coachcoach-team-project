@@ -101,6 +101,8 @@ public class DetailDataController {
   @ResponseBody
   @GetMapping("weekWalk")
   public Object weekWalk() throws Exception {
+    System.out
+        .println(memberWorkoutService.getWalkWeek((int) httpSession.getAttribute("memberNo")));
     return memberWorkoutService.getWalkWeek((int) httpSession.getAttribute("memberNo"));
   }
 
@@ -123,6 +125,31 @@ public class DetailDataController {
   @GetMapping("yearWeight")
   public Object yearWeight() throws Exception {
     return memberWorkoutService.getYearWeight((int) httpSession.getAttribute("memberNo"));
+  }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @ResponseBody
+  @GetMapping("dayWorkout")
+  public Object dayWorkout() throws Exception {
+    return memberWorkoutService.getDayWorkout((int) httpSession.getAttribute("memberNo"));
+  }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @ResponseBody
+  @GetMapping("weekWorkout")
+  public Object weekWorkout() throws Exception {
+    System.out.println(
+        "week" + memberWorkoutService.getWeekWorkout((int) httpSession.getAttribute("memberNo")));
+    return memberWorkoutService.getWeekWorkout((int) httpSession.getAttribute("memberNo"));
+  }
+
+  @Auth(role = {Role.COACH, Role.MEMBER})
+  @ResponseBody
+  @GetMapping("monthWorkout")
+  public Object monthWorkout() throws Exception {
+    System.out.println(
+        "month" + memberWorkoutService.getMonthWorkout((int) httpSession.getAttribute("memberNo")));
+    return memberWorkoutService.getMonthWorkout((int) httpSession.getAttribute("memberNo"));
   }
 
 

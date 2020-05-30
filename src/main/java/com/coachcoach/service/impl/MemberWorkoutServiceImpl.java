@@ -71,6 +71,21 @@ public class MemberWorkoutServiceImpl implements MemberWorkoutService {
     return memberWorkoutDao.findWeightYear(memberNo);
   }
 
+  @Override
+  public List<MemberWorkout> getDayWorkout(int memberNo) throws Exception {
+    return memberWorkoutDao.findDayWorkout(memberNo);
+  }
+
+  @Override
+  public List<MemberWorkout> getWeekWorkout(int memberNo) throws Exception {
+    return memberWorkoutDao.findWeekWorkout(memberNo);
+  }
+
+  @Override
+  public List<MemberWorkout> getMonthWorkout(int memberNo) throws Exception {
+    return memberWorkoutDao.findMonthWorkout(memberNo);
+  }
+
 
 
 }

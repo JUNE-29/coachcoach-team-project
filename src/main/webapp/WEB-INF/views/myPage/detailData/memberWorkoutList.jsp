@@ -10,13 +10,13 @@
 
 <div class="row" >
   <div class="walk-period">
-    <div id="walkWeek" class="walk week active">
+    <div id="week" class="walk week active">
     Day
     </div>
-    <div id="walkMonth" class="walk month">
+    <div id="month" class="walk month">
     Week
     </div>
-    <div id="walkYear" class="walk year">
+    <div id="year" class="walk year">
     Month
     </div>
   </div>
