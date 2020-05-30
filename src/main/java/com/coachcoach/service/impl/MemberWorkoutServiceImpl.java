@@ -66,6 +66,11 @@ public class MemberWorkoutServiceImpl implements MemberWorkoutService {
     return memberWorkoutDao.findWalkYear(memberNo);
   }
 
+  @Override
+  public List<Integer> getYearWeight(int memberNo) throws Exception {
+    return memberWorkoutDao.findWeightYear(memberNo);
+  }
+
 
 
 }

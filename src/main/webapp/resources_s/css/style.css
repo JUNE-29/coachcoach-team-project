@@ -15,15 +15,15 @@
 	margin-top:0px;
   padding: 20px;
   box-shadow: 
-    2px 0 0 0 #c0c0c0, 
-    0 2px 0 0 #c0c0c0, 
-    2px 2px 0 0 #c0c0c0,
-    2px 0 0 0 #c0c0c0 inset, 
-    0 2px 0 0 #c0c0c0 inset;
+    1px 0 0 0 #c0c0c0, 
+    0 1px 0 0 #c0c0c0, 
+    1px 1px 0 0 #c0c0c0,
+    1px 0 0 0 #c0c0c0 inset, 
+    0 1px 0 0 #c0c0c0 inset;
 	}
 
 .walk:hover, .walk.active {
-	background-color: #6dc6f2;
+	background-color: #3498DB;
 	color: #fff;
 }
 

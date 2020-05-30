@@ -1,5 +1,4 @@
 $(document).ready( function () {
-  
     $('#myTable').DataTable({
       searching: false,
       pageLength: 5
@@ -15,6 +14,57 @@ $('.addWorkoutButton').on('click', function(e){
      return;  
    }
 
+})
+Chart.defaults.global.defaultFontSize = 18;
+var myChart;
+var myWorkoutChart;
+
+$.ajax({
+  url:'dayWorkout',
+  type:'GET',
+  dataType:'json',
+  success: function(data) {
+    var lable = [];
+    var workoutData = [];
+    for (d of data) {
+      lable.push()
+    }
+    myWorkoutChart = new Chart($('#workoutAmount'), {
+        type: 'pie',
+        data: {
+            labels: ['Redsdfdf', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                data: workoutData,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: '운동 내역',
+            fontSize: 25
+          },
+          responsive: true,
+          maintainAspectRatio: true
+        }
+    })
+  }
 })
 
 if ($('#walkWeek').hasClass('active')) {
@@ -51,7 +101,7 @@ $.ajax({
 		                'rgba(255, 159, 64, 1)',
 		                'rgba(119,119,119,0.2)'
 		            ], 
-		            borderWidth: 1
+		            borderWidth: 2
 		        }]
 		    },
 		    options: {
@@ -67,7 +117,7 @@ $.ajax({
 		    title: {
 	            display: true,
 	            text: '요일 별 걸음수',
-	            fontSize: 30
+	            fontSize: 25
 	        }
 		    }
 		});
@@ -76,8 +126,6 @@ $.ajax({
 
 }
 
-
-var myChart;
 $('div.walk').on('click', function(){
 	if($(this).hasClass('active')) {
 		return;
@@ -121,7 +169,7 @@ $.ajax({
 		                'rgba(255, 159, 64, 1)',
 		                'rgba(119,119,119,0.2)'
 		            ], 
-		            borderWidth: 1
+		            borderWidth: 2
 		        }]
 		    },
 		    options: {
@@ -137,7 +185,7 @@ $.ajax({
 		    title: {
 	            display: true,
 	            text: '요일 별 걸음수',
-	            fontSize: 30
+	            fontSize: 25
 	        }
 		    }
 		});
@@ -176,7 +224,7 @@ $.ajax({
 		                'rgba(255, 206, 86, 1)',
 		                'rgba(75, 192, 192, 1)',
 		            ], 
-		            borderWidth: 1
+		            borderWidth: 2
 		        }]
 		    },
 		    options: {
@@ -192,7 +240,7 @@ $.ajax({
 		    title: {
 	            display: true,
 	            text: '주 별 걸음수',
-	            fontSize: 30
+	            fontSize: 25
 	        }
 		    }
 		});
@@ -245,7 +293,7 @@ $.ajax({
 		                'rgba(153, 102, 255, 1)',
 		                'rgba(255, 159, 64, 1)'
 		            ], 
-		            borderWidth: 1
+		            borderWidth: 2
 		        }]
 		    },
 		    options: {
@@ -261,7 +309,7 @@ $.ajax({
 		    title: {
 	            display: true,
 	            text: '월 별 걸음수',
-	            fontSize: 30
+	            fontSize: 25
 	        }
 		    }
 		});
@@ -269,83 +317,76 @@ $.ajax({
 })
 }
 })
-var myWeightChart = new Chart($('#weight'), {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        },
-    responsive: true,
-    maintainAspectRatio: true
-    }
-});
 
-var myWorkoutChart = new Chart($('#workoutTimes'), {
-	
-    type: 'pie',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        },
-    responsive: true,
-    maintainAspectRatio: true
+$.ajax({
+  url:'yearWeight',
+  type: 'GET',
+  dataType: 'json',
+  success: function(data) {
+    var wData = [];
+    for (d of data) {
+      wData.push({x:moment(d.workoutDate), y:d.weight});
     }
-});
+    var myWeightChart = new Chart($('#weight'), {
+        type: 'line',
+        data: {
+          datasets: [{
+              label: '몸무게',
+              data: wData,
+              lineTension: 0.2,
+              fill: false,
+              borderColor: 'orange',
+              backgroundColor: 'transparent',
+              pointBorderColor: 'orange',
+              pointBackgroundColor: 'rgba(255,150,0,0.5)',
+              borderDash: [5, 5],
+              pointRadius: 5,
+              pointHoverRadius: 10,
+              pointHitRadius: 30,
+              pointBorderWidth: 2,
+              pointStyle: 'rectRounded'
+          }]
+      },
+        options: {
+          title: {
+            display: true,
+            text: '몸무게 변화',
+            fontSize: 25
+          },
+            scales: {
+                xAxes: [{
+                  gridLines: {
+                    display: false,
+                    color: "black"
+                  },
+                  type: 'time',
+                  position: 'bottom',
+                  time: {
+                    unit: 'month',
+                    unitStepSize: 0.5,
+                    tooltipFormat: 'yyyy-MM-DD',
+                    displayFormats: {
+                      month: 'yyyy-MM'
+                    }
+                  }
+              }],
+              yAxes: [{
+                gridLines: {
+                  color: "grey",
+                  borderDash: [2, 5],
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "kg",
+                }
+              }]
+            },
+        responsive: true,
+        maintainAspectRatio: true
+        }
+    });
+  }
+})
 
 
 $('#workoutSubmit').on('click', function() {

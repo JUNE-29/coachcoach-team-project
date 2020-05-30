@@ -22,9 +22,11 @@ public interface MemberWorkoutService {
 
   List<Integer> getWalkWeek(int memberNo) throws Exception;
 
-  List<Integer> getWalkMonth(int attribute) throws Exception;
+  List<Integer> getWalkMonth(int memberNo) throws Exception;
 
-  List<Integer> getWalkYear(int attribute) throws Exception;
+  List<Integer> getWalkYear(int memberNo) throws Exception;
+
+  List<Integer> getYearWeight(int memberNo) throws Exception;
 
 
 
