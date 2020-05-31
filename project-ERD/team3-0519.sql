@@ -237,13 +237,14 @@ ALTER TABLE to_do_list
 
 ALTER TABLE to_do_list
   MODIFY COLUMN to_do_list_no INTEGER NOT NULL AUTO_INCREMENT COMMENT '해야할일번호';
+  
 
 -- 운동내역
 CREATE TABLE member_workouts (
   workout_list_no INTEGER NOT NULL COMMENT '운동내역번호', -- 운동내역번호
   member_no       INTEGER NOT NULL COMMENT '일반회원번호', -- 일반회원번호
   workout_date    DATE    NOT NULL DEFAULT now() COMMENT '시행날짜', -- 시행날짜
-  weight          INTEGER NOT NULL COMMENT '몸무게', -- 몸무게
+  weight          FLOAT NOT NULL COMMENT '몸무게', -- 몸무게
   walk_count      INTEGER NULL     COMMENT '측정값' -- 측정값
 )
 COMMENT '운동내역';

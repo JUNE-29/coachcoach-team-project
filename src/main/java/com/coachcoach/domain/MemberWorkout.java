@@ -10,7 +10,7 @@ public class MemberWorkout implements Serializable {
   int workoutListNo; // 운동내역번호
   int memberNo; // 회원번호
   String workoutDate; // 시행날짜
-  int weight; // 체중
+  double weight; // 체중
   int walkCount; // 걸음수
   List<WorkoutUnit> workoutUnit;
   Member member;
@@ -46,11 +46,11 @@ public class MemberWorkout implements Serializable {
     this.workoutDate = workoutDate;
   }
 
-  public int getWeight() {
+  public double getWeight() {
     return weight;
   }
 
-  public void setWeight(int weight) {
+  public void setWeight(double weight) {
     this.weight = weight;
   }
 
