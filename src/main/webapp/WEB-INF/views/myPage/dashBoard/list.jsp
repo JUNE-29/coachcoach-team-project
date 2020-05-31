@@ -17,7 +17,22 @@
 	    </c:forEach>
     </div>
 	</div>
-	<div class="workouts">
+	<div class="workouts" style="margin: 70px 0 30px 0">
+	<div class="row">
+		<div style="width:47%;">
+	    <jsp:include page='../detailData/workoutGraph.jsp'/>
+	  </div>
+	  <div style="width:47%;">
+      <jsp:include page='../detailData/walkGraph.jsp'/>
+    </div>
+  </div>
+	</div>
+	<hr>
+	<div>
+	  <h3><span class="tit" style="font-size:26px;">오늘 운동 하셨나요??</span></h3>
+	  하셨을 거라고 믿어요
+	  <br>
+	  <a href="../detailData/memberWorkoutList">오늘의 운동 기록하러 가기<i class="bx bx-run" style="font-size: 40px"></i></a>
 	</div>
 </div>
 

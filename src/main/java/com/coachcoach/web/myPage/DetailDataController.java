@@ -154,6 +154,7 @@ public class DetailDataController {
 
 
   @GetMapping("memberWorkoutDelete")
+  @ResponseBody
   public void delete(int no) throws Exception {
     memberWorkoutService.delete(no);
   }

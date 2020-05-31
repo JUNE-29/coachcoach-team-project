@@ -21,16 +21,16 @@
     </div>
   </div>
   <div style="width:45%;">
-    <canvas id="workoutAmount" width="200" height="200"></canvas>
+    <jsp:include page='../detailData/workoutGraph.jsp'/>
 	</div>
 	<div style="width:45%;">
-    <canvas id="walk" width="200" height="200"></canvas>
+    <jsp:include page='../detailData/walkGraph.jsp'/>
   </div>
 </div>
 
 
 <div style="width:90%; margin:100px 0 100px 70px;">
-  <canvas id="weight" width="400" height="150"></canvas>
+  <jsp:include page='../detailData/weightGraph.jsp'/>
 </div>
 
 

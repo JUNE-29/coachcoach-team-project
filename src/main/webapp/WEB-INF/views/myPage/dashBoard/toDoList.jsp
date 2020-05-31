@@ -14,12 +14,12 @@
    
     <div class="toDoList_list">
       <c:forEach items="${findAll}" var="item">
-        <tr>
-             <td align=center><input type="checkbox" name="toDoList1" class="ab" value="${item.no}"> </td>
-             <td align=center class="memo">${item.memo}</td>
-             <th><a class="updateToDoList" href="#"><input name="no" type="hidden" value="${item.no}"><i class='bx bx-pencil'></i></a></th> <!-- 수정 -->
-             <th><a href="toDoListDelete?toDoListNo=${item.no}"><i class='bx bx-x' ></i></a></th> <!-- 삭제 -->
-        </tr>
+        <span class="item">
+             <span><input type="checkbox" name="toDoList1" class="ab" value="${item.no}"> </span>
+             <span class="memo">${item.memo}</span>
+             <span><a class="updateToDoList" href="#"><input name="no" type="hidden" value="${item.no}"><i class='bx bx-pencil'></i></a></span> <!-- 수정 -->
+             <span><a href="toDoListDelete?toDoListNo=${item.no}"><i class='bx bx-x' ></i></a></span> <!-- 삭제 -->
+        </span>
       <br>
       </c:forEach>
     </div>

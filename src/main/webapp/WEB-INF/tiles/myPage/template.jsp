@@ -28,7 +28,7 @@
   <link href="${pageContext.servletContext.contextPath}/node_modules/chart.js/dist/Chart.min.css" rel="stylesheet">
  
   <!-- Template Main CSS File -->
-  <link href="${pageContext.servletContext.contextPath}/css/myPage/style.css?ver=1" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/css/myPage/style.css?asd" rel="stylesheet">
 
 </head>
 <body>
@@ -61,7 +61,7 @@
   <script src='${pageContext.servletContext.contextPath}/node_modules/chart.js/dist/Chart.min.js'></script>
 
   <!-- Template Main JS File -->
-   <script src='${pageContext.getServletContext().getContextPath()}/<tiles:getAsString name="jsFile"></tiles:getAsString>?ver=1'></script>
+   <script src='${pageContext.getServletContext().getContextPath()}/<tiles:getAsString name="jsFile"></tiles:getAsString>?v=<%=System.currentTimeMillis() %>'></script>
 <script src='${pageContext.getServletContext().getContextPath()}/js/myPage/main.js?ver=1'></script>
 
 </body>

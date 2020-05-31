@@ -71,7 +71,7 @@ if ($('#week').hasClass('active')) {
           options: {
             title: {
               display: true,
-              text: '오늘의 운동 내역',
+              text: '오늘의 운동 내역(분)',
               fontSize: 25
             },
             responsive: true,
@@ -82,61 +82,60 @@ if ($('#week').hasClass('active')) {
   })
   
 var walk_data = [];
-$.ajax({
-	url:"weekWalk",
-	type:"GET",
-	dataType:"json",
-	success: function(data) {
-		for (d of data) {
-			walk_data.push(d.walkCount)
-		}
-		myChart = new Chart($('#walk'), {
-		    type: 'horizontalBar',
-		    data: {
-		        labels: ['일', '월', '화', '수', '목', '금', '토'],
-		        datasets: [{
-		            label: '걸음 수',
-		            data: walk_data,
-		            backgroundColor: [
-		                'rgba(255, 99, 132, 0.2)',
-		                'rgba(54, 162, 235, 0.2)',
-		                'rgba(255, 206, 86, 0.2)',
-		                'rgba(75, 192, 192, 0.2)',
-		                'rgba(153, 102, 255, 0.2)',
-		                'rgba(255, 159, 64, 0.2)'
-		            ],
-		            borderColor: [
-		                'rgba(255, 99, 132, 1)',
-		                'rgba(54, 162, 235, 1)',
-		                'rgba(255, 206, 86, 1)',
-		                'rgba(75, 192, 192, 1)',
-		                'rgba(153, 102, 255, 1)',
-		                'rgba(255, 159, 64, 1)',
-		                'rgba(119,119,119,0.2)'
-		            ], 
-		            borderWidth: 2
-		        }]
-		    },
-		    options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero: true
-		                }
-		            }]
-		        },
-		    responsive: true,
-		    maintainAspectRatio: true,
-		    title: {
-	            display: true,
-	            text: '요일 별 걸음수',
-	            fontSize: 25
-	        }
-		    }
-		});
-	}
-})
-
+  $.ajax({
+  	url:"weekWalk",
+  	type:"GET",
+  	dataType:"json",
+  	success: function(data) {
+  		for (d of data) {
+  			walk_data.push(d.walkCount)
+  		}
+  		myChart = new Chart($('#walk'), {
+  		    type: 'horizontalBar',
+  		    data: {
+  		        labels: ['일', '월', '화', '수', '목', '금', '토'],
+  		        datasets: [{
+  		            label: '걸음 수',
+  		            data: walk_data,
+  		            backgroundColor: [
+  		                'rgba(255, 99, 132, 0.2)',
+  		                'rgba(54, 162, 235, 0.2)',
+  		                'rgba(255, 206, 86, 0.2)',
+  		                'rgba(75, 192, 192, 0.2)',
+  		                'rgba(153, 102, 255, 0.2)',
+  		                'rgba(255, 159, 64, 0.2)'
+  		            ],
+  		            borderColor: [
+  		                'rgba(255, 99, 132, 1)',
+  		                'rgba(54, 162, 235, 1)',
+  		                'rgba(255, 206, 86, 1)',
+  		                'rgba(75, 192, 192, 1)',
+  		                'rgba(153, 102, 255, 1)',
+  		                'rgba(255, 159, 64, 1)',
+  		                'rgba(119,119,119,0.2)'
+  		            ], 
+  		            borderWidth: 2
+  		        }]
+  		    },
+  		    options: {
+  		        scales: {
+  		            yAxes: [{
+  		                ticks: {
+  		                    beginAtZero: true
+  		                }
+  		            }]
+  		        },
+  		    responsive: true,
+  		    maintainAspectRatio: true,
+  		    title: {
+  	            display: true,
+  	            text: '요일 별 걸음수',
+  	            fontSize: 25
+  	        }
+  		    }
+  		});
+  	}
+  })
 }
 
 $('div.walk').on('click', function(){
@@ -200,7 +199,7 @@ if ($('#week').hasClass('active')) {
           options: {
             title: {
               display: true,
-              text: '오늘의 운동 내역',
+              text: '오늘의 운동 내역(분)',
               fontSize: 25
             },
             responsive: true,
@@ -318,7 +317,7 @@ if ($('#month').hasClass('active')) {
           options: {
             title: {
               display: true,
-              text: '이 주의 운동 내역',
+              text: '이 주의 운동 내역(분)',
               fontSize: 25
             },
             responsive: true,
@@ -430,7 +429,7 @@ if ($('#year').hasClass('active')) {
           options: {
             title: {
               display: true,
-              text: '이 달의 운동 내역',
+              text: '이 달의 운동 내역(분)',
               fontSize: 25
             },
             responsive: true,

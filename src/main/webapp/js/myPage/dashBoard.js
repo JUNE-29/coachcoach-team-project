@@ -1,3 +1,115 @@
+var walk_data2 = [];
+$.ajax({
+  url:"../detailData/monthWalk",
+  type:"GET",
+  dataType:"json",
+  success: function(data) {
+    for (d of data) {
+      walk_data2.push(d.walkCount)
+    }
+    var myChart = new Chart($('#walk'), {
+        type: 'bar',
+        data: {
+            labels: ['3주 전', '2주 전', '1주 전', '이번주'],
+            datasets: [{
+                label: '평균 걸음 수',
+                data: walk_data2,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ], 
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+        responsive: true,
+        maintainAspectRatio: true,
+        title: {
+              display: true,
+              text: '주 별 걸음수',
+              fontSize: 25,
+              fontColor: '#000'
+          }
+        }
+    });
+  }
+})
+
+
+$.ajax({
+  url:'../detailData/weekWorkout',
+  type:'GET',
+  dataType:'json',
+  success: function(data) {
+    var label = [];
+    var workoutData = [];
+    for (d of data) {
+      for(unit of d.workoutUnit) {
+        label.push(unit.name);
+        workoutData.push(unit.unit);
+      }
+    }
+    myWorkoutChart = new Chart($('#workoutAmount'), {
+        type: 'pie',
+        data: {
+            labels: label,
+            datasets: [{
+                data: workoutData,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 230, 150, 0.2)',
+                    'rgba(75, 162, 86, 0.2)',
+                    'rgba(255, 192, 192, 0.2)',
+                    'rgba(75, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 230, 150, 1)',
+                    'rgba(75, 162, 86, 1)',
+                    'rgba(255, 192, 192, 1)',
+                    'rgba(75, 102, 255, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: '이 주의 운동 내역(분)',
+            fontSize: 25,
+            fontColor: '#000'
+          },
+          responsive: true,
+          maintainAspectRatio: true
+        }
+    })
+  }
+})
 
 //toDoList 모두선택
 $('#check-all').click(function() {
@@ -79,11 +191,11 @@ function selectDelete(){
  })
  
  $('#toDoListAdd').on('click', function() {
-   var item = $('<tr>');
-   var td = $('<td>');
+   var item = $('<span>');
+   var span = $('<span>');
    var input = $('<input type="text" id="toDoListForm" placeholder="내용을 입력해주세요.">');
-   input.appendTo(td);
-   td.appendTo(item);
+   input.appendTo(span);
+   span.appendTo(item);
    $('.toDoList_list').append(item);
 
    $('#toDoListForm').keyup(function(e) {
@@ -107,15 +219,15 @@ function selectDelete(){
  })
  
  $('.updateToDoList').on('click', function() {
-   console.log($(this).parent('tr'))
-   var beforeText = $(this).closest('.memo').html();
-   console.log(beforeText)
-   var memo = $(this).closest('.memo');
+   var beforeText = $(this).closest('.item').find('.memo').text();
+   var memo = $(this).closest('.item').find('.memo');
+   $(memo).text('');
    memo.append($('<input type="text" id="updateToDoListForm">').val(beforeText));
+   var no = $(this).find('input[name="no"]').val();
    $('#updateToDoListForm').keyup(function(e) {
      if(e.keyCode == 13) {
        var memo = $('#updateToDoListForm').val();
-       var no = $(this).find('input[name="no"]').val();
+       console.log(no)
        $.ajax({
          type:'POST',
          url:'toDoListUpdate',

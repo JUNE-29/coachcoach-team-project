@@ -37,6 +37,7 @@ public class DashBoardController {
   @GetMapping("list")
   public void list(Model model) throws Exception {
     Member member = (Member) httpSession.getAttribute("loginUser");
+    httpSession.setAttribute("memberNo", member.getNo());
     model.addAttribute("findAll", toDoListService.findAll(member.getNo()));
     model.addAttribute("memberNo", member.getNo());
     model.addAttribute("notices", coachingProgramBoardService.getByMemberNo(member.getNo()));
@@ -48,11 +49,6 @@ public class DashBoardController {
     return coachingProgramBoardService.get(no);
   }
 
-  @GetMapping("toDoListAddForm")
-  public void toDoListAddForm(Model model) throws Exception {
-    Member member = (Member) httpSession.getAttribute("loginUser");
-    model.addAttribute("member", member);
-  }
 
   @ResponseBody
   @PostMapping("toDoListAdd")
@@ -72,15 +68,10 @@ public class DashBoardController {
     return "redirect:list";
   }
 
-  @GetMapping("toDoListUpdateForm") // 날짜, 운동, 몸무게, 걸음수 등 수정
-  public void toDoListUpdateForm(int toDoListNo, Model model) throws Exception {
-    model.addAttribute("toDoList", toDoListService.findByNo(toDoListNo));
-  }
-
   @PostMapping("toDoListUpdate")
   public void toDoListUpdate(ToDoList toDoList) throws Exception {
     toDoList.setMemberNo(((Member) httpSession.getAttribute("loginUser")).getNo());
-    if (toDoListService.add(toDoList) > 0) {
+    if (toDoListService.update(toDoList) > 0) {
     } else {
       throw new Exception("오류 발생");
     }

@@ -56,7 +56,7 @@
      to_do_list
     set
       memo=#{memo},
-      create_date=#{createDate}
+      create_date=now()
     where 
       to_do_list_no=#{no}
   </update>

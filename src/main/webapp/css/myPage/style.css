@@ -177,8 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .container2 {
   position: relative;
-  overflow: hidden;
-  height: 700px;
+  min-height: 700px;
   width: 780px;
 }
 

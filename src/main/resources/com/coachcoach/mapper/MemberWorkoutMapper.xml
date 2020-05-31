@@ -143,10 +143,10 @@
 		FROM member_workouts
 		where workout_date >= Date_add(Now(),interval - 12 month)
 		AND member_no=#{no}
-		GROUP BY md
+		GROUP BY md desc
     )t2
     on t2.md = t1.md 
-		group by t1.month
+		group by MONTH(t1.md)
 		order by t1.md asc
   </select>
   
