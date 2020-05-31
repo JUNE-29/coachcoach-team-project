@@ -39,41 +39,6 @@ public class MemberServiceImpl implements MemberService {
     return memberDao.delete(no);
   }
 
-  @Override
-  public void add(Member member) throws Exception {
-
-    memberDao.insert(member);
-
-    // 임의의 auth키 생성
-    String authkey = new TempKey().getKey(50, false);
-    member.setAuthKey(authkey);
-    memberDao.updateAuthkey(member);
-
-    // mail 작성 관련
-    MailUtils sendMail = new MailUtils(mailSender);
-
-    sendMail.setSubject("회원가입 이메일 인증");
-
-    sendMail.setText(new StringBuffer().append("<h1>[이메일 인증]</h1>")
-
-        .append("<p>아래 링크를 클릭하시면 이메일 인증이 완료됩니다.</p>")
-
-        .append(
-            "<a href='http://localhost:9999/coachcoach-team-project/app/auth/member/joinConfirm?authKey=")
-
-        .append(member.getAuthKey())
-
-        .append("'>이메일 인증 확인</a>")
-
-        .toString());
-
-    sendMail.setFrom("coachcoach.service@gmail.com", "Coachcoach");
-
-    sendMail.setTo(member.getEmail());
-
-    sendMail.send();
-
-  }
 
   @Override
   public Member get(int no) throws Exception {
@@ -135,6 +100,52 @@ public class MemberServiceImpl implements MemberService {
     return memberDao.searchId(userName, userEmail);
   }
 
+
+  @Override
+  public int getSearchPw(String userId, String userEmail) throws Exception {
+    return memberDao.searchPw(userId, userEmail);
+  }
+
+  @Override
+  public Member get(String email) throws Exception {
+    return memberDao.findByEmail(email);
+  }
+
+  @Override
+  public void add(Member member) throws Exception {
+    memberDao.insert(member);
+
+    // 임의의 auth키 생성
+    String authkey = new TempKey().getKey(50, false);
+    member.setAuthKey(authkey);
+    memberDao.updateAuthkey(member);
+
+    // mail 작성 관련
+    MailUtils sendMail = new MailUtils(mailSender);
+
+    sendMail.setSubject("[CoachCoach(코치코치)]회원가입을 위한 이메일 인증정보 입니다.");
+
+    sendMail.setText(new StringBuffer()
+        .append(
+            "<h1 style='text-align:center;'>Coach<span style='color: #01b1d7;'>Coach</span></h1>")
+        .append("<div style='text-align:center;'>").append("<h2>메일 인증 안내입니다.</h2>")
+        .append("코치코치에 회원가입을 해주셔서 진심으로 감사드립니다. <br>")
+        .append(
+            "아래 <span style='color: #01b1d7; font-weight: bold;'>메일 인증 링크를 클릭</span>하여 회원가입을 완료해 주세요.<br>")
+        .append("링크를 클릭하셔야만 로그인이 가능합니다.<br>").append("감사합니다.<br>")
+        .append(
+            "<br><a style='background: #01b1d7; color: #FFFFFF; font-size: 1.2em;' href='http://localhost:9999/coachcoach-team-project/app/auth/member/joinConfirm?authKey=")
+        .append(member.getAuthKey()).append("'>이메일 인증 확인</a><br>").append("<br>").append("<hr>")
+        .append(
+            "<h5 style='color:#999696'>(주) 코치코치 |  서울특별시 서초구 서초4동 강남대로 459 |  대표이사: 엄진영<br></h5>")
+        .append("</div>").toString());
+
+    sendMail.setFrom("coachcoach.service@gmail.com", "Coachcoach");
+    sendMail.setTo(member.getEmail());
+    sendMail.send();
+
+  }
+
   @Override
   public void mailSendWithPassword(String userId, String userEmail, HttpServletRequest request)
       throws Exception {
@@ -164,15 +175,5 @@ public class MemberServiceImpl implements MemberService {
 
     memberDao.searchPassword(userId, userEmail, key);
 
-  }
-
-  @Override
-  public int getSearchPw(String userId, String userEmail) throws Exception {
-    return memberDao.searchPw(userId, userEmail);
-  }
-
-  @Override
-  public Member get(String email) throws Exception {
-    return memberDao.findByEmail(email);
   }
 }
