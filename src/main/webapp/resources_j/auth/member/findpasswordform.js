@@ -35,12 +35,19 @@
 		    	  datatype: 'json',
 		    	  data: user,
 		    	  url:'searchPassword',
-		    	  success : function(result) {
+		    	  success : function(data) {
 		    		  Swal.fire({
 					        icon: 'success',
 					        title: '확인이 되었습니다.',
 					        text: '해당 이메일로 임시비밀번호를 발송하였습니다.',
-				      })
+					        confirmButtonText: '확인'
+				      }).then((result) => {
+				    	  if (result.value) {
+				    		   
+				    		    location.href='form'; 
+				    		    	
+				    		  }
+				    	})
 		    	  }
 		      })
 			}
