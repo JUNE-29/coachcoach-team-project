@@ -89,3 +89,6 @@ margin-left:10px; margin-top:5px; font-weight:bold; font-weight:bold;}
 .section .tabCont.article2 #addReview {border-radius:5px; border:1px solid #e3e1e1; margin:10px; padding:10px; text-align:center;}
 
 
+.leftbtn {float: left; margin: 0px 5px 40px 280px; width:70px; height:40px; border:none; border-radius:5px;  background:#01b1d7; color:#fff;}
+.rightbtn {width:70px; height:40px; border:none; border-radius:5px;  background:gray; color:#fff;}
+
