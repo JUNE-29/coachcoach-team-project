@@ -123,7 +123,7 @@ public class MemberServiceImpl implements MemberService {
     // mail 작성 관련
     MailUtils sendMail = new MailUtils(mailSender);
 
-    sendMail.setSubject("[CoachCoach(코치코치)]회원가입을 위한 이메일 인증정보 입니다.");
+    sendMail.setSubject("[CoachCoach(코치코치)] 회원가입을 위한 이메일 인증정보 입니다.");
 
     sendMail.setText(new StringBuffer()
         .append(

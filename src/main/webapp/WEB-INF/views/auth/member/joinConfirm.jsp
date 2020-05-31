@@ -5,7 +5,7 @@
 .text{text-align: center; margin-bottom: 20px;}
 .title {margin-bottom: 20px;font-size: 35px;letter-spacing: -1px;font-weight: bold; }
 .login_area {text-align: center;}
-.login_area button[type=button] {display:inline-block; width:30%; height:50px; background:#01b1d7; font-weight:bold; font-size:15px; border:none;}
+.login_area button[type=button] {display:inline-block; width:30%; height:50px; background:#01b1d7; font-weight:bold; font-size:15px; border:none; color: #FFFFFF;}
 </style>
 
 <div class="text">
@@ -15,8 +15,8 @@
 </div>
 
 <div class="login_area">
-  <button type="button">
-    <a style="color: #FFFFFF;" href="/coachcoach-team-project/app/auth/login">로그인 하러가기</a>
+  <button type="button" onclick="location.href='/coachcoach-team-project/app/auth/login'">
+    로그인 하러가기
   </button>
   </div>
 
