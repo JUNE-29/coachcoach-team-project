@@ -38,7 +38,7 @@
 		    	  success : function(result) {
 		    		  Swal.fire({
 					        icon: 'success',
-					        title: '아이디와 이메일 확인이 되었습니다.',
+					        title: '확인이 되었습니다.',
 					        text: '해당 이메일로 임시비밀번호를 발송하였습니다.',
 				      })
 		    	  }

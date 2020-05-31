@@ -134,7 +134,7 @@ public class MemberServiceImpl implements MemberService {
             "아래 <span style='color: #01b1d7; font-weight: bold;'>메일 인증 링크를 클릭</span>하여 회원가입을 완료해 주세요.<br>")
         .append("링크를 클릭하셔야만 로그인이 가능합니다.<br>").append("감사합니다.<br>")
         .append(
-            "<br><a style='background: #01b1d7; color: #FFFFFF; font-size: 1.2em;' href='http://localhost:9999/coachcoach-team-project/app/auth/member/joinConfirm?authKey=")
+            "<br><a style='background: #01b1d7; color: #FFFFFF; font-size: 1.2em; text-decoration: none;' href='http://localhost:9999/coachcoach-team-project/app/auth/member/joinConfirm?authKey=")
         .append(member.getAuthKey()).append("'>이메일 인증 확인</a><br>").append("<br>").append("<hr>")
         .append(
             "<h5 style='color:#999696'>(주) 코치코치 |  서울특별시 서초구 서초4동 강남대로 459 |  대표이사: 엄진영<br></h5>")
@@ -158,14 +158,23 @@ public class MemberServiceImpl implements MemberService {
     String name = member.getName();
 
     MimeMessage mail = mailSender.createMimeMessage();
-    String htmlStr = "<h2>안녕하세요 '" + name + "' 님</h2><br><br>"
-        + "<p>비밀번호 찾기를 신청해주셔서 임시 비밀번호를 발급해드렸습니다.</p>"
-        + "<p>임시로 발급 드린 비밀번호는 <h2 style='color : blue'>'" + key
-        + "'</h2>이며 로그인 후 마이페이지에서 비밀번호를 변경해주시면 됩니다.</p><br>"
-        + "<h3><a href='http://localhost:9999/coachcoach-team-project/app/auth/member/form'>코치코치페이지</a></h3><br><br>"
-        + "(혹시 잘못 전달된 메일이라면 이 이메일을 무시하셔도 됩니다)";
+    String htmlStr = "<h1 style='text-align:center;'>"
+        + "Coach<span style='color: #01b1d7;'>Coach</span></h1> <br>"
+        + "<div style='text-align:center;'>"
+        + "<span style='font-size: 22px; font-weight: 600;'>안녕하세요 '" + name + "' 님</span><br>"
+        + "회원님께서 요청하신 임시 비밀번호는 아래와 같습니다.<br><br>"
+        + "<p style='display: inline-block; border: 1px solid #ddd; width:80%; height:80px; vertical-align: middle'>"
+        + "<span style='color : #01b1d7; font-size: 35px; font-weight: bold; margin:20px; text-align:center; line-height:80px;'>"
+        + "'" + key + "'</p>" + "<br><br><p>위의 비밀번호는 재발급을 위해 마련된 임시 비밀번호 입니다.<br>"
+        + "보안을 위해 로그인하시어 반드시 비밀번호를 수정해주시기 바랍니다.</p><br>"
+        + "*혹시 잘못 전달된 메일이라면 이 이메일을 무시하셔도 됩니다.* <br><br>"
+        + "<a style='background: #01b1d7; color: #FFFFFF; font-size: 1.2em; text-decoration: none;"
+        + "href='http://localhost:9999/coachcoach-team-project/app/auth/member/form'>로그인 페이지로 바로가기</a><br><br>"
+        + "<hr>"
+        + "<h5 style='color:#999696'>(주) 코치코치 |  서울특별시 서초구 서초4동 강남대로 459 |  대표이사: 엄진영<br></h5>"
+        + "</div>";
     try {
-      mail.setSubject("임시 비밀번호가 발급되었습니다", "utf-8");
+      mail.setSubject("[CoachCoach(코치코치)] 임시 비밀번호가 발급되었습니다", "utf-8");
       mail.setText(htmlStr, "utf-8", "html");
       mail.addRecipient(RecipientType.TO, new InternetAddress(userEmail));
       mailSender.send(mail);
