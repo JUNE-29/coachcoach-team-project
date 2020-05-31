@@ -39,4 +39,6 @@ public interface MemberService {
   int getSearchPw(String userId, String userEmail) throws Exception;
 
   public Member get(String email) throws Exception;
+
+  int idPwCheck(String id, String password) throws Exception;
 }

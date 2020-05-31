@@ -61,6 +61,7 @@ public class MemberAuthController {
 
     if (member.getAuthStatus() == 1) {
       Cookie cookie = new Cookie("id", id);
+      logger.info(saveId);
       if (saveId != null) {
         cookie.setMaxAge(60 * 60 * 24 * 30);
       } else {
@@ -88,6 +89,117 @@ public class MemberAuthController {
     return "auth/member/login";
   }
 
+  // 로그인 할 때 ID,PW 체크
+  @ResponseBody
+  @RequestMapping(value = "loginIdPwcheck", method = RequestMethod.POST)
+  public int loginIdPwcheck(@RequestParam String id, @RequestParam String password)
+      throws Exception {
+    logger.info(id);
+    logger.info(password);
+    int result = memberService.idPwCheck(id, password);
+    return result;
+  }
+
+
+  @GetMapping("findidform")
+  public void memberFindIdForm() {} // 아이디찾기폼
+
+  @PostMapping("findid")
+  public void memberFindId() {}
+
+  @GetMapping("findpasswordform")
+  public void memberFindPasswordForm() {} // 패스워드찾기폼
+
+  @PostMapping("findpassword")
+  public void memberFindPassword() {}
+
+  @GetMapping("addform")
+  public void memberAddForm() {} // 회원가입폼
+
+  @PostMapping("add")
+  public String memberAdd(Member member, MultipartFile photoFile, String tel1, String tel2,
+      String tel3) throws Exception {
+
+    String tel = tel1 + tel2 + tel3;
+    member.setTel(tel);
+
+    if (photoFile.getSize() > 0) {
+      String dirPath = servletContext.getRealPath("/upload/member");
+      String filename = UUID.randomUUID().toString();
+      photoFile.transferTo(new File(dirPath + "/" + filename));
+      member.setPhoto(filename);
+    }
+
+    // if (memberService.add(member) > 0) {
+    // // return "redirect:list";
+    // } else {
+    // throw new Exception("회원 가입을 할 수 없습니다.");
+    // }
+
+    memberService.add(member);
+    return "auth/member/add";
+
+  } // 회원가입
+
+  @GetMapping("idCheckForm")
+  public void memberIdCheck() {
+
+  }
+
+  // 아이디 중복체크 (회원가입)
+  @ResponseBody
+  @RequestMapping(value = "idcheck", method = RequestMethod.POST)
+  public int idcheck(String userid) throws Exception {
+    System.out.println(userid);
+    int count = memberService.idcheck(userid);
+    System.out.println(count);
+    return count;
+  }
+
+  // 회원가입 후 권한 업데이트
+  @RequestMapping(value = "joinConfirm", method = RequestMethod.GET)
+  public void emailConfirm(Member member, Model model) throws Exception {
+    System.out.println(member.getEmail() + ": auth confirmed");
+    memberService.updateAuthStatus(member); // 권한 업데이트
+    model.addAttribute("auth_check", 1);
+  }
+
+  // 아이디 찾기
+  @ResponseBody
+  @RequestMapping(value = "searchid", method = RequestMethod.POST)
+  public String searchid(@RequestParam String userName, @RequestParam String userEmail)
+      throws Exception {
+    System.out.println(userName);
+    System.out.println(userEmail);
+    String result = memberService.getSerchId(userName, userEmail);
+    return result;
+  }
+
+  // 비밀번호 찾기
+  @RequestMapping(value = "searchPassword", method = RequestMethod.POST)
+  @ResponseBody
+  public String searchPassword(String userId, String userEmail, HttpServletRequest request)
+      throws Exception {
+
+    System.out.println(userId);
+    memberService.mailSendWithPassword(userId, userEmail, request);
+
+    return "auth/member/login";
+  }
+
+  // 비밀번호 찾기 위해 Id,Email 유효한지 검사
+  @ResponseBody
+  @RequestMapping(value = "searchPwConfirm", method = RequestMethod.POST)
+  public int searchPwConfirm(@RequestParam String userId, @RequestParam String userEmail)
+      throws Exception {
+    System.out.println(userId);
+    System.out.println(userEmail);
+    int result = memberService.getSearchPw(userId, userEmail);
+    return result;
+  }
+
+
+  // 네이버 소셜 로그인
   @SuppressWarnings("deprecation")
   @GetMapping("naverLogin")
   public String naverLogin(HttpServletRequest request, HttpServletResponse response, Model model,
@@ -263,103 +375,5 @@ public class MemberAuthController {
     }
   }
 
-
-
-  @GetMapping("findidform")
-  public void memberFindIdForm() {} // 아이디찾기폼
-
-  @PostMapping("findid")
-  public void memberFindId() {}
-
-  @GetMapping("findpasswordform")
-  public void memberFindPasswordForm() {} // 패스워드찾기폼
-
-  @PostMapping("findpassword")
-  public void memberFindPassword() {}
-
-  @GetMapping("addform")
-  public void memberAddForm() {} // 회원가입폼
-
-  @PostMapping("add")
-  public String memberAdd(Member member, MultipartFile photoFile, String tel1, String tel2,
-      String tel3) throws Exception {
-
-    String tel = tel1 + tel2 + tel3;
-    member.setTel(tel);
-
-    if (photoFile.getSize() > 0) {
-      String dirPath = servletContext.getRealPath("/upload/member");
-      String filename = UUID.randomUUID().toString();
-      photoFile.transferTo(new File(dirPath + "/" + filename));
-      member.setPhoto(filename);
-    }
-
-    // if (memberService.add(member) > 0) {
-    // // return "redirect:list";
-    // } else {
-    // throw new Exception("회원 가입을 할 수 없습니다.");
-    // }
-
-    memberService.add(member);
-    return "auth/member/add";
-
-  } // 회원가입
-
-  @GetMapping("idCheckForm")
-  public void memberIdCheck() {
-
-  }
-
-  // 아이디 중복체크 (회원가입)
-  @ResponseBody
-  @RequestMapping(value = "idcheck", method = RequestMethod.POST)
-  public int idcheck(String userid) throws Exception {
-    System.out.println(userid);
-    int count = memberService.idcheck(userid);
-    System.out.println(count);
-    return count;
-  }
-
-  // 회원가입 후 권한 업데이트
-  @RequestMapping(value = "joinConfirm", method = RequestMethod.GET)
-  public void emailConfirm(Member member, Model model) throws Exception {
-    System.out.println(member.getEmail() + ": auth confirmed");
-    memberService.updateAuthStatus(member); // 권한 업데이트
-    model.addAttribute("auth_check", 1);
-  }
-
-  // 아이디 찾기
-  @ResponseBody
-  @RequestMapping(value = "searchid", method = RequestMethod.POST)
-  public String searchid(@RequestParam String userName, @RequestParam String userEmail)
-      throws Exception {
-    System.out.println(userName);
-    System.out.println(userEmail);
-    String result = memberService.getSerchId(userName, userEmail);
-    return result;
-  }
-
-  // 비밀번호 찾기
-  @RequestMapping(value = "searchPassword", method = RequestMethod.POST)
-  @ResponseBody
-  public String searchPassword(String userId, String userEmail, HttpServletRequest request)
-      throws Exception {
-
-    System.out.println(userId);
-    memberService.mailSendWithPassword(userId, userEmail, request);
-
-    return "findpassword";
-  }
-
-  // 비밀번호 찾기 위해 Id,Email 유효한지 검사
-  @ResponseBody
-  @RequestMapping(value = "searchPwConfirm", method = RequestMethod.POST)
-  public int searchPwConfirm(@RequestParam String userId, @RequestParam String userEmail)
-      throws Exception {
-    System.out.println(userId);
-    System.out.println(userEmail);
-    int result = memberService.getSearchPw(userId, userEmail);
-    return result;
-  }
 }
 

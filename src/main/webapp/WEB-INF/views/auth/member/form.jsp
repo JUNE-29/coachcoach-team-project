@@ -35,12 +35,12 @@
       <tr>
           <td> 
            <input name='id' type='text' 
-           id="inputid" placeholder="아이디 입력" value='${id}'>
+           id="id" placeholder="아이디 입력" value='${id}'>
           </td>
        </tr>
        <tr>
           <td>
-           <input name='password' placeholder="비밀번호 입력" type='password'><br>
+           <input name='password' id="password" placeholder="비밀번호 입력" type='password'><br>
           </td>
         </tr>
     </tbody>

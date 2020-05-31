@@ -60,6 +60,9 @@ public interface MemberDao {
 
   // 네이버로그인 됐을때
   Member findByEmail(String email) throws Exception;
+
+  // 회원 아이디 비밀번호 유효 검사 - 로그인할 때
+  int checkIdPw(@Param("id") String id, @Param("password") String password);
 }
 
 

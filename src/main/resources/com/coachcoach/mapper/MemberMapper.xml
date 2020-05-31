@@ -231,6 +231,16 @@
      email=#{email}
   </select>
   
+    <select id="checkIdPw" resultType="Integer" parameterType="String" >
+  select
+    count(*)
+  from
+   members
+  where
+    id=#{id}
+    and password=password(#{password})
+  </select>
+  
 </mapper>
 
 

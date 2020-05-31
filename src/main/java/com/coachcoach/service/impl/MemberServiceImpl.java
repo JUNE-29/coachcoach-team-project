@@ -112,6 +112,11 @@ public class MemberServiceImpl implements MemberService {
   }
 
   @Override
+  public int idPwCheck(String id, String password) throws Exception {
+    return memberDao.checkIdPw(id, password);
+  }
+
+  @Override
   public void add(Member member) throws Exception {
     memberDao.insert(member);
 
@@ -185,4 +190,5 @@ public class MemberServiceImpl implements MemberService {
     memberDao.searchPassword(userId, userEmail, key);
 
   }
+
 }
