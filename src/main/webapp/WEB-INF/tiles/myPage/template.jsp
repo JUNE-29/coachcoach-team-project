@@ -28,7 +28,7 @@
   <link href="${pageContext.servletContext.contextPath}/node_modules/chart.js/dist/Chart.min.css" rel="stylesheet">
  
   <!-- Template Main CSS File -->
-  <link href="${pageContext.servletContext.contextPath}/resources_s/css/style.css?ver=1" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/css/myPage/style.css?ver=1" rel="stylesheet">
 
 </head>
 <body>
