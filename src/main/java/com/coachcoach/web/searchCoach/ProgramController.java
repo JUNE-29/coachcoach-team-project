@@ -99,6 +99,12 @@ public class ProgramController {
     model.addAttribute("program", coachingProgramService.getProgram(programNo));
     model.addAttribute("memberProgram", memberCoachingProgramService.programList(programNo));
     model.addAttribute("star", coachingProgramService.selectStar(programNo));
+    
+    Map<String,Object> params = new HashMap<>();
+	params.put("no", programNo);
+	params.put("startNo", 0);
+	params.put("endNo", 3);
+	model.addAttribute("list", memberCoachingProgramService.reivewstar(params));
   }
 
   @ResponseBody

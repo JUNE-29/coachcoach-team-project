@@ -16,7 +16,6 @@ $('#addReview').click(function(){
         	var review ="";
         	var reviewDate ="";
         	var memderId ="";
-        	$('#addReview').html('더보기');
         	
         	if (data.length == 0){
             	$('#addReview').css('border','white');

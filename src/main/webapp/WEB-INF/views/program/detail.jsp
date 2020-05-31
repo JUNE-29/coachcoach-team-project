@@ -115,10 +115,34 @@ ${program.introduce}<br>
 
 <hr style="margin-top: 0px;">
 <div id="reviewBox" class="reviewBox">
-<input id='startNo' type='hidden' value='0'>
+<input id='startNo' type='hidden' value='3'>
+<c:forEach items="${list}" var="list">
+<c:if test="${list.review ne null}">
+<c:set var="starRate" value="${star.mcp.starRate}" />
+<c:if test="${starRate eq null}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_0.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '1'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_1.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '2'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_2.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '3'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_3.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '4'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_4.png' style="height:20px;">
+</c:if>
+<c:if test="${starRate eq '5'}">
+<img src='${pageContext.servletContext.contextPath}/upload/img/star_5.png' style="height:20px;">
+</c:if><br>
+<p>${list.review}</p><p>${list.reviewDate}</p><p>${list.member.id}***</p>
+</c:if>
+  </c:forEach>
 </div>
 
-<div id="addReview">후기보기</div>
+<div id="addReview">더보기</div>
 </div>
 </div>
 </div>
