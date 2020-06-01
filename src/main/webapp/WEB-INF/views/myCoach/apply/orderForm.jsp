@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-결제정보
-  <hr style="margin-top: 5px;">
+<p class="title">결제정보</p>
+  <hr style="margin: 5px 0px 5px 0px ;">
 <div class="order_frm" >
       <div class="coach_img">
       <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' height='150px'>

@@ -10,7 +10,7 @@
 <meta charset='UTF-8'>
 <title>CoachCoach-team-project</title>
 <link rel='stylesheet' href='${pageContext.getServletContext().getContextPath()}/node_modules/bootstrap/dist/css/bootstrap.min.css'>
-<link href="${pageContext.servletContext.contextPath}/resources_e/css/style.css" rel="stylesheet">
+<link href="${pageContext.servletContext.contextPath}/resources_e/css/style.css?ver=1" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
