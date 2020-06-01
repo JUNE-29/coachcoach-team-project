@@ -9,6 +9,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
@@ -63,6 +64,12 @@ public class AppConfig implements WebMvcConfigurer {
     InternalResourceViewResolver vr = new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
     vr.setOrder(2);
     return vr;
+  }
+
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+      registry.addResourceHandler("/upload/calendarFile/**")
+              .addResourceLocations("/upload/calendarFile/");
   }
 }
 

@@ -56,19 +56,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="padding:30px">
           <input name="memberProgramNo" value="${memberCoachingProgram.no}" type='hidden'>
           <input name="calendarNo" type='hidden'>
-          코치이름<div id="coachName"> ${detail.coach.name}</div>
-					프로그램명<div id="programName"> ${detail.programName}</div>
+          코치이름<div id="coachName"> ${detail.coach.name}</div> <br>
+					프로그램명<div id="programName"> ${detail.programName}</div><br>
 					Workout 일정<div id="period"> ${detail.startDate} ~ ${detail.endDate}</div>
 					<hr>
 				  <div id="plan">${detail.plan}</div>
-					<c:forEach items="${detail.files}" var="file">
-					  <c:if test="${file.fileType eq 'image'}">
-					    <img src='${pageContext.servletContext.contextPath}/upload/calendarFile/${file.path}' height='340'>
-					  </c:if>
-					</c:forEach>
+					<img src='${pageContext.servletContext.contextPath}/upload/calendarFile/' height='400'>
       </div>
       <div class="modal-footer">
       <c:if test="${sessionScope.loginUser.getClass().simpleName == 'Coach'}">

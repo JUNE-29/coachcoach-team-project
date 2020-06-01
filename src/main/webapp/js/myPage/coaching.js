@@ -6,8 +6,29 @@ $('.summernote').summernote({
   maxHeight: null,             // 최대 높이
   focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
   lang: "ko-KR",          // 한글 설정
-  placeholder: '최대 21,844자까지 쓸 수 있습니다'  //placeholder 설정
+  placeholder: '최대 21,844자까지 쓸 수 있습니다',  //placeholder 설정,
+  callbacks: {	//여기 부분이 이미지를 첨부하는 부분
+		onImageUpload : function(files) {
+			uploadSummernoteImageFile(files[0],this);
+		}
+	}
 });
+
+function uploadSummernoteImageFile(file, editor) {
+	data = new FormData();
+	data.append("file", file);
+	$.ajax({
+		data : data,
+		type : "POST",
+		url : "uploadSummernoteImageFile",
+		contentType : false,
+		processData : false,
+		success : function(data) {
+        	//항상 업로드된 파일의 url이 있어야 한다.
+			$(editor).summernote('insertImage', data.url);
+		}
+	});
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
@@ -19,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
           if (typeof startDate !== 'undefined') {
             $('#calendarAddForm input[name="startDate"]').val(startDate);
           }
-          if(typeof startDate !== 'undefined') {
-            $('#calendarAddForm input[name="endDate"]').val(endDate);
+          if(typeof endDate !== 'undefined') {
+            $('#calendarAddForm input[name="endDate"]').val(moment(endDate).subtract('1', 'days').format("YYYY-MM-DD"));
           }
           if($('input[name="checkIfMember"]').length>0) {
             Swal.fire('코치 전용이예요');
@@ -65,13 +86,22 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#programName').html(detail.ProgramName);
             $('#period').html(detail.startDate +" ~ "+ detail.endDate);
             $('#plan').html(detail.plan);
+            if (detail.files.length>0) {
+            	if(detail.files[0].fileType == 'image') {
+            		$('#calendarDetail img').show();
+            		$('#calendarDetail img').attr('src', imagePath+detail.files[0].path);
+            	}
+            } else {
+            	$('#calendarDetail img').hide();
+            }
             $('#calendarDetail input[name="calendarNo"]').val(detail.no);
-            $('#coachName, #programName, #period').css('font-size', '25px');
+            $('#coachName, #programName, #period').css('font-size', '20px');
             $('#calendarDetail').modal('show');
             }
         });
     }
   })
+  var imagePath = $('#calendarDetail img').attr('src');
   
   calendar.startDate=null;
   calendar.endDate=null;
@@ -89,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         calendar.addEvent({
           title: '운동계획 업데이트!',
           start: d.startDate,
-          end: d.endDate,
+          end: moment(d.endDate).add('1', 'days').format('YYYY-MM-DD'),
           description: '운동 계획',
           planNo: d.no
         });
@@ -107,9 +137,6 @@ $('#calendarAddSubmit').on('click', function(e) {
   var form = $('#calendarAddFormForm')[0];
   var data = new FormData(form);
   data.delete('files'); // <-files라는 name이 왜있는지 모르겠다 이거때문에 자꾸 ajax 전송 오류남
-  for(var d of data) {
-    console.log(d)    
-  }
   $.ajax({
     type: "POST",
     enctype: 'multipart/form-data',
@@ -132,7 +159,7 @@ $('#calendarAddSubmit').on('click', function(e) {
     error: function (e) {
       Swal.fire({
         title: '저런!',
-        text: '날짜를 입력해주세요.',
+        text: '다시 시도해주세요',
         icon: 'error',
         confirmButtonText: '확인'
         })
