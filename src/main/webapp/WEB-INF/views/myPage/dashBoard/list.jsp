@@ -38,10 +38,7 @@
 
 <div class="container1 col-md-4" style="height:820px;">
   <div id="toDoListZone">
-  <jsp:include page="toDoList.jsp"/>
-	</div>
-	<div class="chatting">
-		코치와 채팅하기
+    <jsp:include page="toDoList.jsp"/>
 	</div>
 </div>
 </div>

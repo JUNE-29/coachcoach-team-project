@@ -19,6 +19,22 @@ Chart.defaults.global.defaultFontSize = 18;
 var myChart;
 var myWorkoutChart;
 
+Chart.plugins.register({
+    afterDraw: function(chart) {
+        if (chart.data.datasets[0].data.every(item => item === 0)) {
+            let ctx = chart.chart.ctx;
+            let width = chart.chart.width;
+            let height = chart.chart.height;
+
+            chart.clear();
+            ctx.save();
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('오늘의 운동을 기록해주세요.', width / 2, height / 2);
+            ctx.restore();
+        }
+    }
+});
 
 
 if ($('#week').hasClass('active')) {
