@@ -37,8 +37,13 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   }
 
   @Override
-  public List<CoachingProgram> search(String keyword) throws Exception {
-    return coachingProgramDao.findByKeyword(keyword);
+  public List<CoachingProgram> search(Map<String, Object> params) throws Exception {
+    return coachingProgramDao.findByKeyword(params);
+  }
+
+  @Override
+  public int searchCnt(String keyword) throws Exception {
+    return coachingProgramDao.findByKeywordCnt(keyword);
   }
 
   @Override
@@ -54,7 +59,7 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
 
 
   @Override
-  public List<CoachingProgram> search(Map<String, Object> params) throws Exception {
+  public List<CoachingProgram> findByGender(Map<String, Object> params) throws Exception {
     return coachingProgramDao.findByGender(params);
   }
 
@@ -84,13 +89,13 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
   }
 
   @Override
-  public List<CoachingProgram> searchReview() throws Exception {
-    return coachingProgramDao.findByReview();
+  public List<CoachingProgram> searchReview(Map<String, Object> params) throws Exception {
+    return coachingProgramDao.findByReview(params);
   }
 
   @Override
-  public List<CoachingProgram> searchStar() throws Exception {
-    return coachingProgramDao.findByStar();
+  public List<CoachingProgram> searchStar(Map<String, Object> params) throws Exception {
+    return coachingProgramDao.findByStar(params);
   }
 
   @Override
@@ -118,5 +123,24 @@ public class CoachingProgramServiceImpl implements CoachingProgramService {
     return  coachingProgramDao.applyList(params);
   }
 
+  @Override
+  public int searchTagCnt(Map<String, Object> param) throws Exception {
+    return coachingProgramDao.findByTagCnt(param);
+  }
+
+  @Override
+  public int findByGenderCnt(Map<String, Object> param) throws Exception {
+    return coachingProgramDao.findByGenderCnt(param);
+  }
+
+  @Override
+  public int findByStarCnt() throws Exception {
+    return coachingProgramDao.findByStarCnt();
+  }
+
+  @Override
+  public int findByReviewCnt() throws Exception {
+    return coachingProgramDao.findByReviewCnt();
+  }
 
 }

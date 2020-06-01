@@ -27,6 +27,8 @@ import com.coachcoach.service.MemberService;
 @RequestMapping("/program")
 public class ProgramController {
 
+  private static final int HashMap = 0;
+
   @Autowired
   HttpSession httpSession;
 
@@ -55,41 +57,74 @@ public class ProgramController {
   }
 
   @GetMapping("searchKeyword") // 프로그램 검색
-  public void searchKeyword(Model model, String keyword) throws Exception {
-    model.addAttribute("searchProgram", coachingProgramService.search(keyword));
+  public void searchKeyword(Model model, String keyword,@ModelAttribute("cri") Criteria cri) throws Exception {
+    PageMaker pageMaker = new PageMaker();
+    pageMaker.setCri(cri);
+    pageMaker.setTotalCount(coachingProgramService.searchCnt(keyword));
+
+    Map<String, Object> param = new HashMap<>();
+    param.put("cri", cri);
+    param.put("keyword", keyword);
+    model.addAttribute("searchProgram", coachingProgramService.search(param));
+    model.addAttribute("pageMaker", pageMaker);
   }
 
   @GetMapping("searchDetail") // 조건으로 검색
   public void searchDetail(Model model, String gender, String coachingType,
       @ModelAttribute("cri") Criteria cri) throws Exception {
     PageMaker pageMaker = new PageMaker();
+    Map<String, Object> param = new HashMap<>();
+    param.put("gender", gender);
+    param.put("coachingType", coachingType);
     pageMaker.setCri(cri);
-    pageMaker.setTotalCount(coachingProgramService.pageCount());
+    pageMaker.setTotalCount(coachingProgramService.findByGenderCnt(param));
 
     Map<String, Object> params = new HashMap<>();
     params.put("cri", cri);
     params.put("gender", gender);
     params.put("coachingType", coachingType);
-    model.addAttribute("searchProgram", coachingProgramService.search(params));
+    model.addAttribute("searchProgram", coachingProgramService.findByGender(params));
     model.addAttribute("pageMaker", pageMaker);
   }
 
   @PostMapping("searchTag") // 태그로 검색
-  public void searchTag(Model model, @RequestParam("tags") String[] tags) throws Exception {
+  public void searchTag(Model model,@ModelAttribute("cri") Criteria cri, @RequestParam("tags") String[] tags) throws Exception {
+    PageMaker pageMaker = new PageMaker();
+    Map<String, Object> param = new HashMap<>();
+    param.put("tags", tags);
+    pageMaker.setCri(cri);
+    pageMaker.setTotalCount(coachingProgramService.searchTagCnt(param));
+
     Map<String, Object> params = new HashMap<>();
+    params.put("cri", cri);
     params.put("tags", tags);
     model.addAttribute("searchProgram", coachingProgramService.searchTag(params));
+    model.addAttribute("pageMaker", pageMaker);
     for (int i = 1; i < tags.length; i++) {
       model.addAttribute("tag", tags[i]);
     }
   }
 
   @GetMapping("selectOption") // 옵션으로 검색
-  public void selectOption(Model model, String option) throws Exception {
+  public void selectOption(Model model, @ModelAttribute("cri") Criteria cri, String option) throws Exception {
     if (option.equals("review")) {
-      model.addAttribute("searchProgram", coachingProgramService.searchReview());
+      PageMaker pageMaker = new PageMaker();
+      pageMaker.setCri(cri);
+      pageMaker.setTotalCount(coachingProgramService.findByReviewCnt());
+
+      Map<String, Object> params = new HashMap<>();
+      params.put("cri", cri);
+      model.addAttribute("searchProgram", coachingProgramService.searchReview(params));
+      model.addAttribute("pageMaker", pageMaker);
     } else {
-      model.addAttribute("searchProgram", coachingProgramService.searchStar());
+      PageMaker pageMaker = new PageMaker();
+      pageMaker.setCri(cri);
+      pageMaker.setTotalCount(coachingProgramService.findByStarCnt());
+
+      Map<String, Object> params = new HashMap<>();
+      params.put("cri", cri);
+      model.addAttribute("searchProgram", coachingProgramService.searchStar(params));
+      model.addAttribute("pageMaker", pageMaker);
     }
   }
 
@@ -99,21 +134,21 @@ public class ProgramController {
     model.addAttribute("program", coachingProgramService.getProgram(programNo));
     model.addAttribute("memberProgram", memberCoachingProgramService.programList(programNo));
     model.addAttribute("star", coachingProgramService.selectStar(programNo));
-    
+
     Map<String,Object> params = new HashMap<>();
-	params.put("no", programNo);
-	params.put("startNo", 0);
-	params.put("endNo", 3);
-	model.addAttribute("list", memberCoachingProgramService.reivewstar(params));
+    params.put("no", programNo);
+    params.put("startNo", 0);
+    params.put("endNo", 3);
+    model.addAttribute("list", memberCoachingProgramService.reivewstar(params));
   }
 
   @ResponseBody
   @PostMapping("reivewDetail") // 후기 조회
   public Object reivewDetail(Model model, int no, int startNo, int endNo) throws Exception {
-	Map<String,Object> params = new HashMap<>();
-	params.put("no", no);
-	params.put("startNo", startNo);
-	params.put("endNo", endNo);
+    Map<String,Object> params = new HashMap<>();
+    params.put("no", no);
+    params.put("startNo", startNo);
+    params.put("endNo", endNo);
     List<MemberCoachingProgram> mcp = memberCoachingProgramService.reivewstar(params);
     return mcp;
   }

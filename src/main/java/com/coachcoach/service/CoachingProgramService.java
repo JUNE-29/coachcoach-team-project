@@ -20,15 +20,15 @@ public interface CoachingProgramService {
 
   int delete(int no) throws Exception;
 
-  List<CoachingProgram> search(String keyword) throws Exception;
-
   List<CoachingProgram> search(Map<String, Object> params) throws Exception;
+
+  List<CoachingProgram> findByGender(Map<String, Object> params) throws Exception;
 
   List<CoachingProgram> searchTag(Map<String, Object> params) throws Exception;
 
-  List<CoachingProgram> searchReview() throws Exception;
+  List<CoachingProgram> searchReview(Map<String, Object> params) throws Exception;
 
-  List<CoachingProgram> searchStar() throws Exception;
+  List<CoachingProgram> searchStar(Map<String, Object> params) throws Exception;
 
   CoachingProgram get(int no) throws Exception;
 
@@ -45,4 +45,14 @@ public interface CoachingProgramService {
   int deleteUpdate(int programNo) throws Exception;
 
   CoachingProgram selectStar(int no) throws Exception;
+
+  int searchCnt(String keyword) throws Exception;
+
+  int searchTagCnt(Map<String, Object> param) throws Exception;
+
+  int findByGenderCnt(Map<String, Object> param) throws Exception;
+
+  int findByStarCnt() throws Exception;
+
+  int findByReviewCnt() throws Exception;
 }

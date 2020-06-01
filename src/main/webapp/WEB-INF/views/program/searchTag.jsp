@@ -72,5 +72,25 @@
 </div>
 </div>
 </c:forEach>
+
+<div class="paginationWrap">
+<ul class="btn-group pagination">
+    <c:if test="${pageMaker.prev}">
+    <li>
+        <a href='searchTag?page=${pageMaker.startPage-1}'><i class="fa fa-chevron-left"></i></a>
+    </li>
+    </c:if>
+    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
+    <li>
+        <a href='searchTag?page=${pageNum}'><i class="fa">${pageNum}</i></a>
+    </li>
+    </c:forEach>
+    <c:if test="${pageMaker.next && pageMaker.endPage>0}">
+    <li>
+        <a href='searchTag?page=${pageMaker.endPage+1}'><i class="fa fa-chevron-right"></i></a>
+    </li>
+    </c:if>
+</ul>
+</div>
 </div>
 </div>

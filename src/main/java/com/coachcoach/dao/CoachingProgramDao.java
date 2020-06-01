@@ -22,19 +22,24 @@ public interface CoachingProgramDao {
   List<CoachingProgram> findAll() throws Exception;
 
   // 코칭 프로그램 검색(코치이름 or 프로그램명)
-  List<CoachingProgram> findByKeyword(String keyword) throws Exception;
+  List<CoachingProgram> findByKeyword(Map<String, Object> params) throws Exception;
+  int findByKeywordCnt(String keyword) throws Exception;
 
   // 코칭 프로그램 검색(코치성별 or 방식)
   List<CoachingProgram> findByGender(Map<String, Object> params) throws Exception;
+  int findByGenderCnt(Map<String, Object> params) throws Exception;
 
   // 코칭 프로그램 검색(코치성별 or 방식)
   List<CoachingProgram> findByTag(Map<String, Object> params) throws Exception;
+  int findByTagCnt(Map<String, Object> params) throws Exception;
 
   // 후기 많은순 조회
-  List<CoachingProgram> findByReview() throws Exception;
+  List<CoachingProgram> findByReview(Map<String, Object> params) throws Exception;
+  int findByReviewCnt() throws Exception;
 
   // 별점 높은순 조회
-  List<CoachingProgram> findByStar() throws Exception;
+  List<CoachingProgram> findByStar(Map<String, Object> params) throws Exception;
+  int findByStarCnt() throws Exception;
 
   // 코칭 프로그램 상세보기
   CoachingProgram findByNo(int programNo) throws Exception;

@@ -148,7 +148,7 @@
   </delete>
   
   
-   <select id="findByKeyword" resultMap="CoachingProgramMap" parameterType="string">
+   <select id="findByKeyword" resultMap="CoachingProgramMap" parameterType="map">
     select 
       cp.program_no,
       c.name coach_name,
@@ -163,6 +163,7 @@
       <if test="keyword != null">or cp.name like concat('%', #{keyword}, '%')</if>
       </where>
       order by program_no desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
   
   <select id="findByGender" resultMap="CoachingProgramMap" parameterType="map">
@@ -200,7 +201,8 @@
       open="(" separator="," close=")">
         #{item}
   </foreach>
-           order by program_no desc
+           order by cp.program_no desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
   
   
@@ -221,6 +223,7 @@
      mcp.review is not null 
     group by mcp.program_no) as rc on cp.program_no=rc.program_no
       order by rc.count desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
   
   <select id="findByStar" resultMap="CoachingProgramMap">
@@ -240,6 +243,7 @@
      mcp.star_rate is not null 
      group by mcp.program_no) as sr on cp.program_no=sr.program_no
      order by sr.avg desc
+       limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
   
   <select id="findAll" resultMap="CoachingProgramMap">
@@ -386,6 +390,76 @@
        coaching_programs cp on mcp.program_no=cp.program_no 
        where mcp.program_no=#{no}
   </select>
+  
+  <select id="findByKeywordCnt"  resultType="Integer" parameterType="string">
+    select 
+      count(*)
+    from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+      <where>
+      <if test="keyword != null">c.name like concat('%', #{keyword}, '%')</if>
+      <if test="keyword != null">or cp.name like concat('%', #{keyword}, '%')</if>
+      </where>
+      order by program_no desc
+  </select>
+  
+  <select id="findByTagCnt"  resultType="Integer"  parameterType="map">
+    select 
+     count(*)
+    from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+      join coaching_program_tags cpt on cp.program_no=cpt.program_no
+    where tag_no in
+  <foreach item="item" index="index" collection="tags"
+      open="(" separator="," close=")">
+        #{item}
+  </foreach>
+           order by cp.program_no desc
+  </select>
+  
+  <select id="findByGenderCnt"   resultType="Integer" parameterType="map">
+    select 
+      count(*)
+    from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+    <where>
+      <if test="gender != 2"> c.gender like #{gender}</if>
+      <if test="coachingType != null">and cp.coaching_type like #{coachingType}</if>
+    </where>
+      order by program_no desc
+  </select>
+  
+    <select id="findByReviewCnt"   resultType="Integer" parameterType="map">
+    select 
+      count(*)
+    from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+      join member_coaching_programs mcp on cp.program_no=mcp.program_no
+      join (select mcp.program_no, count(*) count from member_coaching_programs mcp
+    where 
+     mcp.review is not null 
+    group by mcp.program_no) as rc on cp.program_no=rc.program_no
+      order by rc.count desc
+  </select>
+  
+    <select id="findByStarCnt"   resultType="Integer" parameterType="map">
+    select 
+      count(*)
+    from 
+      coaching_programs cp 
+      join coaches c on cp.coach_no=c.coach_no
+      join member_coaching_programs mcp on cp.program_no=mcp.program_no
+      join (select mcp.program_no, avg(star_rate) avg from member_coaching_programs mcp
+    where 
+     mcp.star_rate is not null 
+     group by mcp.program_no) as sr on cp.program_no=sr.program_no
+     order by sr.avg desc
+  </select>
+  
   
 </mapper>
 
