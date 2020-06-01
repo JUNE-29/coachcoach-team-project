@@ -5,7 +5,7 @@
 
 
 <div>
-  &nbsp결제내역
+<p class="title">결제내역</p>
 <hr style="margin-top: 5px;">
 <div class="search_div"  style="float:right; margin:5px;">
   <form class="search_frm" action="search" method="GET">

@@ -19,6 +19,9 @@ public interface MemberDao {
   // 회원 정보 수정
   int update(Member member) throws Exception;
 
+  // 회원 정보 수정
+  int updatePW(Map<String, Object> params) throws Exception;
+
   // 탈퇴 수정
   int updateWithdrawal(Map<String, Object> params) throws Exception;
 

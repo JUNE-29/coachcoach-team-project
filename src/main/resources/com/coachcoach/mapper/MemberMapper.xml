@@ -121,6 +121,15 @@
       member_no=#{no}
   </update>
   
+  <update id="updatePW" parameterType="map">
+    update members
+    <set>
+      <if test="password != null and password != ''">password=password(#{password}),</if> 
+    </set>
+    where 
+      member_no=#{no}
+  </update>
+  
  <update id="updateWithdrawal" parameterType="map">
     update members
     <set>

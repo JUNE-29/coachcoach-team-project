@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Member;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
@@ -45,13 +45,14 @@ public class ModifyController {
     model.addAttribute("member", memberService.get(member.getNo()));
   }
 
+  @ResponseBody
   @PostMapping("modify")
-  public void modify(Member member, @RequestParam("updatePassword") String[] updatePassword)
+  public int modify(Member member, String pw, String updatePw, int no)
       throws Exception {
-    if (updatePassword[0].equals(updatePassword[1])) {
-      member.setPassword(updatePassword[0]);
-      memberService.update(member);
-    }
+    Map<String,Object> params = new HashMap<>();
+    params.put("password",updatePw);
+    params.put("no", no);
+    return memberService.updatePW(params);
   }
 
   @GetMapping("withdrawForm") // 비밀번호 재확인
@@ -64,16 +65,16 @@ public class ModifyController {
     model.addAttribute("member", memberService.get(no, id, password));
   }
 
-
+  @ ResponseBody
   @PostMapping("withdraw") // 회원탈퇴 사유
-  public void withdraw(HttpSession session, int no,
-      @RequestParam("withdrawalReason") String[] withdrawalReason) throws Exception {
+  public int withdraw(HttpSession session, int no, String withdrawalReason,String withdrawalReason2) throws Exception {
     Map<String, Object> params = new HashMap<>();
     params.put("no", no);
-    params.put("withdrawalReason", withdrawalReason[0] + "," + withdrawalReason[1]);
+    params.put("withdrawalReason", withdrawalReason+ "," + withdrawalReason2);
     params.put("withdrawal", 0);
-    memberService.updateWithdrawal(params);
+    int returnNo = memberService.updateWithdrawal(params);
     session.invalidate();
+    return returnNo;
   }
 
 }

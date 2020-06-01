@@ -47,7 +47,7 @@
 <script src='${pageContext.getServletContext().getContextPath()}/node_modules/@popperjs/core/dist/umd/popper.min.js'></script>
 <script src='${pageContext.getServletContext().getContextPath()}/node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
 <script src='${pageContext.getServletContext().getContextPath()}/node_modules/sweetalert/dist/sweetalert.min.js'></script>
-<script src='${pageContext.getServletContext().getContextPath()}/js/myCoach/<tiles:getAsString name="jsFilename"></tiles:getAsString>'></script>
+<script src='${pageContext.getServletContext().getContextPath()}/js/myCoach/<tiles:getAsString name="jsFilename"></tiles:getAsString>?ver=1'></script>
   <script src="${pageContext.servletContext.contextPath}/js/myCoach/side.js"></script>
 </body>
 </html>

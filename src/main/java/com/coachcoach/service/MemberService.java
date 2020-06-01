@@ -21,6 +21,8 @@ public interface MemberService {
 
   int update(Member member) throws Exception;
 
+  int updatePW(Map<String, Object> params) throws Exception;
+
   int updateworkout(int no, Member member) throws Exception;
 
   int updateWithdrawal(Map<String, Object> params) throws Exception;

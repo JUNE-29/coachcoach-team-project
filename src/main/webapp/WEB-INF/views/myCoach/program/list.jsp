@@ -6,7 +6,7 @@
 </style>
 
 <div class="box pro_div" >
-&nbsp마이코치
+<p class="title">마이코치</p>
 <hr style="margin-top: 5px;">
   진행중
   <table class="table table-hover">

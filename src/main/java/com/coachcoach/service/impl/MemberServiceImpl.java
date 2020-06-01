@@ -191,4 +191,9 @@ public class MemberServiceImpl implements MemberService {
 
   }
 
+  @Override
+  public int updatePW(Map<String, Object> params) throws Exception {
+    return memberDao.updatePW(params);
+  }
+
 }

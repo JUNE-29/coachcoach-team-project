@@ -3,16 +3,26 @@
     trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<h1>회원 탈퇴</h1><br>
-<h3>비밀번호 재확인</h3>
-<form action='withdrawConfirm' method='post' enctype='multipart/form-data'>
+<p class="title">회원 탈퇴</p>
+<hr style="margin-top: 5px;">
+<form class="form-inline " action='withdrawConfirm' method='post'  enctype='multipart/form-data'>
 <input name='no' type='hidden' value='${member.no}'><br>
-아이디 <input name='id' type='text'><br>
-비밀번호 <input name='password' type='password'><br>
-<p><button>확인</button>
-</form>
+  <div class="form-group"  >
+    <label for="inputPassword5"  style="width:64px;">아이디</label>
+    <input  name='id'  type="text"  id="inputPassword5"  class="form-control mx-sm-3" >
+    <small id="passwordHelpInline" class="text-muted">
+    </small>
+  </div>
+  <div style="width:300px;">
+  </div>
+    <div class="form-group "  style="margin-top: 5px;">
+    <label  for="inputPassword6" >비밀번호</label>
+    <input  name='password'  type="password" id="inputPassword6"  class="form-control mx-sm-3" >
+    <small id="passwordHelpInline" class="text-muted">
+    </small>
+  </div><br>
+    <button id="checkpwdbtn">확인</button>
+</form><br>
+※ 회원탈퇴를 위해 아이디, 비밀번호를 입력해주세요
 <br>
 
-
-    

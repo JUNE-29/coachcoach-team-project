@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-&nbsp내 프로필
+<p class="title">내 프로필</p>
 <hr style="margin-top: 5px;">
 <div class='profile_img'>
 <img src='${pageContext.servletContext.contextPath}/upload/member/${member.photo}' height='150px'>

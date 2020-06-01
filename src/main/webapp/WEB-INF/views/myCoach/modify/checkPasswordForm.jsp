@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-&nbsp회원정보수정
+<p class="title">회원정보수정</p>
 <hr style="margin-top: 5px;">
 <c:if test= '${message ne null}'>
   <h4>${message}</h4><br>
