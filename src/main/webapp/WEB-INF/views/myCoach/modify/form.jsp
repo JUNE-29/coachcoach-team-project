@@ -12,18 +12,45 @@ Member member = (Member) request.getAttribute("member");
 
 <p class="title">회원정보수정</p>
 <hr style="margin-top: 5px;">
-<form name="modify_frm" >
+<form name="modify_frm"   style="margin:0px 0px  36px 0px;">
 <input id="no" name='no' type='hidden' readonly value='${member.no}'><br>
-아이디<input  name='id' type='text' readonly value='${member.id}'><br>
-이름<input  name='name' type='text' readonly value='${member.name}'><br>
+<div class="form-group"  >
+<label for="updatePassword" style="width:145px; ">아이디</label>${member.id}
+  </div>
+  <div class="form-group"  >
+<label for="updatePassword" style="width:145px; ">이름</label>${member.name}
+  </div>
+<div class="form-group"  ><label for="updatePassword" style="width:140px; ">성별</label>
 여자<input type="radio" name="gender" value="0"  onclick="return(false);" <% if ("0".equals(String.valueOf(member.getGender()))) out.print("checked"); %>>
-남자<input type="radio" name="gender" value="1"  onclick="return(false);" <% if ("1".equals(String.valueOf(member.getGender()))) out.print("checked");%>><br>
-생년월일<input  name=birth type='text' readonly value='${member.birth}'><br>
-전화<input  name='tel' type='tel' value='${member.tel}'><br>
-E-mail<input  name='email' type='email' value='${member.email}'><br>
-새 비밀번호<input  id='pw' name='updatePassword' type='password' onchange='isSame()'><br>
-새 비밀번호 확인<input  id='pwCheck' name='updatePassword' type='password' onchange='isSame()'><br>
-<span id='same'></span><br>
+남자<input type="radio" name="gender" value="1"  onclick="return(false);" <% if ("1".equals(String.valueOf(member.getGender()))) out.print("checked");%>>
+  </div>
+<div class="form-group"  >
+<label for="updatePassword" style="width:145px; ">생년월일</label>${member.birth}
+  </div>
+<div class="form-group"  >
+<label for="updatePassword" style="width:120px; ">전화번호</label>
+    <input  id='tel'  name='tel'  type="text"   class="form-control mx-sm-3"  value="${member.tel}" style="width:300px; display:inline">
+    <small id="passwordHelpInline" class="text-muted">
+    </small>
+  </div>
+<div class="form-group"  >
+<label for="updatePassword" style="width:120px; ">이메일</label>
+    <input  id='email'  name='email'  type="email"  class="form-control mx-sm-3"  value="${member.email}" style="width:300px; display:inline">
+    <small id="passwordHelpInline" class="text-muted">
+    </small>
+  </div>
+<div class="form-group"  >
+    <label for="updatePassword" style="width:120px; ">새 비밀번호</label>
+    <input  id='pw'  name='updatePassword'  type="password"  id="inputPassword5"  class="form-control mx-sm-3" onchange='isSame()' style="width:300px; display:inline">
+    <small id="passwordHelpInline" class="text-muted">
+    </small>
+  </div>
+  <div class="form-group"  >
+    <label for="updatePassword"  >새 비밀번호 확인</label>
+    <input  id='pwCheck'  name='updatePassword'  type="password"  id="inputPassword5"  class="form-control mx-sm-3" onchange='isSame()' style="width:300px; display:inline">
+    <small id="passwordHelpInline" class="text-muted">
+    </small>
+  </div>
 <input type="button"  id="modify_btn" class="leftbtn" value="수정">
 </form><button class="rightbtn" onclick="location.href='withdrawForm?no=${member.no}'" >탈퇴</button>
 <!-- 

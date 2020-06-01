@@ -19,7 +19,7 @@ function isSame() {
 }
 
 
-// 비밀번호 수정
+//  회원정보 수정
 $('#modify_btn').click(function(){
 	if ($('#pw').val()==$('#pwCheck').val()){
 		$.ajax({
@@ -29,6 +29,8 @@ $('#modify_btn').click(function(){
 			enctype:"multipart/form-data",
 		             data: {
 		            	 no:$('#no').val(),
+		            	 tel: $('#tel').val(),
+		            	 email: $('email').val(),
 		            	 pw: $('#pw').val(),
 		            	 updatePw: $('#pwCheck').val()} ,
 		             success: function(data){
@@ -41,6 +43,10 @@ $('#modify_btn').click(function(){
 		                					  buttons:{
 		                						  confirm:{text:'확인',value:true}
 		                						  }
+		                					}).then((result) => {
+		                						if (result.value){
+		                							location.reload();
+		                						}
 		                					})
 		                			} else {
 		                				Swal.fire({

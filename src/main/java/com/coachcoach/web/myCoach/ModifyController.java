@@ -47,11 +47,13 @@ public class ModifyController {
 
   @ResponseBody
   @PostMapping("modify")
-  public int modify(Member member, String pw, String updatePw, int no)
+  public int modify(Member member, String pw, String updatePw, int no,String tel, String email)
       throws Exception {
     Map<String,Object> params = new HashMap<>();
     params.put("password",updatePw);
     params.put("no", no);
+    params.put("tel", tel);
+    params.put("email", email);
     return memberService.updatePW(params);
   }
 

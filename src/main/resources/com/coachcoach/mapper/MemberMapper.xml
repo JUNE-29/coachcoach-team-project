@@ -125,6 +125,8 @@
     update members
     <set>
       <if test="password != null and password != ''">password=password(#{password}),</if> 
+      <if test="tel != null and tel != ''">tel=#{tel},</if> 
+      <if test="email != null and email != ''">email=#{email},</if> 
     </set>
     where 
       member_no=#{no}
