@@ -117,7 +117,7 @@ public class CoachingController {
 
   // 코치만 접근 가능 VVVVVV
   @PostMapping("add")
-  public void add(MemberProgramCalendar memberProgramCalendar, MultipartFile[] inputFiles)
+  public String add(MemberProgramCalendar memberProgramCalendar, MultipartFile[] inputFiles)
       throws Exception {
     List<CalendarFile> list = new ArrayList<>();
 
@@ -142,6 +142,7 @@ public class CoachingController {
     memberProgramCalendar.setFiles(list);
 
     memberProgramCalendarService.add(memberProgramCalendar);
+    return "redirect:list";
   }
 
   @PostMapping("updateForm") // 운동 코칭 수정

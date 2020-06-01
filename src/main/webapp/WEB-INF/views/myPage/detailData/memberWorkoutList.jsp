@@ -20,10 +20,10 @@
     Month
     </div>
   </div>
-  <div style="width:45%;">
+  <div style="width:42%; margin-right:15px;">
     <jsp:include page='../detailData/workoutGraph.jsp'/>
 	</div>
-	<div style="width:45%;">
+	<div style="width:42%;">
     <jsp:include page='../detailData/walkGraph.jsp'/>
   </div>
 </div>
