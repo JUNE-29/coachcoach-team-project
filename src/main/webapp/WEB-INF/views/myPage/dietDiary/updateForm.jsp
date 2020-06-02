@@ -12,7 +12,7 @@
 <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br>
 <input type='file' name='photoFile'>
 <textarea name='content' rows='5' cols='60'>${foodBoard.content}</textarea><br>
-<button>수정</button>
+<button class="btn btn-danger">수정</button>
 </form>
 
 </div>
