@@ -8,24 +8,21 @@
 
 
 <c:if test="${not empty foodBoard}">
-고객이름: 나문희<br><br>
-등록일: ${foodBoard.modifiedDate}<br> <br>
-사진: <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br> <br>
-내용: ${foodBoard.content}<br><br>
+<p class="font-weight-bold" style="color: DodgerBlue;">고객이름: 나문희<br><br>
+<p class="font-weight-bold" style="color: DodgerBlue;">등록일: ${foodBoard.modifiedDate}<br> <br>
+<p class="font-weight-bold" style="color: DodgerBlue;">사진: <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br> <br>
+<p class="font-weight-bold" style="color: DodgerBlue;">내용: ${foodBoard.content}<br><br>
 <%if (session.getAttribute("loginUser") instanceof Member) {%>
 <div class="row">
-  <div class="col-md-2">
-  <form action="delete" method="post">
-    <button value="${foodBoard.no}" name="no" class="btn btn-danger">삭제</button> 
-  </form>
-  </div>
-  <div class="col-md-2">
+<div class="mx-auto">
+<div class="row">
+    <button value="${foodBoard.no}" name="no" class="btn btn-danger fooddelete m-5" >삭제</button> 
   <form action="updateForm" method="post">
     <input type='hidden' name='no' value='${foodBoard.no}'>
-    <button class="btn btn-primary">변경</button> 
+    <button class="btn btn-primary m-5" >변경</button> 
   </form>
-  </div>
 </div>
+
 <%}%>
 <br>
 댓글<br>
@@ -75,6 +72,8 @@
   </c:forEach>
 </table>
 </c:if>
+
+
 <form action='comment/add' method='post'>
 <input type="hidden" name="foodBoardNo" value="${foodBoard.no}">
 <% 
@@ -87,3 +86,5 @@ if (loginUser instanceof Coach) {
 <button class="btn btn-primary">등록</button>
 <br>
 </form>
+</div>
+</div>

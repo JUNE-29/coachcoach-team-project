@@ -63,6 +63,7 @@
   <!-- Template Main JS File -->
    <script src='${pageContext.getServletContext().getContextPath()}/<tiles:getAsString name="jsFile"></tiles:getAsString>?v=<%=System.currentTimeMillis() %>'></script>
 <script src='${pageContext.getServletContext().getContextPath()}/js/myPage/main.js?ver=1'></script>
+<script src="${pageContext.servletContext.contextPath}/js/myPage/side.js"></script>
 
 </body>
 </html>
