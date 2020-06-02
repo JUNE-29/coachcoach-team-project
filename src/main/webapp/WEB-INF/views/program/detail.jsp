@@ -74,7 +74,7 @@ ${program.introduce}<br>
 <li class="content_tab tab2"><a herf="javascipt:;">수강 후기</a></li>
 </ul>
 <div class="tabCont article">
-<img src='${pageContext.servletContext.contextPath}/upload/img/program.png' >
+<img src='${pageContext.servletContext.contextPath}/upload/img/pro.png' >
 </div>
 <div class="tabCont article2">
 <c:set var="starRate" value="${star.mcp.starRate}" />

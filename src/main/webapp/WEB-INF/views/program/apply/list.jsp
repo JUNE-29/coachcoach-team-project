@@ -31,7 +31,7 @@
   <div class="form-group row">
     <label for="tel" class="col-sm-2 col-form-label">연락처</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext"  value="${program.member.tel}">
+      <input  id="tel"  type="text" readonly class="form-control-plaintext"  value="${program.member.tel}">
     </div>
   </div>
   <div class="form-group row">
@@ -43,7 +43,7 @@
     <div class="form-group row">
     <label for="startDate" class="col-sm-2 col-form-label">시작일</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext"  value="${program.startDate} 일">
+      <input  id="startDate" type="text" readonly class="form-control-plaintext"  value="${program.startDate} 일">
     </div>
   </div>
       <div class="form-group row">
