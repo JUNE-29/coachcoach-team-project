@@ -2,15 +2,15 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
 <div>
-<h3 class="text-primary text-center">Diet Diary</h3>
+<h1 class="text-primary text-center">Diet Diary</h1><br>
 
-<p>오늘 먹은 사진을 선택해주세요!</p><br>
-<p>선택하지 않을 시 기본 이미지로 나타납니다.</p>
+<p class="font-weight-bold" style="color: DodgerBlue;">오늘 먹은 사진을 선택해주세요!</p><br>
+<p class="font-weight-bold" style="color: DodgerBlue;">선택하지 않을 시 기본 이미지로 나타납니다.</p>
 <form action='update' method='post' enctype='multipart/form-data'>
 <input type='hidden' readonly name='no' value='${foodBoard.no}'><br>
 <input type='hidden' readonly name='memberNo' value='${member.no}'><br>
 <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br>
-<input type='file' name='photoFile'>
+<input type='file' name='photoFile'><br><br>
 <textarea name='content' rows='5' cols='60'>${foodBoard.content}</textarea><br>
 <button class="btn btn-danger">수정</button>
 </form>
