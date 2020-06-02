@@ -182,7 +182,7 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1">
+          <div class="col-lg-6 order-2 order-lg-1" >
             <div class="icon-box mt-5 mt-lg-0">
               <i class="bx bx-receipt"></i>
               <h4>식습관</h4>
@@ -193,7 +193,11 @@
               <h4>운동습관</h4>
               <p>하루 30분 운동 영상으로 효과적으로 홈트하기</p>
             </div>
-            <div class="icon-box mt-5">
+          
+          </div>
+        <div class="image col-lg-6 order-1 order-lg-2" >
+          <div class="icon-box mt-5 mt-lg-0">
+          
               <i class="bx bx-images"></i>
               <h4>생활습관</h4>
               <p>작은 실천의 반복으로 일상 속 건강습관 만들기</p>
@@ -204,12 +208,9 @@
               <p>1.식사/간식을 기록하고, 나의 패턴 확인하기</p>
               <p>2.기록 결과를 바탕으로 코치와 상담하기</p>
               <p>3.피드백을 반영하여 식습관 개선하기</p>
-              
             </div>
-          </div>
-          <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url("assets/img/about-list-img.jpg");'></div>
         </div>
-
+        </div>
       </div>
     </section><!-- End About List Section -->
 
