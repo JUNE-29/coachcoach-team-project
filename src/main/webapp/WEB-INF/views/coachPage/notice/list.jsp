@@ -4,7 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-  <h1><span class="highlight">공지사항 관리</span></h1>
+  <div class="title_list">
+  <h2>공지사항 관리</h2>
+  </div>
   
   <br>
 		<div class="table-responsive" style="padding-right:60px;">

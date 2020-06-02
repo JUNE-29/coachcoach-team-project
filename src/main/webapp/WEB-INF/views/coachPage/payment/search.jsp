@@ -4,20 +4,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
-  <h1><span class="highlight">결제내역</span></h1>
+<div class="title_list">
+  <h1>결제내역</h1>
+  </div>
   <br>
   <form action="search" method="POST">
   
-    <h5>기간조회</h5>
+    <div id="searchPayBox2" class="row">
+  <div class="searchDateBox">
         <button type ="submit" name = "date" value="1week">1주일</button>
         <button type ="submit" name = "date" value="1month">1개월</button>
         <button type ="submit" name = "date" value="3month">3개월</button>
         <button type ="submit" name = "date" value="6month">6개월</button>
     
-    <div id="searchPayBox2">
       <input name='sDate' type='date'>  ~  <input name='eDate' type='date'>
       <button>조회</button>
+    </div>
     </div>
   </form>
   <br>
@@ -56,7 +58,7 @@
       </c:forEach>
     </table>
     <div class="addForm">
-      <button type="button" class="orange-button" onclick="location.href='addForm'">계좌관리</button>
+      <button type="button" class="orange-button btn" onclick="location.href='addForm'">계좌관리</button>
     </div>
   </div>
 

@@ -4,7 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-  <h1><span class="highlight">받은 요청</span></h1>
+<div class="title_list">
+  <h2>받은 요청</h2>
+  </div>
   <br>
   총 ${fn:length(list)}개 요청 건<br>
 

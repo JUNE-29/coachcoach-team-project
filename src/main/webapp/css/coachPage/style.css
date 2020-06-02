@@ -6,8 +6,8 @@
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #ea7306;
-    border-color: #ea7306;
+    background-color: #1B71D2;
+    border-color: #1B71D2;
 }
 
 a.page-link:focus {
@@ -19,16 +19,16 @@ a.page-link:focus {
 a.page-link {
   outline: none;
   box-shadow: none;
-  color: #ea7306;
+  color: #1B71D2;
 }
 
 a.page-link:hover {
-  border-color: #ea7306;
-  color: #ea7306;
+  border-color: #1B71D2;
+  color: #1B71D2;
 }
 
 .table-head {
-	background-color: #ff8c55;
+	background-color: #1B71D2;
 	color: white;
 }
 
@@ -40,7 +40,8 @@ th, td {
 /*모달 관련*--------------------------------------------------------------
 --------------------------------------------------------------*/
 .modal-header h5{
-  color: #ff8c55;
+  color: #1B71D2;
+  font-weight: bold;
 }
 
 #memberDetail th, #requestDetail th {
@@ -62,11 +63,11 @@ body {
 	}
 
 a {
-  color: #ecb304;
+  color: #4497EA;
 }
 
 a:hover {
-  color: #ff8040;
+  color: #1B71D2;
   text-decoration: none;
 }
 
@@ -118,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9997;
   transition: all 0.5s;
   padding: 0 15px;
-  background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+  background-image: linear-gradient(-60deg, #1C8FD2 0%, #2345BD 100%);
   overflow-y: auto;
 }
 
@@ -206,22 +207,22 @@ label.btn.btn-primary.active {
 
 .col1 {
 	color: white;
-	background-color: #ff8c55;
-  border-color: #ff9966;
+	background-color: #1B71D2;
+  border-color: #1B71D2;
   border-radius: 5px 0 0 5px;
 }
 
 .value { 
 	background-color: white;
-	border-color: #ff9966;
+	border-color: #1B71D2;
   border-radius: 0 5px 5px 0;
   width: 596px;
 }
 
 .modal .col1 {
 	color: white;
-  background-color: #ff8c55;
-  border-color: #ff9966;
+  background-color: #1B71D2;
+  border-color: #1B71D2;
   border-radius: 5px 0 0 5px;
 }
 
@@ -324,7 +325,7 @@ label.btn.btn-primary.active {
 .detailProfile .content_box section button {
 	margin-top:20px;
 	margin-bottom:50px;
-  background-color: #ff8c55 !important;
+  background-color: #1B71D2 !important;
   color: white;
   float:right;
   margin-right: 40px;
@@ -333,7 +334,7 @@ label.btn.btn-primary.active {
 .detailProfile .content_box section button:hover {
   margin-top:20px;
   margin-bottom:50px;
-  background-color: #ea7306 !important;
+  background-color: #4497EA !important;
   float:right;
   color: white;
    margin-right: 40px;
@@ -354,14 +355,14 @@ label.btn.btn-primary.active {
 	
 .orange-button {
 	margin-top:20px;
-  background-color: #ff8c55 !important;
+  background-color: #4497EA !important;
   color: white;
   outline: none;
   box-shadow: none;
 }
 
 .orange-button-detail {
-  background-color: #ff8c55 !important;
+  background-color: #4497EA !important;
   color: white;
   outline: none;
   box-shadow: none;
@@ -374,16 +375,10 @@ label.btn.btn-primary.active {
 }
 
 .orange-button:hover, .orange-button-detail:hover {
-  background-color: #ea7306 !important;
+  background-color: #1B71D2 !important;
   color: white;
 }
 
-/* 타이틀 하이라이트--------------------------------------------------------------
---------------------------------------------------------------*/
-
-.highlight {
-  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #ff8c55 50%);
-}
 
 
 /*content 영역--------------------------------------------------------------
@@ -398,11 +393,23 @@ label.btn.btn-primary.active {
     max-width: 1400px;
 }
 
+.title_list h2{
+	  font-weight:bold;
+}
+
 /* 결제페이지 관련--------------------------------------------------------------
 --------------------------------------------------------------*/
 #searchPayBox2 {
   float: right;
-  padding-right: 60px;
+  padding-right: 67px;
+  margin-bottom: 10px;
+}
+
+.searchDateBox {
+	padding-right:10px;
+}
+.searchDateBox button{
+	background:#fff; color:#4497EA; font-weight: bold; border:1.3px solid; border-color: #4497EA;
 }
 
 /*코치 개인정보 수정관련--------------------------------------------------------------

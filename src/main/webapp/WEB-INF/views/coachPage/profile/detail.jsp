@@ -4,7 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="detailProfile">
-  <h1><span class="highlight">프로필</span></h1>
+  <div class="title_list">
+  <h2>프로필</h2>
+  </div>
   <div class="row">
   <div class="photo">
   <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' class="img-thumbnail"><br>

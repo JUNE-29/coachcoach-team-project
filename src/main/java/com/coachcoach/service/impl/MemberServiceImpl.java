@@ -174,7 +174,7 @@ public class MemberServiceImpl implements MemberService {
         + "'" + key + "'</p>" + "<br><br><p>위의 비밀번호는 재발급을 위해 마련된 임시 비밀번호 입니다.<br>"
         + "보안을 위해 로그인하시어 반드시 비밀번호를 수정해주시기 바랍니다.</p><br>"
         + "*혹시 잘못 전달된 메일이라면 이 이메일을 무시하셔도 됩니다.* <br><br>"
-        + "<a style='background: #01b1d7; color: #FFFFFF; font-size: 1.2em; text-decoration: none;"
+        + "<a style='background: #01b1d7; color: #FFFFFF; font-size: 1.2em; text-decoration: none;'"
         + "href='http://localhost:9999/coachcoach-team-project/app/auth/member/form'>로그인 페이지로 바로가기</a><br><br>"
         + "<hr>"
         + "<h5 style='color:#999696'>(주) 코치코치 |  서울특별시 서초구 서초4동 강남대로 459 |  대표이사: 엄진영<br></h5>"
