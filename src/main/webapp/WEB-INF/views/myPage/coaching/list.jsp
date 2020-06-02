@@ -9,7 +9,7 @@
 </c:if>
 <!-- Modal -->
 <div class="modal fade" id="calendarAddForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">코칭 스케쥴</h5>
@@ -34,7 +34,6 @@
 					</div>
 					<hr>
 				  <textarea name='plan' class='summernote'></textarea><br>
-					첨부 파일: <input type='file' name='inputFiles'> <br>
 				</form>
       </div>
       <div class="modal-footer">
@@ -48,7 +47,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="calendarDetail" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">코칭 스케쥴</h5>
@@ -64,7 +63,6 @@
 					Workout 일정<div id="period"> ${detail.startDate} ~ ${detail.endDate}</div>
 					<hr>
 				  <div id="plan">${detail.plan}</div>
-					<img src='${pageContext.servletContext.contextPath}/upload/calendarFile/' height='400'>
       </div>
       <div class="modal-footer">
       <c:if test="${sessionScope.loginUser.getClass().simpleName == 'Coach'}">
