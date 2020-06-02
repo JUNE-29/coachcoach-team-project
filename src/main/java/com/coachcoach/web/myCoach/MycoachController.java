@@ -1,7 +1,10 @@
 package com.coachcoach.web.myCoach;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.coachcoach.domain.Coach;
 import com.coachcoach.domain.Member;
+import com.coachcoach.domain.MemberCoachingProgram;
 import com.coachcoach.interceptor.Auth;
 import com.coachcoach.interceptor.Auth.Role;
 import com.coachcoach.service.CoachService;
@@ -44,8 +48,21 @@ public class MycoachController {
 
   @GetMapping("list") // 마이코치
   public void mycoachList(Model model, @ModelAttribute("cri") Criteria cri) throws Exception {
-    //  완료
     Member member = (Member) httpSession.getAttribute("loginUser");
+    // 프로그램 완료시 상태변경
+    List<MemberCoachingProgram> mcp =memberCoachingProgramService.allList(member.getNo());
+    for (int i = 0; i < mcp.size(); i++) {
+      Date today = new Date();
+      SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
+      if (mcp.get(i).getEndDate()== date.format(today)) {
+        Map<String,Object> params = new HashMap<>();
+        params.put("memberCoachingProgramNo", mcp.get(i).getNo());
+        params.put("status", "진행 완료");
+        memberCoachingProgramService.updateStatus(params);
+      }
+    }
+
+    //  완료된 프로그램 조회
     PageMaker pageMaker = new PageMaker();
     pageMaker.setCri(cri);
     Map<String, Object> apply = new HashMap<>();
@@ -59,7 +76,7 @@ public class MycoachController {
     model.addAttribute("programList", coachingProgramService.applyList(params));
     model.addAttribute("pageMaker", pageMaker);
 
-    // 진행중
+    // 진행중인 프로그램 조회
     PageMaker pageMaker2 = new PageMaker();
     pageMaker2.setCri(cri);
     Map<String, Object> apply2 = new HashMap<>();

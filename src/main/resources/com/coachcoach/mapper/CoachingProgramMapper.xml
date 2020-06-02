@@ -364,6 +364,7 @@
       c.work_type,
       cp.name,
       cp.introduce,
+      cp.coaching_type,
       cp.fee
      from 
       coaching_programs cp 

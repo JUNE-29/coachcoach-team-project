@@ -6,7 +6,7 @@
 <div class="leftArea">
 <div class="inner">
 <form id="searchfrm" action='searchKeyword' method='get' class="searchInp">
-<input id="search" name='keyword' type='text' placeholder="코치 또는 프로그램 검색">
+<input id="search" name='keyword' type='text' placeholder="코치 또는 프로그램">
 <button id="searchBtn">검색</button>
 </form>
 <div class="box">
@@ -66,7 +66,7 @@
 <div class="txt">
 <label style='color:#01b1d7; font-weight:bold; font-size:17px;'>${list.coach.name} </label>&ensp;<label>코치님</label><br> 
 <label>${list.name}</label><br> 
-<label>${list.introduce}</label><br> 
+<label>${list.coachingType}</label><br> 
 <label>${list.fee}원 </label><br> 
 </div>
 </div>

@@ -8,7 +8,6 @@
 <div class="bar">
 <p style="font-weight:bold">&nbsp&nbsp${program.name}</p><hr>
 프로그램 소개<br>
-${program.introduce}<br>
 수강금액 ${program.fee} 원<br>
 코칭장소 ${program.coachingType}
 <div class="star_rating">
@@ -74,6 +73,7 @@ ${program.introduce}<br>
 <li class="content_tab tab2"><a herf="javascipt:;">수강 후기</a></li>
 </ul>
 <div class="tabCont article">
+<div class ="pro_intro">${program.introduce}</div>
 <img src='${pageContext.servletContext.contextPath}/upload/img/pro.png' >
 </div>
 <div class="tabCont article2">

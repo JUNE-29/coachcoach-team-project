@@ -7,8 +7,8 @@
 
 <div class="box pro_div" >
 <p class="title">마이코치</p>
-<hr style="margin-top: 5px;">
-  진행중
+<hr style="margin-top: 5px 0px 25px 0px;">
+ <label style="font-weight:bold; font-size:20px; color:#01b1d7">진행중인 프로그램 항목</label>
   <table class="table table-hover">
   <thead>
     <tr>
@@ -93,7 +93,7 @@
 
 
 <div class="pro_div">
-완료
+<label style="font-weight:bold; font-size:20px; ">완료된 프로그램 항목</label>
   <table class="table table-hover">
   <thead>
     <tr>
