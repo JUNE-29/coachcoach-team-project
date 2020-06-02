@@ -8,23 +8,23 @@
 
 
 <c:if test="${not empty foodBoard}">
-고객이름: 나문희<br>
-등록일: ${foodBoard.modifiedDate}<br>
-사진: <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br>
-내용: ${foodBoard.content}<br>
+고객이름: 나문희<br><br>
+등록일: ${foodBoard.modifiedDate}<br> <br>
+사진: <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br> <br>
+내용: ${foodBoard.content}<br><br>
 <%if (session.getAttribute("loginUser") instanceof Member) {%>
 <div class="row">
-	<div class="col-md-2">
-	<form action="delete" method="post">
-	  <button value="${foodBoard.no}" name="no">삭제</button> 
-	</form>
-	</div>
-	<div class="col-md-2">
-	<form action="updateForm" method="post">
-	  <input type='hidden' name='no' value='${foodBoard.no}'>
-	  <button>변경</button> 
-	</form>
-	</div>
+  <div class="col-md-2">
+  <form action="delete" method="post">
+    <button value="${foodBoard.no}" name="no" class="btn btn-danger">삭제</button> 
+  </form>
+  </div>
+  <div class="col-md-2">
+  <form action="updateForm" method="post">
+    <input type='hidden' name='no' value='${foodBoard.no}'>
+    <button class="btn btn-primary">변경</button> 
+  </form>
+  </div>
 </div>
 <%}%>
 <br>
@@ -39,11 +39,11 @@
           나
         </td>
       </c:when>
-		  <c:when test='${comment.coachName ne null}'>
-		    <td>
-		      ${comment.coachName}
-		    </td>
-		  </c:when>
+      <c:when test='${comment.coachName ne null}'>
+        <td>
+          ${comment.coachName}
+        </td>
+      </c:when>
     </c:choose>
       <td>
         ${comment.content}
@@ -52,13 +52,13 @@
         ${comment.createDate}
       </td>
       <%if (session.getAttribute("loginUser") instanceof Member) {%>
-	      <td>
-	      <form action='comment/delete' method='post'>
-	        <input type='hidden' name='foodBoardNo' value='${foodBoard.no}'>
-	        <input type='hidden' name='no' value='${comment.no}'>
-	        <button>삭제</button>
-	      </form>
-	      </td>
+        <td>
+        <form action='comment/delete' method='post'>
+          <input type='hidden' name='foodBoardNo' value='${foodBoard.no}'>
+          <input type='hidden' name='no' value='${comment.no}'>
+          <button>삭제</button>
+        </form>
+        </td>
       <%}%>
       <%if (session.getAttribute("loginUser") instanceof Coach) {%>
       <c:if test="${sessionScope.loginUser.no eq comment.coachNo}">
@@ -87,4 +87,3 @@ if (loginUser instanceof Coach) {
 <button class="btn btn-primary">등록</button>
 <br>
 </form>
-
