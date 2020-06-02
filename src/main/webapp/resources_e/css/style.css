@@ -52,7 +52,7 @@ div.innerCont {
 .order_frm {border:none; padding:10px 10px 0px 10px; margin:10px 10px 0px 10px}
 .content .coach_img { overflow:hidden;  float:left; width:150px; height:150px; border-radius: 50%; border: 1px solid #ededed; background:#eee; margin: 30px 60px 30px 20px ;}
 
-.content #detail-inner-photo-img  { overflow:hidden;  float:left; width:150px; height:150px; border-radius: 50%; border: 1px solid #ededed; background:#eee; margin: 30px 60px 30px 20px ;}
+.content #detail-inner-photo-img  { overflow:hidden;  float:left; width:150px; height:150px; /*border-radius: 50%;*/ border: 1px solid #ededed; background:#eee; margin: 30px 60px 30px 20px ;}
 .order_frm dl {overflow: hidden;}
 .order_frm dl dt {float: left;clear: right;width: 40%;font-size: 14px;}
 .order_frm dl dd{ float: left;width: 60%;font-size: 14px;}
