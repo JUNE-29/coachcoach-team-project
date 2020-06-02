@@ -145,6 +145,7 @@ public class MemberServiceImpl implements MemberService {
             "<h5 style='color:#999696'>(주) 코치코치 |  서울특별시 서초구 서초4동 강남대로 459 |  대표이사: 엄진영<br></h5>")
         .append("</div>").toString());
 
+
     sendMail.setFrom("coachcoach.service@gmail.com", "Coachcoach");
     sendMail.setTo(member.getEmail());
     sendMail.send();
