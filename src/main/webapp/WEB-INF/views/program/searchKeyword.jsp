@@ -35,13 +35,13 @@
 <strong>상세조건</strong>
 <p class="tit">코치성별</p>
 <form action='searchDetail' method='get'>
-<input name='gender' type='radio' value='2' checked>무관
-<input name='gender' type='radio' value='0'>여자
-<input name='gender' type='radio' value='1'>남자
-<p class="tit">코치장소</p>
-<input name='coachingType' type='radio' value='온라인' checked>온라인<br>
-<input name='coachingType' type='radio' value='오프라인'>오프라인<br>
-<input name='coachingType' type='radio' value='오프라인+온라인'>오프라인 + 온라인<br>
+<input name='gender' type='radio' value='2' checked><label style="margin:0px 15px 0px 8px;" >무관</label>
+<input name='gender' type='radio' value='0'><label style="margin:0px 15px 0px 8px;" >여자</label>
+<input name='gender' type='radio' value='1'><label style="margin:0px 0px 0px 8px;" >남자</label>
+<p class="tit">코칭장소</p>
+<input name='coachingType' type='radio' value='온라인' checked><label style="margin:0px 0px 0px 8px;" >온라인</label><br>
+<input name='coachingType' type='radio' value='오프라인'><label style="margin:0px 0px 0px 8px;" >오프라인</label><br>
+<input name='coachingType' type='radio' value='오프라인+온라인'><label style="margin:0px 0px 0px 8px;" >오프라인 + 온라인</label><br>
 <button id="detailBtn" class="detailBtn">검색</button>
 </form>
 </div>
@@ -58,19 +58,19 @@
 </form>
 
 <c:forEach items="${searchProgram}" var="list">
-<div class="coachingList" style='padding:10px; margin:5px'>
+<a href='detail?programNo=${list.no}&no=${list.coachNo}' style='color:black'><div class="coachingList" style='padding:10px; margin:5px'>
 <div class="cont">
 <div class="img">
 <img src='${pageContext.servletContext.contextPath}/upload/coach/${list.coach.photo}'>
 </div>
 <div class="txt">
-<a href='detail?programNo=${list.no}&no=${list.coachNo}'><label>${list.coach.name} 코치님</label></a><br> 
+<label style='color:#01b1d7; font-weight:bold; font-size:17px;'>${list.coach.name} </label>&ensp;<label>코치님</label><br> 
 <label>${list.name}</label><br> 
 <label>${list.introduce}</label><br> 
 <label>${list.fee}원 </label><br> 
 </div>
 </div>
-</div>
+</div></a>
 </c:forEach>
 
 <div class="paginationWrap">
