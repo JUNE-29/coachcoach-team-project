@@ -211,7 +211,7 @@ function selectDelete(){
  $('#toDoListAdd').on('click', function() {
    var item = $('<span>');
    var span = $('<span>');
-   var input = $('<input type="text" id="toDoListForm" placeholder="내용을 입력해주세요.">');
+   var input = $('<input type="text" id="toDoListForm" placeholder="내용 입력 후 엔터 누르기!">');
    input.appendTo(span);
    span.appendTo(item);
    $('.toDoList_list').append(item);

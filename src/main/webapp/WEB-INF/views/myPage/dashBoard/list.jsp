@@ -8,16 +8,21 @@
     <div class="owl-carousel owl-theme" style="position:relative">
 	    <c:forEach items="${notices}" var="notice">
 	    <div class="notice-content" style="width:1000px;">
-	      <h3><span class="highlight">${notice.createdDate} 공지사항 업데이트!</span></h3>
-		      <div style="padding:20px;">
+	      <h5 style="font-weight:bold; padding-left:9px;"> [${notice.createdDate}] 코치의 공지사항! </h5> 
+		      <div style="padding:10px;">
 		      <input type="hidden" name="noticeNo" value="${notice.no}">
-		      <h5 style="font-weight:bold; color:#3498DB">${notice.title}</h5>
+		      <h3 style="color:#08BAFD; letter-spacing: -1px;"> ${notice.title}</h3>
 		      </div>
 	    </div>
 	    </c:forEach>
     </div>
 	</div>
-	<div class="workouts" style="margin: 70px 0 30px 0">
+	<div class="dsboard_workout_area">
+	<span style=" font-size:20px; font-weight: bold; letter-spacing: -1px;">회원님의 운동 데이터</span>
+	<i class="bx bx-run" style="font-size: 40px; color:#08BAFD;"></i>
+ <a href="../detailData/memberWorkoutList" style="font-weight:bold; margin-left:430px; letter-spacing: -1px; color:#08BAFD;">+&nbsp;데이터 더보기</a>
+	<hr>
+	<div class="workouts" >
 	<div class="row">
 		<div style="width:47%;">
 	    <jsp:include page='../detailData/workoutGraph.jsp'/>
@@ -27,13 +32,8 @@
     </div>
   </div>
 	</div>
-	<hr>
-	<div>
-	  <h3><span class="tit" style="font-size:26px;">오늘 운동 하셨나요??</span></h3>
-	  하셨을 거라고 믿어요
-	  <br>
-	  <a href="../detailData/memberWorkoutList">오늘의 운동 기록하러 가기<i class="bx bx-run" style="font-size: 40px"></i></a>
-	</div>
+
+</div>
 </div>
 
 <div class="container1 col-md-4" style="height:820px;">

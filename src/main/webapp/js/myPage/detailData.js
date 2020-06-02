@@ -30,7 +30,7 @@ Chart.plugins.register({
             ctx.save();
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('오늘의 운동을 기록해주세요.', width / 2, height / 2);
+            ctx.fillText('오늘의 운동을 기록해주세요!', width / 2, height / 2);
             ctx.restore();
         }
     }
@@ -273,7 +273,7 @@ if ($('#week').hasClass('active')) {
   		    maintainAspectRatio: true,
   		    title: {
   	            display: true,
-  	            text: '요일 별 걸음수',
+  	            text: '요일 별 걸음 수',
   	            fontSize: 25
   	        }
   		    }
@@ -333,7 +333,7 @@ if ($('#month').hasClass('active')) {
           options: {
             title: {
               display: true,
-              text: '이 주의 운동 내역(분)',
+              text: '이번 주 운동(분)',
               fontSize: 25
             },
             responsive: true,
@@ -445,7 +445,7 @@ if ($('#year').hasClass('active')) {
           options: {
             title: {
               display: true,
-              text: '이 달의 운동 내역(분)',
+              text: '이번 달 운동(분)',
               fontSize: 25
             },
             responsive: true,

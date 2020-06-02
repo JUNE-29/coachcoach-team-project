@@ -7,10 +7,15 @@
   <a id="toDoListAdd" href= '#' type='hidden'><i class='bx bxs-plus-square'></i></a>
   
    <br>
+   <div class ="toDoList_checkbox_area">
    <span class="toDoList_checkbox">
    <input type="checkbox" name="toDoList" id="check-all"/> 
-   <label for="check-all">전체선택</label><br>
+   <label for="check-all">전체선택</label>
    </span>
+    <span class="toDoList_btn">
+     <input type="button" name="toDoListDelete" class="deleteToDoList" value='선택삭제' onclick="selectDelete();" /> <br>
+    </span>
+   </div>
    
     <div class="toDoList_list">
       <c:forEach items="${findAll}" var="item">
@@ -24,8 +29,5 @@
       </c:forEach>
     </div>
   
-    <span class="toDoList_btn">
-     <input type="button" name="toDoListDelete" class="deleteToDoList" value='선택삭제' onclick="selectDelete();" /> <br>
-    </span>
    
 </div>
