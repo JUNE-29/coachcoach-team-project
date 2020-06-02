@@ -1,12 +1,8 @@
 package com.coachcoach.web.myPage;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import com.coachcoach.domain.CalendarFile;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberProgramCalendar;
 import com.coachcoach.interceptor.Auth;
@@ -145,6 +140,7 @@ public class CoachingController {
 
     try {
         multipartFile.transferTo(targetFile);
+        System.out.println(servletContext.getContextPath());
         jsonObject.addProperty("url", servletContext.getContextPath() +"/upload/calendarFile/" + savedFileName);
         jsonObject.addProperty("responseCode", "success");
 
