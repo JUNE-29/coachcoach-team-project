@@ -1,5 +1,4 @@
 !(function($) {
-  "use strict";
 
   if ($('.coach-table').find('td').length>0){
     $('.coach-table').DataTable();
@@ -13,11 +12,31 @@
     maxHeight: null,             // 최대 높이
     focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
     lang: "ko-KR",          // 한글 설정
-    placeholder: '최대 21,844자까지 쓸 수 있습니다'  //placeholder 설정
+    placeholder: '최대 21,844자까지 쓸 수 있습니다',  //placeholder 설정,
+	callbacks: {	//여기 부분이 이미지를 첨부하는 부분
+		onImageUpload : function(files) {
+			uploadSummernoteImageFile(files[0],this);
+		}
+	},
+    dialogsInBody: true // 대박 지윤천재쓰가 고쳐줌
   });
   
   
-
+  function uploadSummernoteImageFile(file, editor) {
+		var data = new FormData();
+		data.append("file", file);
+		$.ajax({
+			data : data,
+			type : "POST",
+			url : "uploadSummernoteImageFile",
+			contentType : false,
+			processData : false,
+			success : function(data) {
+	        	//항상 업로드된 파일의 url이 있어야 한다.
+				$(editor).summernote('insertImage', data.url);
+			}
+		});
+	}
   
   // 모바일 토글 설정 
   $(document).on('click', '.mobile-nav-toggle', function(e) {
@@ -394,7 +413,7 @@
           success: function (data) {
               $('.modal').modal("hide");
               Swal.fire({
-                title: '야호!',
+                title: '등록 완료!',
                 text: '등록했습니다!',
                 icon: 'success',
                 confirmButtonText: '확인'
