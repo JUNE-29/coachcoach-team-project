@@ -234,6 +234,7 @@ h1, h2, h3, h4, h5, h6 {
    background: none repeat scroll 0 0 #4481eb;
 }
 
+
 /*--------------------------------------------------------------
 # Header 및 프로필 관련
 --------------------------------------------------------------*/
@@ -439,4 +440,9 @@ background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
   text-align: center;
   font-size: 13px;
   color: #000000;
+}
+
+
+.card-columns {
+  column-count: 3;
 }
