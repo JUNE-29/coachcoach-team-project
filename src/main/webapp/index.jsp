@@ -31,16 +31,6 @@
 
 <body>
 
-  <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-none d-lg-block">
-    <div class="container d-flex">
-      <div class="contact-info mr-auto">
-        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">coachcoach.service@gmail.com</a>
-        <i class="icofont-phone phone-icon"></i> +1 5589 55488 55
-      </div>
-    </div>
-  </section>
-
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center">
@@ -101,7 +91,6 @@
               <div class="carousel-content">
                 <h2 class="animated fadeInDown">Welcome to <span>CoachCoach</span></h2>
                 <p class="animated fadeInUp">맞춤형 일대일 코칭시스템</p>
-                <a href="#about" class="btn-get-started scrollto animated fadeInUp">More</a>
               </div>
             </div>
           </div>
@@ -112,8 +101,7 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animated fadeInDown">장소와 시간에 제약없는 운동</h2>
-                <p class="animated fadeInUp">시간과 장소에떄문에 고민이신가요.</p>
-                <a href="#about" class="btn-get-started scrollto animated fadeInUp">More</a>
+                <p class="animated fadeInUp">시간과 장소에때문에 고민이신가요.</p>
               </div>
             </div>
           </div>
@@ -125,7 +113,6 @@
               <div class="carousel-content">
                 <h2 class="animated fadeInDown">매번 계획만 세우시다가 끝나시나요</h2>
                 <p class="animated fadeInUp">매번 다이어트 생각만하고 못하시고 계신가요.</p>
-                <a href="#about" class="btn-get-started scrollto animated fadeInUp"> More</a>
               </div>
             </div>
           </div>
