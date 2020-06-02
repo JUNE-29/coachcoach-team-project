@@ -63,18 +63,18 @@ public class MycoachController {
     }
 
     //  완료된 프로그램 조회
-    PageMaker pageMaker = new PageMaker();
-    pageMaker.setCri(cri);
+    PageMaker pageMaker1 = new PageMaker();
+    pageMaker1.setCri(cri);
     Map<String, Object> apply = new HashMap<>();
     apply.put("status", "진행 완료");
     apply.put("no", member.getNo());
-    pageMaker.setTotalCount(memberCoachingProgramService.statusCount(apply));
+    pageMaker1.setTotalCount(memberCoachingProgramService.statusCount(apply));
 
     Map<String, Object> params = new HashMap<>();
     params.put("cri", cri);
     params.put("no", member.getNo());
     model.addAttribute("programList", coachingProgramService.applyList(params));
-    model.addAttribute("pageMaker", pageMaker);
+    model.addAttribute("pageMaker1", pageMaker1);
 
     // 진행중인 프로그램 조회
     PageMaker pageMaker2 = new PageMaker();
@@ -89,7 +89,7 @@ public class MycoachController {
     param.put("status", "진행중");
     param.put("no", member.getNo());
     model.addAttribute("program", coachingProgramService.findByMemberNo(param));
-    model.addAttribute("pageMaker2", pageMaker);
+    model.addAttribute("pageMaker2", pageMaker2);
   }
 
   @ResponseBody // 코치 상세보기

@@ -9,15 +9,17 @@ $(function(){
              data: {no: $(this).val()} ,
              success: function(data){
                 			$('#detail-inner-photo-img').attr('src','/coachcoach-team-project/upload/coach/' + data.photo);
-                			$('#detail-inner').html("<b>"+
-                					data.name+"코치님</b><br>"+
-                					"<b>한 줄 소개</b><br>"+
+                			$('#detail-inner-photo-img').css('width','180px;');
+                			$('#detail-inner-photo-img').css('height','180px;');
+                			$('#detail-inner').html("<p style='color:#01b1d7; font-size:20px;'>"+
+                					data.name+"코치님</p>"+
+                					"<p style='color:#01b1d7'>한 줄 소개</p>"+
                 					data.introduce+
-                					"<br><b>기본 정보</b><br>"+
+                					"<br><br><p style='color:#01b1d7'>기본 정보</p>"+
                 					data.tel+"<br>"+
                 					data.email+"<br>"+
                 					data.address+"<br>"+
-                					"<b>추가 정보</b><br>"+
+                					"<br><p style='color:#01b1d7'>추가 정보</p>"+
                 					data.career+"<br>"+
                 					data.certification	
                 			);  

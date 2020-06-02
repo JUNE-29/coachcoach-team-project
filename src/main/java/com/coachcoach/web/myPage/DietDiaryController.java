@@ -46,7 +46,7 @@ public class DietDiaryController {
 
 
   @PostMapping("add")
-  public void add(FoodBoard foodBoard, MultipartFile photoFile) throws Exception {
+  public String add(FoodBoard foodBoard, MultipartFile photoFile) throws Exception {
     if (photoFile.getSize() > 0) {
       String dirPath = servletContext.getRealPath("/upload/foodBoard");
       String filename = UUID.randomUUID().toString();
@@ -58,6 +58,7 @@ public class DietDiaryController {
     } else {
       throw new Exception("게시물을 추가할 수 없습니다.");
     }
+    return "redirect:list";
   }
 
   @Auth(role = {Role.COACH, Role.MEMBER})
