@@ -5,7 +5,9 @@
 
 <style>
 #footer {
+  margin:0 auto;
   background: #1f2627;
+  width:100%;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
@@ -15,6 +17,11 @@
   background: #2a3336;
   border-bottom: 1px solid #354144;
   padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .row {
+  width:1140px;
+  margin:0 auto;
 }
 
 #footer .footer-top .footer-info {
@@ -162,7 +169,7 @@
           <div class="footer-info">
             <h3>CoachCoach</h3>
             <p>
-              조장:김다혜 <br> 조원:김동영,김은정,<br> 정지윤,노기현<br> <strong>Phone:</strong>
+              조장:김다혜 <br> 조원:손동영,신은정,<br> 정지윤,노기현<br> <strong>Phone:</strong>
               +1 5589 55488 55<br> <strong>Email:</strong> coachcoach.service@gmail.com<br>
             </p>
           </div>
