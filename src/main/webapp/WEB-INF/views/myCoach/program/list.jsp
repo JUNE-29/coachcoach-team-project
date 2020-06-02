@@ -47,7 +47,7 @@
         <a href='list?page=${pageNum}'><i class="fa">${pageNum}</i></a>
     </li>
     </c:forEach>
-    <c:if test="${pageMaker2.next && pageMaker.endPage>0}">
+    <c:if test="${pageMaker2.next && pageMaker2.endPage>0}">
     <li>
         <a href='list?page=${pageMaker2.endPage+1}'><i class="fa fa-chevron-right"></i></a>
     </li>
@@ -136,19 +136,19 @@
 
 <div class="paginationWrap">
 <ul class="btn-group pagination">
-    <c:if test="${pageMaker.prev}">
+    <c:if test="${pageMaker1.prev}">
     <li>
-        <a href='list?page=${pageMaker.startPage-1}'><i class="fa fa-chevron-left"></i></a>
+        <a href='list?page=${pageMaker1.startPage-1}'><i class="fa fa-chevron-left"></i></a>
     </li>
     </c:if>
-    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
+    <c:forEach begin="${pageMaker1.startPage}" end="${pageMaker1.endPage}" var="pageNum">
     <li>
         <a href='list?page=${pageNum}'><i class="fa">${pageNum}</i></a>
     </li>
     </c:forEach>
-    <c:if test="${pageMaker.next && pageMaker.endPage>0}">
+    <c:if test="${pageMaker1.next && pageMaker1.endPage>0}">
     <li>
-        <a href='list?page=${pageMaker.endPage+1}'><i class="fa fa-chevron-right"></i></a>
+        <a href='list?page=${pageMaker1.endPage+1}'><i class="fa fa-chevron-right"></i></a>
     </li>
     </c:if>
 </ul>
