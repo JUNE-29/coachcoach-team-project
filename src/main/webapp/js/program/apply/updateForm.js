@@ -1,3 +1,9 @@
+//번호 하이픈 정규식
+$(document).ready(function() {
+	var tel = $('#tel').val();
+	tel = tel.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/,"$1-$2-$3");
+	$('#tel').attr('value',tel);
+});
 
 $("#updatebtn").click(function(){
     if($.trim($("#startDate").val())==''){
@@ -5,21 +11,26 @@ $("#updatebtn").click(function(){
       return false;
     } 
     
-    var  Now = new Date(),
-    StrNow = String(Now),
-    nowYear = String(Now.getFullYear()),
-        nowMon = String(Now.getMonth()+1),
-    nowDay = String(Now.getDate());
- if(nowMon.length == 1) {
- nowMon = "0"+nowMon
- }
- var NowToday = nowYear+"/"+nowMon+"/"+nowDay;
+//오늘날짜 구하기
+ var date = new Date(); 
+ var year = date.getFullYear(); 
+ var month = new String(date.getMonth()+1); 
+ var day = new String(date.getDate()); 
+
+ // 한자리수일 경우 0을 채워준다. 
+ if(month.length == 1){ 
+   month = "0" + month; 
+ } 
+ if(day.length == 1){ 
+   day = "0" + day; 
+ } 
+ var NowToday = year+"-"+month+"-"+day;
  console.log('NowToday', NowToday);
-    
-    if($.trim($("#startDate").val())<NowToday){
-    	swal.fire("미래날짜를 입력해주세요.");
-      return false;
-    } 
+ 
+ if($.trim($("#startDate").val()) < NowToday){
+ 	swal.fire("미래날짜를 입력해주세요.");
+   return false;
+ } 
 		    });
 
 

@@ -15,11 +15,11 @@ div.innerCont {
   overflow:hidden;
   padding-bottom:50px;
 }
-.sidebar { float:left; width:300px;}
+.sidebar { float:left; width:220px;}
 .sidebar .nav-menubar .side_ul {text-align:center;margin-top:60px}
-.sidebar .nav-menubar .side_ul .side_list {padding:8px 20px; margin:10px;list-style:none;}
+.sidebar .nav-menubar .side_ul .side_list {padding:8px 20px; margin:10px; list-style:none;}
 .sidebar .nav-menubar .side_ul .side_list a {color:black;}
-.innerCont .content {float:left; width:700px; min-height:700px;padding:18px; box-sizing:border-box; }
+.innerCont .content {float:left; width:800px; min-height:700px;padding:18px 0px 18px 60px; box-sizing:border-box; border-left:1px solid rgba(0,0,0,.1)}
 .footer {
     position: absolute;
     left: 0;
@@ -60,9 +60,9 @@ div.innerCont {
 .pay_method { width:30px; margin:0px 10px 20px 0px;}
 #pay_frm {text-align:center; margin:0px;}
 
-.pro_div{height:250px;}
-.title {color:#01b1d7; font-weight: bold;font-size:20px; }
-
+.pro_div{height:400px;}
+.title {font-weight: bold;font-size:20px; }
+.withraw_label {margin-left:10px;}
 
   
 /* 별점 시작 */

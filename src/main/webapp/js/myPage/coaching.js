@@ -1,7 +1,7 @@
 
 // 서머노트 에디터
 $('.summernote').summernote({
-  height: 300,                 // 에디터 높이
+  height: 400,                 // 에디터 높이
   minHeight: null,             // 최소 높이
   maxHeight: null,             // 최대 높이
   focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     displayEventTime: false,
     eventClick: function(info) {
       $.ajax({
-        type: "POST",
+        type: "GET",
         url: "detail",
         data:{
           no:info.event._def.extendedProps.planNo
@@ -86,14 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#programName').html(detail.ProgramName);
             $('#period').html(detail.startDate +" ~ "+ detail.endDate);
             $('#plan').html(detail.plan);
-            if (detail.files.length>0) {
-            	if(detail.files[0].fileType == 'image') {
-            		$('#calendarDetail img').show();
-            		$('#calendarDetail img').attr('src', imagePath+detail.files[0].path);
-            	}
-            } else {
-            	$('#calendarDetail img').hide();
-            }
             $('#calendarDetail input[name="calendarNo"]').val(detail.no);
             $('#coachName, #programName, #period').css('font-size', '20px');
             $('#calendarDetail').modal('show');

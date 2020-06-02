@@ -30,7 +30,7 @@
   <div class="form-group row">
     <label for="tel" class="col-sm-2 col-form-label">연락처</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext"  value="${program.member.tel}">
+      <input  id="tel"  type="text" readonly class="form-control-plaintext"  value="${program.member.tel}">
     </div>
   </div>
   <div class="form-group row">
@@ -42,7 +42,7 @@
    <div class="form-group row">
     <label for="startDate" class="col-sm-2 col-form-label">시작일*</label>
     <div class="col-sm-10">
-      <input id="startDate" name='startDate' type="text" class="form-control" placeholder='예) 2021-05-01' onchange='chk_date()' >
+      <input id="startDate" name='startDate' type="date" class="form-control" placeholder='예) 2021-05-01' onchange='chk_date()' >
     </div>
   </div>
    <div class="form-group row">

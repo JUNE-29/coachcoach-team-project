@@ -34,9 +34,6 @@ public class MemberProgramCalendarServicelmpl implements MemberProgramCalendarSe
   @Override
   public int add(MemberProgramCalendar memberProgramCalendar) throws Exception {
     int i = memberProgramCalendarDao.insert(memberProgramCalendar);
-    if (!memberProgramCalendar.getFiles().isEmpty()) {
-      calendarFileDao.insert(memberProgramCalendar);
-    }
     return i;
   }
 

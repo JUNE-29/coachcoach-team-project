@@ -41,6 +41,6 @@
 
 <tiles:insertAttribute name="footer"/>
 
-  <script src="${pageContext.servletContext.contextPath}/resources_e/js/pMain.js"></script>
+  <script src="${pageContext.servletContext.contextPath}/resources_e/js/pMain.js?ver=1"></script>
 </body>
 </html>

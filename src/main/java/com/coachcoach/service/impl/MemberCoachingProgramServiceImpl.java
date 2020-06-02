@@ -132,4 +132,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.statusDateCnt(param);
   }
 
+  @Override
+  public List<MemberCoachingProgram> allList(int no) throws Exception {
+    return memberCoachingProgramDao.allList(no);
+  }
+
 }

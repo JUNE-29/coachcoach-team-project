@@ -54,6 +54,8 @@ public interface MemberCoachingProgramDao {
 
   List<MemberCoachingProgram> applyList(Map<String, Object> params)  throws Exception;
 
+  List<MemberCoachingProgram> allList(int no)  throws Exception;
+
   List<MemberCoachingProgram> searchApplyList(Map<String, Object> params)  throws Exception;
 
   int applyDateCnt(Map<String, Object> param) throws Exception;

@@ -12,7 +12,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>저장했습니다.</p>
+        <p>수정했습니다.</p>
       </div>
       <div class="modal-footer">
         <button type="button" onclick="location.href='list'" class="btn btn-secondary" data-dismiss="modal">닫기</button>

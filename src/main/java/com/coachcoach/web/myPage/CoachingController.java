@@ -1,12 +1,8 @@
 package com.coachcoach.web.myPage;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.tika.Tika;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import com.coachcoach.domain.CalendarFile;
 import com.coachcoach.domain.Member;
 import com.coachcoach.domain.MemberProgramCalendar;
 import com.coachcoach.interceptor.Auth;
@@ -100,7 +94,7 @@ public class CoachingController {
   }
 
   @Auth(role = {Role.COACH, Role.MEMBER})
-  @PostMapping("detail")
+  @GetMapping("detail")
   public void detail(HttpServletResponse response, int no) throws Exception {
     Gson json = new Gson();
     response.setCharacterEncoding("UTF-8");
@@ -120,30 +114,8 @@ public class CoachingController {
 
   // 코치만 접근 가능 VVVVVV
   @PostMapping("add")
-  public String add(MemberProgramCalendar memberProgramCalendar, MultipartFile[] inputFiles)
+  public String add(MemberProgramCalendar memberProgramCalendar)
       throws Exception {
-    List<CalendarFile> list = new ArrayList<>();
-
-    String dirPath = servletContext.getRealPath("/upload/calendarFile");
-    for (MultipartFile f : inputFiles) {
-      if (f.getSize() <= 0) {
-        continue;
-      }
-
-      String filename = UUID.randomUUID().toString();
-      File file = new File(dirPath + "/" + filename);
-      f.transferTo(new File(dirPath + "/" + filename));
-
-      InputStream inputStream = new FileInputStream(file);
-
-      if (checkImageMimeType(inputStream)) {
-        list.add(new CalendarFile().setPath(filename).setFileType("image"));
-      } else {
-        list.add(new CalendarFile().setPath(filename).setFileType("etc"));
-      }
-    }
-    memberProgramCalendar.setFiles(list);
-
     memberProgramCalendarService.add(memberProgramCalendar);
     return "redirect:list";
   }
@@ -164,12 +136,12 @@ public class CoachingController {
 
     String savedFileName = UUID.randomUUID() + extension;   //저장될 파일 명
 
-    File targetFile = new File(dirPath + savedFileName);
+    File targetFile = new File(dirPath + "/" + savedFileName);
 
     try {
-        InputStream fileStream = multipartFile.getInputStream();
-        FileUtils.copyInputStreamToFile(fileStream, targetFile);    //파일 저장
-        jsonObject.addProperty("url", dirPath+"/"+savedFileName);
+        multipartFile.transferTo(targetFile);
+        System.out.println(servletContext.getContextPath());
+        jsonObject.addProperty("url", servletContext.getContextPath() +"/upload/calendarFile/" + savedFileName);
         jsonObject.addProperty("responseCode", "success");
 
     } catch (IOException e) {
@@ -181,60 +153,11 @@ public class CoachingController {
     return jsonObject;
   }
 
-  @PostMapping("update")
-  public void update(MemberProgramCalendar memberProgramCalendar, MultipartFile[] inputFiles)
-      throws Exception {
-    List<CalendarFile> list = new ArrayList<>();
-
-    String dirPath = servletContext.getRealPath("/upload/calendarFile");
-    for (MultipartFile f : inputFiles) {
-      if (f.getSize() <= 0) {
-        continue;
-      }
-
-      String filename = UUID.randomUUID().toString();
-      File file = new File(dirPath + "/" + filename);
-      f.transferTo(new File(dirPath + "/" + filename));
-
-      InputStream inputStream = new FileInputStream(file);
-
-      if (checkImageMimeType(inputStream)) {
-        list.add(new CalendarFile().setPath(filename).setFileType("image"));
-      } else {
-        list.add(new CalendarFile().setPath(filename).setFileType("etc"));
-      }
-    }
-    memberProgramCalendar.setFiles(list);
-
-    memberProgramCalendarService.update(memberProgramCalendar);
-  }
 
   @PostMapping("delete")
   public String delete(int no) throws Exception {
     memberProgramCalendarService.delete(no);
     return "redirect:list";
-  }
-
-  /**
-   * MIME TYPE 확인
-   *
-   * @param input
-   * @return
-   * @throws IOException
-   */
-  public static boolean checkImageMimeType(InputStream file) throws IOException {
-
-    Tika tika = new Tika();
-
-    String mimeType = tika.detect(file);
-
-    logger.debug("### MIME Type = {}", mimeType);
-
-    if (mimeType.startsWith("image")) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
 }
