@@ -216,6 +216,7 @@
       cp.name,
       cp.introduce,
       cp.fee,
+      cp.coaching_type,
       rc.count
     from 
       coaching_programs cp 
@@ -235,6 +236,7 @@
       c.name coach_name,
       cp.name,
       cp.introduce,
+      cp.coaching_type,
       cp.fee,
       sr.avg
     from 
