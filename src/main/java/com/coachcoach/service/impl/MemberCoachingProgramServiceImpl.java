@@ -137,4 +137,9 @@ public class MemberCoachingProgramServiceImpl implements MemberCoachingProgramSe
     return memberCoachingProgramDao.allList(no);
   }
 
+  @Override
+  public List<MemberCoachingProgram> statusList(Map<String, Object> params) throws Exception {
+    return memberCoachingProgramDao.statusList(params);
+  }
+
 }

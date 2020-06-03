@@ -24,6 +24,8 @@ public interface MemberCoachingProgramService {
 
   List<MemberCoachingProgram> searchDate(Map<String, Object> params) throws Exception;
 
+  List<MemberCoachingProgram> statusList(Map<String, Object> params) throws Exception;
+
   List<MemberCoachingProgram> allList(int no) throws Exception;
 
   List<MemberCoachingProgram> RequestList(int coachNo) throws Exception;

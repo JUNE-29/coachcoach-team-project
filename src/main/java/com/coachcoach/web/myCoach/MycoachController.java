@@ -73,7 +73,8 @@ public class MycoachController {
     Map<String, Object> params = new HashMap<>();
     params.put("cri", cri);
     params.put("no", member.getNo());
-    model.addAttribute("programList", coachingProgramService.applyList(params));
+    params.put("status", "진행 완료");
+    model.addAttribute("programList", memberCoachingProgramService.statusList(params));
     model.addAttribute("pageMaker1", pageMaker1);
 
     // 진행중인 프로그램 조회

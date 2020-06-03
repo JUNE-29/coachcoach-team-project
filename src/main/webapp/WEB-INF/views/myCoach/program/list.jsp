@@ -106,24 +106,24 @@
   </thead>
   <c:forEach items="${programList}" var="list">
   <tbody>
-  <c:set var="status" value="${list.mcp.status}" />
+  <c:set var="status" value="${list.status}" />
   <c:if test="${status eq '진행 완료'}">
     <tr>
-      <th scope="row">${list.mcp.no}</th>
+      <th scope="row">${list.no}</th>
       <td>${list.coach.name}</td>
-      <td>${list.name}</td>
-      <td>${list.mcp.startDate} ~ ${list.mcp.endDate}</td>     
-    <c:if test="${empty list.mcp.review}">
+      <td>${list.programName}</td>
+      <td>${list.startDate} ~ ${list.endDate}</td>     
+    <c:if test="${empty list.review}">
     <td>
     <form name="form">
-     <input type='hidden' id='mcpno' name='no'  value='${list.mcp.no}'>
+     <input type='hidden' id='mcpno' name='no'  value='${list.no}'>
      </form>
-     <button data-no="${list.mcp.no}" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#reviewModal">
+     <button data-no="${list.no}" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#reviewModal">
       등록
      </button>
     </td>
     </c:if>
-    <c:if test="${not empty list.mcp.review}">
+    <c:if test="${not empty list.review}">
     <td>완료</td>
     </c:if>
     </tr>
