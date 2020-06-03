@@ -333,8 +333,8 @@
       left outer join coaching_programs cp on mcp.program_no=cp.program_no
     where
       cp.coach_no = #{no} 
-      AND pay_date between #{sDate} AND #{eDate}
-  </select>
+      AND pay_date between #{sDate} AND DATE_ADD(#{eDate}, INTERVAL 1 DAY)
+  </select> 
  
   <insert id="insert" parameterType="MemberCoachingProgram"
   useGeneratedKeys="true" keyColumn="member_program_no" keyProperty="no">
