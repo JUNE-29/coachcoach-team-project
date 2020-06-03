@@ -40,7 +40,7 @@ $('#addReview').click(function(){
         				 img = "<img class='star_img' src='../../upload/img/star_5.png' style='height:20px;'>"
         			 }
         			 
-        			 review = "<p id='review1'>" + data[i].review + "</p>"
+        			 review = "<p id='review1' style='white-space:pre;'>" + data[i].review + "</p>"
         			 reviewDate = "<p id='review2'>" + data[i].reviewDate + "</p>"
         			 memderId = "<p id='review3'>" + data[i].member.id + "</p>"
         			 
