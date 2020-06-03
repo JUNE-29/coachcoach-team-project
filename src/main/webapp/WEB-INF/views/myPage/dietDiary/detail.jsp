@@ -14,8 +14,7 @@
 <p style="font-size:17px;  font-weight: bold; color: DimGray;">&nbsp; <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br><br>
 <p style="font-size:17px;  font-weight: bold; color: DimGray;">내용: <small style="font-size:17px;">${foodBoard.content}</small><br>
 <%if (session.getAttribute("loginUser") instanceof Member) {%>
-<div class="row">
-<div class="mx-auto">
+
 <div class="row">
     <button value="${foodBoard.no}" name="no" class="btn btn-danger fooddelete m-5" >삭제</button> 
   <form action="updateForm" method="post">

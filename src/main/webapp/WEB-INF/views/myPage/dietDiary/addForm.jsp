@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
  <h1 class="display" style="font-size:50px;  font-weight: bold; color:DeepSkyBlue;">Diet Diary</h1>
-<div id="content" style="center" >
+<div>
 <p style="font-size:17px;  font-weight: bold; color: DimGray;"> - 오늘 먹은 사진을 선택해주세요! </p><br>
 <p style="font-size:14px;  font-weight: normal; color: red;"> ※ 선택하지 않을 시 기본 이미지로 나타납니다. </p>
 
