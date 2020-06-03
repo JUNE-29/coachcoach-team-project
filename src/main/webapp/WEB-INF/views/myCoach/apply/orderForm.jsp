@@ -41,7 +41,7 @@
             <dt>생년월일</dt>
             <dd>${member.birth}</dd>
             <dt>전화번호</dt>
-            <dd> ${member.tel}</dd>
+            <dd id="tel"> ${member.tel}</dd>
             <dt>이메일</dt> 
             <dd>${member.email}</dd>
           </dl>
