@@ -20,7 +20,7 @@
 	<div class="dsboard_workout_area">
 	<span style=" font-size:20px; font-weight: bold; letter-spacing: -1px;">회원님의 운동 데이터</span>
 	<i class="bx bx-run" style="font-size: 40px; color:#08BAFD;"></i>
- <a href="../detailData/memberWorkoutList" style="font-weight:bold; margin-left:430px; letter-spacing: -1px; color:#08BAFD;">+&nbsp;데이터 더보기</a>
+ <a href="../detailData/memberWorkoutList" style="font-weight:bold; margin-left:500px; letter-spacing: -1px; color:#08BAFD;">+&nbsp;데이터 더보기</a>
 	<hr>
 	<div class="workouts" >
 	<div class="row">

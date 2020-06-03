@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       return false;
     },
-    eventColor: '#e07000',
+    eventColor: '#fa5050',
     eventTextColor: '#fff',
     displayEventTime: false,
     eventClick: function(info) {
