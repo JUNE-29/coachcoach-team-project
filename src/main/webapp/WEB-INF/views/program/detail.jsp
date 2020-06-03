@@ -73,7 +73,7 @@
 <li class="content_tab tab2"><a herf="javascipt:;">수강 후기</a></li>
 </ul>
 <div class="tabCont article">
-<div class ="pro_intro">${program.introduce}</div>
+<div class ="pro_intro" style="white-space:pre;">${program.introduce}</div>
 <img src='${pageContext.servletContext.contextPath}/upload/img/pro.png' >
 </div>
 <div class="tabCont article2">
