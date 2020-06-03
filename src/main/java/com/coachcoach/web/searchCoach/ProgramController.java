@@ -108,23 +108,23 @@ public class ProgramController {
   @GetMapping("selectOption") // 옵션으로 검색
   public void selectOption(Model model, @ModelAttribute("cri") Criteria cri, String option) throws Exception {
     if (option.equals("review")) {
-      PageMaker pageMaker = new PageMaker();
-      pageMaker.setCri(cri);
-      pageMaker.setTotalCount(coachingProgramService.findByReviewCnt());
+      PageMaker pageMaker1 = new PageMaker();
+      pageMaker1.setCri(cri);
+      pageMaker1.setTotalCount(coachingProgramService.findByReviewCnt());
 
       Map<String, Object> params = new HashMap<>();
       params.put("cri", cri);
       model.addAttribute("searchProgram", coachingProgramService.searchReview(params));
-      model.addAttribute("pageMaker", pageMaker);
+      model.addAttribute("pageMaker1", pageMaker1);
     } else {
-      PageMaker pageMaker = new PageMaker();
-      pageMaker.setCri(cri);
-      pageMaker.setTotalCount(coachingProgramService.findByStarCnt());
+      PageMaker pageMaker1 = new PageMaker();
+      pageMaker1.setCri(cri);
+      pageMaker1.setTotalCount(coachingProgramService.findByStarCnt());
 
       Map<String, Object> params = new HashMap<>();
       params.put("cri", cri);
       model.addAttribute("searchProgram", coachingProgramService.searchStar(params));
-      model.addAttribute("pageMaker", pageMaker);
+      model.addAttribute("pageMaker1", pageMaker1);
     }
   }
 
