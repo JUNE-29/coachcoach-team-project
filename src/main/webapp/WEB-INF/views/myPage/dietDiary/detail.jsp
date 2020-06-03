@@ -6,12 +6,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.text.SimpleDateFormat" %>
 
+ <h1 class="display" style="font-size:50px;  font-weight: bold; color: DeepSkyBlue;">Diet Diary</h1><br>
 
 <c:if test="${not empty foodBoard}">
-<p class="font-weight-bold" style="color: DodgerBlue;">고객이름: 나문희<br><br>
-<p class="font-weight-bold" style="color: DodgerBlue;">등록일: ${foodBoard.modifiedDate}<br> <br>
-<p class="font-weight-bold" style="color: DodgerBlue;">사진: <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br> <br>
-<p class="font-weight-bold" style="color: DodgerBlue;">내용: ${foodBoard.content}<br><br>
+<p style="font-size:17px;  font-weight: bold; color: DimGray;" >고객이름: <small style="font-size:17px;">나문희</small><br>
+<p style="font-size:17px;  font-weight: bold; color: DimGray;" >등록일: <small style="font-size:17px;">${foodBoard.modifiedDate}</small><br><br>
+<p style="font-size:17px;  font-weight: bold; color: DimGray;">&nbsp; <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br><br>
+<p style="font-size:17px;  font-weight: bold; color: DimGray;">내용: <small style="font-size:17px;">${foodBoard.content}</small><br>
 <%if (session.getAttribute("loginUser") instanceof Member) {%>
 <div class="row">
 <div class="mx-auto">
@@ -53,7 +54,7 @@
         <form action='comment/delete' method='post'>
           <input type='hidden' name='foodBoardNo' value='${foodBoard.no}'>
           <input type='hidden' name='no' value='${comment.no}'>
-          <button>삭제</button>
+          <button class="btn btn-primary m-5">삭제</button>
         </form>
         </td>
       <%}%>
@@ -63,7 +64,7 @@
         <form action='comment/delete' method='post'>
           <input type='hidden' name='foodBoardNo' value='${foodBoard.no}'>
           <input type='hidden' name='no' value='${comment.no}'>
-          <button>삭제</button>
+          <button class="btn btn-primary m-5">삭제</button>
         </form>
         </td>
       </c:if>
