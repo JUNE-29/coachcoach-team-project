@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.coachcoach.domain.Coach;
 import com.coachcoach.service.CoachService;
@@ -70,7 +72,12 @@ public class CoachAuthController {
   public void coachaddform() {} // 코치 회원가입 폼
 
   @PostMapping("add")
-  public void coachadd(Coach coach, MultipartFile photoFile) throws Exception {
+  public void coachadd(Coach coach, MultipartFile photoFile, String tel1, String tel2, String tel3)
+      throws Exception {
+
+    String tel = tel1 + tel2 + tel3;
+    coach.setTel(tel);
+
     if (photoFile.getSize() > 0) {
       String dirPath = servletContext.getRealPath("/upload/coach");
       String filename = UUID.randomUUID().toString();
@@ -84,6 +91,16 @@ public class CoachAuthController {
       throw new Exception("코치 가입을 할 수 없습니다.");
     }
   } // 코치 회원가입
+
+  // 아이디 중복체크 (회원가입)
+  @ResponseBody
+  @RequestMapping(value = "idcheck", method = RequestMethod.POST)
+  public int idcheck(String userid) throws Exception {
+    System.out.println(userid);
+    int count = coachService.idcheck(userid);
+    System.out.println(count);
+    return count;
+  }
 
 
 }

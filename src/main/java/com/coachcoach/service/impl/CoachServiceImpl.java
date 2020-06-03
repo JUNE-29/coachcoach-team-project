@@ -74,5 +74,11 @@ public class CoachServiceImpl implements CoachService {
   }
 
 
+  @Override
+  public int idcheck(String inputId) throws Exception {
+    return coachDao.checkid(inputId);
+  }
+
+
 
 }

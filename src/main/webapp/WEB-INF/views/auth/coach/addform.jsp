@@ -3,8 +3,25 @@
     trimDirectiveWhitespaces="true"%>
 
 <style>
-
-
+.tit {margin-bottom: 20px;font-size: 35px;letter-spacing: -1px;font-weight: bold;}
+.join_box{width:100%;}
+.join_box table{width:100%; border-top:2px solid #000; border-bottom:2px solid #000;}
+.join_box table tr {border-bottom:1px solid #ddd;}
+.join_box table tr:last-child {border-bottom:0;}
+.join_box table tr.border_N {border-bottom:0;}
+.join_box table tr th {padding:20px;letter-spacing:-1px;color:#524E4E; font-size:13px; font-weight:normal;}
+.join_box table tr td {padding:20px;}
+.join_box table tr td .info_T{color:#6A6D6D; font-size:12px;}
+.join_box table tr td .info_T_box {display:block;}
+.join_box table input{height:30px; font-size:12px;}
+.join_box table input[type=text], .join_box table input[type=password] {width:45%; padding-left:10px; border:1px solid #aaa;}
+.join_box table input.confim {padding:0 10px; background:#fff; color:#1b71d2; font-weight: bold; border:1.3px solid; border-color: #1b71d2;}
+.join_box table input:placeholder {color:#777;}
+.join_box table button {min-width:120px;}
+.join_box table tr td.gender input[type=radio] {vertical-align:middle;}
+.join_box table tr td.gender label {display:inline-block; margin-left:5px; font-size:13px;}
+.join_ok_area {margin-top:20px; text-align:center;}
+.join_ok_area button[type=button] {display:inline-block; width:50%; height:50px; background:#1b71d2; font-weight:bold; font-size:15px; color:#fff; border:none;}
 </style>
 
 <h1 class="tit">코치 가입</h1>
@@ -70,12 +87,14 @@
           <tr>
              <th>소속</th>
              <td>
-             <input type='text' name='' >
+             <input type='text' name='workType' id='userworkType'><br>
+              <span class="info_T">※ 프리랜서 또는 헬스장 소속인지 입력해주세요(헬스장 소속일 경우 헬스장 이름을 입력해 주세요.) </span>
              </td>
           </tr>
           <tr>
           <th>사진</th>
-          <td><input type='file' name='photoFile' ></td>
+          <td><input type='file' name='photoFile' ><br>
+          <span class="info_T">※ 프로필에 반영이 되기 때문에 사진 필수 입니다. </span>
           </tr>
         </tbody>
         </table>

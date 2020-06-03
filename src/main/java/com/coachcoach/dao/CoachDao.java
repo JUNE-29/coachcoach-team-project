@@ -25,6 +25,8 @@ public interface CoachDao {
   List<Coach> findByKeyword(String keyword) throws Exception;
 
   Coach findByIdAndPassword(Map<String, Object> params) throws Exception;
+
+  int checkid(String inputId) throws Exception;
 }
 
 

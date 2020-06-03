@@ -206,6 +206,15 @@
       and password=password(#{password})
       and withdrawal IS NULL
   </select>
+  
+    <select id="checkid" resultType="Integer" parameterType="String" >
+  select
+    count(*)
+  from
+   coaches
+  where
+    id=#{id}
+  </select>
  
 </mapper>
 

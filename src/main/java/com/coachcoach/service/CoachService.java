@@ -26,4 +26,6 @@ public interface CoachService {
 
   int updateWithdrawal(Map<String, Object> params) throws Exception;
 
+  int idcheck(String inputId) throws Exception;
+
 }
