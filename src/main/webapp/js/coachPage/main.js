@@ -589,7 +589,7 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
-        if($(detail.member.photo).length > 0) {
+        if(typeof detail.member.photo != 'undefined') {
           $('#requestDetail img').attr('src', $('#requestDetail img').attr('src')+detail.member.photo)
         } else {
           $('#requestDetail img').attr('src', $('#requestDetail img').attr('src')+'default.jpg')
@@ -733,7 +733,7 @@
       cache: false,
       timeout: 600000,
       success: function (detail) {
-        if(detail.member.photo.length > 0) {
+        if(typeof detail.member.photo != 'undefined') {
           $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+detail.member.photo)
         } else {
           $('#memberDetail img').attr('src', $('#memberDetail img').attr('src')+'default.jpg')

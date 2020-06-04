@@ -91,7 +91,7 @@
     
   <select id="findWalkMonth" resultMap="MemberWorkoutMap" parameterType="int">
 		select
-      coalesce(sum(t2.walk_count+t1.walk_count)/7, 0) AS walk_count
+      coalesce(sum(t2.walk_count+t1.walk_count)/count(t2.workout_date), 0) AS walk_count
     from
     (
      select DATE_FORMAT(a.Date,'%Y/%m/%d') as workout_date,
@@ -120,7 +120,7 @@
   
    <select id="findWalkYear" resultMap="MemberWorkoutMap" parameterType="int">
     select
-      coalesce(sum(t2.walk_count+t1.walk_count)/30, 0) AS walk_count
+      coalesce(sum(t2.walk_count+t1.walk_count)/count(t2.md), 0) AS walk_count
     from
     (
       select DATE_FORMAT(a.Date, "%m") as month,
@@ -202,7 +202,7 @@
       join workout w on w.workout_no = wu.workout_no
     where
       m.member_no=#{no}
-    AND m.workout_date >= STR_TO_DATE(CONCAT(YEAR(CURDATE()), "/01/01"), "%Y/%m/%d")
+    AND m.workout_date >= STR_TO_DATE(CONCAT(YEAR(CURDATE()), "/06/01"), "%Y/%m/%d")
     GROUP BY w.name
     ORDER BY w.name asc
   </select>

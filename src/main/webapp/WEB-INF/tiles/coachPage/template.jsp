@@ -24,7 +24,7 @@
   <link href="${pageContext.servletContext.contextPath}/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="${pageContext.servletContext.contextPath}/css/coachPage/style.css?ver=1" rel="stylesheet">
+  <link href="${pageContext.servletContext.contextPath}/css/coachPage/style.css?ver=10" rel="stylesheet">
 
 </head>
 <body>
@@ -52,7 +52,7 @@
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="${pageContext.servletContext.contextPath}/js/coachPage/main.js?ver=1"></script>
+  <script src="${pageContext.servletContext.contextPath}/js/coachPage/main.js?ver=12"></script>
 
 
 </body>

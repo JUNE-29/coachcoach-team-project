@@ -146,6 +146,7 @@
       m.member_no = #{no}
       AND cpb.create_date > cast((now() - interval 7 day) as date)
       AND cp.delete_status IS NULL
+      AND mcp.status = '진행중'
   </select>
   
 	<update id="update" parameterType="CoachingProgramBoard">
