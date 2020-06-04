@@ -163,6 +163,7 @@
       <where>
       <if test="keyword != null">c.name like concat('%', #{keyword}, '%')</if>
       <if test="keyword != null">or cp.name like concat('%', #{keyword}, '%')</if>
+      and cp.delete_status IS NULL
       </where>
       order by program_no desc
        limit #{cri.pageStart}, #{cri.perPageNum}
@@ -178,11 +179,12 @@
       cp.coaching_type,
       cp.fee
     from 
-      coaching_programs cp 
+      coaching_programs cp
       join coaches c on cp.coach_no=c.coach_no
     <where>
       <if test="gender != 2"> c.gender like #{gender}</if>
       <if test="coachingType != null">and cp.coaching_type like #{coachingType}</if>
+      and cp.delete_status IS NULL
     </where>
       order by program_no desc
        limit #{cri.pageStart}, #{cri.perPageNum}
@@ -207,6 +209,7 @@
       open="(" separator="," close=")">
         #{item}
   </foreach>
+    and cp.delete_status IS NULL
            order by cp.program_no desc
        limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
@@ -230,6 +233,7 @@
     where 
      mcp.review is not null 
     group by mcp.program_no) as rc on cp.program_no=rc.program_no
+    where cp.delete_status IS NULL
       order by rc.count desc
        limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
@@ -252,6 +256,7 @@
     where 
      mcp.star_rate is not null 
      group by mcp.program_no) as sr on cp.program_no=sr.program_no
+     where cp.delete_status IS NULL
      order by sr.avg desc
        limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
@@ -379,6 +384,7 @@
      from 
       coaching_programs cp 
       join coaches c on cp.coach_no=c.coach_no
+      where cp.delete_status IS NULL
      order by cp.program_no desc
        limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
@@ -387,7 +393,8 @@
        select
          count(*)
         from
-         coaching_programs
+         coaching_programs cp
+       where cp.delete_status IS NULL
   </select>
   
 
@@ -411,6 +418,7 @@
       <where>
       <if test="keyword != null">c.name like concat('%', #{keyword}, '%')</if>
       <if test="keyword != null">or cp.name like concat('%', #{keyword}, '%')</if>
+      and cp.delete_status IS NULL
       </where>
       order by program_no desc
   </select>
@@ -427,6 +435,7 @@
       open="(" separator="," close=")">
         #{item}
   </foreach>
+    and cp.delete_status IS NULL
            order by cp.program_no desc
   </select>
   
@@ -439,6 +448,7 @@
     <where>
       <if test="gender != 2"> c.gender like #{gender}</if>
       <if test="coachingType != null">and cp.coaching_type like #{coachingType}</if>
+    and cp.delete_status IS NULL
     </where>
       order by program_no desc
   </select>
@@ -454,6 +464,7 @@
     where 
      mcp.review is not null 
     group by mcp.program_no) as rc on cp.program_no=rc.program_no
+    where cp.delete_status IS NULL
       order by rc.count desc
   </select>
   
@@ -468,6 +479,7 @@
     where 
      mcp.star_rate is not null 
      group by mcp.program_no) as sr on cp.program_no=sr.program_no
+     where cp.delete_status IS NULL
      order by sr.avg desc
   </select>
   
