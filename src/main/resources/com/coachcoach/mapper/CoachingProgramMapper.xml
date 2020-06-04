@@ -152,6 +152,7 @@
     select 
       cp.program_no,
       c.name coach_name,
+      c.photo,
       cp.name,
       cp.introduce,
       cp.fee,
@@ -172,6 +173,7 @@
       cp.program_no,
       c.name coach_name,
       cp.name,
+      c.photo,
       cp.introduce,
       cp.coaching_type,
       cp.fee
@@ -191,6 +193,7 @@
     select 
       cp.program_no,
       c.name coach_name,
+      c.photo,
       cp.name,
       cp.introduce,
       cp.coaching_type,
@@ -213,6 +216,7 @@
     select distinct 
       cp.program_no,
       c.name coach_name,
+      c.photo,
       cp.name,
       cp.introduce,
       cp.fee,
@@ -235,6 +239,7 @@
       cp.program_no,
       c.name coach_name,
       cp.name,
+      c.photo,
       cp.introduce,
       cp.coaching_type,
       cp.fee,
