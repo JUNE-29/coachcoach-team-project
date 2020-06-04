@@ -278,7 +278,8 @@
       left outer join members m on mcp.member_no = m.member_no 
       left outer join coaching_programs cp on mcp.program_no=cp.program_no
     where
-      cp.coach_no = #{no} AND pay_date IS NOT NULL  
+      cp.coach_no = #{no} AND pay_date IS NOT NULL 
+      ORDER BY pay_date asc
   </select>
   
   <select id="findAllByMemberNo" resultMap="MemberCoachingProgramMap" parameterType="int">
@@ -421,7 +422,8 @@
          join coaches c on cp.coach_no=c.coach_no
        where
         mcp.member_no=#{no}
-       order by mcp.member_program_no desc
+        AND mcp.pay_date IS NOT NULL
+       order by mcp.pay_date desc
        limit #{cri.pageStart}, #{cri.perPageNum}
    </select>
    

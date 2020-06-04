@@ -24,18 +24,18 @@
       <th scope="col">상태</th>
     </tr>
   </thead>
+  <c:set var="i" value="0"></c:set>
   <c:forEach items="${programList}" var="list">
+  <c:set var="i" value="${i+1}"></c:set>
   <tbody>
-  <c:if test="${list.status eq '결제 완료'}">
     <tr>
-      <th scope="row">${list.no}</th>
+      <td scope="row">${i}</td>
       <td>${list.coach.name}</td>
       <td>${list.programName}</td>
       <td>${list.payDate}</td>
       <td>${list.cp.fee}</td>     
     <td>${list.status}</td>
     </tr>
-  </c:if>
   </tbody>
   </c:forEach>
 </table>
