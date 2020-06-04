@@ -20,11 +20,9 @@
     </tr>
   </thead>
   <tbody>
-  <c:set var="i" value="0"></c:set>
   <c:forEach items="${program}" var="pg">
     <tr>
-     <c:set var="i" value="${i+1}"></c:set>
-      <th scope="row">${i}</th>
+      <th scope="row">${pg.mcp.no}</th>
       <td>${pg.coach.name}</td>
       <td>${pg.name}</td>
       <td>${pg.mcp.startDate} ~ ${pg.mcp.endDate}</td>     
@@ -106,14 +104,12 @@
       <th scope="col">후기</th>
     </tr>
   </thead>
-  <c:set var="i" value="0"></c:set>
   <c:forEach items="${programList}" var="list">
   <tbody>
   <c:set var="status" value="${list.status}" />
   <c:if test="${status eq '진행 완료'}">
-  <c:set var="i" value="${i+1}"></c:set>
     <tr>
-      <th scope="row">${i}</th>
+      <th scope="row">${list.no}</th>
       <td>${list.coach.name}</td>
       <td>${list.programName}</td>
       <td>${list.startDate} ~ ${list.endDate}</td>     

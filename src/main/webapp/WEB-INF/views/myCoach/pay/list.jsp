@@ -24,12 +24,10 @@
       <th scope="col">상태</th>
     </tr>
   </thead>
-  <c:set var="i" value="0"></c:set>
   <c:forEach items="${programList}" var="list">
-  <c:set var="i" value="${i+1}"></c:set>
   <tbody>
     <tr>
-      <td scope="row">${i}</td>
+      <th scope="row">${list.no}</th>
       <td>${list.coach.name}</td>
       <td>${list.programName}</td>
       <td>${list.payDate}</td>
