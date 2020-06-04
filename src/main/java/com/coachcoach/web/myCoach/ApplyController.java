@@ -49,7 +49,7 @@ public class ApplyController {
     Map<String, Object> params = new HashMap<>();
     params.put("cri", cri);
     params.put("no", member.getNo());
-    model.addAttribute("programList", memberCoachingProgramService.applyList(params));
+    model.addAttribute("programList", memberCoachingProgramService.apply(params));
     model.addAttribute("pageMaker", pageMaker);
 
   }
