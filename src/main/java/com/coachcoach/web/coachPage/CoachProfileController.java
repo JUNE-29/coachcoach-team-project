@@ -71,7 +71,11 @@ public class CoachProfileController {
     Coach coach = coachService.get(coachNo);
     if (coach.getCareer() != null) {
       coach.setCareer(coach.getCareer().replace("\n", "<br>"));
+    }
+    if (coach.getCertification() != null) {
       coach.setCertification(coach.getCertification().replace("\n", "<br>"));
+    }
+    if (coach.getIntroduce() != null) {
       coach.setIntroduce(coach.getIntroduce().replace("\n", "<br>"));
     }
     model.addAttribute("coach", coach);
