@@ -58,7 +58,7 @@
 <input id="programNo" name='programNo' type='hidden' value='${program.no}'><br>
 </form>
 </div>
- <c:if test="${program.coach.address ne null}">
+ <c:if test="${program.coach.latitude ne null}">
  <p class="centerName" style="margin-top: 20px; margin-bottom:5px;">&nbsp&nbsp&nbsp오프라인 센터</p>
  <hr style="margin-top: 5px; margin-bottom: 5px;">
 <div class="kakaoMap" id="map" style="width:300px;height:300px;"></div>
@@ -135,7 +135,7 @@
    
    
    
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c96ebf50a416c2681271c445cee88efd"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c98eb6d6118fcc23fc4fb97f7e5aba11"></script>
   <script>
   var latitude = "<c:out value='${program.coach.latitude}'/>"
   var longitude = "<c:out value='${program.coach.longitude}'/>"
