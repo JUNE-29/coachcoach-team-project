@@ -32,7 +32,7 @@ public class MailConfig {
     mailSender.setHost("smtp.gmail.com");
     mailSender.setPort(587);
     mailSender.setUsername("coachcoach.service@gmail.com");
-    mailSender.setPassword("ZHCLzhcl1!");
+    mailSender.setPassword("ZHCLzhcl1");
     mailSender.setDefaultEncoding("utf-8");
     return mailSender;
   }

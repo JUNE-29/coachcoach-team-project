@@ -8,7 +8,7 @@
   <hr style="margin: 5px 0px 5px 0px ;">
 <div class="order_frm" >
       <div class="coach_img">
-      <img src='${pageContext.servletContext.contextPath}/upload/coach/${coach.photo}' height='150px'>
+      <img src='${pageContext.servletContext.contextPath}/upload/coach/${item.coach.photo}' height='150px'>
      </div>
      <dl>
       <dt>신청번호</dt>

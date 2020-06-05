@@ -9,7 +9,7 @@
  <h1 class="display" style="font-size:50px;  font-weight: bold; color: DeepSkyBlue;">Diet Diary</h1><br>
 
 <c:if test="${not empty foodBoard}">
-<p style="font-size:17px;  font-weight: bold; color: DimGray;" >고객이름: <small style="font-size:17px;">나문희</small><br>
+<p style="font-size:17px;  font-weight: bold; color: DimGray;" >작성자: <small style="font-size:17px;">김사랑</small><br>
 <p style="font-size:17px;  font-weight: bold; color: DimGray;" >등록일: <small style="font-size:17px;">${foodBoard.modifiedDate}</small><br><br>
 <p style="font-size:17px;  font-weight: bold; color: DimGray;">&nbsp; <img src='${pageContext.servletContext.contextPath}/upload/foodBoard/${foodBoard.photoFilePath}' height='300'><br><br>
 <p style="font-size:17px;  font-weight: bold; color: DimGray;">내용: <small style="font-size:17px;">${foodBoard.content}</small><br>
