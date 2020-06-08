@@ -1,6 +1,6 @@
 # coachcoach-project 코치코치 프로젝트
 
-트레이너, 소비자 간 원활한 커뮤니케이션 및 1:1 관리를 위함 플랫폼   
+트레이너, 소비자 간 원활한 커뮤니케이션 및 1:1 관리를 위한 플랫폼   
 온라인 플랫폼과 오프라인 매장의 결합(중개서비스)
 <br>
 <br>
@@ -15,3 +15,4 @@
 
 <hr>
  <img src="https://user-images.githubusercontent.com/58450757/83962747-ecf46d00-a8da-11ea-827f-2d288c0f5a3a.PNG">
+<hr>
