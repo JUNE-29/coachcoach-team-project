@@ -53,7 +53,7 @@
         <form action='comment/delete' method='post'>
           <input type='hidden' name='foodBoardNo' value='${foodBoard.no}'>
           <input type='hidden' name='no' value='${comment.no}'>
-          <button class="btn btn-primary m-5">삭제</button>
+          <button class="btn btn-primary">삭제</button>
         </form>
         </td>
       <%}%>
@@ -63,7 +63,7 @@
         <form action='comment/delete' method='post'>
           <input type='hidden' name='foodBoardNo' value='${foodBoard.no}'>
           <input type='hidden' name='no' value='${comment.no}'>
-          <button class="btn btn-primary m-5">삭제</button>
+          <button class="btn btn-primary">삭제</button>
         </form>
         </td>
       </c:if>
